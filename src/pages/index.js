@@ -15,11 +15,11 @@ const IndexPage = ({data}) => (
     </div>
     <ul>
       {
-        data.allMarkdownRemark.edges.map((element) => {
+        data.allContentfulBlog.edges.map((element) => {
         return(
           <React.Fragment>
             <li>
-              <Link to={element.node.frontmatter.slug}>{element.node.frontmatter.slug}</Link>          
+              <Link to={element.node.slug}>{element.node.slug}</Link>          
             </li>
           </React.Fragment>
         )   
@@ -31,22 +31,19 @@ const IndexPage = ({data}) => (
 
 export const pageQuery = graphql `
     query IndexQuery {
-        allMarkdownRemark (
-          sort: {order:ASC,fields:[frontmatter___date]}
-          limit: 10
-          filter:{frontmatter:{published:{eq:true}}}
-        ){
-          edges {
-            node {
-              frontmatter {
-                slug
-                title
-                published
-              }
-              id
-            }
+      allContentfulBlog {
+        edges {
+          node {
+            slug
+            subTag
+            mainTag
+            title
+            createdAt
+            publishedDate
+            updatedAt
           }
         }
+      }  
     }
 `
 

@@ -2,12 +2,13 @@ import { graphql } from 'gatsby';
 import React from 'react';
 
 export default function Template ({data}) {
-    const {markdownRemark: post} = data;
+    //const {markdownRemark: post} = data;
     //const post = data.markdownRemark;
+    const post = data.contentfulBlog.articles.childMarkdownRemark;
 
     return(
         <div>
-            <h1>{post.frontmatter.title}</h1>
+            {/* <h1>{post.frontmatter.title}</h1> */}
             <div>
                 <div dangerouslySetInnerHTML={{__html:post.html}}/>
             </div>
@@ -18,14 +19,20 @@ export default function Template ({data}) {
 
 export const postQuery = graphql `
     query BlogPostByPath($slug: String!){
-        markdownRemark(frontmatter: { slug: { eq: $slug} }) {
-            html
-            frontmatter {
-                slug
-                title
-                date(formatString: "MMMM DD, YYYY")
-                published
+        contentfulBlog(slug: {eq: $slug}) {
+            articles {
+              childMarkdownRemark {
+                html
+              }
             }
+            title
+            subTag
+            mainTag
+            createdAt
+            slug
+            publishedDate
+            updatedAt
         }
     }
 `
+

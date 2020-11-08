@@ -5,6 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+
 const path = require('path');
 
 exports.createPages = async ({actions,graphql,reporter}) => {
@@ -12,21 +13,26 @@ exports.createPages = async ({actions,graphql,reporter}) => {
     const postTemplate = path.resolve(`./src/templates/post.js`);
     const result = await graphql(`
         {
-            allMarkdownRemark{
-                edges{
-                    node{
-                        html
-                        id
-                        frontmatter{
-                            slug
-                            title
-                            date
-                            published
-                        }
+            allContentfulBlog {
+                edges {
+                  node {
+                    slug
+                    subTag
+                    mainTag
+                    title
+                    articles {
+                        childMarkdownRemark {
+                            html
+                          }
                     }
+                    createdAt
+                    publishedDate
+                    updatedAt
+                  }
                 }
             }
         }
+        
     `)
           
     if(result.errors){
@@ -34,12 +40,12 @@ exports.createPages = async ({actions,graphql,reporter}) => {
         return
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({node}) => {
+    result.data.allContentfulBlog.edges.forEach((edge) => {
         createPage({
-            path:node.frontmatter.slug,
+            path:edge.node.slug,
             component:postTemplate,
             context:{
-                slug: node.frontmatter.slug,
+                slug: edge.node.slug,
             },
         })
     })    
