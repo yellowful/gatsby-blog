@@ -1,3 +1,4 @@
+//set contentful api key
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -10,13 +11,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,    
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path:`${__dirname}/src/pages`,
-        name:`pages`,
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -51,5 +45,6 @@ module.exports = {
         downloadLocal: true
       }
     },
+    `gatsby-plugin-fontawesome-css`
   ],
 }

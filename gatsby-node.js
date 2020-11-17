@@ -13,7 +13,7 @@ exports.createPages = async ({actions,graphql,reporter}) => {
     const postTemplate = path.resolve(`./src/templates/post.js`);
     const result = await graphql(`
         {
-            allContentfulBlog {
+            allContentfulBlog(filter: {node_locale: {eq: "en-US"}}) {
                 edges {
                   node {
                     slug
@@ -42,7 +42,7 @@ exports.createPages = async ({actions,graphql,reporter}) => {
 
     result.data.allContentfulBlog.edges.forEach((edge) => {
         createPage({
-            path:edge.node.slug,
+            path:`/blog/${edge.node.slug}`,
             component:postTemplate,
             context:{
                 slug: edge.node.slug,
