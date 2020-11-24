@@ -15,8 +15,8 @@ const Header = ({ siteTitle }) => {
   console.log(hamburgerExpand)
 
   return (
-    <>
-      <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div className="has-background-dark w-100 flex justify-center">
+      <nav className="navbar is-dark w-100 w-90-m w-70-l" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <div className="navbar-item">
             <Link
@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => {
               <span>
                 {/* <img className="mb0 dib v-mid" alt="logo" src={logo}/> */}
                 <div className="dib v-mid"><Image /></div>
-                <p className="dib v-mid has-text-light f5 fw4">蟲探理查</p>
+                <p className="dib v-mid near-white f5 fw4">蟲探理查</p>
               </span>
             </Link>
           </div>
@@ -53,36 +53,36 @@ const Header = ({ siteTitle }) => {
             <span aria-hidden="true"></span>
           </div>
         </div>
-        <div id="navbarBasicExample" className={`navbar-menu is-shadowless ${hamburgerExpand}`}>
+        <div id="navbarBasicExample" className={`navbar-menu has-background-dark is-shadowless ${hamburgerExpand}`}>
           <div
             role="menu"
             className="navbar-end"
           >
             <Link
               to="/blog"
-              className="navbar-item"
-              activeClassName="has-text-black has-text-weight-semibold"
+              className="db hover-blue near-white tr mv3 mr4"
+              activeClassName="light-blue"
             >
               <FontAwesomeIcon icon={faFeatherAlt} />文章
             </Link>
             <Link
               to="/about"
-              className="navbar-item"
-              activeClassName="has-text-black has-text-weight-semibold"
+              className="db hover-blue near-white tr mv3 mr4"
+              activeClassName="light-blue"
             >
               <FontAwesomeIcon icon={faIdCard} />作者
             </Link>
             <Link
               to="/project"
-              className="navbar-item"
-              activeClassName="has-text-black has-text-weight-semibold"
+              className="db hover-blue near-white tr mv3 mr4"
+              activeClassName="light-blued"
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
             </Link>
           </div>
         </div>
       </nav>
-    </>
+    </div>
   )
 }
 
