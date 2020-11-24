@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
-//import "./layout.css"
+import "./layout.css"
 import 'bulma/css/bulma.css'
 import 'tachyons'
 
@@ -25,16 +25,26 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="w-100 h-100 flex flex-column items-center">
+    <div className="grid-container">
+      <div className="grid-nav-blank has-background-dark" />
+      <div className="grid-navbar">
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      </div>
+      <div className="grid-nav-blank  has-background-dark" />
+      <div className="grid-sidebar" />
+      <div className="grid-main">
         <main>{children}</main>
+      </div>
+      <div className="grid-sidebar" />
+      <div className="grid-foot-side" />
+      <div className="grid-footer">
         <footer className="mt4">
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </footer>
       </div>
+      <div className="grid-foot-side" />
     </div>
   )
 }
