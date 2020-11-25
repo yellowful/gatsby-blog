@@ -38,13 +38,13 @@ const Header = ({ siteTitle }) => {
             tabIndex="-1"
             ref={hamburgerButton}
             onClick={() => {
-              setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
               hamburgerButton.current.blur();
+              setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
             }}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
-                setHamburgerExpand(hamburgerExpand ? '' : 'is-active')
                 hamburgerButton.current.blur();
+                setHamburgerExpand(hamburgerExpand ? '' : 'is-active')
               }
             }}
           >
@@ -60,22 +60,22 @@ const Header = ({ siteTitle }) => {
           >
             <Link
               to="/blog"
-              className="db hover-blue near-white tr mv3 mr4"
-              activeClassName="light-blue"
+              className="navbar-item tr mr3"
+              activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFeatherAlt} />文章
             </Link>
             <Link
               to="/about"
-              className="db hover-blue near-white tr mv3 mr4"
-              activeClassName="light-blue"
+              className="navbar-item tr mr3"
+              activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faIdCard} />作者
             </Link>
             <Link
               to="/project"
-              className="db hover-blue near-white tr mv3 mr4"
-              activeClassName="light-blued"
+              className="navbar-item tr mr3"
+              activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
             </Link>

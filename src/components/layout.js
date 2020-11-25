@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 //import "./layout.css"
-import 'bulma/css/bulma.css'
+import "./mystyles.css"
 import 'tachyons'
 
 const Layout = ({ children }) => {
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-column items-center">
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main>{children}</main>
+        <main className="w-100 flex flex-column items-center">{children}</main>
         <footer className="mt4">
           © {new Date().getFullYear()}, Built with
           {` `}
