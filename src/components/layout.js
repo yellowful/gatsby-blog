@@ -26,13 +26,13 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-column items-center">
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main className="w-100 flex flex-column items-center">{children}</main>
-        <footer className="mt4">
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <main className="w-100 flex flex-column items-center">{children}</main>
+      <footer className="mt4">
+        © {new Date().getFullYear()}, Built with
+          {`Richard`}
+        <a href="https://bugdetective.netlify.app/">Bug Detective Richard</a>
+      </footer>
     </div>
   )
 }

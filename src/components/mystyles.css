@@ -309,7 +309,7 @@ a {
   a strong {
     color: currentColor; }
   a:hover {
-    color: #363636; }
+    color: #dc9b32; }
 
 code {
   background-color: whitesmoke;
@@ -416,7 +416,7 @@ a.box:active {
     margin-right: calc(-0.5em - 1px); }
   .button:hover, .button.is-hovered {
     border-color: #b5b5b5;
-    color: #363636; }
+    color: #dc9b32; }
   .button:focus, .button.is-focused {
     border-color: #3273dc;
     color: #363636; }
@@ -424,7 +424,7 @@ a.box:active {
       box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25); }
   .button:active, .button.is-active {
     border-color: #4a4a4a;
-    color: #96ccff; }
+    color: #363636; }
   .button.is-text {
     background-color: transparent;
     border-color: transparent;
@@ -2938,7 +2938,7 @@ a.tag:hover {
     justify-content: center;
     padding: 0 0.75em; }
     .breadcrumb a:hover {
-      color: #363636; }
+      color: #dc9b32; }
   .breadcrumb li {
     align-items: center;
     display: flex; }
@@ -4296,7 +4296,7 @@ a.navbar-item,
   .pagination-next:hover,
   .pagination-link:hover {
     border-color: #b5b5b5;
-    color: #363636; }
+    color: #dc9b32; }
   .pagination-previous:focus,
   .pagination-next:focus,
   .pagination-link:focus {
@@ -4471,7 +4471,7 @@ a.navbar-item,
     padding: 0.5em; }
     .panel-tabs a.is-active {
       border-bottom-color: #4a4a4a;
-      color: #96ccff; }
+      color: #363636; }
 
 .panel-list a {
   color: #4a4a4a; }
@@ -4494,7 +4494,7 @@ a.navbar-item,
     flex-wrap: wrap; }
   .panel-block.is-active {
     border-left-color: #3273dc;
-    color: #96ccff; }
+    color: #363636; }
     .panel-block.is-active .panel-icon {
       color: #3273dc; }
   .panel-block:last-child {

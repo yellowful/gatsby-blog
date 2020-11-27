@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+
+.font-tc {
+    font-family: 'Noto Sans TC',sans-serif;
+}
+
+.calc-hero-size{
+    min-height:calc(100vh - 3.25rem);
+}
+
+.clip-path-hero {
+    clip-path: polygon(0 10%, 70% 25%, 100% 15%, 100% 70%, 70% 80%, 0 65%);
+    background:rgba(17, 17, 17, 0.9);
+}
+
+
+@media screen and (min-width: 30em) and (max-width: 60em){
+    .clip-path-hero {
+        clip-path: polygon(0 10%, 70% 25%, 100% 15%, 100% 70%, 70% 80%, 0 65%);
+        background:rgba(17, 17, 17, 0.8);
+    }
+}
+
+@media screen and (min-width: 60em){
+    .clip-path-hero {
+        clip-path: polygon(0 10%, 70% 25%, 100% 15%, 100% 70%, 70% 80%, 0 65%);
+        background:rgba(17, 17, 17, 0.8);
+    }
+}

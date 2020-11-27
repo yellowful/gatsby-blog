@@ -5,7 +5,7 @@ import Image from "./image"
 //import logo from "../images/logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFeatherAlt, faIdCard, faFileCode } from '@fortawesome/free-solid-svg-icons'
-import './header.css'
+
 
 const Header = ({ siteTitle }) => {
 
@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => {
               <span>
                 {/* <img className="mb0 dib v-mid" alt="logo" src={logo}/> */}
                 <div className="dib v-mid"><Image /></div>
-                <p className="dib v-mid near-white f5 fw4">蟲探理查</p>
+                <p className="dib v-mid near-white f5 fw4 font-tc">蟲探理查</p>
               </span>
             </Link>
           </div>
@@ -60,21 +60,21 @@ const Header = ({ siteTitle }) => {
           >
             <Link
               to="/blog"
-              className="navbar-item tr mr3"
+              className="navbar-item tr mr3 font-tc"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFeatherAlt} />文章
             </Link>
             <Link
               to="/about"
-              className="navbar-item tr mr3"
+              className="navbar-item tr mr3 font-tc"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faIdCard} />作者
             </Link>
             <Link
               to="/project"
-              className="navbar-item tr mr3"
+              className="navbar-item tr mr3 font-tc"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
