@@ -26,8 +26,6 @@ export const postQuery = graphql `
               }
             }
             title
-            subTag
-            mainTag
             createdAt
             slug
             publishedDate

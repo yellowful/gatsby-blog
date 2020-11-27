@@ -1,10 +1,12 @@
 import React from 'react';
 import Img from 'gatsby-image'
 import { Link } from "gatsby"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Card = ({ slug, postTitle, publishedDate, imageSrc, excerpt }) => {
     return (
-        <article class="br2 ba dark-gray b--black-10 bg-light-gray mv4 h-50 w-100 w-50-m w-25-l mw5 center">
+        <article class="br2 ba dark-gray b--black-10 bg-light-gray mv4-l mv3 w-100 w-50-m w-40-l mw5 center">
             <Img className="db w-100 br2 br--top" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
             <div class="pa2 ph3-ns pb3-ns">
                 <div class="dt w-100 mt1">
@@ -18,7 +20,7 @@ const Card = ({ slug, postTitle, publishedDate, imageSrc, excerpt }) => {
                 <p class="f6 lh-copy measure mt2 mid-gray">
                     {excerpt}
                 </p>
-                <p className="pointer"><Link to={`/blog/${slug}`}>更多</Link></p>
+                <p className="pointer tr"><Link to={`/blog/${slug}`}>更多<FontAwesomeIcon icon={faAngleDoubleRight} /></Link></p>
             </div>
         </article>
     )

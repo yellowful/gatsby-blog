@@ -32,9 +32,13 @@ const IndexPage = ({data}) => {
   )
 }
 
+
 export const pageQuery = graphql `
     query IndexQuery {
-      allContentfulBlog {
+      allContentfulBlog (
+        limit:6
+        sort: {order: DESC, fields: publishedDate}
+      ){
         edges {
           node {
             articles {

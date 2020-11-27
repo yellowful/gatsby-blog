@@ -17,8 +17,6 @@ exports.createPages = async ({actions,graphql,reporter}) => {
                 edges {
                   node {
                     slug
-                    subTag
-                    mainTag
                     title
                     articles {
                         childMarkdownRemark {
