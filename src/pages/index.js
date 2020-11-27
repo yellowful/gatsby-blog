@@ -43,10 +43,8 @@ export const pageQuery = graphql `
               }
             }
             slug
-            subTag
             title
             publishedDate
-            mainTag
             images {
               fluid {
                 ...GatsbyContentfulFluid
