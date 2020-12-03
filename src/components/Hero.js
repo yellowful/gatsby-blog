@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery,Link } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import './Hero.css'
+//import './Hero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -11,7 +11,7 @@ const Hero = () => {
           query {
             mobileImage: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
                 childImageSharp {
-                  fluid(maxWidth: 1024, quality: 100) {
+                  fluid(maxWidth: 1024, quality: 90) {
                     ...GatsbyImageSharpFluid
                   }
                 }

@@ -1,3 +1,5 @@
+const { Children } = require("react")
+
 //set contentful api key
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -35,7 +37,33 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [ 
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 1024,
+              backgroundColor:'transparent'
+            },
+          },         
+          {
+            resolve: `gatsby-remark-classes`,
+            options: {
+              classMap: {
+                "heading[depth=1]": "font-tc f2 f1-ns lh-title",
+                "heading[depth=2]": "font-tc f3 f2-ns",
+                "paragraph": "font-tc f4 f3-ns lh-copy mv2 mv3-ns tj",
+                "list":"font-tc f4 f3-ns lh-copy mv2 mv3-ns ml4 tj",
+                "listItem":"font-tc f4 f3-ns lh-copy mv1",
+                "thematicBreak":"w-40 bb bw1 b--black-10 center",
+              }
+            }
+          }
+        ]
+      }
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -45,6 +73,13 @@ module.exports = {
         downloadLocal: true
       }
     },
-    `gatsby-plugin-fontawesome-css`
+    `gatsby-plugin-fontawesome-css`,
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: process.env.GATSBY_MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below
+          timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
   ],
 }

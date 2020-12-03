@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import CardList from "../components/CardList"
 import Card from "../components/Card"
 import Hero from "../components/Hero"
+import Subscribe from "../components/Subscribe"
 
 const IndexPage = ({data}) => {
   return(
@@ -28,6 +29,9 @@ const IndexPage = ({data}) => {
           })
         }
       </CardList>
+      <div className="mt2">
+        <Subscribe />
+      </div>
     </Layout>
   )
 }

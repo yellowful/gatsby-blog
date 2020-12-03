@@ -1,6 +1,6 @@
 import { Link } from "gatsby"
 //import PropTypes from "prop-types"
-import React, { useState, useRef } from "react"
+import React, { useState } from "react"
 import Image from "./image"
 //import logo from "../images/logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,9 +10,6 @@ import { faFeatherAlt, faIdCard, faFileCode } from '@fortawesome/free-solid-svg-
 const Header = ({ siteTitle }) => {
 
   const [hamburgerExpand, setHamburgerExpand] = useState('');
-  const hamburgerButton = useRef(null);
-
-  console.log(hamburgerExpand)
 
   return (
     <div className="has-background-dark w-100 flex justify-center">
@@ -30,20 +27,17 @@ const Header = ({ siteTitle }) => {
             </Link>
           </div>
           <div
-            className={`navbar-burger burger ${hamburgerExpand}`}
+            className={`navbar-burger burger burger-focus-reset ${hamburgerExpand}`}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"
             role="button"
             tabIndex="-1"
-            ref={hamburgerButton}
             onClick={() => {
-              hamburgerButton.current.blur();
               setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
             }}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
-                hamburgerButton.current.blur();
                 setHamburgerExpand(hamburgerExpand ? '' : 'is-active')
               }
             }}

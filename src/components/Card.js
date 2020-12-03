@@ -6,7 +6,7 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Card = ({ slug, postTitle, publishedDate, imageSrc, excerpt }) => {
     return (
-        <article class="br2 ba dark-gray b--black-10 bg-light-gray mv4-l mv3 w-100 w-50-m w-40-l mw5 center">
+        <article class="br2 dark-gray b--black-10 bg-light-gray">
             <Img className="db w-100 br2 br--top" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
             <div class="pa2 ph3-ns pb3-ns">
                 <div class="dt w-100 mt1">
