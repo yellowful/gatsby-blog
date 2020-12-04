@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby"
+//import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 //import Img from "gatsby-image"
@@ -22,12 +22,12 @@ const Footer = () => {
             <span className="dib v-btm f5 moon-gray font-tc">
                 © 2020, Built by &nbsp;
             </span>
-            <Link to="https://github.com/yellowful/gatsby-blog" className="dib v-btm f5">
+            <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm f5">
                 <span className="font-tc">
                 Bug Detective Richard &nbsp;
                 </span>
                 <FontAwesomeIcon icon={faGithub} />
-            </Link>
+            </a>
         </span>
     )
 }
