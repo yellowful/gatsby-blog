@@ -1,8 +1,8 @@
-//import addToMailchimp from 'gatsby-plugin-mailchimp'
-import React from 'react'
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faFacebookSquare } from '@fortawesome/free-solid-svg-icons'
-
+import addToMailchimp from 'gatsby-plugin-mailchimp'
+import React, { useState } from "react"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 //import Img from "gatsby-image"
 
 
@@ -22,19 +22,66 @@ const Subscribe = () => {
     //     `
     // )
 
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [resOfMailchimp, setResOfMailchimp] = useState({});
 
+    const onChangeName = (e) => {
+        setName(e.target.value);
+    }
+
+    const onChangeEmail = (e) => {
+        setEmail(e.target.value);
+    }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (email) {
+            addToMailchimp(email, { LNAME: name })
+                .then(result => {
+                    setResOfMailchimp(result);
+                })
+        }
+    }
 
     return (
-        <div class="mw9 ph3-ns bg-gray pv2">
-                <div class="cf bn ma2">
-                    <div class="pa0 f6 f5-ns mb2 black-80 font-tc">訂閱文章</div>
-                    <div class="cf">
-                        <label class="clip" for="email-address">Email Address</label>
-                        <input class="f6 f5-l input-reset bn fl black-80 bg-light-gray pa3 w-100 w-75-m w-80-l br2-ns br--left-ns font-tc" placeholder="請輸入您的Email" type="text" name="email-address" value="" id="email-address" />
-                        <input class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-black-70 hover-bg-black light-gray pointer w-100 w-25-m w-20-l br2-ns br--right-ns font-tc" type="submit" value="訂閱" />
+        <div className="bg-gray pa2 pa3-ns flex flex-column justify-center">
+            <div className="f5 f4-ns mb2 black-80 font-tc">訂閱文章</div>
+            <div className="columns">
+                <div className="column is-4">
+                    <div className="field">
+                        <p className="control has-icons-left">
+                            <input className="input" type="text" placeholder="稱呼" onChange={onChangeName} />
+                            <span className="icon is-small is-left">
+                                <FontAwesomeIcon icon={faUser} />
+                            </span>
+                        </p>
                     </div>
                 </div>
+                <div className="column is-7">
+                    <div className="field">
+                        <p className="control has-icons-left">
+                            <input className="input" type="email" placeholder="電子郵件" onChange={onChangeEmail} />
+                            <span className="icon is-small is-left">
+                                <FontAwesomeIcon icon={faEnvelope} />
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div className="column is-1">
+                    <button className="button is-dark center" onClick={handleSubmit}>訂閱</button>
+                </div>
+            </div>
+            {
+                Object.keys(resOfMailchimp).length === 0 ?
+                null
+                : resOfMailchimp.result === 'success'
+                ? <p className="f5 f4-ns font-tc light-blue fw3" >收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！</p>
+                : <p className="f5 f4-ns font-tc orange fw6 o-80" >可能格式有誤，或已經重複訂閱，請重新輸入</p>
+            }
         </div>
+
     )
 }
 
