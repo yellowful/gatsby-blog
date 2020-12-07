@@ -43,7 +43,7 @@ const Hero = () => {
                 fluid={imageData}
                 backgroundColor={`#000`}
             >
-                <div className="w-100 h-100 bg-near-black absolute clip-path-hero flex flex-column justify-center">
+                <div className="w-100 h-100 absolute clip-path-hero flex flex-column justify-center">
                     <div className="columns ma2 ma3-ns">
                         <div className="column">
                             <h1 className="f2-l f3-m f4 light-silver font-tc tc">

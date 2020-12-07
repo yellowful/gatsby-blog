@@ -18,7 +18,9 @@ const IndexPage = ({data}) => {
             const publishedDate = element.node.publishedDate.slice(0, 10)
             return(
               <React.Fragment>
-                  <Card slug={element.node.slug}
+                  <Card 
+                    key={`index${element.node.slug}`}
+                    slug={element.node.slug}
                     postTitle={element.node.title}
                     publishedDate={publishedDate}
                     excerpt={element.node.articles.childMarkdownRemark.excerpt}

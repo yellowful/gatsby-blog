@@ -290,11 +290,6 @@ select,
 textarea {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
-code,
-pre {
-  -moz-osx-font-smoothing: auto;
-  -webkit-font-smoothing: auto;
-  font-family: monospace; }
 
 body {
   color: #4a4a4a;
@@ -310,13 +305,6 @@ a {
     color: currentColor; }
   a:hover {
     color: #dc9b32; }
-
-code {
-  background-color: whitesmoke;
-  color: #da1039;
-  font-size: 0.875em;
-  font-weight: normal;
-  padding: 0.25em 0.5em 0.25em; }
 
 hr {
   background-color: whitesmoke;
@@ -346,21 +334,6 @@ strong {
 
 fieldset {
   border: none; }
-
-pre {
-  -webkit-overflow-scrolling: touch;
-  background-color: whitesmoke;
-  color: #4a4a4a;
-  font-size: 0.875em;
-  overflow-x: auto;
-  padding: 1.25rem 1.5rem;
-  white-space: pre;
-  word-wrap: normal; }
-  pre code {
-    background-color: transparent;
-    color: currentColor;
-    font-size: 1em;
-    padding: 0; }
 
 table td,
 table th {
@@ -1397,13 +1370,6 @@ a.box:active {
   .content figure figcaption {
     font-style: italic; }
 
-.content pre {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: auto;
-  padding: 1.25em 1.5em;
-  white-space: pre;
-  word-wrap: normal; }
-
 .content sup,
 .content sub {
   font-size: 75%; }
@@ -1552,11 +1518,6 @@ a.box:active {
     text-decoration: underline; }
   .notification strong {
     color: currentColor; }
-  .notification code,
-  .notification pre {
-    background: white; }
-  .notification pre code {
-    background: transparent; }
   .notification > .delete {
     right: 0.5rem;
     position: absolute;
@@ -2103,9 +2064,6 @@ a.tag:hover {
   max-width: 100%;
   overflow: hidden;
   padding: 0; }
-  .highlight pre {
-    overflow: auto;
-    max-width: 100%; }
 
 .number {
   align-items: center;
@@ -3106,8 +3064,6 @@ button.dropdown-item {
 .level {
   align-items: center;
   justify-content: space-between; }
-  .level code {
-    border-radius: 4px; }
   .level img {
     display: inline-block;
     vertical-align: top; }
@@ -3376,11 +3332,7 @@ button.dropdown-item {
   border-width: 0 0 0 4px;
   color: #4a4a4a;
   padding: 1.25em 1.5em; }
-  .message-body code,
-  .message-body pre {
-    background-color: white; }
-  .message-body pre code {
-    background-color: transparent; }
+  
 
 .modal {
   align-items: center;
@@ -6894,9 +6846,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !important; }
 
 .is-family-monospace {
-  font-family: monospace !important; }
-
-.is-family-code {
   font-family: monospace !important; }
 
 .is-block {
