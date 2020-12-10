@@ -36,3 +36,27 @@
         background:rgba(17, 17, 17, 0.8);
     }
 }
+
+.gatsby-highlight {
+    border-radius: 1em;
+    overflow: auto;
+}
+
+.gatsby-highlight pre[class*="language-"] {
+    background: #333333;
+    margin-right:0;
+    padding: 0;
+    overflow: initial;
+    float: left; /* 1 */
+    min-width: 100%; /* 2 */
+}
+
+.anchor-word-breaker{
+    overflow-wrap: break-word;
+}
+
+.language-text{
+    background: #999999 !important;
+    overflow-wrap: break-word !important;
+
+}

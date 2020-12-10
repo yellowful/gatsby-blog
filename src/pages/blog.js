@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostList from "../components/PostList"
 import PostPreview from "../components/PostPreview"
+import BlogTags from "../components/BlogTags/BlogTags"
+
 
 
 const Blog = ({data}) => {
@@ -12,6 +14,7 @@ const Blog = ({data}) => {
   return (
     <Layout>
       <SEO title="文章" />
+      <BlogTags />
       <PostList>
         {
           data.allContentfulBlog.edges.map((element) => {
