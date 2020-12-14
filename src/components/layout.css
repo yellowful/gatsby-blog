@@ -60,3 +60,12 @@
     overflow-wrap: break-word !important;
 
 }
+
+.head-1-shadow {
+    text-shadow: 3px 2px #aaa;
+}
+
+.excerpt-gradient {
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}

@@ -22,11 +22,11 @@ const BlogTags = () => {
         <div>
             <ol>
                 {
-                    data.allContentfulAllTag.edges.map((node) => {
+                    data.allContentfulAllTag.edges.map((item) => {
                         return (
-                            <li key={`標籤-${node.slug}`}>
-                                <Link to={`標籤-${node.slug}`}>
-                                    {node.slug}
+                            <li key={`標籤-${item.node.slug}`}>
+                                <Link to={`../標籤/${item.node.slug}`}>
+                                    {item.node.slug}
                                 </Link>
                             </li>
                         )

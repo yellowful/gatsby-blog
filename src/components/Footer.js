@@ -19,10 +19,10 @@ const Footer = () => {
 
     return (
         <span className="pa2 bg-dark-gray w-100 tr">
-            <span className="dib v-btm f5 moon-gray font-tc">
+            <span className="dib v-btm moon-gray font-tc f7 f5-ns">
                 © 2020, Built by &nbsp;
             </span>
-            <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm f5">
+            <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm font-tc f7 f5-ns">
                 <span className="font-tc">
                 Bug Detective Richard &nbsp;
                 </span>

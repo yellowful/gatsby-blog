@@ -40,7 +40,8 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        plugins: [ 
+        plugins: [
+          `gatsby-remark-reading-time`, 
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -52,10 +53,10 @@ module.exports = {
             resolve: `gatsby-remark-classes`,
             options: {
               classMap: {
-                "heading[depth=1]": "font-tc f3 f2-ns lh-title fw7 mv3 dark-gray", 
+                "heading[depth=1]": "font-tc f3 f3-ns lh-title fw7 mv3 dark-gray", 
                 "heading[depth=2]": "font-tc f4 f3-ns lh-title fw7 mv3 dark-gray", 
-                "heading[depth=3]": "font-tc f5 f4-ns lh-title fw6 mv3 dark-gray", 
-                "heading[depth=4]": "font-tc f6 f4-ns lh-title fw5 mv3 dark-gray", 
+                "heading[depth=3]": "font-tc f5 underline f4-ns lh-title fw6 mv3 dark-gray", 
+                "heading[depth=4]": "font-tc f5 f4-ns lh-title fw5 mv3 dark-gray", 
                 "paragraph": "font-tc f5 f4-ns lh-copy mv1 mv2-ns fw3",
                 "list":"ml2 ml3-ns mv1 mv2-ns",
                 "listItem":"font-tc f5 f4-ns lh-copy mv2 fw3",

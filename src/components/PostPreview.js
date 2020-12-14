@@ -1,28 +1,52 @@
 import React from 'react';
 import { Link } from "gatsby"
-import Img from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses } from '@fortawesome/free-solid-svg-icons'
 
-const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt }) => {
+const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTag, timeToRead }) => {
+    console.log('excerpt', excerpt);
     return (
-        <article className="pv4 bt bb b--black-10 ph3 ph0-l">
-        <div className="flex flex-column flex-row-ns">
-          <div className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
-            <h1 className="font-tc f2 f1-ns lh-title fw8 mv2">{postTitle}</h1>
-            {/* <p className="f5 f4-l lh-copy athelas">
-            {excerpt}
-            </p> */}
-            <div dangerouslySetInnerHTML={{ __html: excerpt }} />
-          </div>
-          <div className="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
-          <Img className="db w-100 br2 br--top" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
-          </div>
+        <div className="pv4 bb b--black-10 flex flex-column">
+            <div className="w-100 pr3-ns">
+                <h1 className="font-tc head-1-shadow f3 f2-ns lh-title fw7 mv3 dark-gray">{postTitle}</h1>
+                <div className="mv4 ph2 w-100 flex justify-between">
+                    <span>
+                        <span >
+                            <Link to="/about">
+                                <span className="f6 "><FontAwesomeIcon icon={faAt} /></span>
+                                <span className="ml2-ns font-tc  f6 ">蟲探理查</span>
+                            </Link>
+                        </span>
+                        <span className="ml2 ml6-ns">
+                            <span className="f6 gray lh-copy ">
+                                <FontAwesomeIcon icon={faCalendarAlt} />
+                            </span>
+                            <time className="ml2-ns font-tc f6 gray lh-copy ">
+                                {publishedDate}
+                            </time>
+                        </span>
+                    </span>
+                    <span className="font-tc f6 ">
+                        <span>
+                            <FontAwesomeIcon icon={faGlasses} />
+                        </span>
+                        <span className="ml2-ns">
+                            約{timeToRead}分鐘
+                        </span>
+                    </span>
+                </div>
+                <div className="excerpt-gradient ph1-ns pl2">
+                    <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+                </div>
+            </div>
+            <p className="ml3 mt2 pl2">
+                <span>
+                    <Link to={`/blog/${slug}`} className="pointer font-tc f6 f5-ns">
+                        繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
+                    </Link>
+                </span>
+            </p>
         </div>
-        <p className="font-tc  f6 lh-copy gray mv0">By <span className="near-black">BugDetectiveRichard</span></p>
-        <time className="f6 db gray">{publishedDate}</time>
-        <p className="pointer tr"><Link to={`/blog/${slug}`}>更多<FontAwesomeIcon icon={faAngleDoubleRight} /></Link></p>
-      </article>
     )
 }
 

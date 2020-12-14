@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import CardList from "../components/CardList"
@@ -7,7 +7,37 @@ import Card from "../components/Card"
 import Hero from "../components/Hero"
 import Subscribe from "../components/Subscribe"
 
-const IndexPage = ({data}) => {
+const IndexPage = () => {
+  
+  const data = useStaticQuery(
+    graphql `
+    query IndexQuery {
+      allContentfulBlog (
+        limit:6
+        sort: {order: DESC, fields: publishedDate}
+      ){
+        edges {
+          node {
+            articles {
+              childMarkdownRemark {
+                excerpt(pruneLength: 80,truncate: true)
+              }
+            }
+            slug
+            title
+            publishedDate
+            images {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+          }
+        }
+      }
+    }
+    `
+  )
+  
   return(
     <Layout>
       <SEO title="Home" />
@@ -37,33 +67,5 @@ const IndexPage = ({data}) => {
     </Layout>
   )
 }
-
-
-export const pageQuery = graphql `
-    query IndexQuery {
-      allContentfulBlog (
-        limit:6
-        sort: {order: DESC, fields: publishedDate}
-      ){
-        edges {
-          node {
-            articles {
-              childMarkdownRemark {
-                excerpt(pruneLength: 80,truncate: true)
-              }
-            }
-            slug
-            title
-            publishedDate
-            images {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
-            }
-          }
-        }
-      }
-    }
-`
 
 export default IndexPage

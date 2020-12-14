@@ -1,20 +1,51 @@
 import React from "react"
 //import { Link } from "gatsby"
-import { graphql } from 'gatsby'
+import { graphql,useStaticQuery } from 'gatsby'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostList from "../components/PostList"
 import PostPreview from "../components/PostPreview"
-import BlogTags from "../components/BlogTags/BlogTags"
+//import BlogTags from "../components/BlogTags/BlogTags"
 
 
 
-const Blog = ({data}) => {
+const Blog = () => {
+  const data = useStaticQuery(
+    graphql`
+    query BlogQuery {
+      allContentfulBlog (
+        sort: {order: DESC, fields: publishedDate}
+      ){
+        edges {
+          node {
+            articles {
+              childMarkdownRemark {
+                excerpt(pruneLength: 200, truncate: true, format: HTML)
+                timeToRead
+              }
+            }
+            slug
+            title
+            publishedDate
+            alltag {
+              slug
+            }
+            images {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
+            }
+          }
+        }
+      }
+    }
+    `
+  )
+
 
   return (
     <Layout>
       <SEO title="文章" />
-      <BlogTags />
       <PostList>
         {
           data.allContentfulBlog.edges.map((element) => {
@@ -27,6 +58,8 @@ const Blog = ({data}) => {
                   postTitle={element.node.title}
                   publishedDate={publishedDate}
                   excerpt={element.node.articles.childMarkdownRemark.excerpt}
+                  postTag={element.node.alltag}
+                  timeToRead={element.node.articles.childMarkdownRemark.timeToRead}
                 />
               </React.Fragment>
             )
@@ -36,35 +69,6 @@ const Blog = ({data}) => {
     </Layout>
   )
 }
-
-
-export const pageQuery = graphql`
-    query BlogQuery {
-      allContentfulBlog (
-        sort: {order: DESC, fields: publishedDate}
-      ){
-        edges {
-          node {
-            articles {
-              childMarkdownRemark {
-                excerpt(pruneLength: 200, truncate: true, format: HTML)
-              }
-            }
-            slug
-            title
-            publishedDate
-            images {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
-            }
-          }
-        }
-      }
-    }
-`
-
-
 
 
 export default Blog
