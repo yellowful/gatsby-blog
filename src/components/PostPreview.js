@@ -6,10 +6,12 @@ import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses } from '@fortawesome
 const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTag, timeToRead }) => {
     console.log('excerpt', excerpt);
     return (
-        <div className="pv4 bb b--black-10 flex flex-column">
+        <div className="pv2 pv4-ns bb b--black-10 flex flex-column">
             <div className="w-100 pr3-ns">
-                <h1 className="font-tc head-1-shadow f3 f2-ns lh-title fw7 mv3 dark-gray">{postTitle}</h1>
-                <div className="mv4 ph2 w-100 flex justify-between">
+                <Link to={`/blog/${slug}`}>
+                    <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv4 dark-gray">{postTitle}</h1>
+                </Link>
+                <div className="mv2 mv4-ns ph2 w-100 flex justify-between">
                     <span>
                         <span >
                             <Link to="/about">
@@ -41,7 +43,7 @@ const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTa
             </div>
             <p className="ml3 mt2 pl2">
                 <span>
-                    <Link to={`/blog/${slug}`} className="pointer font-tc f6 f5-ns">
+                    <Link to={`/blog/${slug}`} className="pointer font-tc f4">
                         繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
                     </Link>
                 </span>

@@ -20,7 +20,7 @@ const Blog = () => {
           node {
             articles {
               childMarkdownRemark {
-                excerpt(pruneLength: 200, truncate: true, format: HTML)
+                excerpt(pruneLength: 250, truncate: true, format: HTML)
                 timeToRead
               }
             }

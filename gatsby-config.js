@@ -43,27 +43,45 @@ module.exports = {
         plugins: [
           `gatsby-remark-reading-time`, 
           {
+            resolve: "gatsby-remark-embed-video",
+            options: {
+              width: 800,
+              ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+              height: 400, // Optional: Overrides optional.ratio
+              related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
+              noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
+              urlOverrides: [
+                {
+                  id: 'youtube',
+                  embedURL: (videoId) => `https://www.youtube-nocookie.com/embed/${videoId}`,
+                }
+              ], //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
+              containerClass: 'embedVideo-container', //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
+            }
+          },
+          "gatsby-remark-responsive-iframe",
+          {
             resolve: `gatsby-remark-images-contentful`,
             options: {
               maxWidth: 1024,
               backgroundColor:'transparent'
             },
-          },         
+          },
           {
             resolve: `gatsby-remark-classes`,
             options: {
               classMap: {
-                "heading[depth=1]": "font-tc f3 f3-ns lh-title fw7 mv3 dark-gray", 
-                "heading[depth=2]": "font-tc f4 f3-ns lh-title fw7 mv3 dark-gray", 
-                "heading[depth=3]": "font-tc f5 underline f4-ns lh-title fw6 mv3 dark-gray", 
-                "heading[depth=4]": "font-tc f5 f4-ns lh-title fw5 mv3 dark-gray", 
-                "paragraph": "font-tc f5 f4-ns lh-copy mv1 mv2-ns fw3",
-                "list":"ml2 ml3-ns mv1 mv2-ns",
-                "listItem":"font-tc f5 f4-ns lh-copy mv2 fw3",
-                "listItem + paragraph": "font-tc f5 f4-ns lh-copy mv2 fw3",
+                "heading[depth=1]": "font-tc f3 underline lh-title fw7 mv4 dark-gray", 
+                "heading[depth=2]": "font-tc f3 lh-title fw7 mv4 dark-gray", 
+                "heading[depth=3]": "font-tc f4 underline lh-title fw5 mv4 dark-gray", 
+                "heading[depth=4]": "font-tc f4 lh-title fw5 mv4 dark-gray", 
+                "paragraph": "font-tc f4 lh-copy mv4 fw3",
+                "list":"ml4 font-tc f4 lh-copy mv4 fw3",
+                "listItem":"font-tc f4 lh-copy mv2 fw3",
+                "listItem > paragraph": "markdown-paragraph-in-list",
                 "listItem listItem": "anchor-word-breaker",
-                "thematicBreak":"w-40 bb bw1 b--black-10 center mv3",
-                "link":"anchor-word-breaker"
+                "thematicBreak":"w-40 bb bw1 b--black-10 center mv5",
+                "link":"anchor-word-breaker",
               }
             }
           },
@@ -98,6 +116,7 @@ module.exports = {
               escapeEntities: {},
             },
           },
+          
         ]
       }
     },

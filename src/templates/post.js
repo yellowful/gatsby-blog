@@ -16,7 +16,7 @@ export default function Template({ data }) {
             <SEO title={title} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 mh0-ns w-80-m w-60-l center-ns bg-light-gray">
-                    <h1 className="font-tc head-1-shadow f3 f2-ns lh-title fw7 mv3 dark-gray">{title}</h1>
+                    <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
                     <div>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </div>
