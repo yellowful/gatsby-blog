@@ -70,7 +70,7 @@
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-.markdown-paragraph-in-list {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+.paragraph-in-item {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }

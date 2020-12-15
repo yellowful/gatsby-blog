@@ -1,10 +1,11 @@
 import { Link } from "gatsby"
 //import PropTypes from "prop-types"
 import React, { useState } from "react"
-import Image from "./image"
+//import Image from "./image"
 //import logo from "../images/logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFeatherAlt, faIdCard, faFileCode } from '@fortawesome/free-solid-svg-icons'
+import BdrLogo from "../images/svg/bdrlogo.svg"
 
 
 const Header = ({ siteTitle }) => {
@@ -21,7 +22,7 @@ const Header = ({ siteTitle }) => {
             >
               <span>
                 {/* <img className="mb0 dib v-mid" alt="logo" src={logo}/> */}
-                <div className="dib v-mid"><Image /></div>
+                <BdrLogo className="dib v-mid w3 h2" fill="#f4f4f4" />
                 <p className="dib v-mid near-white f5 fw4 font-tc">蟲探理查</p>
               </span>
             </Link>

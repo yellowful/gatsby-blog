@@ -18,6 +18,7 @@
     "gatsby-plugin-manifest": "^2.8.0",
     "gatsby-plugin-offline": "^3.2.33",
     "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sharp": "^2.10.0",
     "gatsby-remark-classes": "^1.0.0",
     "gatsby-remark-embed-video": "^3.0.10",

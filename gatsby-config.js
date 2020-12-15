@@ -34,6 +34,14 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: `${__dirname}/src/images/svg` // See below to configure properly
+        }
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
@@ -77,8 +85,8 @@ module.exports = {
                 "heading[depth=4]": "font-tc f4 lh-title fw5 mv4 dark-gray", 
                 "paragraph": "font-tc f4 lh-copy mv4 fw3",
                 "list":"ml4 font-tc f4 lh-copy mv4 fw3",
-                "listItem":"font-tc f4 lh-copy mv2 fw3",
-                "listItem > paragraph": "markdown-paragraph-in-list",
+                "listItem":"font-tc f4 lh-copy mv3 fw3",
+                "listItem > paragraph": "paragraph-in-item",
                 "listItem listItem": "anchor-word-breaker",
                 "thematicBreak":"w-40 bb bw1 b--black-10 center mv5",
                 "link":"anchor-word-breaker",
@@ -107,7 +115,6 @@ module.exports = {
                   },
                 },
               ],
-         
               prompt: {
                 user: "root",
                 host: "localhost",
@@ -116,7 +123,6 @@ module.exports = {
               escapeEntities: {},
             },
           },
-          
         ]
       }
     },
