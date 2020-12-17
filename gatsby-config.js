@@ -84,10 +84,11 @@ module.exports = {
                 "heading[depth=3]": "font-tc f4 underline lh-title fw5 mv4 dark-gray", 
                 "heading[depth=4]": "font-tc f4 lh-title fw5 mv4 dark-gray", 
                 "paragraph": "font-tc f4 lh-copy mv4 fw3",
-                "list":"ml4 font-tc f4 lh-copy mv4 fw3",
+                "list[ordered=true]":"ml4 font-tc f4 lh-copy mv4 fw3",
                 "listItem":"font-tc f4 lh-copy mv3 fw3",
                 "listItem > paragraph": "paragraph-in-item",
                 "listItem listItem": "anchor-word-breaker",
+                "list[ordered=false]":"ml4 font-tc f4 lh-copy mv4 fw3 ul-circle",
                 "thematicBreak":"w-40 bb bw1 b--black-10 center mv5",
                 "link":"anchor-word-breaker",
               }

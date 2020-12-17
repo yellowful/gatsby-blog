@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Fbcomments from "../components/Facebook/Fbcomments/Fbcomments"
 
 
 
@@ -10,6 +11,7 @@ export default function Template({ data }) {
     //const post = data.markdownRemark;
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const title = data.contentfulBlog.title;
+    const fbHref = 'http://localhost:8000/blog/' + data.contentfulBlog.slug;
 
     return (
         <Layout>
@@ -20,6 +22,7 @@ export default function Template({ data }) {
                     <div>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </div>
+                    <Fbcomments fbHref={fbHref} />
                 </div>
             </div>
         </Layout>
