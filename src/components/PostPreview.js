@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses } from '@fortawesome/free-solid-svg-icons'
 
 const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTag, timeToRead }) => {
-    console.log('excerpt', excerpt);
     return (
         <div className="pv2 pv4-ns bb b--black-10 flex flex-column">
             <div className="w-100 pr3-ns">

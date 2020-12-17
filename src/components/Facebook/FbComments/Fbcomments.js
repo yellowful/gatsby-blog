@@ -1,7 +1,7 @@
 import React from 'react'
 import { FacebookProvider, Comments } from 'react-facebook';
 
-const FbVomments = ({fbHref}) => {
+const FbComments = ({fbHref}) => {
     return (
         <div>
             <FacebookProvider appId="129888612117049">
@@ -11,4 +11,4 @@ const FbVomments = ({fbHref}) => {
     )
 }
 
-export default FbVomments
+export default FbComments

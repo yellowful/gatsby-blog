@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Fbcomments from "../components/Facebook/FbComments/FbComments"
+import FbComments from "../components/Facebook/FbComments/FbComments"
 
 
 
@@ -22,7 +22,7 @@ export default function Template({ data }) {
                     <div>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </div>
-                    <Fbcomments fbHref={fbHref} />
+                    <FbComments fbHref={fbHref} />
                 </div>
             </div>
         </Layout>
