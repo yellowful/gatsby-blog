@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import FbComments from "../components/Facebook/FbComments/FbComments"
+import FbComments from "../components/FbComments"
 
 
 
