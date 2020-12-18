@@ -73,7 +73,7 @@ const Layout = ({ children }) => {
       </FacebookProvider>
       {
         scrollPosition >= 1024 ?
-          <div className="tc light-blue pv1 br2 fixed bottom-0 bottom-2-ns right-0 right-2-ns w2 h2 bw0 button-focus grow pointer" role="button" aria-label="scrolltop button" tabIndex="-2" onClick={onScrollTop} onKeyDown={onKeyScroll}>
+          <div className="tc light-blue o-90 f3 pv1 br2 fixed bottom-1 bottom-2-ns right-1 right-2-ns w2 h2 bw0 button-focus grow pointer" role="button" aria-label="scrolltop button" tabIndex="-2" onClick={onScrollTop} onKeyDown={onKeyScroll}>
             <FontAwesomeIcon icon={faChevronUp} />
           </div>
           :
