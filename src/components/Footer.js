@@ -30,7 +30,7 @@ const Footer = () => {
                     Bug Detective Richard &nbsp;
                 </span>
             </a>
-            <Link to="../privacy-policy/PrivacyPolicy" className="dib v-btm font-tc f7 f6-ns">
+            <Link to="/privacy-policy/PrivacyPolicy" className="dib v-btm font-tc f7 f6-ns">
                 <FontAwesomeIcon icon={faUserLock} />
                 <span className="font-tc">
                     隱私權保護政策 &nbsp;

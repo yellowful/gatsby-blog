@@ -28,7 +28,7 @@ const Header = ({ siteTitle }) => {
             </Link>
           </div>
           <div
-            className={`navbar-burger burger burger-focus-reset ${hamburgerExpand}`}
+            className={`navbar-burger burger button-focus ${hamburgerExpand}`}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarBasicExample"

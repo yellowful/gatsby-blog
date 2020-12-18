@@ -1,12 +1,10 @@
 import React from 'react'
-import { FacebookProvider, Comments } from 'react-facebook';
+import { Comments } from 'react-facebook';
 
 const FbComments = ({fbHref}) => {
     return (
-        <div>
-            <FacebookProvider appId="129888612117049">
-                <Comments href={fbHref} />
-            </FacebookProvider>
+        <div className="flex justify-center">
+            <Comments className="center" href={fbHref} />
         </div>
     )
 }
