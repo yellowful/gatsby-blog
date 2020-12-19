@@ -11,8 +11,7 @@ export default function Template({ data }) {
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const title = data.contentfulBlog.title;
     const fbHref = 'https://bugdetective.netlify.app/blog/' + data.contentfulBlog.slug;
-    console.log(fbHref);
-
+    
     return (
         <Layout>
             <SEO title={title} />
