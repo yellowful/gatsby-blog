@@ -10,7 +10,7 @@ export default function Template({ data }) {
     
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const title = data.contentfulBlog.title;
-    const fbHref = 'http://localhost:8000/blog/' + data.contentfulBlog.slug;
+    const fbHref = 'http://https://bugdetective.netlify.app/blog/' + data.contentfulBlog.slug;
 
     return (
         <Layout>
