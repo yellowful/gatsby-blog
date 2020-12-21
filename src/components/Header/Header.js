@@ -1,11 +1,8 @@
 import { Link } from "gatsby"
-//import PropTypes from "prop-types"
 import React, { useState } from "react"
-//import Image from "./image"
-//import logo from "../images/logo.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFeatherAlt, faIdCard, faFileCode } from '@fortawesome/free-solid-svg-icons'
-import BdrLogo from "../images/svg/bdrlogo.svg"
+import BdrLogo from "../../images/svg/bdrlogo.svg"
 
 
 const Header = ({ siteTitle }) => {

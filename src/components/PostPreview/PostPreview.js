@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses, faComments } from '@fortawesome/free-solid-svg-icons'
+import { Like, CommentsCount } from 'react-facebook';
 
 const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTag, timeToRead }) => {
+    console.log(`https://bugdetective.netlify.app/blog/${slug}`);
     return (
         <div className="pv2 pv4-ns bb b--black-10 flex flex-column">
             <div className="w-100 pr3-ns">
@@ -40,13 +42,29 @@ const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTa
                     <div dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </div>
             </div>
-            <p className="ml3 mt2 pl2">
+            <div className="w-100 flex justify-between">
+                <span>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <Link to={`/blog/${slug}`} className="pointer">
+                                    <td><FontAwesomeIcon icon={faComments} /></td>
+                                    <td className="pr5">5</td>
+                                </Link>
+                                <td><Like href={`https://bugdetective.netlify.app/blog/${slug}`} colorScheme="dark" showFaces share /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </span>
                 <span>
                     <Link to={`/blog/${slug}`} className="pointer font-tc f4">
                         繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
                     </Link>
                 </span>
-            </p>
+            </div>
+            <div className="w5 h5">
+            <CommentsCount href={`https://bugdetective.netlify.app/blog/${slug}`} />
+            </div>
         </div>
     )
 }

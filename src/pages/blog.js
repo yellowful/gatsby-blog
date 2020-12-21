@@ -1,10 +1,10 @@
 import React from "react"
 //import { Link } from "gatsby"
 import { graphql,useStaticQuery } from 'gatsby'
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PostList from "../components/PostList"
-import PostPreview from "../components/PostPreview"
+import Layout from "../components/Layout/layout"
+import SEO from "../components/Seo/seo"
+import PostList from "../components/PostPreview/PostList"
+import PostPreview from "../components/PostPreview/PostPreview"
 //import BlogTags from "../components/BlogTags/BlogTags"
 
 

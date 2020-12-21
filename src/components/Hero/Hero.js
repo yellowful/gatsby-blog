@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql,useStaticQuery,Link } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-//import './Hero.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 

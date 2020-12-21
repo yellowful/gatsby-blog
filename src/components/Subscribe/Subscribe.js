@@ -1,9 +1,7 @@
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
-//import Img from "gatsby-image"
 
 
 const Subscribe = () => {

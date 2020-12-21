@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import CardList from "../components/CardList"
-import Card from "../components/Card"
-import Hero from "../components/Hero"
-import Subscribe from "../components/Subscribe"
+import Layout from "../components/Layout/layout"
+import SEO from "../components/Seo/seo"
+import CardList from "../components/Card/CardList"
+import Card from "../components/Card/Card"
+import Hero from "../components/Hero/Hero"
+import Subscribe from "../components/Subscribe/Subscribe"
 
 const IndexPage = () => {
   

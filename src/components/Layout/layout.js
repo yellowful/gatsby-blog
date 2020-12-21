@@ -8,8 +8,8 @@
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import Header from "./header"
-import Footer from "./Footer"
+import Header from "../Header/header"
+import Footer from "../Footer/Footer"
 import "./mystyles.css"
 import 'tachyons'
 import "./layout.css"
@@ -73,7 +73,7 @@ const Layout = ({ children }) => {
       </FacebookProvider>
       {
         scrollPosition >= 1024 ?
-          <div className="tc light-blue o-80 f2 pv1 br2 fixed bottom-2 right-1 w3 h3 bw0 button-focus grow pointer" role="button" aria-label="scrolltop button" tabIndex="-2" onClick={onScrollTop} onKeyDown={onKeyScroll}>
+          <div className="tc light-blue o-80 f2 pv1 br2 fixed bottom-2 right-2 w3 h3 bw0 button-focus grow pointer" role="button" aria-label="scrolltop button" tabIndex="-2" onClick={onScrollTop} onKeyDown={onKeyScroll}>
             <FontAwesomeIcon icon={faChevronUp} />
           </div>
           :
