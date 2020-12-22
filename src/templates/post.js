@@ -16,11 +16,12 @@ export default function Template({ data }) {
         <Layout>
             <SEO title={title} />
             <div className="w-100 bg-light-gray">
-                <div className="mh3 w-80-m w-60-l center bg-light-gray">
+                <div className="mh3 w-80-m w-60-l center-ns bg-light-gray">
                     <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
                     <div>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </div>
+                    <hr className="b--dashed bb b--black-40 bw1 mv5" />
                     <FbComments fbHref={fbHref} />
                 </div>
             </div>
