@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses, faComments } from '@fortawesome/free-solid-svg-icons'
-import { Like, CommentsCount } from 'react-facebook';
+import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses } from '@fortawesome/free-solid-svg-icons'
+//import { Like, CommentsCount } from 'react-facebook';
 
 const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTag, timeToRead }) => {
-    console.log(`https://bugdetective.netlify.app/blog/${slug}`);
+    //console.log(`https://bugdetective.netlify.app/blog/${slug}`);
     return (
         <div className="pv2 pv4-ns bb b--black-10 flex flex-column">
             <div className="w-100 pr3-ns">
@@ -42,7 +42,12 @@ const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTa
                     <div dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </div>
             </div>
-            <div class="w-100 flex flex-column flex-row-ns">
+            <div class="w-100 tr">
+                    <Link to={`/blog/${slug}`} className="pointer font-tc f4 fw3 pr3-ns">
+                        繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
+                    </Link>
+            </div>
+            {/* <div class="w-100 flex flex-column flex-row-ns">
                 <div class="w-100 w-50-ns order-1 order-0-ns mv2">
                     <table>
                         <tbody>
@@ -61,7 +66,7 @@ const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTa
                         繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
                     </Link>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
