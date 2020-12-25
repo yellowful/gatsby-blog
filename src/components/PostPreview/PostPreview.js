@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleRight, faAt, faCalendarAlt, faGlasses } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
+import TimeToRead from './TimeToRead';
 //import { Like, CommentsCount } from 'react-facebook';
 
-const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTag, timeToRead }) => {
+const PostPreview = ({ slug, postTitle, publishedDate, excerpt, postTag, timeToRead }) => {
     //console.log(`https://bugdetective.netlify.app/blog/${slug}`);
     return (
         <div className="pv2 pv4-ns bb b--black-10 flex flex-column">
@@ -12,32 +13,7 @@ const PostPreview = ({ slug, postTitle, publishedDate, imageSrc, excerpt, postTa
                 <Link to={`/blog/${slug}`}>
                     <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv4 dark-gray">{postTitle}</h1>
                 </Link>
-                <div className="mv2 mv4-ns ph2 w-100 flex justify-between">
-                    <span>
-                        <span >
-                            <Link to="/about">
-                                <span className="f6 "><FontAwesomeIcon icon={faAt} /></span>
-                                <span className="ml2-ns font-tc  f6 ">蟲探理查</span>
-                            </Link>
-                        </span>
-                        <span className="ml2 ml6-ns">
-                            <span className="f6 gray lh-copy ">
-                                <FontAwesomeIcon icon={faCalendarAlt} />
-                            </span>
-                            <time className="ml2-ns font-tc f6 gray lh-copy ">
-                                {publishedDate}
-                            </time>
-                        </span>
-                    </span>
-                    <span className="font-tc f6 ">
-                        <span>
-                            <FontAwesomeIcon icon={faGlasses} />
-                        </span>
-                        <span className="ml2-ns">
-                            約{timeToRead}分鐘
-                        </span>
-                    </span>
-                </div>
+                <TimeToRead publishedDate={publishedDate} timeToRead={timeToRead} />
                 <div className="excerpt-gradient ph1-ns pl2">
                     <div dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </div>

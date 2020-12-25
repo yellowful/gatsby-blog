@@ -20,23 +20,25 @@ const Footer = () => {
     // `)
 
     return (
-        <span className="pa2 bg-dark-gray w-100 tr">
-            <span className="dib v-btm moon-gray font-tc f7 f6-ns">
-                © 2020, Built by &nbsp;
+        <div className="has-background-dark w-100 flex justify-center">
+            <span className="pv2 bg-dark-gray w-100 w-90-m w-70-l mw8 tr">
+                <span className="dib v-btm moon-gray font-tc f7 f6-ns">
+                    © 2020, Built by &nbsp;
             </span>
-            <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm font-tc f7 f6-ns mr4-ns">
-                <FontAwesomeIcon icon={faGithub} />
-                <span className="font-tc">
-                    Bug Detective Richard &nbsp;
+                <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm font-tc f7 f6-ns mr4-ns">
+                    <FontAwesomeIcon icon={faGithub} />
+                    <span className="font-tc">
+                        Bug Detective Richard &nbsp;
                 </span>
-            </a>
-            <Link to="/privacy-policy/PrivacyPolicy" className="dib v-btm font-tc f7 f6-ns">
-                <FontAwesomeIcon icon={faUserLock} />
-                <span className="font-tc">
-                    隱私權保護政策 &nbsp;
+                </a>
+                <Link to="/privacy-policy/PrivacyPolicy" className="dib v-btm font-tc f7 f6-ns">
+                    <FontAwesomeIcon icon={faUserLock} />
+                    <span className="font-tc">
+                        隱私權保護政策 &nbsp;
                 </span>
-            </Link>
-        </span>
+                </Link>
+            </span>
+        </div>
     )
 }
 
