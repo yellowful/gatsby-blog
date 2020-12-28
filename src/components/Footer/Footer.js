@@ -21,7 +21,7 @@ const Footer = () => {
 
     return (
         <div className="has-background-dark w-100 flex justify-center">
-            <span className="pv2 bg-dark-gray w-100 w-90-m w-70-l mw8 tr">
+            <span className="pv2 bg-dark-gray w-100 w-90-m w-80-l mw8 tr">
                 <span className="dib v-btm moon-gray font-tc f7 f6-ns">
                     © 2020, Built by &nbsp;
             </span>

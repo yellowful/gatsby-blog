@@ -46,7 +46,7 @@ const Subscribe = () => {
     return (
 
         <div className="bg-gray w-100 flex justify-center">
-            <div className="bg-gray pa2 pa3-ns flex flex-column justify-center w-100 w-90-m w-70-l mw8">
+            <div className="bg-gray pa2 pa3-ns flex flex-column justify-center w-100 w-90-m w-80-l mw8">
                 <div className="f5 f4-ns mb2 black-80 font-tc">訂閱文章</div>
                 <div className="columns">
                     <div className="column is-4">
@@ -69,7 +69,7 @@ const Subscribe = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="column is-2 tr">
+                    <div className="column is-2 tc tr-l">
                         <button className="button is-dark" onClick={handleSubmit}>訂閱</button>
                     </div>
                 </div>

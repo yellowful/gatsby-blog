@@ -26,7 +26,7 @@ export default function Template({ data }) {
         <Layout>
             <SEO title={title} />
             <div className="w-100 bg-light-gray">
-                <div className="mh3 w-90-m w-70-l mw8 center-ns bg-light-gray">
+                <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
                     <TimeToRead publishedDate={publishedDate.slice(0, 10)} timeToRead={Math.round(post.timeToRead*1.5)} />
                     <div>

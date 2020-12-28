@@ -11,7 +11,7 @@ const Header = ({ siteTitle }) => {
 
   return (
     <div className="has-background-dark w-100 flex justify-center">
-      <nav className="navbar is-dark w-100 w-90-m w-70-l mw8" role="navigation" aria-label="main navigation">
+      <nav className="navbar is-dark w-100 w-90-m w-80-l mw8" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <div className="navbar-item">
             <Link
