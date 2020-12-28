@@ -69,13 +69,6 @@ module.exports = {
           },
           "gatsby-remark-responsive-iframe",
           {
-            resolve: `gatsby-remark-images-contentful`,
-            options: {
-              maxWidth: 1024,
-              backgroundColor:'transparent'
-            },
-          },
-          {
             resolve: `gatsby-remark-classes`,
             options: {
               classMap: {
@@ -93,6 +86,14 @@ module.exports = {
                 "link":"anchor-word-breaker",
               }
             }
+          },
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 1024,
+              backgroundColor:'transparent',
+              showCaptions:true
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,

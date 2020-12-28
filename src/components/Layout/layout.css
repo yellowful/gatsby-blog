@@ -89,3 +89,12 @@
     outline: none;
     box-shadow: 1px 1px 5px rgba(1, 1, 0, .7);
   }
+
+.gatsby-resp-image-figcaption {
+    font-family: 'Noto Sans TC',sans-serif;
+    text-align: center;
+    font-size: 1rem;
+    max-width: 16rem;
+    margin-right: auto;
+    margin-left: auto;
+}
