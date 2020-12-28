@@ -12,7 +12,7 @@ module.exports = {
     author: `Bug Detective Richard`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,    
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -49,7 +49,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-reading-time`, 
+          `gatsby-remark-reading-time`,
           {
             resolve: "gatsby-remark-embed-video",
             options: {
@@ -72,18 +72,18 @@ module.exports = {
             resolve: `gatsby-remark-classes`,
             options: {
               classMap: {
-                "heading[depth=1]": "font-tc f3 underline lh-title fw7 mv4 dark-gray", 
-                "heading[depth=2]": "font-tc f3 lh-title fw7 mv4 dark-gray", 
-                "heading[depth=3]": "font-tc f4 underline lh-title fw5 mv4 dark-gray", 
-                "heading[depth=4]": "font-tc f4 lh-title fw5 mv4 dark-gray", 
+                "heading[depth=1]": "font-tc f3 underline lh-title fw7 mv4 dark-gray",
+                "heading[depth=2]": "font-tc f3 lh-title fw7 mv4 dark-gray",
+                "heading[depth=3]": "font-tc f4 underline lh-title fw5 mv4 dark-gray",
+                "heading[depth=4]": "font-tc f4 lh-title fw5 mv4 dark-gray",
                 "paragraph": "font-tc f4 lh-copy mv4 fw3",
-                "list[ordered=true]":"ml4 font-tc f4 lh-copy mv4 fw3",
-                "listItem":"font-tc f4 lh-copy mv3 fw3",
+                "list[ordered=true]": "ml4 font-tc f4 lh-copy mv4 fw3",
+                "listItem": "font-tc f4 lh-copy mv3 fw3",
                 "listItem > paragraph": "paragraph-in-item",
                 "listItem listItem": "anchor-word-breaker",
-                "list[ordered=false]":"ml4 font-tc f4 lh-copy mv4 fw3 ul-circle",
-                "thematicBreak":"w-40 bb bw1 b--black-10 center mv5",
-                "link":"anchor-word-breaker",
+                "list[ordered=false]": "ml4 font-tc f4 lh-copy mv4 fw3 ul-circle",
+                "thematicBreak": "w-40 bb bw1 b--black-10 center mv5",
+                "link": "anchor-word-breaker",
               }
             }
           },
@@ -91,7 +91,7 @@ module.exports = {
             resolve: `gatsby-remark-images-contentful`,
             options: {
               maxWidth: 1024,
-              backgroundColor:'transparent',
+              backgroundColor: 'transparent',
               showCaptions:true
             },
           },
@@ -125,6 +125,13 @@ module.exports = {
               escapeEntities: {},
             },
           },
+          {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow"
+            }
+          }
         ]
       }
     },
@@ -141,8 +148,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-          endpoint: process.env.GATSBY_MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below
-          timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+        endpoint: process.env.GATSBY_MAILCHIMP_ENDPOINT, // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
   ],
