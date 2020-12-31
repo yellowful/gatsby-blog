@@ -16,8 +16,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //gatsby有用redux，這是redux來派發createPage，createPage就是用來自動製作頁面的function
     const { createPage } = actions;
     
-    //設定樣板的檔案位置
+    //設定單篇文章的樣板的檔案位置
     const postTemplate = path.resolve(`./src/templates/post.js`);
+    
+    const tagListTemplate= path.resolve(`./src/templates/tag-list-template.js`)
     
     //gatsby在產生頁面時，會從contenful的api抓資料回來，然後利用graphql把所有文章抓回來，放到result裡面
     //大括號裡面都是從網址的”http://localhost:8000/___graphql“查詢，查詢完可以直接copy下來
@@ -40,6 +42,24 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   }
                 }
             }
+            allContentfulAllTag(filter: {node_locale: {eq: "en-US"}}) {
+                edges {
+                  node {
+                    slug
+                    tag {
+                      slug
+                      publishedDate
+                      articles {
+                        articles
+                        childMarkdownRemark {
+                          html
+                        }
+                      }
+                      title
+                    }
+                  }
+                }
+            }
         }
         
     `)
@@ -50,6 +70,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         return
     }
 
+    //這一段用來自動產生文章
     //單篇文章是edges陣列裡面的一個元素，這裡很容易搞錯，以為一個文章是一個node
     //但是一個文章是一個edge.node
     //slug是contentful裡面，每篇文章設定的網址後綴
@@ -74,6 +95,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //Math.ceil是無條件進入法，算出總頁數numPages
     const numPages = Math.ceil(posts.length / postsPerPage)
     
+    //這一段用來自動產生所有文章列表
     //Array.from({ length: numPages })，是用來得到numPages個undefined元素數量的array，主要可以iterable，_代表每一個元素，值都是undefined
     //createPage可以用來自動建立網頁
     //path是自動建立的網頁，要用什麼當網址
@@ -93,6 +115,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             },
         })
     })
+
+    const tagList = result.data.allContentfulAllTag.edges
+    tagList.forEach((edge) => {
+      createPage({
+          path: `/blog/tags/${edge.node.slug}`,
+          component: tagListTemplate,
+          context: {
+              slug: edge.node.slug,
+          },
+      })
+  })
+
+
+
+
+
+
+
+
+
 }
 
 // exports.onCreateNode = ({ node, actions, getNode }) => {

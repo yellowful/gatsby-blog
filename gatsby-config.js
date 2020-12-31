@@ -69,6 +69,13 @@ module.exports = {
           },
           "gatsby-remark-responsive-iframe",
           {
+            resolve: "gatsby-remark-external-links",
+            options: {
+              target: "_blank",
+              rel: "noopener nofollow"
+            }
+          },
+          {
             resolve: `gatsby-remark-classes`,
             options: {
               classMap: {
@@ -124,13 +131,6 @@ module.exports = {
               },
               escapeEntities: {},
             },
-          },
-          {
-            resolve: "gatsby-remark-external-links",
-            options: {
-              target: "_blank",
-              rel: "noopener nofollow"
-            }
           }
         ]
       }
