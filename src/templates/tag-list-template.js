@@ -24,8 +24,8 @@ export default class TagListPage extends React.Component {
                 <TagList tagSlug={this.props.data.allContentfulAllTag.edges[0].node.slug}>
                     {
                         posts.map((element) => {
-                            const {slug,title,publishedDate,timeToRead}=element;
-                            const excerpt=element.articles.childMarkdownRemark.excerpt;
+                            const {slug,title,publishedDate}=element;
+                            const {excerpt,timeToRead}=element.articles.childMarkdownRemark;
                             const shortDate = publishedDate.slice(0, 10)
                             return (
                                 <React.Fragment>
@@ -64,7 +64,7 @@ export const tagListQuery = graphql`
               publishedDate
               articles {
                 childMarkdownRemark {
-                  excerpt(pruneLength: 100, truncate: true, format: PLAIN)
+                  excerpt(pruneLength: 150, truncate: true, format: PLAIN)
                   timeToRead
                 }
               }

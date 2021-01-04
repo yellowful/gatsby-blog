@@ -26,39 +26,39 @@ const RestOfTags = ({ tagSlug }) => {
 
 
     return (
-        <>
-            <div className="fl w-100 w-50-m w-30-l">
+        <div className="w-100 flex flex-column flex-row-ns items-center">
+            <div className="w-100 w-50-m w-30-l">
                 <span className="dib v-mid">
                     <span className="f3 pv1 ph2 dib v-mid"><FontAwesomeIcon icon={faTag} /></span>
-                    <h1 className="f3 pv1 ph2 dib v-mid font-tc">
+                    <h1 className="f3 fw7 pv1 ph2 dib v-mid font-tc">
                         {tagSlug}
                     </h1>
                 </span>
             </div>
-            <div className="fl w-100 w-50-m w-70-l">
-                <div className="dib v-mid pr3">
+            <div className="w-100 flex justify-start items-center">
+                <div className="dib v-mid ph2 mv1 f3">
                     <FontAwesomeIcon icon={faTags} />
                 </div>
-                <div className="dib v-mid pr3">
+                <div className="dib v-mid nowrap overflow-x-auto">
                     {
                         data.allContentfulAllTag.edges.map((item, i) => {
                             if (item.node.slug === tagSlug) {
                                 return null
                             } else {
                                 return (
-                                    <span className="dib v-mid pr3">
-                                        <Link to={`/blog/tags/${item.node.slug}`} className="dib font-tc f5 v-btm br-pill pv1 ph3 bg-moon-gray">
+                                    <div className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
+                                        <Link to={`/blog/tags/${item.node.slug}`} className="dib font-tc f5 v-btm">
                                             {`${item.node.slug}`}
                                         </Link>
-                                        <span className="mr3 dib v-btm">{`+${item.node.tag.length}`}</span>
-                                    </span>
+                                        <span className="font-tc f7 dib v-btm">{`+${item.node.tag.length}`}</span>
+                                    </div>
                                 )
                             }
                         })
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
