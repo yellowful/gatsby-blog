@@ -9,7 +9,7 @@ const About = () => {
   const data = useStaticQuery(
     graphql`
       query AboutQuery {
-        allContentfulAbout {
+        allContentfulAbout{
           edges {
             node {
               slug
