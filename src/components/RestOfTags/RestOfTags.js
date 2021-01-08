@@ -15,7 +15,7 @@ const RestOfTags = ({ tagSlug }) => {
                 edges {
                     node {
                         slug
-                        tag {
+                        blog {
                             slug
                         }
                     }
@@ -50,7 +50,7 @@ const RestOfTags = ({ tagSlug }) => {
                                         <Link to={`/blog/tags/${item.node.slug}`} className="dib font-tc f5 v-btm">
                                             {`${item.node.slug}`}
                                         </Link>
-                                        <span className="font-tc f7 dib v-btm">{`+${item.node.tag.length}`}</span>
+                                        <span className="font-tc f7 dib v-btm">{`+${item.node.blog.length}`}</span>
                                     </div>
                                 )
                             }

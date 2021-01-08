@@ -5,14 +5,10 @@ import SEO from "../components/Seo/seo"
 import TagList from "../components/TagListPage/TagList"
 import TagCard from "../components/TagListPage/TagCard"
 
-
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
-
 //根據gatsby-node.js傳來的this.props.pageContext，和graphql抓回來的this.props.data，來自動建立blogs列表和pagination
 export default class TagListPage extends React.Component {
     render() {
-        let posts = this.props.data.allContentfulAllTag.edges[0].node.tag
+        let posts = this.props.data.allContentfulAllTag.edges[0].node.blog
         if(posts.length>1){
         posts.sort((postPrev,postNext)=>{
             return new Date(postNext.publishedDate) - new Date(postPrev.publishedDate);
@@ -56,27 +52,28 @@ export const tagListQuery = graphql`
 
   query tagListQuery($slug: String!){
     allContentfulAllTag(filter: {slug: {eq: $slug}}) {
-        edges {
-          node {
-            slug
-            tag {
-              slug
-              publishedDate
-              articles {
-                childMarkdownRemark {
-                  excerpt(pruneLength: 150, truncate: true, format: PLAIN)
-                  timeToRead
-                }
+      edges {
+        node {
+          slug
+          tagName
+          blog {
+            articles {
+              childMarkdownRemark {
+                excerpt(pruneLength: 150, truncate: true, format: PLAIN)
+                timeToRead
               }
-              title
-              images {
-                fluid {
-                    ...GatsbyContentfulFluid
-                }
             }
+            slug
+            title
+            publishedDate
+            images {
+              fluid {
+                ...GatsbyContentfulFluid
+              }
             }
           }
         }
+      }
     }
   }
 `

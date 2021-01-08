@@ -18,7 +18,7 @@ export default function Template({ data }) {
 
     //contentful上這篇文章有設定文章title
     //contentful上這篇文章有設定文章的公開時間
-    const { title, publishedDate, alltag } = data.contentfulBlog
+    const { title, publishedDate, tag } = data.contentfulBlog
 
 
     //這篇文章的完整網址，要用來傳給fb，讓fb的資料庫可以儲存這個網址的所有comments
@@ -34,7 +34,7 @@ export default function Template({ data }) {
                     <div>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </div>
-                    <PostTags alltag={alltag} />
+                    <PostTags tag={tag} />
                     <hr className="b--dashed bb b--black-40 bw1 mv5" />
                     <FbComments fbHref={fbHref} />
                 </div>
@@ -62,7 +62,7 @@ export const postQuery = graphql`
             slug
             publishedDate
             updatedAt
-            alltag {
+            tag {
                 slug
             }
         }

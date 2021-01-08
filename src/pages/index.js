@@ -4,7 +4,7 @@ import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
 import CardList from "../components/Card/CardList"
 import Card from "../components/Card/Card"
-import Hero from "../components/Hero/Hero"
+import HeroIndex from "../components/Hero/HeroIndex"
 import Subscribe from "../components/Subscribe/Subscribe"
 
 //當gatsby跑完之後，整個網站的首頁就是顯示這個資料夾的index.js這個檔的jsx
@@ -45,7 +45,7 @@ const IndexPage = () => {
   return(
     <Layout>
       <SEO title="Home" />
-      <Hero />
+      <HeroIndex />
       <CardList>
         {
           data.allContentfulBlog.edges.map((element) => {

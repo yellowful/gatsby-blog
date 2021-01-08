@@ -41,7 +41,7 @@ export default class BlogList extends React.Component {
                                         postTitle={element.node.title}
                                         publishedDate={publishedDate}
                                         excerpt={element.node.articles.childMarkdownRemark.excerpt}
-                                        postTag={element.node.alltag}
+                                        postTag={element.node.tag}
                                         timeToRead={Math.round(element.node.articles.childMarkdownRemark.timeToRead*1.5)}
                                     />
                                 </React.Fragment>
@@ -121,7 +121,7 @@ export const blogListQuery = graphql`
             slug
             title
             publishedDate
-            alltag {
+            tag {
               slug
             }
             images {

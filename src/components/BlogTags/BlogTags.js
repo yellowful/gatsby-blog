@@ -7,12 +7,12 @@ const BlogTags = () => {
             query {
                 allContentfulAllTag {
                     edges {
-                    node {
-                        slug
-                        tag {
-                        slug
+                        node {
+                            slug
+                            blog {
+                                slug
+                            }
                         }
-                    }
                     }
                 }
             }

@@ -23,26 +23,6 @@ const PostPreview = ({ slug, postTitle, publishedDate, excerpt, postTag, timeToR
                         繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
                     </Link>
             </div>
-            {/* <div class="w-100 flex flex-column flex-row-ns">
-                <div class="w-100 w-50-ns order-1 order-0-ns mv2">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <Link to={`/blog/${slug}`} className="pointer">
-                                    <td className="f4 pr1 w2"><FontAwesomeIcon icon={faComments} /></td>
-                                    <td className="pr2 w2 mw2 f4"><CommentsCount href={`https://bugdetective.netlify.app/blog/${slug}`} lazy="true" /></td>
-                                    <td className="mw6"><Like href={`https://bugdetective.netlify.app/blog/${slug}`} colorScheme="light" showFaces lazy="true" size="large" width="90" button_count /></td>
-                                </Link>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="w-100 w-50-ns order-0 order-1-ns tr pr2">
-                    <Link to={`/blog/${slug}`} className="pointer font-tc f5 f4-ns">
-                        繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
-                    </Link>
-                </div>
-            </div> */}
         </div>
     )
 }
