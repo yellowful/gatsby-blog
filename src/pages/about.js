@@ -8,11 +8,12 @@ import HeroAbout from "../components/Hero/HeroAbout"
 const About = () => {
   const data = useStaticQuery(
     graphql`
-      query AboutQuery {
-        allContentfulAbout{
+      query aboutBlogQuery {
+        allContentfulAbout(sort: {fields: serial, order: ASC}) {
           edges {
             node {
               slug
+              serial
               title
               childContentfulAboutContentTextNode {
                 childMarkdownRemark {
@@ -25,9 +26,10 @@ const About = () => {
       }
     `
   )
+  
 
-  const aboutBlog=data.allContentfulAbout.edges[1].node;
-  const aboutAuthor=data.allContentfulAbout.edges[0].node;
+  const aboutBlog=data.allContentfulAbout.edges[0].node;
+  const aboutAuthor=data.allContentfulAbout.edges[1].node;
 
   return (
     <Layout>
