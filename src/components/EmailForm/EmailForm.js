@@ -89,7 +89,7 @@ export default class EmailForm extends React.Component {
     render() {
         const { status } = this.state;
         return (
-            <div className="mv2 mh2 mr4-ns">
+            <div className="mv2 mr4-ns pt4 bg-near-white ph2">
                 <form onSubmit={this.submitForm}>
                     <div className="field is-horizontal">
                         <div className="field-label is-normal">

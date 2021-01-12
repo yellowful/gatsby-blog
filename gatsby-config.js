@@ -49,6 +49,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-containers`,
           `gatsby-remark-reading-time`,
           {
             resolve: "gatsby-remark-embed-video",
@@ -91,6 +92,7 @@ module.exports = {
                 "list[ordered=false]": "ml4 font-tc f4 lh-copy mv4 fw3 ul-circle",
                 "thematicBreak": "w-40 bb bw1 b--black-10 center mv5",
                 "link": "anchor-word-breaker",
+                "table":"table is-bordered o-80",
               }
             }
           },
