@@ -44,12 +44,6 @@ export default class EmailForm extends React.Component {
         this.setState({ message: ev.target.value })
     }
 
-    messageEventListener = (ev) => {
-        if (ev.key === 'Enter') {
-            ev.preventDefault();
-            this.fetchForm();
-        }
-    }
 
     submitForm = (ev) => {
         ev.preventDefault();
@@ -144,7 +138,6 @@ export default class EmailForm extends React.Component {
                                         name="message" 
                                         placeholder="您想說什麼" 
                                         onChange={this.onMessageChange} 
-                                        onKeyDown={this.messageEventListener} 
                                         ref={this.inputMessage} 
                                         value={this.state.message}
                                     />
