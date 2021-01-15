@@ -50,9 +50,9 @@ export default class EmailForm extends React.Component {
         this.fetchForm();
     }
 
-    fetchForm=()=>{
-        const isFormValid = this.state.name==='' || this.state.email==='' || this.state.message==='';
-        if(!isFormValid){
+    fetchForm = () => {
+        const isFormValid = this.state.name === '' || this.state.email === '' || this.state.message === '';
+        if (!isFormValid) {
             fetch('https://formspree.io/f/mwkwaeob', {
                 method: 'POST',
                 headers: { 'content-type': 'application/json' },
@@ -62,18 +62,18 @@ export default class EmailForm extends React.Component {
                     'message': this.state.message
                 })
             })
-            .then(res => {
-                //console.table(res);
-                if (res.status === 200) {
-                    this.setState({ status: "SUCCESS", name: '', email: '', message: '' });
-                }
-                else {
-                    this.setState({ status: "ERROR", name: '', email: '', message: '' })
-                }
-            })
-            .catch(err => {
-                this.setState({ status: "ERROR" })
-            })
+                .then(res => {
+                    //console.table(res);
+                    if (res.status === 200) {
+                        this.setState({ status: "SUCCESS", name: '', email: '', message: '' });
+                    }
+                    else {
+                        this.setState({ status: "ERROR", name: '', email: '', message: '' })
+                    }
+                })
+                .catch(err => {
+                    this.setState({ status: "ERROR" })
+                })
         } else {
             this.setState({ status: "ERROR" })
         }
@@ -83,90 +83,92 @@ export default class EmailForm extends React.Component {
     render() {
         const { status } = this.state;
         return (
-            <div className="mv2 mr4-ns pt4 bg-near-white ph2">
-                <form onSubmit={this.submitForm}>
-                    <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label htmlFor="From" className="label">寄件人</label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <p className="control is-expanded has-icons-left">
-                                    <input 
-                                        className="input" 
-                                        type="text" 
-                                        placeholder="您的稱呼" 
-                                        onChange={this.onNameChange} 
-                                        onKeyDown={this.nameEventListener} 
-                                        ref={this.inputName}
-                                        value={this.state.name}
-                                    />
-                                    <span className="icon is-small is-left">
-                                        <FontAwesomeIcon icon={faUser} />
-                                    </span>
-                                </p>
+            <div className="w-100 bg-near-white">
+                <div className="w-100 w-90-m w-80-l mw8 center pr5-l pr3-m pt5 pa2">
+                    <form onSubmit={this.submitForm}>
+                        <div className="field is-horizontal">
+                            <div className="field-label is-normal">
+                                <label htmlFor="From" className="label">寄件人</label>
                             </div>
-                            <div className="field">
-                                <p className="control is-expanded has-icons-left has-icons-right">
-                                    <input 
-                                        className="input" 
-                                        type="email" 
-                                        placeholder="您的電子郵件" 
-                                        name="email" 
-                                        onChange={this.onEmailChange} 
-                                        onKeyDown={this.emailEventListener} 
-                                        ref={this.inputEmail} 
-                                        value={this.state.email}
-                                    />
-                                    <span className="icon is-small is-left">
-                                        <FontAwesomeIcon icon={faEnvelope} />
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="field is-horizontal">
-                        <div className="field-label is-normal">
-                            <label htmlFor="message" className="label">訊息</label>
-                        </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <div className="control">
-                                    <textarea 
-                                        className="textarea" 
-                                        name="message" 
-                                        placeholder="您想說什麼" 
-                                        onChange={this.onMessageChange} 
-                                        ref={this.inputMessage} 
-                                        value={this.state.message}
-                                    />
+                            <div className="field-body">
+                                <div className="field">
+                                    <p className="control is-expanded has-icons-left">
+                                        <input
+                                            className="input"
+                                            type="text"
+                                            placeholder="您的稱呼"
+                                            onChange={this.onNameChange}
+                                            onKeyDown={this.nameEventListener}
+                                            ref={this.inputName}
+                                            value={this.state.name}
+                                        />
+                                        <span className="icon is-small is-left">
+                                            <FontAwesomeIcon icon={faUser} />
+                                        </span>
+                                    </p>
+                                </div>
+                                <div className="field">
+                                    <p className="control is-expanded has-icons-left has-icons-right">
+                                        <input
+                                            className="input"
+                                            type="email"
+                                            placeholder="您的電子郵件"
+                                            name="email"
+                                            onChange={this.onEmailChange}
+                                            onKeyDown={this.emailEventListener}
+                                            ref={this.inputEmail}
+                                            value={this.state.email}
+                                        />
+                                        <span className="icon is-small is-left">
+                                            <FontAwesomeIcon icon={faEnvelope} />
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="field is-horizontal">
-                        <div className="field-label">
-
+                        <div className="field is-horizontal">
+                            <div className="field-label is-normal">
+                                <label htmlFor="message" className="label">訊息</label>
+                            </div>
+                            <div className="field-body">
+                                <div className="field">
+                                    <div className="control">
+                                        <textarea
+                                            className="textarea"
+                                            name="message"
+                                            placeholder="您想說什麼"
+                                            onChange={this.onMessageChange}
+                                            ref={this.inputMessage}
+                                            value={this.state.message}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="field-body">
-                            <div className="field">
-                                <div className="control">
-                                    {
-                                        status === "SUCCESS" ?
-                                            <p>謝謝！</p>
-                                            : 
-                                            <button type="submit" className="button is-dark">
-                                                送出訊息
+
+                        <div className="field is-horizontal">
+                            <div className="field-label">
+
+                            </div>
+                            <div className="field-body">
+                                <div className="field">
+                                    <div className="control">
+                                        {
+                                            status === "SUCCESS" ?
+                                                <p>謝謝！</p>
+                                                :
+                                                <button type="submit" className="button is-dark">
+                                                    送出訊息
                                             </button>
-                                    }
-                                    {status === "ERROR" && <p>發生未知的錯誤，請檢查是否每個欄位都有填</p>}
+                                        }
+                                        {status === "ERROR" && <p>發生未知的錯誤，請檢查是否每個欄位都有填</p>}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }

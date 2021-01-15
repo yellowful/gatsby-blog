@@ -44,44 +44,43 @@ const Subscribe = () => {
     }
 
     return (
-
-        <div className="bg-gray w-100 flex justify-center">
-            <div className="bg-gray pa2 pa3-ns flex flex-column justify-center w-100 w-90-m w-80-l mw8">
-                <div className="f5 f4-ns mb2 black-80 font-tc">訂閱文章</div>
-                <div className="columns">
-                    <div className="column is-4">
-                        <div className="field">
-                            <p className="control has-icons-left">
-                                <input className="input" type="text" placeholder="稱呼" onChange={onChangeName} />
-                                <span className="icon is-small is-left">
-                                    <FontAwesomeIcon icon={faUser} />
-                                </span>
-                            </p>
+            <div className="w-100 bg-moon-gray h4-l h5 flex justify-center items-center">
+                <div className="bg-moon-gray pa2 pa3-ns flex flex-column w-100">
+                    <div className="f5 f4-ns mb2 black-80 font-tc">訂閱文章</div>
+                    <div className="columns is-desktop">
+                        <div className="column is-4-desktop">
+                            <div className="field">
+                                <p className="control has-icons-left">
+                                    <input className="input" type="text" placeholder="稱呼" onChange={onChangeName} />
+                                    <span className="icon is-small is-left">
+                                        <FontAwesomeIcon icon={faUser} />
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div className="column is-6-desktop">
+                            <div className="field">
+                                <p className="control has-icons-left">
+                                    <input className="input" type="email" placeholder="電子郵件" onChange={onChangeEmail} />
+                                    <span className="icon is-small is-left">
+                                        <FontAwesomeIcon icon={faEnvelope} />
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div className="column is-2-desktop tl-m tr-l">
+                            <button className="button is-dark" onClick={handleSubmit}>訂閱</button>
                         </div>
                     </div>
-                    <div className="column is-6">
-                        <div className="field">
-                            <p className="control has-icons-left">
-                                <input className="input" type="email" placeholder="電子郵件" onChange={onChangeEmail} />
-                                <span className="icon is-small is-left">
-                                    <FontAwesomeIcon icon={faEnvelope} />
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="column is-2 tc tr-l">
-                        <button className="button is-dark" onClick={handleSubmit}>訂閱</button>
-                    </div>
+                    {
+                        Object.keys(resOfMailchimp).length === 0 ?
+                            null
+                            : resOfMailchimp.result === 'success'
+                                ? <p className="f5 f4-ns font-tc light-blue fw3" >收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！</p>
+                                : <p className="f5 f4-ns font-tc orange fw6 o-80" >可能格式有誤，或已經重複訂閱，請重新輸入</p>
+                    }
                 </div>
-                {
-                    Object.keys(resOfMailchimp).length === 0 ?
-                        null
-                        : resOfMailchimp.result === 'success'
-                            ? <p className="f5 f4-ns font-tc light-blue fw3" >收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！</p>
-                            : <p className="f5 f4-ns font-tc orange fw6 o-80" >可能格式有誤，或已經重複訂閱，請重新輸入</p>
-                }
             </div>
-        </div>
     )
 }
 
