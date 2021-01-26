@@ -8,7 +8,7 @@ import { faTag, faTags } from '@fortawesome/free-solid-svg-icons'
 
 const RestOfTags = ({ tagSlug }) => {
 
-    const data = useStaticQuery(
+    let data = useStaticQuery(
         graphql`
         query RestOfTagsQuery{
             allContentfulAllTag {
@@ -23,6 +23,7 @@ const RestOfTags = ({ tagSlug }) => {
             }
         }`
     )
+
 
 
     return (
@@ -41,7 +42,10 @@ const RestOfTags = ({ tagSlug }) => {
                 </div>
                 <div className="dib v-mid nowrap overflow-x-auto">
                     {
-                        data.allContentfulAllTag.edges.map((item, i) => {
+                        data.allContentfulAllTag.edges.sort((a, b) => {
+                            return b.node.blog.length - a.node.blog.length
+                        })
+                        .map((item, i) => {
                             if (item.node.slug === tagSlug) {
                                 return null
                             } else {

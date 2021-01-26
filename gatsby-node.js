@@ -18,7 +18,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     
     //設定單篇文章的樣板的檔案位置
     const postTemplate = path.resolve(`./src/templates/post.js`);
-    
+    const projectTemplate = path.resolve(`./src/templates/project-template.js`);
     const tagListTemplate= path.resolve(`./src/templates/tag-list-template.js`)
     
     //gatsby在產生頁面時，會從contenful的api抓資料回來，然後利用graphql把所有文章抓回來，放到result裡面
@@ -47,6 +47,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   node {
                     slug
                     tagName
+                  }
+                }
+            }
+            allContentfulProject(filter: {node_locale: {eq: "en-US"}}) {
+                edges {
+                  node {
+                    slug
+                    projectName
                   }
                 }
             }
@@ -80,7 +88,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
     
     //postsPerPage可以設定每一頁放幾個文章
-    const postsPerPage = 2
+    const postsPerPage = 3
 
     //Math.ceil是無條件進入法，算出總頁數numPages
     const numPages = Math.ceil(posts.length / postsPerPage)
@@ -115,8 +123,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug: edge.node.slug,
           },
       })
-  })
+    })
 
+    const projectPage = result.data.allContentfulProject.edges
+    projectPage.forEach((edge) => {
+        createPage({
+            path: `/project/${edge.node.slug}`,
+            component: projectTemplate,
+            context: {
+                slug: edge.node.slug,
+            },
+        })
+    }) 
 
 
 

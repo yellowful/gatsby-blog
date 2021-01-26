@@ -83,8 +83,9 @@ export default class EmailForm extends React.Component {
     render() {
         const { status } = this.state;
         return (
-            <div className="w-100 bg-near-white">
-                <div className="w-100 w-90-m w-80-l mw8 center pr5-l pr3-m pt5 pa2">
+            <div className="w-100 bg-near-white pv4">
+                <div className="w-100 w-90-m w-80-l mw8 center pr5-l pr3-m pa2">
+                <h2 className="tc font-tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">聯絡我</h2>
                     <form onSubmit={this.submitForm}>
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">

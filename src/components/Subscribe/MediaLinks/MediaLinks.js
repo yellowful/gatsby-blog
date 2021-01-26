@@ -16,7 +16,7 @@ const icons = [faGithub, faFacebook, faLinkedin, faRss]
 const MediaLinks = () => {
     return (
 
-        <div class="h4-l h2 flex justify-around items-center items-end-ns">
+        <div class="h4-l h2 flex justify-around items-end-ns">
             {
                 externalLink.map((item, i) => {
                     return (
