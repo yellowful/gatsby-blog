@@ -27,7 +27,7 @@ export default function Template({ data }) {
 
     return (
         <Layout>
-            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} />
+            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} description={post.excerpt} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
@@ -56,6 +56,7 @@ export const postQuery = graphql`
               childMarkdownRemark {
                 html
                 timeToRead
+                excerpt(format: PLAIN, pruneLength: 150, truncate: true)
               }
             }
             title
