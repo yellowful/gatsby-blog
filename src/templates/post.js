@@ -15,6 +15,7 @@ export default function Template({ data }) {
 
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
+    const imageURL = data.contentfulBlog.images[0].fluid.src
 
     //contentful上這篇文章有設定文章title
     //contentful上這篇文章有設定文章的公開時間
@@ -26,7 +27,7 @@ export default function Template({ data }) {
 
     return (
         <Layout>
-            <SEO title={title} />
+            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref}/>
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
@@ -64,6 +65,11 @@ export const postQuery = graphql`
             updatedAt
             tag {
                 slug
+            }
+            images {
+                fluid(maxWidth: 1024) {
+                    src
+                }
             }
         }
     }

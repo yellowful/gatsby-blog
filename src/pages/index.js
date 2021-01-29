@@ -49,12 +49,11 @@ const IndexPage = () => {
       <HeroIndex />
       <CardList>
         {
-          data.allContentfulBlog.edges.map((element) => {
+          data.allContentfulBlog.edges.map((element,i) => {
             const publishedDate = element.node.publishedDate.slice(0, 10)
             return(
-              <React.Fragment>
+              <React.Fragment key={`index-${element.node.slug}`}>
                   <Card 
-                    key={`index${element.node.slug}`}
                     slug={element.node.slug}
                     postTitle={element.node.title}
                     publishedDate={publishedDate}

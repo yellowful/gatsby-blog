@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL, isArticle }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,6 +19,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            canonicalUrl
           }
         }
       }
@@ -34,6 +35,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
+      //如果defaultTitle是true的話，Helmet內部的function會把title放進%s的地方
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
@@ -48,42 +50,70 @@ function SEO({ description, lang, meta, title }) {
           property: `og:description`,
           content: metaDescription,
         },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
       ].concat(meta)}
-    />
+    >
+      {
+        isArticle ?
+          (
+            <>
+              <meta property="og:type" content="article" />
+              <meta property="og:article:published_time" content={datePublished} />
+              <meta property="og:image" content={imageURL} />
+              <meta property="og:url" content={pageURL} />
+              <meta property="article:author" content="https://bugdetective.netlify.app/about" />
+            </>
+          )
+          :
+          <meta property="og:type" content="website" />
+      }
+      <script type="application/ld+json">
+        {`
+          {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://bugdetective.netlify.app/"
+            },
+            ${
+              isArticle ?
+              `
+                "headline": ${title},
+                "url": ${pageURL}
+                "image": ${imageURL},
+                "datePublished": ${datePublished},
+                "author": {
+                  "@type": "Person",
+                  "name": "黃瑞成"
+                }
+              `
+              :
+              null
+            }
+          }
+        `}
+      </script>
+    </Helmet>
   )
 }
 
+//定義初始值
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  datePublished: ``,
+  imageURL: ``,
 }
 
+//定義type
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  datePublished: PropTypes.string,
+  imageURL: PropTypes.string,
 }
 
 export default SEO
