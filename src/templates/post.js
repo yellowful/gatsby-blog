@@ -27,7 +27,7 @@ export default function Template({ data }) {
 
     return (
         <Layout>
-            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref}/>
+            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
