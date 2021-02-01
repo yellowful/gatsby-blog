@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 const GoogleSchema = React.memo(
-    ({isArticle, title, pageURL, imageUrl, datePublished}) => {
+    ({isArticle, title, pageURL, imageURL, datePublished}) => {
         const baseSchema = [
             {
                 "@context": "https://schema.org",
@@ -19,7 +19,7 @@ const GoogleSchema = React.memo(
                 {
                     "headline": title,
                     "url": pageURL,
-                    "image": imageUrl,
+                    "image": imageURL,
                     "datePublished": datePublished,
                     "author": {
                         "@type": "Person",
