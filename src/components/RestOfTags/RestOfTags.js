@@ -51,7 +51,7 @@ const RestOfTags = ({ tagSlug }) => {
                             } else {
                                 return (
                                     <div className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
-                                        <Link to={`/blog/tags/${item.node.slug}`} className="dib font-tc f5 v-btm">
+                                        <Link to={`/blog/tags/${item.node.slug}/`} className="dib font-tc f5 v-btm">
                                             {`${item.node.slug}`}
                                         </Link>
                                         <span className="font-tc f7 dib v-btm">{`+${item.node.blog.length}`}</span>

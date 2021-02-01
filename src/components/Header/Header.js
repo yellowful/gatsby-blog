@@ -51,21 +51,21 @@ const Header = ({ siteTitle }) => {
             className="navbar-end"
           >
             <Link
-              to="/blog"
+              to="/blog/"
               className="navbar-item tr mr3 font-tc"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFeatherAlt} />文章
             </Link>
             <Link
-              to="/about"
+              to="/about/"
               className="navbar-item tr mr3 font-tc"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faIdCard} />作者
             </Link>
             <Link
-              to="/project"
+              to="/project/"
               className="navbar-item tr mr3 font-tc"
               activeClassName="is-active"
             >

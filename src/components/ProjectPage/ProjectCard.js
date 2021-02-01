@@ -20,7 +20,7 @@ const ProjectCard = ({ slug, projectName, demoLink, repoLink, introduction, imag
                             </td>
                             <td><a href={repoLink} rel="noreferrer" target="_blank">原始碼 &nbsp;<FontAwesomeIcon icon={faGithub} /></a></td>
                             <td>
-                                <Link to={`/project/${slug}`}>
+                                <Link to={`/project/${slug}/`}>
                                     了解更多 &nbsp;<FontAwesomeIcon icon={faAngleDoubleRight} />
                                 </Link>
                             </td>

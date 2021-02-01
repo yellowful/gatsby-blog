@@ -21,10 +21,10 @@ export default class BlogList extends React.Component {
         const isLast = currentPage === numPages
 
         //如果目前是第2頁，prevPage的slug就是"/blog""，如果不是第2頁，prevPage就是前一頁的網址
-        const prevPage = currentPage - 1 === 1 ? "/blog" : `/blog/page-${(currentPage - 1).toString()}`
+        const prevPage = currentPage - 1 === 1 ? `/blog/` : `/blog/page-${(currentPage - 1).toString()}/`
         
         //nextPage就是下一頁的slug
-        const nextPage = `/blog/page-${(currentPage + 1).toString()}`
+        const nextPage = `/blog/page-${(currentPage + 1).toString()}/`
 
         return (
             <Layout>
@@ -66,12 +66,12 @@ export default class BlogList extends React.Component {
 
                     {
                         //產生一個總頁數數目的array，裡面每一個元素都是undefined，_就是裡面的元素。
-                        //要連的網址，當i是0的時候，代表第1頁，就連去/blog，其他就連去第i+1頁的slug。
+                        //要連的網址，當i是0的時候，代表第1頁，就連去/blog/，其他就連去第i+1頁的slug。
                         Array.from({ length: numPages }, (_, i) => (
                             <span className="mh2 mh3-ns">
                                 <Link
-                                    key={`pagination-number${i + 1}`}
-                                    to={i === 0 ? `/blog` : `/blog/page-${(i + 1).toString()}`}
+                                    key={`pagination-number${i + 1}/`}
+                                    to={i === 0 ? `/blog/` : `/blog/page-${(i + 1).toString()}/`}
                                     activeClassName="orange underline o-80"
                                 >
                                     {i + 1}

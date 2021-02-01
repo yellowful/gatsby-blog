@@ -54,7 +54,7 @@ const HeroIndex = () => {
                         </div>
                         <div className="column flex flex-column justify-end">
                             <Link
-                                to="/about"
+                                to="/about/"
                                 className="ma2 f3-l f4-m f5 font-tc  tr tr-m tc-l"
                             >關於我<FontAwesomeIcon icon={faAngleDoubleRight} /></Link>
                         </div>

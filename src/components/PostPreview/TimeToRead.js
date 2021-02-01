@@ -9,7 +9,7 @@ const TimeToRead = ({publishedDate, timeToRead}) => {
         <div className="mv2 mv4-ns ph2 w-100 flex justify-between">
             <span>
                 <span >
-                    <Link to="/about">
+                    <Link to="/about/">
                         <span className="f6 "><FontAwesomeIcon icon={faAt} /></span>
                         <span className="ml2-ns font-tc  f6 ">蟲探理查</span>
                     </Link>

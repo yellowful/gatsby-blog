@@ -44,7 +44,7 @@ export default function ProjectTemplate({ data }) {
                             </td>
                             <td><a href={repoLink} rel="noreferrer" target="_blank">原始碼 &nbsp;<FontAwesomeIcon icon={faGithub} /></a></td>
                             <td>
-                                <Link to="/project">
+                                <Link to="/project/">
                                     回作品集列表 &nbsp;<FontAwesomeIcon icon={faAngleDoubleLeft} />
                                 </Link>
                             </td>

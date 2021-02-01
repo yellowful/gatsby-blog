@@ -20,7 +20,7 @@ const Card = ({ test,slug, postTitle, publishedDate, imageSrc, excerpt }) => {
                 <p className="f6 lh-copy measure mt2 mid-gray">
                     {excerpt}
                 </p>
-                <p className="pointer tr"><Link to={`/blog/${slug}`}>更多<FontAwesomeIcon icon={faAngleDoubleRight} /></Link></p>
+                <p className="pointer tr"><Link to={`/blog/${slug}/`}>更多<FontAwesomeIcon icon={faAngleDoubleRight} /></Link></p>
             </div>
         </article>
     )

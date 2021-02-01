@@ -79,7 +79,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const posts = result.data.allContentfulBlog.edges
     posts.forEach((edge) => {
         createPage({
-            path: `/blog/${edge.node.slug}`,
+            path: `/blog/${edge.node.slug}/`,
             component: postTemplate,
             context: {
                 slug: edge.node.slug,
@@ -103,7 +103,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //傳currentPage過去，是因為每一頁都要知道自己是第幾頁
     Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
-            path: i === 0 ? `/blog` : `/blog/page-${(i + 1).toString()}`,
+            path: i === 0 ? `/blog/` : `/blog/page-${(i + 1).toString()}/`,
             component: path.resolve("./src/templates/blog-list-template.js"),
             context: {
                 limit: postsPerPage,
@@ -117,7 +117,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const tagList = result.data.allContentfulAllTag.edges
     tagList.forEach((edge) => {
       createPage({
-          path: `/blog/tags/${edge.node.slug}`,
+          path: `/blog/tags/${edge.node.slug}/`,
           component: tagListTemplate,
           context: {
               slug: edge.node.slug,
@@ -128,7 +128,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const projectPage = result.data.allContentfulProject.edges
     projectPage.forEach((edge) => {
         createPage({
-            path: `/project/${edge.node.slug}`,
+            path: `/project/${edge.node.slug}/`,
             component: projectTemplate,
             context: {
                 slug: edge.node.slug,
