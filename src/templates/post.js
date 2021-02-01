@@ -15,7 +15,8 @@ export default function Template({ data }) {
 
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
-    const imageURL = data.contentfulBlog.images[0].fluid.src
+    const imageURL = `https:${data.contentfulBlog.images[0].fluid.src}`
+    console.log(imageURL);
 
     //contentful上這篇文章有設定文章title
     //contentful上這篇文章有設定文章的公開時間

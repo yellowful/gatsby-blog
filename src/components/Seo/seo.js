@@ -61,7 +61,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             <Helmet>
               <meta property="og:type" content="article" />
               <meta property="og:article:published_time" content={datePublished} />
-              <meta property="og:image" content={`https://${imageURL}`} />
+              <meta property="og:image" content={imageURL} />
               <meta property="og:url" content={pageURL} />
               <meta property="article:author" content="https://bugdetective.netlify.app/about" />
             </Helmet>
