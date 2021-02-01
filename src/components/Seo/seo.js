@@ -29,6 +29,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  console.table({description:description, lang:lang, meta:meta, title:title, datePublished:datePublished, imageURL:imageURL, pageURL:pageURL, isArticle:isArticle});
 
   return (
     <React.Fragment>
@@ -64,6 +65,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
               <meta property="og:image" content={imageURL} />
               <meta property="og:url" content={pageURL} />
               <meta property="article:author" content="https://bugdetective.netlify.app/about" />
+              <meta property="fb:app_id" content="129888612117049" />
             </Helmet>
           )
           :
