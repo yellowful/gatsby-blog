@@ -26,7 +26,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //其中contentful可能設定多國，這時要限定locale才抓的正確
     const result = await graphql(`
         {
-            allContentfulBlog(filter: {node_locale: {eq: "en-US"}}) {
+            allContentfulBlog(filter: {node_locale: {eq: "zh-Hant-TW"}}) {
                 edges {
                   node {
                     slug
@@ -42,7 +42,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   }
                 }
             }
-            allContentfulAllTag(filter: {node_locale: {eq: "en-US"}}) {
+            allContentfulAllTag(filter: {node_locale: {eq: "zh-Hant-TW"}}) {
                 edges {
                   node {
                     slug
@@ -50,7 +50,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   }
                 }
             }
-            allContentfulProject(filter: {node_locale: {eq: "en-US"}}) {
+            allContentfulProject(filter: {node_locale: {eq: "zh-Hant-TW"}}) {
                 edges {
                   node {
                     slug

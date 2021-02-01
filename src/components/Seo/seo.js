@@ -80,7 +80,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
 
 //定義初始值
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `zh-Hant-TW`,
   meta: [],
   description: ``,
   datePublished: ``,
