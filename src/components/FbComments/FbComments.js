@@ -9,14 +9,14 @@ const FbComments = ({ fbHref }) => {
             <table className="w-100">
                 <tbody>
                     <tr>
-                        <div className="pl2">
+                        <td className="pl2">
                             <Like href={fbHref} lazy={true} colorScheme="light" size="large" width="90" button_count showFaces share />
-                        </div>
+                        </td>
                     </tr>
                     <tr>
-                        <div className="mv3">
+                        <td className="mv3">
                             <Comments href={fbHref} lazy={true} colorScheme="light" width="100%" />
-                        </div>
+                        </td>
                     </tr>
                 </tbody>
             </table>

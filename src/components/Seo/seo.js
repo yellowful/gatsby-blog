@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import GoogleSchema from "./GoogleSchema"
 
 function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL, isArticle }) {
   const { site } = useStaticQuery(
@@ -30,70 +31,48 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
   const defaultTitle = site.siteMetadata?.title
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      //如果defaultTitle是true的話，Helmet內部的function會把title放進%s的地方
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    >
+    <React.Fragment>
+      <Helmet
+        htmlAttributes={{
+          lang,
+        }}
+        title={title}
+        //如果defaultTitle是true的話，Helmet內部的function會把title放進%s的地方
+        titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+        meta={[
+          {
+            name: `description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:title`,
+            content: title,
+          },
+          {
+            property: `og:description`,
+            content: metaDescription,
+          },
+        ].concat(meta)}
+      >
+      </Helmet>
       {
         isArticle ?
           (
-            <>
+            <Helmet>
               <meta property="og:type" content="article" />
               <meta property="og:article:published_time" content={datePublished} />
               <meta property="og:image" content={imageURL} />
               <meta property="og:url" content={pageURL} />
               <meta property="article:author" content="https://bugdetective.netlify.app/about" />
-            </>
+            </Helmet>
           )
           :
-          <meta property="og:type" content="website" />
-      }
-      <script type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "NewsArticle",
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id": "https://bugdetective.netlify.app/"
-            },
-            ${
-              isArticle ?
-              `
-                "headline": ${title},
-                "url": ${pageURL}
-                "image": ${imageURL},
-                "datePublished": ${datePublished},
-                "author": {
-                  "@type": "Person",
-                  "name": "黃瑞成"
-                }
-              `
-              :
-              null
-            }
-          }
-        `}
-      </script>
-    </Helmet>
+          <Helmet>
+            <meta property="og:type" content="website" />
+          </Helmet>
+        }
+      <GoogleSchema />
+    </React.Fragment>
   )
 }
 
