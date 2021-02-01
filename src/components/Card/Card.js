@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
-const Card = ({ test,slug, postTitle, publishedDate, imageSrc, excerpt }) => {
+const Card = ({ slug, postTitle, publishedDate, imageSrc, excerpt }) => {
     return (
         <article className="br2 dark-gray b--black-10 bg-light-gray">
             <Img className="db w-100 br2 br--top" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />

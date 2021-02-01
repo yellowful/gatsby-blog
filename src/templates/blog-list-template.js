@@ -36,8 +36,8 @@ export default class BlogList extends React.Component {
                             return (
                                 <React.Fragment>
                                     <PostPreview
-                                        key={`blog${element.node.slug}`}
-                                        slug={element.node.slug}
+                                        key={`blog${element.node.slug.toLowerCase()}`}
+                                        slug={element.node.slug.toLowerCase()}
                                         postTitle={element.node.title}
                                         publishedDate={publishedDate}
                                         excerpt={element.node.articles.childMarkdownRemark.excerpt}

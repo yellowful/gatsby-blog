@@ -24,8 +24,8 @@ const BlogTags = () => {
                 {
                     data.allContentfulAllTag.edges.map((item) => {
                         return (
-                            <li key={`標籤-${item.node.slug}`}>
-                                <Link to={`../標籤/${item.node.slug}/`}>
+                            <li key={`標籤-${item.node.slug.toLowerCase()}`}>
+                                <Link to={`../標籤/${item.node.slug.toLowerCase()}/`}>
                                     {item.node.slug}
                                 </Link>
                             </li>

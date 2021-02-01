@@ -52,9 +52,9 @@ const IndexPage = () => {
           data.allContentfulBlog.edges.map((element,i) => {
             const publishedDate = element.node.publishedDate.slice(0, 10)
             return(
-              <React.Fragment key={`index-${element.node.slug}`}>
+              <React.Fragment key={`index-${element.node.slug.toLowerCase()}`}>
                   <Card 
-                    slug={element.node.slug}
+                    slug={element.node.slug.toLowerCase()}
                     postTitle={element.node.title}
                     publishedDate={publishedDate}
                     excerpt={element.node.articles.childMarkdownRemark.excerpt}

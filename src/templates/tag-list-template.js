@@ -17,7 +17,7 @@ export default class TagListPage extends React.Component {
         return (
             <Layout>
                 <SEO title="tags" />
-                <TagList tagSlug={this.props.data.allContentfulAllTag.edges[0].node.slug}>
+                <TagList tagSlug={this.props.data.allContentfulAllTag.edges[0].node.slug.toLowerCase()}>
                     {
                         posts.map((element) => {
                             const {slug,title,publishedDate}=element;
@@ -26,7 +26,7 @@ export default class TagListPage extends React.Component {
                             return (
                                 <React.Fragment>
                                     <TagCard
-                                        slug={slug}
+                                        slug={slug.toLowerCase()}
                                         postTitle={title}
                                         publishedDate={shortDate}
                                         excerpt={excerpt}

@@ -64,7 +64,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
               <meta property="og:article:published_time" content={datePublished} />
               <meta property="og:image" content={imageURL} />
               <meta property="og:url" content={pageURL} />
-              <meta property="article:author" content="https://bugdetective.netlify.app/about" />
+              <meta property="article:author" content="https://bugdetective.netlify.app/about/" />
               <meta property="fb:app_id" content="129888612117049" />
             </Helmet>
           )

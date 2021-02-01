@@ -46,13 +46,13 @@ const RestOfTags = ({ tagSlug }) => {
                             return b.node.blog.length - a.node.blog.length
                         })
                         .map((item, i) => {
-                            if (item.node.slug === tagSlug) {
+                            if (item.node.slug.toLowerCase() === tagSlug.toLowerCase()) {
                                 return null
                             } else {
                                 return (
                                     <div className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
-                                        <Link to={`/blog/tags/${item.node.slug}/`} className="dib font-tc f5 v-btm">
-                                            {`${item.node.slug}`}
+                                        <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib font-tc f5 v-btm">
+                                            {`${item.node.slug.toLowerCase()}`}
                                         </Link>
                                         <span className="font-tc f7 dib v-btm">{`+${item.node.blog.length}`}</span>
                                     </div>

@@ -52,7 +52,7 @@ const Blog = () => {
           post.map((item,i)=>{
             return(
               <ProjectCard 
-                slug={item.node.slug}
+                slug={item.node.slug.toLowerCase()}
                 projectName={item.node.projectName}
                 demoLink={item.node.demoLink}
                 repoLink={item.node.repoLink}

@@ -10,8 +10,8 @@ const PostTags = ({ tag }) => {
             {
                 tag.map((item, i) => {
                     return (
-                        <span key={`blog-tags-${item.slug}`}>
-                            <Link to={`/blog/tags/${item.slug}/`} className="dib v-mid br-pill pv1 ph3 bg-moon-gray mh2">
+                        <span key={`blog-tags-${item.slug.toLowerCase()}`}>
+                            <Link to={`/blog/tags/${item.slug.toLowerCase()}/`} className="dib v-mid br-pill pv1 ph3 bg-moon-gray mh2">
                                     {item.slug}
                             </Link>
                         </span>

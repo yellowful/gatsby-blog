@@ -79,7 +79,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const posts = result.data.allContentfulBlog.edges
     posts.forEach((edge) => {
         createPage({
-            path: `/blog/${edge.node.slug}/`,
+            path: `/blog/${edge.node.slug.toLowerCase()}/`,
             component: postTemplate,
             context: {
                 slug: edge.node.slug,
@@ -117,7 +117,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const tagList = result.data.allContentfulAllTag.edges
     tagList.forEach((edge) => {
       createPage({
-          path: `/blog/tags/${edge.node.slug}/`,
+          path: `/blog/tags/${edge.node.slug.toLowerCase()}/`,
           component: tagListTemplate,
           context: {
               slug: edge.node.slug,
@@ -128,7 +128,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const projectPage = result.data.allContentfulProject.edges
     projectPage.forEach((edge) => {
         createPage({
-            path: `/project/${edge.node.slug}/`,
+            path: `/project/${edge.node.slug.toLowerCase()}/`,
             component: projectTemplate,
             context: {
                 slug: edge.node.slug,
