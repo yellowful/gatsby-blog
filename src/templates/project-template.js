@@ -26,15 +26,15 @@ export default function ProjectTemplate({ data }) {
             <SEO title={projectName} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
-                    <h1 className="font-tc head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
+                    <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
                     <div>
-                        <h2 className="font-tc f3 lh-title fw7 mv4 dark-gray">作品特點</h2>
+                        <h2 className="f3 lh-title fw7 mv4 dark-gray">作品特點</h2>
                         <div dangerouslySetInnerHTML={{ __html: projectIntroduction.html }} />
                         <div dangerouslySetInnerHTML={{ __html: projectSection.html }} />
 
                     </div>
                     <hr className="b--dashed bb b--black-40 bw1 mv4" />
-                    <table className="w-100 tc font-tc mb4 f4 lh-copy fw3">
+                    <table className="w-100 tc mb4 f4 lh-copy fw3">
                         <tr>
                             <td>
                                 <a href={demoLink} rel="noreferrer" target="_blank">試玩 &nbsp;<FontAwesomeIcon icon={faGamepad} /></a>

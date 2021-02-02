@@ -16,7 +16,7 @@ const SkillList = ({ data, bgColor, isExpanded }) => {
                 ${isExpanded ? '' : 'overflow-y-hidden excerpt-gradient'}
             `}>
                 <div className="w-100 w-90-m w-80-l ph3 mw8 center">
-                    <h1 className="tc font-tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{data.title}</h1>
+                    <h1 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{data.title}</h1>
                     <div dangerouslySetInnerHTML={{ __html: data.childContentfulAboutContentTextNode.childMarkdownRemark.html }} />
                     <div className="index-card-container mt4">
                         {
@@ -25,7 +25,7 @@ const SkillList = ({ data, bgColor, isExpanded }) => {
                                     <article className=" bg-light-gray br3">
                                         <h2 className="w-100 mt2 tc f4 fw7">
                                             <span><FontAwesomeIcon icon={icons[i]} /></span>
-                                            <span className="ml2 font-tc">
+                                            <span className="ml2">
                                                 {skill.category}
                                             </span>
                                         </h2>

@@ -16,12 +16,12 @@ const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead
                         <Link to={`/blog/${slug}/`}>
                             <h1 class="f3 fw7 athelas mt0 lh-title head-1-shadow dark-gray">{postTitle}</h1>
                         </Link>
-                        <p class="f5 f4-l lh-copy font-tc">
+                        <p class="f5 f4-l lh-copy">
                             <span>
                                 {excerpt}
                             </span>
                         </p>
-                        <p class="f5 f4-l lh-copy font-tc tr">
+                        <p class="f5 f4-l lh-copy tr">
                             <Link to={`/blog/${slug}/`}>
                                 繼續閱讀
                                 <FontAwesomeIcon icon={faAngleDoubleRight} />

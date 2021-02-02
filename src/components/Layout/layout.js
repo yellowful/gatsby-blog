@@ -4,18 +4,18 @@
  *
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
-
+import "@fontsource/noto-sans-tc"
 import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { FacebookProvider } from 'react-facebook';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import "./mystyles.css"
 import 'tachyons'
 import "./layout.css"
-import { FacebookProvider } from 'react-facebook';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
 
 

@@ -15,14 +15,14 @@ const ClippedEdge = ({ topBackground, edgeHeight, edgeMarginTop, edgeMarginBotto
                                 isExpanded ?
                                     (<div className="w-100 w-90-m w-80-l ph3 pt2 mw8 center tr">
                                         <button className="blue bw0 bg-transparent pointer grow button-focus br2" onClick={onFolding}>
-                                            <span className="font-tc f4 lh-copy mb4 fw3 tr mr2">收合</span>
+                                            <span className="f4 lh-copy mb4 fw3 tr mr2">收合</span>
                                             <span className="f4 lh-copy mb4 fw3"><FontAwesomeIcon icon={faAngleDoubleUp} /></span>
                                         </button>
                                     </div>)
                                     : 
                                     (<div className="w-100 w-90-m w-80-l ph3 pt2 mw8 center relative tr">
                                         <button className="blue bw0 bg-transparent pointer grow button-focus" onClick={onExpanding}>
-                                            <span className="font-tc f4 lh-copy mb4 fw3 tr mr2">展開</span>
+                                            <span className="f4 lh-copy mb4 fw3 tr mr2">展開</span>
                                             <span className="f4 lh-copy mb4 fw3"><FontAwesomeIcon icon={faAngleDoubleDown} /></span>
                                         </button>
                                     </div>)

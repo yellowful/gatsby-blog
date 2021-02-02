@@ -31,7 +31,7 @@ const RestOfTags = ({ tagSlug }) => {
             <div className="w-100 w-50-m w-30-l">
                 <span className="dib v-mid">
                     <span className="f3 pv1 ph2 dib v-mid"><FontAwesomeIcon icon={faTag} /></span>
-                    <h1 className="f3 fw7 pv1 ph2 dib v-mid font-tc">
+                    <h1 className="f3 fw7 pv1 ph2 dib v-mid" >
                         {tagSlug}
                     </h1>
                 </span>
@@ -51,10 +51,10 @@ const RestOfTags = ({ tagSlug }) => {
                             } else {
                                 return (
                                     <div className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
-                                        <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib font-tc f5 v-btm">
+                                        <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib f5 v-btm">
                                             {`${item.node.slug.toLowerCase()}`}
                                         </Link>
-                                        <span className="font-tc f7 dib v-btm">{`+${item.node.blog.length}`}</span>
+                                        <span className="f7 dib v-btm">{`+${item.node.blog.length}`}</span>
                                     </div>
                                 )
                             }

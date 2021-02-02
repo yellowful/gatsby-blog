@@ -20,7 +20,7 @@ const Header = ({ siteTitle }) => {
               <span>
                 {/* <img className="mb0 dib v-mid" alt="logo" src={logo}/> */}
                 <BdrLogo className="dib v-mid w3 h2" fill="#f4f4f4" />
-                <p className="dib v-mid near-white f5 fw4 font-tc">蟲探理查</p>
+                <p className="dib v-mid near-white f5 fw4">蟲探理查</p>
               </span>
             </Link>
           </div>
@@ -52,21 +52,21 @@ const Header = ({ siteTitle }) => {
           >
             <Link
               to="/blog/"
-              className="navbar-item tr mr3 font-tc"
+              className="navbar-item tr mr3"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFeatherAlt} />文章
             </Link>
             <Link
               to="/about/"
-              className="navbar-item tr mr3 font-tc"
+              className="navbar-item tr mr3"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faIdCard} />作者
             </Link>
             <Link
               to="/project/"
-              className="navbar-item tr mr3 font-tc"
+              className="navbar-item tr mr3"
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFileCode} />作品集

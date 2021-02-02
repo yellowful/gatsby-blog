@@ -10,20 +10,20 @@ const TimeToRead = ({publishedDate, timeToRead}) => {
             <span>
                 <span >
                     <Link to="/about/">
-                        <span className="f6 "><FontAwesomeIcon icon={faAt} /></span>
-                        <span className="ml2-ns font-tc  f6 ">蟲探理查</span>
+                        <span className="f6"><FontAwesomeIcon icon={faAt} /></span>
+                        <span className="ml2-ns f6">蟲探理查</span>
                     </Link>
                 </span>
                 <span className="ml2 ml6-ns">
                     <span className="f6 gray lh-copy ">
                         <FontAwesomeIcon icon={faCalendarAlt} />
                     </span>
-                    <time className="ml2-ns font-tc f6 gray lh-copy ">
+                    <time className="ml2-ns f6 gray lh-copy ">
                         {publishedDate}
                     </time>
                 </span>
             </span>
-            <span className="font-tc f6 ">
+            <span className="f6 ">
                 <span>
                     <FontAwesomeIcon icon={faGlasses} />
                 </span>

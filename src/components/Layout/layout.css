@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap");
+body, button, input, optgroup, select, textarea{
+    font-family: "Noto Sans TC",sans-serif;
+}
 
 .font-tc {
-    font-family: 'Noto Sans TC',sans-serif;
+    font-family: "Noto Sans TC",sans-serif;
 }
 
 .clip-path-hero {
@@ -140,7 +142,7 @@
   }
 
 .gatsby-resp-image-figcaption {
-    font-family: 'Noto Sans TC',sans-serif;
+    font-family: "Noto Sans TC",sans-serif;
     text-align: center;
     font-size: 1rem;
     max-width: 16rem;

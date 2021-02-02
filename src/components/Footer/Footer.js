@@ -22,18 +22,18 @@ const Footer = () => {
     return (
         <div className="has-background-dark w-100 flex justify-center">
             <span className="pv2 bg-dark-gray w-100 w-90-m w-80-l mw8 tr">
-                <span className="dib v-btm moon-gray font-tc f7 f6-ns">
+                <span className="dib v-btm moon-gray f7 f6-ns">
                     © 2020, Built by &nbsp;
             </span>
-                <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm font-tc f7 f6-ns mr4-ns">
+                <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm f7 f6-ns mr4-ns">
                     <FontAwesomeIcon icon={faGithub} />
-                    <span className="font-tc">
+                    <span>
                         Bug Detective Richard &nbsp;
                 </span>
                 </a>
-                <Link to="/privacy-policy/PrivacyPolicy/" className="dib v-btm font-tc f7 f6-ns">
+                <Link to="/privacy-policy/PrivacyPolicy/" className="dib v-btm f7 f6-ns">
                     <FontAwesomeIcon icon={faUserLock} />
-                    <span className="font-tc">
+                    <span>
                         隱私權政策 &nbsp;
                 </span>
                 </Link>
