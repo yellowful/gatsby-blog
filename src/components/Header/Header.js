@@ -10,10 +10,10 @@ const Header = ({ siteTitle }) => {
   const [hamburgerExpand, setHamburgerExpand] = useState('');
 
   return (
-    <div className="has-background-dark w-100 flex justify-center">
+    <header className="has-background-dark w-100 flex justify-center">
       <nav className="navbar is-dark w-100 w-90-m w-80-l mw8" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <div className="navbar-item">
+          <header className="navbar-item">
             <Link
               to="/"
             >
@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => {
                 <p className="dib v-mid near-white f5 fw4">蟲探理查</p>
               </span>
             </Link>
-          </div>
+          </header>
           <div
             className={`navbar-burger burger button-focus ${hamburgerExpand}`}
             aria-label="menu"
@@ -74,7 +74,7 @@ const Header = ({ siteTitle }) => {
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   )
 }
 

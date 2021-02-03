@@ -5,7 +5,7 @@ import { faTags } from '@fortawesome/free-solid-svg-icons'
 
 const PostTags = ({ tag }) => {
     return (
-        <div className="w-100">
+        <aside className="w-100">
             <span className="f4 dib v-mid mr2"><FontAwesomeIcon icon={faTags} /></span>
             {
                 tag.map((item, i) => {
@@ -18,7 +18,7 @@ const PostTags = ({ tag }) => {
                     )
                 })
             }
-        </div>
+        </aside>
     )
 }
 

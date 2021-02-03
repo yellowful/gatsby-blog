@@ -35,7 +35,7 @@ const HeroIndex = () => {
 
 
     return (
-        <div className="w-100 is-fullheight-with-navbar">
+        <section className="w-100 is-fullheight-with-navbar">
             <BackgroundImage
                 Tag={"section"}
                 className="hero is-fullheight-with-navbar"
@@ -52,16 +52,16 @@ const HeroIndex = () => {
                                 從抓標號錯誤到抓程式臭蟲
                             </h1>
                         </div>
-                        <div className="column flex flex-column justify-end">
+                        <footer className="column flex flex-column justify-end">
                             <Link
                                 to="/about/"
                                 className="ma2 f3-l f4-m f5  tr tr-m tc-l"
                             >關於我<FontAwesomeIcon icon={faAngleDoubleRight} /></Link>
-                        </div>
+                        </footer>
                     </div>
                 </div>
             </BackgroundImage>
-        </div>
+        </section>
     )
 }
 

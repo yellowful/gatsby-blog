@@ -6,7 +6,7 @@ import { faAt, faCalendarAlt, faGlasses } from '@fortawesome/free-solid-svg-icon
 
 const TimeToRead = ({publishedDate, timeToRead}) => {
     return (
-        <div className="mv2 mv4-ns ph2 w-100 flex justify-between">
+        <section className="mv2 mv4-ns ph2 w-100 flex justify-between">
             <span>
                 <span >
                     <Link to="/about/">
@@ -29,9 +29,9 @@ const TimeToRead = ({publishedDate, timeToRead}) => {
                 </span>
                 <span className="ml2-ns">
                     約{timeToRead}分鐘
-                        </span>
+                </span>
             </span>
-        </div>
+        </section>
     )
 }
 

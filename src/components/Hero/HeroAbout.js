@@ -48,7 +48,7 @@ const HeroAbout = ({ head, content }) => {
 
 
     return (
-        <div className="hero bg-moon-gray">
+        <section className="hero bg-moon-gray">
                 <div className="w-80 w-70-m w-60-l mw7 center pb3">
                     <h1 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{head}</h1>
                     <BackgroundImage
@@ -57,9 +57,9 @@ const HeroAbout = ({ head, content }) => {
                         fixed={imageData}
                         backgroundColor="transparent"
                     />
-                    <div dangerouslySetInnerHTML={{ __html: content }} />
+                    <section dangerouslySetInnerHTML={{ __html: content }} />
                 </div>
-        </div>
+        </section>
     )
 }
 

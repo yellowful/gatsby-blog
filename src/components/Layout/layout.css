@@ -107,7 +107,7 @@ body, button, input, optgroup, select, textarea{
 }
 
 .language-text{
-    background: #999999 !important;
+    background: #bbb !important;
     overflow-wrap: break-word !important;
 
 }

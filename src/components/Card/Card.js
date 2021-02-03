@@ -10,17 +10,17 @@ const Card = ({ slug, postTitle, publishedDate, imageSrc, excerpt }) => {
             <Img className="db w-100 br2 br--top" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
             <div className="pa2 ph3-ns pb3-ns">
                 <div className="dt w-100 mt1">
-                    <div className="dtc">
-                        <h1 className="f5 f4-ns mv0">{postTitle}</h1>
-                    </div>
+                    <header className="dtc">
+                        <h3 className="f5 f4-ns mv0">{postTitle}</h3>
+                    </header>
                     <div className="dtc tr">
-                        <h2 className="f5 mv0">{publishedDate}</h2>
+                        <time className="f5 mv0">{publishedDate}</time>
                     </div>
                 </div>
-                <p className="f6 lh-copy measure mt2 mid-gray">
+                <section className="f6 lh-copy measure mt2 mid-gray">
                     {excerpt}
-                </p>
-                <p className="pointer tr"><Link to={`/blog/${slug}/`}>更多<FontAwesomeIcon icon={faAngleDoubleRight} /></Link></p>
+                </section>
+                <footer className="pointer tr"><Link to={`/blog/${slug}/`}>更多<FontAwesomeIcon icon={faAngleDoubleRight} /></Link></footer>
             </div>
         </article>
     )
