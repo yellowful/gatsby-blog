@@ -65,7 +65,12 @@ const About = () => {
 
   return (
     <Layout>
-      <SEO title="關於作者" />
+      <SEO 
+        title="關於" 
+        description={aboutBlog.childContentfulAboutContentTextNode.childMarkdownRemark.excerpt} 
+        pageURL="https://bugdetective.netlify.app/about/"
+        isArticle={false}
+      />
       <div className="flex flex-column">
         <HeroAbout head={aboutBlog.title} content={aboutBlog.childContentfulAboutContentTextNode.childMarkdownRemark.html} />
         <ClippedEdge topBackground={"bg-moon-gray"} edgeHeight={"4em"} edgeMarginTop={"1em"} edgeMarginBottom={"2em"} />
