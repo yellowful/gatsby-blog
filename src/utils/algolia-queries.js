@@ -33,7 +33,7 @@ function pageToAlgoliaRecord({ node: { id,slug,articles,tag,...rest } }) {
 }
 
 const aboutQuery = `{
-    aboutPage: allContentfulAbout{
+    aboutPages: allContentfulAbout{
         edges {
             node {
                 slug
@@ -63,7 +63,7 @@ function aboutToAlgoliaRecord({ node: { id,content,...rest } }) {
 }
 
 const projectQuery = `{
-    projectPage: allContentfulProject{
+    projectPages: allContentfulProject{
         edges {
             node {
                 serial
@@ -114,7 +114,7 @@ const queries = [
   },
   {
     query: aboutQuery,
-    transformer: ({ data }) => data.pages.edges.map(aboutToAlgoliaRecord),
+    transformer: ({ data }) => data.aboutPages.edges.map(aboutToAlgoliaRecord),
     indexName:indexName[1],
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
@@ -123,13 +123,13 @@ const queries = [
   },
   {
     query: projectQuery,
-    transformer: ({ data }) => data.pages.edges.map(projectToAlgoliaRecord),
+    transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
     indexName:indexName[2],
     settings: { 
         attributesToSnippet: [`introduction:${numberOfExcerpt}`],
         searchableAttributes:[`projectName`]
     }
-  },
+  }
 ]
 
 module.exports = queries
