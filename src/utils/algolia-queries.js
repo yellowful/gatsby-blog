@@ -22,10 +22,12 @@ const pageQuery = `{
   }
 }`
 
-function pageToAlgoliaRecord({ node: { id,articles,...rest } }) {
+function pageToAlgoliaRecord({ node: { id,slug,articles,tag,...rest } }) {
     return {
         objectID:id,
+        slug:`/blog/${slug}/`,
         excerpt: articles.childMarkdownRemark.excerpt,
+        tag: tag.map(item=>item.tagName),
         ...rest
   }
 }
@@ -35,7 +37,7 @@ const queries = [
     query: pageQuery,
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
     indexName,
-    settings: { attributesToSnippet: [`excerpt:20`] },
+    settings: { attributesToSnippet: [`excerpt:100`] },
   },
 ]
 
