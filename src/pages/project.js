@@ -19,12 +19,12 @@ const Blog = () => {
               projectName
               demoLink
               repoLink
-              childContentfulProjectIntroductionTextNode {
+              introduction {
                 childMarkdownRemark {
                   html
                 }
               }
-              childContentfulProjectSectionTextNode {
+              section {
                 childMarkdownRemark {
                   html
                 }
@@ -56,8 +56,8 @@ const Blog = () => {
                 projectName={item.node.projectName}
                 demoLink={item.node.demoLink}
                 repoLink={item.node.repoLink}
-                introduction={item.node.childContentfulProjectIntroductionTextNode.childMarkdownRemark.html} 
-                section={item.node.childContentfulProjectSectionTextNode.childMarkdownRemark.html}
+                introduction={item.node.introduction.childMarkdownRemark.html} 
+                section={item.node.section.childMarkdownRemark.html}
                 image={`https:${item.node.images[0].file.url}`}
               />
             )

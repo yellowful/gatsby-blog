@@ -20,7 +20,7 @@ const About = () => {
               slug
               serial
               title
-              childContentfulAboutContentTextNode {
+              content{
                 childMarkdownRemark {
                   html
                   excerpt(format: HTML, truncate: true, pruneLength: 150)
@@ -67,12 +67,12 @@ const About = () => {
     <Layout>
       <SEO 
         title="關於" 
-        description={aboutBlog.childContentfulAboutContentTextNode.childMarkdownRemark.excerpt} 
+        description={aboutBlog.content.childMarkdownRemark.excerpt} 
         pageURL="https://bugdetective.netlify.app/about/"
         isArticle={false}
       />
       <div className="flex flex-column">
-        <HeroAbout head={aboutBlog.title} content={aboutBlog.childContentfulAboutContentTextNode.childMarkdownRemark.html} />
+        <HeroAbout head={aboutBlog.title} content={aboutBlog.content.childMarkdownRemark.html} />
         <ClippedEdge topBackground={"bg-moon-gray"} edgeHeight={"4em"} edgeMarginTop={"1em"} edgeMarginBottom={"2em"} />
         <AboutAuthor data={aboutAuthor} bgColor={"bg-near-white"} isExpanded={isAuthorExpanded} />
         <ClippedEdge
