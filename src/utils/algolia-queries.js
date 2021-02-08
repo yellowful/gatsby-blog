@@ -87,7 +87,7 @@ const projectQuery = `{
     }
 }`
 
-function projectToAlgoliaRecord({ node: { id,slug,content,...rest } }) {
+function projectToAlgoliaRecord({ node: { id,slug,introduction,section,...rest } }) {
     return {
         objectID:id,
         slug:`/project/${slug}/`,
