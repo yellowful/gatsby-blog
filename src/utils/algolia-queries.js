@@ -16,17 +16,17 @@ const pageQuery = `{
         }
         tag {
             tagName
-          }
+        }
       }
     }
   }
 }`
 
-function pageToAlgoliaRecord({ node: { articles,tag,...rest } }) {
-  return {
-    excerpt: articles.childMarkdownRemark.excerpt,
-    tag:tag.tagName,
-    ...rest,
+function pageToAlgoliaRecord({ node: { id,articles,...rest } }) {
+    return {
+        objectID:id,
+        excerpt: articles.childMarkdownRemark.excerpt,
+        ...rest
   }
 }
 
