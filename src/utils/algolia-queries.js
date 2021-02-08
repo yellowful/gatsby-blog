@@ -36,8 +36,8 @@ const aboutQuery = `{
     aboutPages: allContentfulAbout{
         edges {
             node {
+                id
                 slug
-                serial
                 title
                 content{
                     childMarkdownRemark {
@@ -66,7 +66,7 @@ const projectQuery = `{
     projectPages: allContentfulProject{
         edges {
             node {
-                serial
+                id
                 slug
                 projectName
                 demoLink
