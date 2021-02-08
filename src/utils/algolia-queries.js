@@ -45,8 +45,8 @@ const aboutQuery = `{
                     }
                 }
                 complexData {
-                category
-                items
+                    category
+                    items
                 }
             }
         }
@@ -82,7 +82,6 @@ const projectQuery = `{
                   }
                 }
                 publishedDate
-              }
             }
         }
     }
