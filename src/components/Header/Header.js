@@ -1,9 +1,8 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFeatherAlt, faIdCard, faFileCode } from '@fortawesome/free-solid-svg-icons'
+import { faFeatherAlt, faIdCard, faFileCode} from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
-
 
 const Header = ({ siteTitle }) => {
 
@@ -70,6 +69,12 @@ const Header = ({ siteTitle }) => {
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
+            </Link>
+            <Link
+              to="/search/"
+              className="navbar-item tr mr3"
+              activeClassName="is-active"
+            >
             </Link>
           </div>
         </div>
