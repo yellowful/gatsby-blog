@@ -10,6 +10,7 @@ import {
 } from "react-instantsearch-dom"
 
 const HitCount = connectStateResults(({ searchResults }) => {
+    console.log('searchResults',searchResults);
   const hitCount = searchResults && searchResults.nbHits
 
   return hitCount > 0 ? (
@@ -24,26 +25,41 @@ const PageHit = ({ hit }) => (
     <Link to={hit.slug}>
       <h4>
         <Highlight attribute="title" hit={hit} tagName="mark" />
+        <Highlight attribute="projectName" hit={hit} tagName="mark" />
       </h4>
     </Link>
     <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+    <Snippet attribute="introduction" hit={hit} tagName="mark" />
+    <Snippet attribute="section" hit={hit} tagName="mark" />
   </div>
 )
 
-const HitsInIndex = ({ index }) => (
-  <Index indexName={index.name}>
-    <HitCount />
-    <Hits className="Hits" hitComponent={PageHit} />
-  </Index>
-)
+const HitsInIndex = ({ index }) => {
+    console.table(index);
+    return (
+        <Index indexName={index.name}>
+            <HitCount />
+            <Hits className="Hits" hitComponent={PageHit} />
+        </Index>
+)}
 
-const SearchResult = ({ indices }) => (
-  <div>
-    {indices.map(index => (
-      <HitsInIndex index={index} key={index.name} />
-    ))}
-    <PoweredBy />
-  </div>
-)
+const SearchResult = ({ indices,show }) => {
+    return (
+        <div>
+            {
+                
+                show &&
+                    <>
+                        {
+                            indices.map(index => (
+                                <HitsInIndex index={index} key={index.name} />
+                            ))
+                        }
+                    </>
+            }
+            <PoweredBy />
+        </div>
+    )
+}
 
 export default SearchResult

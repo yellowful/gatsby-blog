@@ -25,7 +25,7 @@ const pageQuery = `{
 function pageToAlgoliaRecord({ node: { id,slug,articles,tag,...rest } }) {
     return {
         objectID:id,
-        slug:`/blog/${slug}/`,
+        slug:`/blog/${slug.toLowerCase()}/`,
         excerpt: articles.childMarkdownRemark.excerpt,
         tag: tag.map(item=>item.tagName),
         ...rest
@@ -53,7 +53,7 @@ const aboutQuery = `{
     }
 }`
 
-function aboutToAlgoliaRecord({ node: { id,content,...rest } }) {
+function aboutToAlgoliaRecord({ node: { id,slug,content,...rest } }) {
     return {
         objectID:id,
         slug:`/about/`,
@@ -90,7 +90,7 @@ const projectQuery = `{
 function projectToAlgoliaRecord({ node: { id,slug,introduction,section,...rest } }) {
     return {
         objectID:id,
-        slug:`/project/${slug}/`,
+        slug:`/project/${slug.toLowerCase()}/`,
         introduction: introduction.childMarkdownRemark.excerpt,
         section: section.childMarkdownRemark.excerpt,
         ...rest
@@ -109,7 +109,7 @@ const queries = [
     indexName:indexName[0],
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-        searchableAttributes:[`title`,`tag`]
+        searchableAttributes:[`title`,`excerpt`,`tag`]
     }
   },
   {
@@ -118,7 +118,7 @@ const queries = [
     indexName:indexName[1],
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-        searchableAttributes:[`title`,`complexData`]
+        searchableAttributes:[`title`,`excerpt`,`complexData`]
     }
   },
   {
@@ -126,8 +126,8 @@ const queries = [
     transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
     indexName:indexName[2],
     settings: { 
-        attributesToSnippet: [`introduction:${numberOfExcerpt}`],
-        searchableAttributes:[`projectName`]
+        attributesToSnippet: [`introduction:${numberOfExcerpt}`,`section${numberOfExcerpt}`,`demoLink${numberOfExcerpt}`,`repoLink${numberOfExcerpt}`],
+        searchableAttributes:[`projectName`,`introduction`,`section`,`demoLink`,`repoLink`]
     }
   }
 ]

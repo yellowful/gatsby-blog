@@ -3,9 +3,11 @@ import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFeatherAlt, faIdCard, faFileCode} from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
+import Search from "../Search"
 
 const Header = ({ siteTitle }) => {
-
+  
+  const searchIndices = [{ name: `BlogPage`}, {name: `AboutPage`},{name: `ProjectPage` }]
   const [hamburgerExpand, setHamburgerExpand] = useState('');
 
   return (
@@ -23,6 +25,7 @@ const Header = ({ siteTitle }) => {
               </span>
             </Link>
           </header>
+
           <div
             className={`navbar-burger burger button-focus ${hamburgerExpand}`}
             aria-label="menu"
@@ -79,6 +82,8 @@ const Header = ({ siteTitle }) => {
           </div>
         </div>
       </nav>
+      <Search indices={searchIndices} />
+
     </header>
   )
 }

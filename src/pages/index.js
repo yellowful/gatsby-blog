@@ -6,8 +6,6 @@ import CardList from "../components/Card/CardList"
 import Card from "../components/Card/Card"
 import HeroIndex from "../components/Hero/HeroIndex"
 import SubscribeContainer from "../components/Subscribe/SubscribeContainer"
-import Search from "../components/Search"
-const searchIndices = [{ name: `BlogPage`}, {name: `AboutPages`},{name: `ProjectPage` }]
 
 
 
@@ -50,7 +48,6 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <HeroIndex />
-      <Search indices={searchIndices} />
       <CardList>
         {
           data.allContentfulBlog.edges.map((element,i) => {

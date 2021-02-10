@@ -35,10 +35,10 @@ const HeroIndex = () => {
 
 
     return (
-        <section className="w-100 is-fullheight-with-navbar">
+        <section className="w-100">
             <BackgroundImage
                 Tag={"section"}
-                className="hero is-fullheight-with-navbar"
+                className="hero  is-fullheight-with-navbar"
                 fluid={imageData}
                 backgroundColor={`#000`}
             >
