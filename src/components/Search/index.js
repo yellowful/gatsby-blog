@@ -7,7 +7,7 @@ import useClickOutside from "./use-click-outside"
 
 
 
-export default function Search({ indices }) {
+export default function Search({ indices,showSearch,setShowSearch }) {
   const rootRef = createRef()
   const [query, setQuery] = useState()
   const [hasFocus, setFocus] = useState(false)
@@ -15,13 +15,20 @@ export default function Search({ indices }) {
     process.env.GATSBY_ALGOLIA_APP_ID,
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
-  useClickOutside(rootRef, () => setFocus(false))
 
-  console.table({query:query,hasFocus:hasFocus})
 
-  return (
-      <div className="absolute top-0 left-0 w-100 vh-100 bg-transparent z-5">
-        <div className="center mw6 w-60 ma5 bg-near-white o-90 z-5" ref={rootRef}>
+  useClickOutside(rootRef, () => {
+    setFocus(false);
+    setShowSearch(false);
+  })
+    
+  if(showSearch){
+    return(
+      <div className="absolute top-0 w-100 bg-transparent z-5">
+        <div 
+          className="br3 center left-0 w-90 w-80-m w-70-l mw6 w-60 ma5 bg-near-white o-90 z-5" 
+          ref={rootRef}
+        >
           <InstantSearch
             searchClient={searchClient}
             indexName={indices[0].name}
@@ -35,5 +42,8 @@ export default function Search({ indices }) {
           </InstantSearch>
         </div>
       </div>
-  )
+    )
+  } else {
+    return null
+  }
 }

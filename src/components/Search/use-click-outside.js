@@ -3,10 +3,14 @@ import { useEffect } from "react"
 const events = [`mousedown`, `touchstart`]
 
 export default (ref, onClickOutside) => {
+
   const isOutside = element => !ref.current || !ref.current.contains(element)
 
+
   const onClick = event => {
+    console.log('event.target',event.target)
     if (isOutside(event.target)) {
+      //如果是outside，就把hasFocuse設成false
       onClickOutside()
     }
   }

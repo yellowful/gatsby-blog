@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFeatherAlt, faIdCard, faFileCode} from '@fortawesome/free-solid-svg-icons'
+import { faFeatherAlt, faIdCard, faFileCode, faSearch} from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
 import Search from "../Search"
 
@@ -9,6 +9,7 @@ const Header = ({ siteTitle }) => {
   
   const searchIndices = [{ name: `BlogPage`}, {name: `AboutPage`},{name: `ProjectPage` }]
   const [hamburgerExpand, setHamburgerExpand] = useState('');
+  const [showSearch,setShowSearch]=useState(false);
 
   return (
     <header className="has-background-dark w-100 flex justify-center">
@@ -73,17 +74,27 @@ const Header = ({ siteTitle }) => {
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
             </Link>
-            <Link
-              to="/search/"
-              className="navbar-item tr mr3"
-              activeClassName="is-active"
+            <div
+              className="navbar-item tr mr4 mr0-l"
+              role="button"
+              tabIndex="-1" 
+              onClick={() => {
+                setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
+                setShowSearch(true);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === 's') {
+                  setHamburgerExpand(hamburgerExpand ? '' : 'is-active')
+                  setShowSearch(true);
+                }
+              }}
             >
-            </Link>
+              <FontAwesomeIcon icon={faSearch} />
+            </div>
           </div>
         </div>
       </nav>
-      <Search indices={searchIndices} />
-
+      <Search indices={searchIndices} showSearch={showSearch} setShowSearch={setShowSearch} />
     </header>
   )
 }

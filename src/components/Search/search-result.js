@@ -23,7 +23,7 @@ const HitCount = connectStateResults(({ searchResults }) => {
 const PageHit = ({ hit }) => (
   <div>
     <Link to={hit.slug}>
-      <h4>
+      <h4 className="f5 lh-title fw7 mv2">
         <Highlight attribute="title" hit={hit} tagName="mark" />
         <Highlight attribute="projectName" hit={hit} tagName="mark" />
       </h4>
@@ -35,7 +35,6 @@ const PageHit = ({ hit }) => (
 )
 
 const HitsInIndex = ({ index }) => {
-    console.table(index);
     return (
         <Index indexName={index.name}>
             <HitCount />
@@ -45,7 +44,7 @@ const HitsInIndex = ({ index }) => {
 
 const SearchResult = ({ indices,show }) => {
     return (
-        <div>
+        <div className="center mt2 w-90 vh-75 overflow-scroll">
             {
                 
                 show &&

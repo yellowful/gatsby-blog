@@ -10,25 +10,25 @@ import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead }) => {
     return (
         <>
-            <article class="pt3 pb2 bt bb b--black-10 ph1 ph0-l" key={`tag-${slug}`}>
-                <div class="flex flex-column flex-row-ns">
-                    <div class="w-100 w-60-ns pr3-ns order-2 order-1-ns">
+            <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" key={`tag-${slug}`}>
+                <div className="flex flex-column flex-row-ns">
+                    <div className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
                         <Link to={`/blog/${slug}/`}>
-                            <h1 class="f3 fw7 athelas mt0 lh-title head-1-shadow dark-gray">{postTitle}</h1>
+                            <h1 className="f3 fw7 athelas mt0 lh-title head-1-shadow dark-gray">{postTitle}</h1>
                         </Link>
-                        <section class="f5 f4-l lh-copy">
+                        <section className="f5 f4-l lh-copy">
                             <span>
                                 {excerpt}
                             </span>
                         </section>
-                        <footer class="f5 f4-l lh-copy tr">
+                        <footer className="f5 f4-l lh-copy tr">
                             <Link to={`/blog/${slug}/`}>
                                 繼續閱讀
                                 <FontAwesomeIcon icon={faAngleDoubleRight} />
                             </Link>
                         </footer>
                     </div>
-                    <div class="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
+                    <div className="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
                         <Link to={`/blog/${slug}/`}>
                             <Img className="db" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
                         </Link>

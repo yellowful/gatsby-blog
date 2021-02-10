@@ -18,7 +18,7 @@ const PostPreview = ({ slug, postTitle, publishedDate, excerpt, postTag, timeToR
                     <div dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </section>
             </div>
-            <footer class="w-100 tr">
+            <footer className="w-100 tr">
                     <Link to={`/blog/${slug}/`} className="pointer f4 fw3 pr3-ns">
                         繼續閱讀<FontAwesomeIcon icon={faAngleDoubleRight} />
                     </Link>
