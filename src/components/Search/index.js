@@ -1,6 +1,6 @@
 import algoliasearch from "algoliasearch/lite"
 import { createRef, default as React, useState } from "react"
-import { InstantSearch } from "react-instantsearch-dom"
+import { InstantSearch,Configure } from "react-instantsearch-dom"
 import CustomSearchBox from "./custom-search-box.js"
 import SearchResult from "./search-result.js"
 import useClickOutside from "./use-click-outside"
@@ -26,7 +26,7 @@ export default function Search({ indices,showSearch,setShowSearch }) {
     return(
       <div className="absolute top-0 w-100 bg-transparent z-5">
         <div 
-          className="br3 center left-0 w-90 w-80-m w-70-l mw6 w-60 ma5 bg-near-white o-90 z-5" 
+          className="br3 center left-0 w-90 w-80-m w-70-l mw6 w-60 ma5 bg-mid-gray o-90 z-5" 
           ref={rootRef}
         >
           <InstantSearch
@@ -34,6 +34,9 @@ export default function Search({ indices,showSearch,setShowSearch }) {
             indexName={indices[0].name}
             onSearchStateChange={({ query }) => setQuery(query)}
           >
+          <Configure
+            attributesToSnippet={['*:50']}
+          />
             <CustomSearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />
             <SearchResult
               show={query && query.length > 0 && hasFocus}

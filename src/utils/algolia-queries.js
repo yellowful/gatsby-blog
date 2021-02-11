@@ -1,5 +1,3 @@
-
-
 //query回來的資料會傳到transformer裡面
 const pageQuery = `{
   pages: allContentfulBlog {
@@ -96,8 +94,6 @@ function projectToAlgoliaRecord({ node: { id,slug,introduction,section,...rest }
         ...rest
   }
 }
-
-
 
 const numberOfExcerpt = 100;
 const indexName = [`BlogPage`,`AboutPage`,`ProjectPage`];

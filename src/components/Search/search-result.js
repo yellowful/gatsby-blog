@@ -34,16 +34,18 @@ const AllHitCounts = connectStateResults(({ allSearchResults }) => {
 })
 
 const PageHit = ({ hit }) => (
-  <div>
+  <div className="bg-dark-gray br3">
     <Link to={hit.slug}>
-      <h4 className="f5 lh-title fw7 mv2">
+      <h4 className="f5 light-blue lh-title fw7 mv2">
         <Highlight attribute="title" hit={hit} tagName="mark" />
         <Highlight attribute="projectName" hit={hit} tagName="mark" />
       </h4>
     </Link>
-    <Snippet attribute="excerpt" hit={hit} tagName="mark" />
-    <Snippet attribute="introduction" hit={hit} tagName="mark" />
-    <Snippet attribute="section" hit={hit} tagName="mark" />
+    <div className="f6 fw5 near-white">
+      <Snippet attribute="excerpt" hit={hit} tagName="mark" />
+      <Snippet attribute="introduction" hit={hit} tagName="mark" />
+      <Snippet attribute="section" hit={hit} tagName="mark" />
+    </div>
   </div>
 )
 
@@ -58,17 +60,17 @@ const HitsInIndex = ({ index }) => {
 const SearchResult = ({ indices,show }) => {
   
     return (
-        <div className="center mt2 w-90 vh-75 overflow-scroll">
+        <div className="center mt2 w-90">
             {
                 show &&
-                    <>
+                    <div className="vh-75 overflow-scroll">
                         <AllHitCounts />
                         {
                             indices.map(index => (
                                 <HitsInIndex index={index} key={index.name} />
                             ))
                         }
-                    </>
+                    </div>
             }
             <PoweredBy />
         </div>

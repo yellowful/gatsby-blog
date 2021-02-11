@@ -153,3 +153,7 @@ body, button, input, optgroup, select, textarea{
 .bottom-3{
     bottom: 5rem;
 }
+
+.ais-Highlight-highlighted, .ais-Snippet-highlighted {
+    background: #FF725C;
+}
