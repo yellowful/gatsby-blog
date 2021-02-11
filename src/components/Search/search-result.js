@@ -1,5 +1,5 @@
 import { Link } from "gatsby"
-import { default as React } from "react"
+import React from "react"
 import {
   connectStateResults,
   Highlight,
@@ -9,13 +9,26 @@ import {
   PoweredBy,
 } from "react-instantsearch-dom"
 
-const HitCount = connectStateResults(({ searchResults }) => {
-    console.log('searchResults',searchResults);
-  const hitCount = searchResults && searchResults.nbHits
 
-  return hitCount > 0 ? (
+// const HitCount = connectStateResults(({ searchResults }) => {
+//   const hitCount = searchResults && searchResults.nbHits
+//   return hitCount > 0 ? (
+//     <div className="HitCount">
+//       搜尋結果{hitCount}筆
+//     </div>
+//   ) : null
+// })
+
+const AllHitCounts = connectStateResults(({ allSearchResults }) => {
+  
+  const totalCounts = allSearchResults &&
+  Object.values(allSearchResults)
+  .map(indice=>indice.nbHits)
+  .reduce((acc,nbHits)=>acc+nbHits,0)
+
+  return totalCounts > 0 ? (
     <div className="HitCount">
-      {hitCount} result{hitCount !== 1 ? `s` : ``}
+      搜尋結果{totalCounts}筆
     </div>
   ) : null
 })
@@ -37,18 +50,19 @@ const PageHit = ({ hit }) => (
 const HitsInIndex = ({ index }) => {
     return (
         <Index indexName={index.name}>
-            <HitCount />
+            {/* <HitCount /> */}
             <Hits className="Hits" hitComponent={PageHit} />
         </Index>
 )}
 
 const SearchResult = ({ indices,show }) => {
+  
     return (
         <div className="center mt2 w-90 vh-75 overflow-scroll">
             {
-                
                 show &&
                     <>
+                        <AllHitCounts />
                         {
                             indices.map(index => (
                                 <HitsInIndex index={index} key={index.name} />
