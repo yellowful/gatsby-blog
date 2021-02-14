@@ -166,6 +166,61 @@ module.exports = {
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries: require("./src/utils/algolia-queries")
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                author
+                canonicalUrl
+                description
+                image
+                title
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlog } }) => {
+              return allContentfulBlog.edges.map(edge => {
+                return Object.assign({}, {
+                  title:edge.node.title,
+                  description: edge.node.articles.excerpt,
+                  date: edge.node.publishedDate,
+                  url: site.siteMetadata.canonicalUrl + "/blog/" + edge.node.slug,
+                  guid: edge.node.id,
+                  custom_elements: [{ "content:encoded": edge.node.articles.childMarkdownRemark.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allContentfulBlog(sort: {order: DESC, fields: publishedDate}) {
+                  edges {
+                    node {
+                      articles {
+                        childMarkdownRemark {
+                          html
+                          excerpt(format: PLAIN, pruneLength: 150, truncate: true)
+                        }
+                      }
+                      publishedDate
+                      slug
+                      title
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "蟲探理查的RSS Feed訂閱",
+          },
+        ],
+      },
+    },
   ],
 }

@@ -35,6 +35,7 @@ export default function Search({ indices,showSearch,setShowSearch }) {
             onSearchStateChange={({ query }) => setQuery(query)}
           >
           <Configure
+            hitsPerPage={4}
             attributesToSnippet={['*:50']}
           />
             <CustomSearchBox onFocus={() => setFocus(true)} hasFocus={hasFocus} />

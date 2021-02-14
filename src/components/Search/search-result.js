@@ -5,7 +5,7 @@ import {
   Highlight,
   Hits,
   Index,
-  Snippet,
+  Snippet
 } from "react-instantsearch-dom"
 import CustomPoweredBy from './CustomPoweredBy'
 

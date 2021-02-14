@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faRss } from '@fortawesome/free-solid-svg-icons'
@@ -6,11 +7,10 @@ import { faRss } from '@fortawesome/free-solid-svg-icons'
 const externalLink = [
     "https://github.com/yellowful/gatsby-blog",
     "https://www.facebook.com/richenyou",
-    "https://www.linkedin.com/in/rueichenghuang/",
-    "https://bugdetective.netlify.app/blog"
+    "https://www.linkedin.com/in/rueichenghuang/"
 ]
 
-const icons = [faGithub, faFacebook, faLinkedin, faRss]
+const icons = [faGithub, faFacebook, faLinkedin]
 
 
 const MediaLinks = () => {
@@ -28,6 +28,11 @@ const MediaLinks = () => {
                     )
                 })
             }
+            <div className="w-10 tc">
+                <Link to={`/rss.xml`} className="f3 f2-ns">
+                    <FontAwesomeIcon icon={faRss} />
+                </Link>
+            </div>
         </div>
 
     )
