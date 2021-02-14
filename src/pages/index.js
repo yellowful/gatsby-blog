@@ -46,7 +46,7 @@ const IndexPage = () => {
   
   return(
     <Layout>
-      <SEO title="Home" />
+      <SEO title="首頁" />
       <HeroIndex />
       <CardList>
         {

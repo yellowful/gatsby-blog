@@ -6,8 +6,8 @@ import {
   Hits,
   Index,
   Snippet,
-  PoweredBy,
 } from "react-instantsearch-dom"
+import CustomPoweredBy from './CustomPoweredBy'
 
 
 // const HitCount = connectStateResults(({ searchResults }) => {
@@ -26,11 +26,22 @@ const AllHitCounts = connectStateResults(({ allSearchResults }) => {
   .map(indice=>indice.nbHits)
   .reduce((acc,nbHits)=>acc+nbHits,0)
 
-  return totalCounts > 0 ? (
-    <div className="HitCount">
-      搜尋結果{totalCounts}筆
-    </div>
-  ) : null
+  return totalCounts > 0 ? 
+    (
+      <div className="near-white">
+        搜尋結果
+        <span className="orange">
+          {totalCounts}
+        </span>
+        筆
+      </div>
+    ) 
+    : 
+    (
+      <div className="near-white">
+        沒有符合搜尋的結果
+      </div>
+    )
 })
 
 const PageHit = ({ hit }) => (
@@ -72,7 +83,7 @@ const SearchResult = ({ indices,show }) => {
                         }
                     </div>
             }
-            <PoweredBy />
+            <CustomPoweredBy />
         </div>
     )
 }
