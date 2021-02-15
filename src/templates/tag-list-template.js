@@ -14,10 +14,13 @@ export default class TagListPage extends React.Component {
             return new Date(postNext.publishedDate) - new Date(postPrev.publishedDate);
         })}
 
+        const tagSlug=this.props.data.allContentfulAllTag.edges[0].node.slug.toLowerCase();
+        const pageURL=`https://bugdetective.netlify.app/blog/tags/${tagSlug.toLowerCase()}/`;
+
         return (
             <Layout>
-                <SEO title="tags" />
-                <TagList tagSlug={this.props.data.allContentfulAllTag.edges[0].node.slug.toLowerCase()}>
+                <SEO title="tags" pageURL={pageURL} />
+                <TagList tagSlug={tagSlug}>
                     {
                         posts.map((element) => {
                             const {slug,title,publishedDate}=element;

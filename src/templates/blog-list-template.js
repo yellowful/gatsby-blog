@@ -26,9 +26,14 @@ export default class BlogList extends React.Component {
         //nextPage就是下一頁的slug
         const nextPage = `/blog/page-${(currentPage + 1).toString()}/`
 
+        const seoPage = isFirst ?
+            `https://bugdetective.netlify.app/blog/`
+            :
+            `https://bugdetective.netlify.app/blog/page-${(currentPage).toString()}/`
+
         return (
             <Layout>
-                <SEO title="文章" />
+                <SEO title="文章" pageURL={seoPage} />
                 <PostList>
                     {
                         this.props.data.allContentfulBlog.edges.map((element) => {

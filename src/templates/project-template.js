@@ -20,10 +20,11 @@ export default function ProjectTemplate({ data }) {
     //contentful上這篇文章有設定文章的公開時間
     const { projectName, demoLink, repoLink } = data.contentfulProject;
 
+    const pageURL = `${data.site.siteMetadata.canonicalUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
 
     return (
         <Layout>
-            <SEO title={projectName} description="introductions of my web projects" />
+            <SEO title={projectName} description="introductions of my web projects" pageURL={pageURL} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
@@ -60,6 +61,7 @@ export default function ProjectTemplate({ data }) {
 export const projectQuery = graphql`
     query projectSectionByPath($slug: String!){
         contentfulProject(slug: {eq: $slug}) {
+            slug
             projectName
             demoLink
             repoLink
@@ -80,6 +82,11 @@ export const projectQuery = graphql`
                 url
                 }
             }
+        }
+        site {
+          siteMetadata {
+            canonicalUrl
+          }
         }
     }
 `

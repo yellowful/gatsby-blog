@@ -38,15 +38,21 @@ const Blog = () => {
             }
           }
         }
+        site {
+          siteMetadata {
+            canonicalUrl
+          }
+        }
       }
     `
   )
 
   const post=data.allContentfulProject.edges
+  const pageUrl=data.site.siteMetadata.canonicalUrl+'/project/'
 
   return(
     <Layout>
-      <SEO title="project" />
+      <SEO title="作品" pageURL={pageUrl} />
       <ProjectList>
         {
           post.map((item,i)=>{
