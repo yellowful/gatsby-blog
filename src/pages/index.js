@@ -59,6 +59,11 @@ const IndexPage = () => {
             }
           }
       }
+      site {
+        siteMetadata {
+          canonicalUrl
+        }
+      }
     }
     `
   )
@@ -68,10 +73,12 @@ const IndexPage = () => {
     ...data.desktop.childImageSharp.fluid,
     media: `(min-width:60em)`
   }]
+
+  const imageURLOfSeo = data.site.siteMetadata.canonicalUrl+data.indexCapture.childImageSharp.fluid.src
   
   return(
     <Layout>
-      <SEO title="首頁" imageURL={data.indexCapture.childImageSharp.fluid.src} />
+      <SEO title="首頁" imageURL={imageURLOfSeo} />
       <HeroIndex imageData={imageData} />
       <CardList>
         {
