@@ -29,6 +29,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const metaImage = imageURL || site.siteMetadata.image
   const defaultTitle = site.siteMetadata?.title
   //console.table({description:description, lang:lang, meta:meta, title:title, datePublished:datePublished, imageURL:imageURL, pageURL:pageURL, isArticle:isArticle});
 
@@ -54,6 +55,11 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             property: `og:description`,
             content: metaDescription,
           },
+          {
+            property: `og:image`,
+            content: metaImage,
+          },
+          
         ].concat(meta)}
       >
       </Helmet>
