@@ -13,7 +13,7 @@ module.exports = {
     title: `蟲探理查`,
     description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
     author: `黃瑞成`,
-    image:`src/images/bdrlogo.svg`,
+    image:`src/images/svg/bdrlogo.svg`,
     canonicalUrl:`https://bugdetective.netlify.app`
   },
   plugins: [
@@ -30,13 +30,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `蟲探理查`,
+        short_name: `蟲探理查`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon669.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -191,7 +191,7 @@ module.exports = {
                   title:edge.node.title,
                   description: edge.node.articles.excerpt,
                   date: edge.node.publishedDate,
-                  url: site.siteMetadata.canonicalUrl + "/blog/" + edge.node.slug,
+                  url: site.siteMetadata.canonicalUrl + "/blog/" + edge.node.slug.toLowerCase()+"/",
                   guid: edge.node.id,
                   custom_elements: [{ "content:encoded": edge.node.articles.childMarkdownRemark.html }],
                 })
@@ -205,7 +205,7 @@ module.exports = {
                       articles {
                         childMarkdownRemark {
                           html
-                          excerpt(format: PLAIN, pruneLength: 150, truncate: true)
+                          excerpt(format: PLAIN, pruneLength: 50, truncate: true)
                         }
                       }
                       publishedDate

@@ -52,7 +52,7 @@ const PageHit = ({ hit }) => (
         <Highlight attribute="projectName" hit={hit} tagName="mark" />
       </h4>
     </Link>
-    <div className="f6 fw5 near-white">
+    <div className="f6 fw5 near-white anchor-word-breaker">
       <Snippet attribute="excerpt" hit={hit} tagName="mark" />
       <Snippet attribute="introduction" hit={hit} tagName="mark" />
       <Snippet attribute="section" hit={hit} tagName="mark" />

@@ -7,8 +7,6 @@ import Card from "../components/Card/Card"
 import HeroIndex from "../components/Hero/HeroIndex"
 import SubscribeContainer from "../components/Subscribe/SubscribeContainer"
 
-
-
 //當gatsby跑完之後，整個網站的首頁就是顯示這個資料夾的index.js這個檔的jsx
 //這個資料夾的其他.js檔或資料夾，都會變成網站相對網址
 const IndexPage = () => {

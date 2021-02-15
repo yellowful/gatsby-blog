@@ -21,6 +21,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             description
             author
             canonicalUrl
+            image
           }
         }
       }

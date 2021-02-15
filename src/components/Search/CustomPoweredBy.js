@@ -6,9 +6,9 @@ import { connectPoweredBy } from "react-instantsearch-dom"
 const PoweredBy = ({url}) => {
     return (
         <div className="w-100 tr near-white h2">
-            本搜尋由
+            站內搜尋由
             <a href={url}>
-                Algolia<FontAwesomeIcon icon={faAlgolia} />
+                <FontAwesomeIcon icon={faAlgolia} /> algolia
             </a>
             提供
         </div>
