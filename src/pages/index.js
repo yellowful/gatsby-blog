@@ -71,7 +71,7 @@ const IndexPage = () => {
   
   return(
     <Layout>
-      <SEO title="首頁" imageData={data.indexCapture.childImageSharp.fluid} />
+      <SEO title="首頁" imageURL={data.indexCapture.childImageSharp.fluid} />
       <HeroIndex imageData={imageData} />
       <CardList>
         {

@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import GoogleSchema from "./GoogleSchema"
 
 function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL, isArticle }) {
-  const { site } = useStaticQuery(
+  const { site,siteLogo } = useStaticQuery(
     graphql`
       query {
         site {
@@ -24,12 +24,19 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             image
           }
         }
+        siteLogo: file(relativePath: { eq: "pdr.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     `
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = imageURL || site.siteMetadata.image
+  const metaImage = imageURL || siteLogo.mobileImage.childImageSharp.fluid
   const defaultTitle = site.siteMetadata?.title
   const metaURL = pageURL || site.siteMetadata.canonicalUrl
   //console.table({description:description, lang:lang, meta:meta, title:title, datePublished:datePublished, imageURL:imageURL, pageURL:pageURL, isArticle:isArticle});
