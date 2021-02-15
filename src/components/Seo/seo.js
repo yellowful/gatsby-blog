@@ -59,7 +59,10 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             property: `og:image`,
             content: metaImage,
           },
-          
+          {
+            property: `app_id`,
+            content: `129888612117049`,
+          }
         ].concat(meta)}
       >
       </Helmet>
@@ -72,7 +75,6 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
               <meta property="og:image" content={imageURL} />
               <meta property="og:url" content={pageURL} />
               <meta property="article:author" content="https://bugdetective.netlify.app/about/" />
-              <meta property="fb:app_id" content="129888612117049" />
             </Helmet>
           )
           :

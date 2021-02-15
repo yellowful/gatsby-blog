@@ -38,14 +38,34 @@ const IndexPage = () => {
           }
         }
       }
+      mobileImage: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      desktop: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 2048) {
+              ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
     `
   )
+
+  const imageData = [data.mobileImage.childImageSharp.fluid,
+  {
+    ...data.desktop.childImageSharp.fluid,
+    media: `(min-width:60em)`
+  }]
   
   return(
     <Layout>
-      <SEO title="首頁" />
-      <HeroIndex />
+      <SEO title="首頁" imageData={imageData} />
+      <HeroIndex imageData={imageData} />
       <CardList>
         {
           data.allContentfulBlog.edges.map((element,i) => {

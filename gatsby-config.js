@@ -13,7 +13,7 @@ module.exports = {
     title: `蟲探理查`,
     description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
     author: `黃瑞成`,
-    image:`/favicon-32x32.png`,
+    image:`https://bugdetective.netlify.app/favicon-32x32.png`,
     canonicalUrl:`https://bugdetective.netlify.app`
   },
   plugins: [
