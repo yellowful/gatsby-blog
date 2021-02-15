@@ -26,8 +26,8 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
         }
         siteLogo: file(relativePath: { eq: "bdr.png" }) {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 90) {
-              ...GatsbyImageSharpFluid
+            fixed(width: 1024) {
+              src
             }
           }
         }
@@ -35,8 +35,10 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
     `
   )
 
+console.table({imageURL:imageURL,fixedSrc:siteLogo.childImageSharp.fixed.src});
+
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = imageURL || siteLogo.childImageSharp.fluid
+  const metaImage = imageURL || siteLogo.childImageSharp.fixed.src
   const defaultTitle = site.siteMetadata?.title
   const metaURL = pageURL || site.siteMetadata.canonicalUrl
   //console.table({description:description, lang:lang, meta:meta, title:title, datePublished:datePublished, imageURL:imageURL, pageURL:pageURL, isArticle:isArticle});
