@@ -24,7 +24,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             image
           }
         }
-        siteLogo: file(relativePath: { eq: "pdr.png" }) {
+        siteLogo: file(relativePath: { eq: "bdr.png" }) {
           childImageSharp {
             fluid(maxWidth: 1024, quality: 90) {
               ...GatsbyImageSharpFluid
