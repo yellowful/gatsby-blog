@@ -31,6 +31,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
   const metaDescription = description || site.siteMetadata.description
   const metaImage = imageURL || site.siteMetadata.image
   const defaultTitle = site.siteMetadata?.title
+  const metaURL = pageURL || site.siteMetadata.canonicalUrl
   //console.table({description:description, lang:lang, meta:meta, title:title, datePublished:datePublished, imageURL:imageURL, pageURL:pageURL, isArticle:isArticle});
 
   return (
@@ -60,8 +61,12 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             content: metaImage,
           },
           {
-            property: `app_id`,
+            property: `fb:app_id`,
             content: `129888612117049`,
+          },
+          {
+            property: `og:url`,
+            content: metaURL,
           }
         ].concat(meta)}
       >
@@ -72,8 +77,6 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             <Helmet>
               <meta property="og:type" content="article" />
               <meta property="og:article:published_time" content={datePublished} />
-              <meta property="og:image" content={imageURL} />
-              <meta property="og:url" content={pageURL} />
               <meta property="article:author" content="https://bugdetective.netlify.app/about/" />
             </Helmet>
           )

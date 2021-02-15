@@ -44,13 +44,20 @@ const IndexPage = () => {
               ...GatsbyImageSharpFluid
             }
           }
-        }
+      }
       desktop: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
         childImageSharp {
           fluid(quality: 90, maxWidth: 2048) {
               ...GatsbyImageSharpFluid
           }
         }
+      }
+      indexCapture: file(relativePath: { eq: "index-capture.jpg" }) {
+          childImageSharp {
+            fluid(maxWidth: 1024, quality: 90) {
+              ...GatsbyImageSharpFluid
+            }
+          }
       }
     }
     `
@@ -64,7 +71,7 @@ const IndexPage = () => {
   
   return(
     <Layout>
-      <SEO title="首頁" imageData={imageData} />
+      <SEO title="首頁" imageData={data.indexCapture.childImageSharp.fluid} />
       <HeroIndex imageData={imageData} />
       <CardList>
         {
