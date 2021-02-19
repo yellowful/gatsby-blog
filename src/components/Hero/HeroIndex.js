@@ -54,9 +54,12 @@ const HeroIndex = ({imageData}) => {
                         </div>
                         <footer className="column flex flex-column justify-end">
                             <Link
-                                to="/about/"
+                                to="/about/#about-me"
+                                replace={false}
                                 className="ma2 f3-l f4-m f5  tr tr-m tc-l"
-                            >關於我<FontAwesomeIcon icon={faAngleDoubleRight} /></Link>
+                            >
+                                關於我<FontAwesomeIcon icon={faAngleDoubleRight} />
+                            </Link>
                         </footer>
                     </div>
                 </div>

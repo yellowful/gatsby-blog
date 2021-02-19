@@ -6,10 +6,11 @@ import BdrLogo from "../../images/svg/bdrlogo.svg"
 import Search from "../Search"
 
 const Header = ({ siteTitle }) => {
-  
+
   const searchIndices = [{ name: `BlogPage`}, {name: `AboutPage`},{name: `ProjectPage` }]
   const [hamburgerExpand, setHamburgerExpand] = useState('');
   const [showSearch,setShowSearch]=useState(false);
+
 
   return (
     <header className="has-background-dark w-100 flex justify-center">

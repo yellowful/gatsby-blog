@@ -14,7 +14,7 @@ const IndexPage = () => {
   //去”http://localhost:8000/___graphql“查想查的資料後，複製回來用
   //這邊是要查出六篇最新的文章，可以做成card的預覽，放在首頁  
   const data = useStaticQuery(
-    graphql `
+    graphql`
     query IndexQuery {
       allContentfulBlog (
         limit:6
@@ -74,30 +74,23 @@ const IndexPage = () => {
     media: `(min-width:60em)`
   }]
 
-  const imageURLOfSeo = data.site.siteMetadata.canonicalUrl+data.indexCapture.childImageSharp.fluid.src
-  
-  return(
+  const imageURLOfSeo = data.site.siteMetadata.canonicalUrl + data.indexCapture.childImageSharp.fluid.src
+
+  return (
     <Layout>
       <SEO title="首頁" imageURL={imageURLOfSeo} />
       <HeroIndex imageData={imageData} />
-      <CardList>
-        {
-          data.allContentfulBlog.edges.map((element,i) => {
-            const publishedDate = element.node.publishedDate.slice(0, 10)
-            return(
-              <React.Fragment key={`index-${element.node.slug.toLowerCase()}`}>
-                  <Card 
-                    slug={element.node.slug.toLowerCase()}
-                    postTitle={element.node.title}
-                    publishedDate={publishedDate}
-                    excerpt={element.node.articles.childMarkdownRemark.excerpt}
-                    imageSrc={element.node.images[0].fluid}
-                  />
-              </React.Fragment>
-            )
-          })
-        }
-      </CardList>
+        <CardList>
+          {
+            data.allContentfulBlog.edges.map((element, i) => {
+              return (
+                <Card
+                  node={element.node}
+                />
+              )
+            })
+          }
+        </CardList>
       <div className="mt2">
         <SubscribeContainer />
       </div>

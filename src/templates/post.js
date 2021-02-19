@@ -15,12 +15,16 @@ export default function Template({ data }) {
 
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
-    const imageURL = `https:${data.contentfulBlog.images[0].fluid.src}`
+    const imageURL =
+    data.contentfulBlog.images ?
+        `https:${data.contentfulBlog.images[0].fluid.src}`
+        :
+        data.site.siteMetadata.image
     //console.log(imageURL);
 
     //contentful上這篇文章有設定文章title
     //contentful上這篇文章有設定文章的公開時間
-    const { title, publishedDate, tag } = data.contentfulBlog
+    const { title, publishedDate, tag, iceFireNumber } = data.contentfulBlog
 
 
     //這篇文章的完整網址，要用來傳給fb，讓fb的資料庫可以儲存這個網址的所有comments
@@ -32,7 +36,7 @@ export default function Template({ data }) {
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
-                    <TimeToRead publishedDate={publishedDate.slice(0, 10)} timeToRead={Math.round(post.timeToRead * 1.5)} />
+                    <TimeToRead publishedDate={publishedDate.slice(0, 10)} timeToRead={Math.round(post.timeToRead * 1.5)} iceFireNumber={iceFireNumber} />
                     <section>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </section>
@@ -63,6 +67,7 @@ export const postQuery = graphql`
             title
             createdAt
             slug
+            iceFireNumber
             publishedDate
             updatedAt
             tag {
@@ -73,6 +78,12 @@ export const postQuery = graphql`
                     src
                 }
             }
+        }
+        site {
+          siteMetadata {
+            title
+            image
+          }
         }
     }
 `

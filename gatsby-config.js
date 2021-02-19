@@ -7,7 +7,7 @@ require("dotenv").config({
 
 module.exports = {
   flags: {
-    DEV_SSR: false
+    DEV_SSR: false,
   },
   siteMetadata: {
     title: `蟲探理查`,

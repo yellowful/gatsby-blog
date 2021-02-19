@@ -36,7 +36,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
   )
 
   const fixedSrc = site.siteMetadata.canonicalUrl + siteLogo.childImageSharp.fixed.src
-  console.table({imageURL:imageURL,fixedSrc:fixedSrc,pageURL:pageURL});
+  //console.table({imageURL:imageURL,fixedSrc:fixedSrc,pageURL:pageURL});
   const metaDescription = description || site.siteMetadata.description
   const metaImage = imageURL || fixedSrc
   const defaultTitle = site.siteMetadata?.title

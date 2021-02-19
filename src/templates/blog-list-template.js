@@ -43,6 +43,7 @@ export default class BlogList extends React.Component {
                                     <PostPreview
                                         key={`blog${element.node.slug.toLowerCase()}`}
                                         slug={element.node.slug.toLowerCase()}
+                                        iceFireNumber={element.node.iceFireNumber}
                                         postTitle={element.node.title}
                                         publishedDate={publishedDate}
                                         excerpt={element.node.articles.childMarkdownRemark.excerpt}
@@ -124,6 +125,7 @@ export const blogListQuery = graphql`
               }
             }
             slug
+            iceFireNumber
             title
             publishedDate
             tag {

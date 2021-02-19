@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CardList = (props) => {
+    //throw new Error('aaaaa.....');
     return (
         <section className="w-100 mt2 flex flex-column items-center has-background-light">
             <header className="w-100 w-90-m w-80-l mw8 ph3-ns mv2-ns pa2">

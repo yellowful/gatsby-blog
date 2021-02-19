@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { navigate } from '@reach/router';
 import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
 import EmailForm from "../components/EmailForm/EmailForm"
@@ -10,7 +11,7 @@ import SkillList from "../components/SkillList/SkillList"
 import SubscribeContainer from "../components/Subscribe/SubscribeContainer"
 
 
-const About = () => {
+const About = ({location}) => {
   const data = useStaticQuery(
     graphql`
       query aboutBlogQuery {
@@ -36,8 +37,16 @@ const About = () => {
       }
     `
   )
+  
   const [isAuthorExpanded, setAuthorState] = useState(false);
   const [isSkillsExpanded, setSkillsState] = useState(false);
+  const {hash} = location;
+
+  useEffect(() =>{
+    if(hash){
+      navigate(hash,{replace:true});
+    }
+  },[])
 
   const onAuthorExpanding = (ev) => {
     ev.preventDefault();
