@@ -157,3 +157,20 @@ body, button, input, optgroup, select, textarea{
 .ais-Highlight-highlighted, .ais-Snippet-highlighted {
     background: #FF725C;
 }
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 1rem;
+    border-style: solid;
+    border-color: #333333;
+    border-width: 3px;
+  }
+
+  .slider:active::-webkit-slider-thumb {
+    width: 30px; /* Set a specific slider handle width */
+    height: 30px; /* Slider handle height */
+  }

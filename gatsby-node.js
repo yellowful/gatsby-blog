@@ -19,7 +19,8 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //設定單篇文章的樣板的檔案位置
     const postTemplate = path.resolve(`./src/templates/post.js`);
     const projectTemplate = path.resolve(`./src/templates/project-template.js`);
-    const tagListTemplate= path.resolve(`./src/templates/tag-list-template.js`)
+    const tagListTemplate= path.resolve(`./src/templates/tag-list-template.js`);
+    const meterTemplate= path.resolve(`./src/templates/ice-fire-meter.js`)
     
     //gatsby在產生頁面時，會從contenful的api抓資料回來，然後利用graphql把所有文章抓回來，放到result裡面
     //大括號裡面都是從網址的”http://localhost:8000/___graphql“查詢，查詢完可以直接copy下來
@@ -30,6 +31,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 edges {
                   node {
                     slug
+                    iceFireNumber
                     title
                     articles {
                         childMarkdownRemark {
@@ -136,13 +138,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         })
     }) 
 
-
-
-
-
-
-
-
+    for (let i=0;i<10;i++){
+        createPage({
+            path: `/blog/ice-fire-number/${i}/`,
+            component: meterTemplate,
+            context: {
+                iceFireNumber: i,
+            },
+        })
+    }
 }
 
 // exports.onCreateNode = ({ node, actions, getNode }) => {

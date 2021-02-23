@@ -3,12 +3,12 @@ import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAt, faCalendarAlt, faGlasses, faSnowflake, faFire } from '@fortawesome/free-solid-svg-icons'
 
-const TimeToRead = ({publishedDate, timeToRead, iceFireNumber}) => {
+const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
 
     let percentColors = [
         { pct: 0.0, color: { r: 0x38, g: 0x66, b: 0x75 } },
-        { pct: 1.0, color: { r: 0xff, g: 0xbc, b: 0x47 } } ];
-    
+        { pct: 1.0, color: { r: 0xff, g: 0xbc, b: 0x47 } }];
+
     const getColorForPercentage = (pct) => {
         for (var i = 1; i < percentColors.length - 1; i++) {
             if (pct < percentColors[i].pct) {
@@ -30,8 +30,8 @@ const TimeToRead = ({publishedDate, timeToRead, iceFireNumber}) => {
         // or output as hex if preferred
     };
 
-    const iceFireColor = getColorForPercentage(iceFireNumber/10);
-    console.table({iceFireColor:iceFireColor,iceFireNumber:iceFireNumber})
+    const iceFireColor = getColorForPercentage(iceFireNumber / 10);
+    //console.table({ iceFireColor: iceFireColor, iceFireNumber: iceFireNumber })
 
     return (
         <section className="mv2 mv4-ns ph2 w-100 flex justify-between">
@@ -58,19 +58,23 @@ const TimeToRead = ({publishedDate, timeToRead, iceFireNumber}) => {
                 <span className="ml2-ns">
                     約{timeToRead}分鐘
                 </span>
-                <span className="ml2-ns">
+                <span className="ml2">
                     {
                         iceFireNumber > 4 ?
                             (
-                                <span className="ml2-ns" style={{color:iceFireColor}}>
-                                    <FontAwesomeIcon icon={faFire} />
-                                </span>
+                                <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
+                                    <span style={{ color: iceFireColor }}>
+                                        <FontAwesomeIcon icon={faFire} />
+                                    </span>
+                                </Link>
                             )
                             :
                             (
-                                <span className="ml2-ns" style={{color:iceFireColor}}>
-                                    <FontAwesomeIcon icon={faSnowflake} />
-                                </span>
+                                <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
+                                    <span style={{ color: iceFireColor }}>
+                                        <FontAwesomeIcon icon={faSnowflake} />
+                                    </span>
+                                </Link>
                             )
                     }
                 </span>

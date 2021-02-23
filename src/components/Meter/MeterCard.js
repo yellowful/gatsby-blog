@@ -7,10 +7,9 @@ import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
 
 
-const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead,iceFireNumber }) => {
+const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, imageSrc, timeToRead }) => {
     return (
-        <>
-            <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" key={`tag-${slug}`}>
+            <article key={`meter-${iceFireNumber}-${slug}`} className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" >
                 <div className="flex flex-column flex-row-ns">
                     <div className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
                         <Link to={`/blog/${slug}/`}>
@@ -36,8 +35,7 @@ const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead
                 </div>
                 <TimeToRead iceFireNumber={iceFireNumber} publishedDate={publishedDate} timeToRead={Math.round(timeToRead * 1.5)} />
             </article>
-        </>
     )
 }
 
-export default TagCard
+export default MeterCard

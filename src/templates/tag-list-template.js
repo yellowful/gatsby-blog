@@ -23,13 +23,14 @@ export default class TagListPage extends React.Component {
                 <TagList tagSlug={tagSlug}>
                     {
                         posts.map((element) => {
-                            const {slug,title,publishedDate}=element;
+                            const {slug,title,publishedDate,iceFireNumber}=element;
                             const {excerpt,timeToRead}=element.articles.childMarkdownRemark;
                             const shortDate = publishedDate.slice(0, 10)
                             return (
                                 <React.Fragment>
                                     <TagCard
                                         slug={slug.toLowerCase()}
+                                        iceFireNumber={iceFireNumber}
                                         postTitle={title}
                                         publishedDate={shortDate}
                                         excerpt={excerpt}
@@ -67,6 +68,7 @@ export const tagListQuery = graphql`
               }
             }
             slug
+            iceFireNumber
             title
             publishedDate
             images {
