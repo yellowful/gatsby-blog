@@ -13,7 +13,7 @@ const MeterSlider = ({ fireNumber }) => {
         setFireNumberState(e.target.value);
     }
 
-    const onMouseUpHandler = () => {
+    const onUpHandler = () => {
         navigate(`/blog/ice-fire-number/${fireNumberState}/`);
     }
 
@@ -44,7 +44,8 @@ const MeterSlider = ({ fireNumber }) => {
                         backgroundImage: `linear-gradient(90deg,${iceColor},${fireColor})`
                     }}
                     onChange={onChangeHandler}
-                    onMouseUp={onMouseUpHandler}
+                    onMouseUp={onUpHandler}
+                    onTouchEnd={onUpHandler}
                 />
                 <span className="pl2" style={{ color: fireColor }}>
                     <FontAwesomeIcon icon={faFire} />
