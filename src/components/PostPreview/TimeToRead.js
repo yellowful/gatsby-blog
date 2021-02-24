@@ -63,14 +63,14 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
                         iceFireNumber > 4 ?
                             (
                                 <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
-                                    <span style={{ color: iceFireColor }}>
+                                    <span className="f5" style={{ color: iceFireColor }}>
                                         <FontAwesomeIcon icon={faFire} />
                                     </span>
                                 </Link>
                             )
                             :
                             (
-                                <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
+                                <Link className="f5" to={`/blog/ice-fire-number/${iceFireNumber}/`}>
                                     <span style={{ color: iceFireColor }}>
                                         <FontAwesomeIcon icon={faSnowflake} />
                                     </span>

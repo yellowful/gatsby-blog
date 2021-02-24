@@ -24,6 +24,7 @@ export default class meterPage extends React.Component {
                 const { slug, title, publishedDate, iceFireNumber } = node;
                 const { excerpt, timeToRead } = node.articles.childMarkdownRemark;
                 const shortDate = publishedDate.slice(0, 10)
+                console.table({iceFireNumber:iceFireNumber,publichedDate:shortDate})
                 return (
                     <MeterCard
                       slug={slug.toLowerCase()}
@@ -37,7 +38,7 @@ export default class meterPage extends React.Component {
                 )
               })
               :
-              (<div>
+              (<div className="w-100 tc dark-gray vh-50">
                 沒有相關文章
               </div>)
           }
@@ -57,8 +58,8 @@ export default class meterPage extends React.Component {
 //$iceFireNumber是node.js的context傳過來的變數，Int是型別，驚嘆號代表必要欄位
 
 export const meterQuery = graphql`
-  query meterQuery($iceFireNumber: Int!){
-    allContentfulBlog(filter: {iceFireNumber: {eq: $iceFireNumber}}) {
+  query meterQuery($filterNumber: [Int!]){
+    allContentfulBlog(filter: {iceFireNumber: {in: $filterNumber}}) {
       edges {
         node {
           articles {

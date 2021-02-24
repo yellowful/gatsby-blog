@@ -1,9 +1,17 @@
-import React from "react"
+import React,{createRef,useEffect} from "react"
 import { connectSearchBox } from "react-instantsearch-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const SearchBox = ({ refine, currentRefinement, onFocus }) => {
+
+  const inputRef = createRef();
+
+  useEffect(()=>{
+    inputRef.current.focus();
+  },[])
+
+
   return (
     // return the DOM output
       <form className="field mt2">
@@ -16,6 +24,7 @@ const SearchBox = ({ refine, currentRefinement, onFocus }) => {
             onChange={e => refine(e.target.value)}
             value={currentRefinement}
             onFocus={onFocus}
+            ref={inputRef}
           />
           <span className="icon is-small is-right">
             <FontAwesomeIcon icon={faSearch} />

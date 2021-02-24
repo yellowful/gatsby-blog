@@ -1,20 +1,19 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFeatherAlt, faIdCard, faFileCode, faSearch} from '@fortawesome/free-solid-svg-icons'
+import { faFeatherAlt, faIdCard, faFileCode, faSearch } from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
 import Search from "../Search"
 
 const Header = ({ siteTitle }) => {
 
-  const searchIndices = [{ name: `BlogPage`}, {name: `AboutPage`},{name: `ProjectPage` }]
+  const searchIndices = [{ name: `BlogPage` }, { name: `AboutPage` }, { name: `ProjectPage` }]
   const [hamburgerExpand, setHamburgerExpand] = useState('');
-  const [showSearch,setShowSearch]=useState(false);
-
+  const [showSearch, setShowSearch] = useState(false);
 
   return (
     <header className="has-background-dark w-100 flex justify-center">
-      <nav className="navbar is-dark w-100 w-90-m w-80-l mw8" role="navigation" aria-label="main navigation">
+      <nav className="navbar is-expanded is-dark w-100 w-90-m w-80-l mw8" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
           <header className="navbar-item">
             <Link
@@ -52,33 +51,48 @@ const Header = ({ siteTitle }) => {
         <div id="navbarBasicExample" className={`navbar-menu has-background-dark is-shadowless ${hamburgerExpand}`}>
           <div
             role="menu"
-            className="navbar-end"
+            className="navbar-start ml4 nl2-ns"
           >
-            <Link
-              to="/blog/"
-              className="navbar-item tr mr3"
-              activeClassName="is-active"
-            >
-              <FontAwesomeIcon icon={faFeatherAlt} />文章
-            </Link>
+            <div className={`navbar-item has-dropdown is-hoverable`} >
+              <Link
+                to="/blog/"
+                className="navbar-link"
+                activeClassName="is-active"
+              >
+                <FontAwesomeIcon icon={faFeatherAlt} />文章
+              </Link>
+              <div className="navbar-dropdown">
+                <Link to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active">
+                  冰火指數
+                </Link>
+                <Link to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active">
+                  標籤
+                </Link>
+              </div>
+            </div>
             <Link
               to="/about/"
-              className="navbar-item tr mr3"
+              className="navbar-item "
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faIdCard} />作者
             </Link>
             <Link
               to="/project/"
-              className="navbar-item tr mr3"
+              className="navbar-item "
               activeClassName="is-active"
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
             </Link>
+          </div>
+          <div
+            role="menu"
+            className="navbar-end tc"
+          >
             <div
-              className="navbar-item tr mr4 mr0-l"
+              className="navbar-item"
               role="button"
-              tabIndex="-1" 
+              tabIndex="-1"
               onClick={() => {
                 setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
                 setShowSearch(true);

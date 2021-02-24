@@ -144,6 +144,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             component: meterTemplate,
             context: {
                 iceFireNumber: i,
+                filterNumber:[i,i+1,i-1]
             },
         })
     }

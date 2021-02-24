@@ -164,13 +164,16 @@ body, button, input, optgroup, select, textarea{
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     cursor: pointer; /* Cursor on hover */
+    background: rgba(51,51,51,0.8);
     border-radius: 1rem;
     border-style: solid;
     border-color: #333333;
-    border-width: 3px;
+    border-width: 2px;
   }
 
   .slider:active::-webkit-slider-thumb {
     width: 30px; /* Set a specific slider handle width */
     height: 30px; /* Slider handle height */
+    background: transparent;
+    border-width: 3px;
   }

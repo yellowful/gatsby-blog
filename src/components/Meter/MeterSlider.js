@@ -25,7 +25,7 @@ const MeterSlider = ({ fireNumber }) => {
     return (
         <div className="w-100 bg-light-gray">
             <div className="w-70 w-60-m w-50-l ph3 mw8 mv2 mv4-ns center flex items-center">
-                <span className="pr2" style={{ color: iceColor }}>
+                <span className="pr2 f3" style={{ color: iceColor }}>
                     <FontAwesomeIcon icon={faSnowflake} />
                 </span>
                 <input
@@ -47,7 +47,7 @@ const MeterSlider = ({ fireNumber }) => {
                     onMouseUp={onUpHandler}
                     onTouchEnd={onUpHandler}
                 />
-                <span className="pl2" style={{ color: fireColor }}>
+                <span className="pl2 f3" style={{ color: fireColor }}>
                     <FontAwesomeIcon icon={faFire} />
                 </span>
             </div>
