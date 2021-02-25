@@ -50,7 +50,7 @@ const RestOfTags = ({ tagSlug }) => {
                                 return null
                             } else {
                                 return (
-                                    <article className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
+                                    <article key={`rest-tags-${item.node.slug.toLowerCase()}`} className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
                                         <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib f5 v-btm">
                                             {`${item.node.slug.toLowerCase()}`}
                                         </Link>

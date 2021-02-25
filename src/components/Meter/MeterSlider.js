@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { navigate } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSnowflake, faFire } from '@fortawesome/free-solid-svg-icons'
+import {iceColor,fireColor} from '../../utils/ice-fire-color'
 
 
 const MeterSlider = ({ fireNumber }) => {
@@ -17,11 +18,6 @@ const MeterSlider = ({ fireNumber }) => {
         navigate(`/blog/ice-fire-number/${fireNumberState}/`);
     }
 
-    const iceColor = `#386675`
-    const fireColor = `#ffbc47`
-
-
-
     return (
         <div className="w-100 bg-light-gray">
             <div className="w-70 w-60-m w-50-l ph3 mw8 mv2 mv4-ns center flex items-center">
@@ -36,11 +32,6 @@ const MeterSlider = ({ fireNumber }) => {
                     step="1"
                     value={fireNumberState}
                     style={{
-                        WebkitAppearance: `none`,
-                        outline: `none`,
-                        borderRadius: `1rem`,
-                        width: `100%`,
-                        height: `2rem`,
                         backgroundImage: `linear-gradient(90deg,${iceColor},${fireColor})`
                     }}
                     onChange={onChangeHandler}

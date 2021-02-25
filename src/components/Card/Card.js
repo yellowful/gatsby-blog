@@ -9,9 +9,10 @@ const Card = ({ node }) => {
     const { excerpt } = node.articles.childMarkdownRemark
     const publishedDate = node.publishedDate.slice(0, 10)
     const slug = node.slug.toLowerCase()
+    //console.log(`index-${slug}`);
 
     return (
-        <article className="br2 dark-gray b--black-10 bg-light-gray" key={`index-${slug}`} >
+        <article className="br2 dark-gray b--black-10 bg-light-gray">
                 {
                     node.images ?
                         <Img className="db w-100 br2 br--top" fluid={{ ...node.images[0].fluid, aspectRatio: 1.5 }} />

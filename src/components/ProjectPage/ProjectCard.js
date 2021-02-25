@@ -8,7 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 const ProjectCard = ({ slug, projectName, demoLink, repoLink, introduction, image }) => {
     return (
-        <article key={`project${slug}`} className="pa2 br3 ma2 mv4-ns bg-moon-gray mh0-ns">
+        <article className="pa2 br3 ma2 mv4-ns bg-moon-gray mh0-ns">
             <h2 className="head-1-shadow f2 ph2 lh-title fw7 mv4 dark-gray">{projectName}</h2>
             <div className="flex flex-column flex-row-ns">
                 <div className="w-100 w-50-m w-70-l pr3-ns order-2 order-1-ns ph2">

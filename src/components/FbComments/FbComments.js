@@ -10,7 +10,16 @@ const FbComments = ({ fbHref }) => {
                 <tbody>
                     <tr>
                         <td className="pl2">
-                            <Like href={fbHref} lazy={true} colorScheme="light" size="large" width="90" button_count showFaces share />
+                            <Like 
+                                href={fbHref} 
+                                lazy={true} 
+                                colorScheme="light" 
+                                size="large" 
+                                width="90" 
+                                button_count 
+                                showFaces 
+                                share 
+                            />
                         </td>
                     </tr>
                     <tr>

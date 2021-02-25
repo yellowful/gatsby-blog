@@ -59,6 +59,7 @@ const Blog = () => {
             return(
               <ProjectCard 
                 slug={item.node.slug.toLowerCase()}
+                key={`project-${item.node.slug.toLowerCase()}`} 
                 projectName={item.node.projectName}
                 demoLink={item.node.demoLink}
                 repoLink={item.node.repoLink}

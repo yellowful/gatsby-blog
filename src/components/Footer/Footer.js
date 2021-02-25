@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons'
@@ -31,12 +30,13 @@ const Footer = () => {
                         Bug Detective Richard &nbsp;
                 </span>
                 </a>
-                <Link to="/privacy-policy/PrivacyPolicy/" className="dib v-btm f7 f6-ns">
+
+                <a href="https://privacy.google.com/businesses/processorterms/" rel="noreferrer" target="_blank" className="dib v-btm f7 f6-ns mr4-ns">
                     <FontAwesomeIcon icon={faUserLock} />
                     <span>
                         隱私權政策 &nbsp;
-                </span>
-                </Link>
+                    </span>
+                </a>
             </span>
         </footer>
     )

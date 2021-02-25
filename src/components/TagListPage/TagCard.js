@@ -10,7 +10,7 @@ import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead,iceFireNumber }) => {
     return (
         <>
-            <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" key={`tag-${slug}`}>
+            <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l">
                 <div className="flex flex-column flex-row-ns">
                     <div className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
                         <Link to={`/blog/${slug}/`}>

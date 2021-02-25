@@ -24,10 +24,10 @@ export default class meterPage extends React.Component {
                 const { slug, title, publishedDate, iceFireNumber } = node;
                 const { excerpt, timeToRead } = node.articles.childMarkdownRemark;
                 const shortDate = publishedDate.slice(0, 10)
-                console.table({iceFireNumber:iceFireNumber,publichedDate:shortDate})
                 return (
                     <MeterCard
                       slug={slug.toLowerCase()}
+                      key={`meter-${iceFireNumber}-${slug}`} 
                       iceFireNumber={iceFireNumber}
                       postTitle={title}
                       publishedDate={shortDate}

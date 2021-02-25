@@ -27,9 +27,9 @@ export default class TagListPage extends React.Component {
                             const {excerpt,timeToRead}=element.articles.childMarkdownRemark;
                             const shortDate = publishedDate.slice(0, 10)
                             return (
-                                <React.Fragment>
                                     <TagCard
                                         slug={slug.toLowerCase()}
+                                        key={`tag-${slug.toLowerCase()}`}
                                         iceFireNumber={iceFireNumber}
                                         postTitle={title}
                                         publishedDate={shortDate}
@@ -37,7 +37,6 @@ export default class TagListPage extends React.Component {
                                         timeToRead={(timeToRead * 1.5)}
                                         imageSrc={element.images[0].fluid}
                                     />
-                                </React.Fragment>
                             )
                         })
                     }

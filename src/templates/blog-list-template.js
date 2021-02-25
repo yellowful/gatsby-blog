@@ -39,10 +39,9 @@ export default class BlogList extends React.Component {
                         this.props.data.allContentfulBlog.edges.map((element) => {
                             const publishedDate = element.node.publishedDate.slice(0, 10)
                             return (
-                                <React.Fragment>
                                     <PostPreview
-                                        key={`blog${element.node.slug.toLowerCase()}`}
                                         slug={element.node.slug.toLowerCase()}
+                                        key={`blog-${element.node.slug.toLowerCase()}`} 
                                         iceFireNumber={element.node.iceFireNumber}
                                         postTitle={element.node.title}
                                         publishedDate={publishedDate}
@@ -50,7 +49,6 @@ export default class BlogList extends React.Component {
                                         postTag={element.node.tag}
                                         timeToRead={Math.round(element.node.articles.childMarkdownRemark.timeToRead*1.5)}
                                     />
-                                </React.Fragment>
                             )
                         })
                     }

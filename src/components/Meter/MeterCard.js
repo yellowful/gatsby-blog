@@ -9,7 +9,7 @@ import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
 const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, imageSrc, timeToRead }) => {
     return (
-            <article key={`meter-${iceFireNumber}-${slug}`} className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" >
+            <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" >
                 <div className="flex flex-column flex-row-ns">
                     <div className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
                         <Link to={`/blog/${slug}/`}>

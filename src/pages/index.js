@@ -85,6 +85,7 @@ const IndexPage = () => {
             data.allContentfulBlog.edges.map((element, i) => {
               return (
                 <Card
+                  key={`index-page-${element.node.slug.toLowerCase()}`} 
                   node={element.node}
                 />
               )

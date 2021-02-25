@@ -2,12 +2,13 @@ import React from 'react'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAt, faCalendarAlt, faGlasses, faSnowflake, faFire } from '@fortawesome/free-solid-svg-icons'
+import {iceRGB,fireRGB} from '../../utils/ice-fire-color'
 
 const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
 
     let percentColors = [
-        { pct: 0.0, color: { r: 0x38, g: 0x66, b: 0x75 } },
-        { pct: 1.0, color: { r: 0xff, g: 0xbc, b: 0x47 } }];
+        { pct: 0.0, color: iceRGB },
+        { pct: 1.0, color: fireRGB }];
 
     const getColorForPercentage = (pct) => {
         for (var i = 1; i < percentColors.length - 1; i++) {
