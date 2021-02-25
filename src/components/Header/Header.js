@@ -55,7 +55,7 @@ const Header = ({ siteTitle }) => {
           >
             <div className={`navbar-item has-dropdown is-hoverable`} >
               <Link
-                to="/blog/"
+                to="/blog-list/"
                 className="navbar-link"
                 activeClassName="is-active"
               >
