@@ -14,9 +14,18 @@ module.exports = {
     description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
     author: `黃瑞成`,
     image:`/icons/icon-512x512.png`,
-    canonicalUrl:`https://bugdetective.netlify.app`
+    canonicalUrl:`https://bugdetective.netlify.app`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        // Exclude specific pages or groups of pages using glob parameters
+        // See: https://github.com/isaacs/minimatch
+        // The example below will exclude the single `path/to/page` and all routes beginning with `category`
+        exclude: [`/blog/tags/*`, `/blog/ice-fire-number/*`],
+      }
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
