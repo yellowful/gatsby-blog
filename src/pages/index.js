@@ -25,9 +25,11 @@ const IndexPage = () => {
             articles {
               childMarkdownRemark {
                 excerpt(pruneLength: 80,truncate: true)
+                timeToRead
               }
             }
             slug
+            iceFireNumber
             title
             publishedDate(formatString: "MMMM DD, YYYY")
             images {

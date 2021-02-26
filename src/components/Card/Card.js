@@ -3,10 +3,11 @@ import Img from 'gatsby-image'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+import TimeToRead from '../TimeToRead/TimeToRead';
 
 const Card = ({ node }) => {
-    const { title,publishedDate } = node;
-    const { excerpt } = node.articles.childMarkdownRemark
+    const { title,publishedDate,iceFireNumber } = node;
+    const { excerpt,timeToRead } = node.articles.childMarkdownRemark
     const slug = node.slug.toLowerCase()
 
     return (
@@ -22,9 +23,10 @@ const Card = ({ node }) => {
                     <header className="w-100">
                         <h3 className="f5 f4-ns mv0">{title}</h3>
                     </header>
-                    <div className="w-100 tr">
+                    {/* <div className="w-100 tr">
                         <time className="f6 mv0">{publishedDate}</time>
-                    </div>
+                    </div> */}
+                    <TimeToRead publishedDate={publishedDate} timeToRead={timeToRead} iceFireNumber={iceFireNumber} />
                 </div>
                 <section className="f6 lh-copy measure mt2 mid-gray">
                     {excerpt}

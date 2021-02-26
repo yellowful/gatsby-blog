@@ -1,6 +1,6 @@
 import React from 'react'
 import Img from 'gatsby-image'
-import TimeToRead from '../PostPreview/TimeToRead'
+import TimeToRead from '../TimeToRead/TimeToRead'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'

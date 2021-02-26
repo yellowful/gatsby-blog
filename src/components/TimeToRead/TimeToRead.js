@@ -36,57 +36,57 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
 
     return (
         <section className="mv2 mv4-ns ph2 w-100">
-            <div className="w-100 w-70-ns inline-flex justify-between flex-none-ns">
+            <div className="w-100 dib-ns w-60-ns flex justify-between flex-none-ns">
                 <span >
                     <Link to="/about/">
                         <span className="f6"><FontAwesomeIcon icon={faAt} /></span>
-                        <span className="ml2-ns f6">蟲探理查</span>
+                        <span className="ml2 f6">蟲探理查</span>
                     </Link>
                 </span>
 
-                <span className="ml2 ml6-ns">
+                <span className="ml2 ml4-ns">
                     <span className="f6 gray lh-copy ">
                         <FontAwesomeIcon icon={faCalendarAlt} />
                     </span>
-                    <time className="ml2-ns f6 gray lh-copy ">
+                    <time className="ml2 f6 gray lh-copy ">
                         {publishedDate}
                     </time>
                 </span>
             </div>
 
 
-            <div className="f6 w-100 w-30-ns inline-flex justify-between flex-none-ns">
+            <div className="f6 w-100 dib-ns w-40-ns flex justify-between flex-none-ns tr-ns">
                 <span>
                     <span>
                         <FontAwesomeIcon icon={faGlasses} />
                     </span>
-                    <span className="ml2-ns">
+                    <span className="ml2">
                         約{timeToRead}分鐘
                     </span>
                 </span>
 
-                <span className="ml2">
-                    {
-                        iceFireNumber > 4 ?
-                            (
-                                <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
-                                    <span className="f5" style={{ color: iceFireColor }}>
-                                        <FontAwesomeIcon icon={faFire} />
-                                    </span>
-                                </Link>
-                            )
-                            :
-                            (
-                                <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
-                                    <span className="f6" style={{ color: iceFireColor }}>
-                                        風格
-                                    </span>
-                                    <span className="f5 ml2" style={{ color: iceFireColor }}>
-                                        <FontAwesomeIcon icon={faSnowflake} />
-                                    </span>
-                                </Link>
-                            )
-                    }
+                <span className="ml2 ml4-ns">
+                    <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
+                        <span className="f6" style={{ color: iceFireColor }}>
+                            風格
+                        </span>
+                            {
+                                iceFireNumber > 4 ?
+                                    (
+                                        <span className="f5 ml2" style={{ color: iceFireColor }}>
+                                            <FontAwesomeIcon icon={faFire} />
+                                        </span>
+                                    )
+                                    :
+                                    (
+
+                                        <span className="f5 ml2" style={{ color: iceFireColor }}>
+                                            <FontAwesomeIcon icon={faSnowflake} />
+                                        </span>
+                                    )
+                            }
+                    </Link>
+
                 </span>
             </div>
         </section>

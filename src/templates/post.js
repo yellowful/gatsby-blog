@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
 import FbComments from "../components/FbComments/FbComments"
-import TimeToRead from '../components/PostPreview/TimeToRead';
+import TimeToRead from '../components/TimeToRead/TimeToRead';
 import PostTags from '../components/PostTags/PostTags';
 
 

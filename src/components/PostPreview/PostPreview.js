@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
-import TimeToRead from './TimeToRead';
+import TimeToRead from '../TimeToRead/TimeToRead';
 //import { Like, CommentsCount } from 'react-facebook';
 
 const PostPreview = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, timeToRead }) => {
