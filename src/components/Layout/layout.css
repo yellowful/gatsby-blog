@@ -95,7 +95,6 @@ body, button, input, optgroup, select, textarea{
     background: #333333;
     margin-right:0;
     padding: 0;
-    overflow: auto;
     float: left; /* 1 */
     min-width: 100%; /* 2 */
 }
