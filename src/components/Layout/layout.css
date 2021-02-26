@@ -87,6 +87,7 @@ body, button, input, optgroup, select, textarea{
 }
 
 .gatsby-highlight {
+    background: #272822;
     border-radius: 1em;
     margin: 0.5em 0;
     padding: 1em;
@@ -94,9 +95,8 @@ body, button, input, optgroup, select, textarea{
 }
 
 .gatsby-highlight pre[class*="language-"] {
-    background: #333333;
     margin: 0;
-    padding-right:1.5em;
+    padding:0;
     overflow: initial;
     float: left; /* 1 */
     min-width: 100%; /* 2 */
@@ -185,3 +185,17 @@ body, button, input, optgroup, select, textarea{
     background: transparent;
     border-width: 3px;
   }
+
+  .gatsby-code-button-icon {
+      fill:rgba(150, 204, 255, 0.8);
+      background: transparent;
+  }
+
+.gatsby-code-button-toaster {
+    background: transparent;
+    font-weight: 700;
+}
+.gatsby-code-button-toaster-text {
+    color:#dc9b32;
+    background: rgba(150, 204, 255, 0.5);
+}

@@ -28,6 +28,7 @@
     "gatsby-plugin-sharp": "^2.10.0",
     "gatsby-plugin-sitemap": "^2.12.0",
     "gatsby-remark-classes": "^1.0.0",
+    "gatsby-remark-code-buttons": "^2.0.7",
     "gatsby-remark-containers": "^1.0.0",
     "gatsby-remark-embed-gist": "^1.2.1",
     "gatsby-remark-embed-video": "^3.0.10",

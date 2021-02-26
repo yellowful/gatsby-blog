@@ -23,14 +23,13 @@ export default class meterPage extends React.Component {
                 const { node } = element;
                 const { slug, title, publishedDate, iceFireNumber } = node;
                 const { excerpt, timeToRead } = node.articles.childMarkdownRemark;
-                const shortDate = publishedDate.slice(0, 10)
                 return (
                     <MeterCard
                       slug={slug.toLowerCase()}
                       key={`meter-${iceFireNumber}-${slug}`} 
                       iceFireNumber={iceFireNumber}
                       postTitle={title}
-                      publishedDate={shortDate}
+                      publishedDate={publishedDate}
                       excerpt={excerpt}
                       timeToRead={(timeToRead * 1.5)}
                       imageSrc={node.images[0].fluid}
@@ -71,7 +70,7 @@ export const meterQuery = graphql`
           slug
           iceFireNumber
           title
-          publishedDate
+          publishedDate(formatString: "MMMM DD, YYYY")
           images {
             fluid {
               ...GatsbyContentfulFluid

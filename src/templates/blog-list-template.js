@@ -37,17 +37,17 @@ export default class BlogList extends React.Component {
                 <PostList>
                     {
                         this.props.data.allContentfulBlog.edges.map((element) => {
-                            const publishedDate = element.node.publishedDate.slice(0, 10)
+                            const {slug,iceFireNumber,title,publishedDate,articles,tag}=element.node;
                             return (
                                     <PostPreview
-                                        slug={element.node.slug.toLowerCase()}
-                                        key={`blog-${element.node.slug.toLowerCase()}`} 
-                                        iceFireNumber={element.node.iceFireNumber}
-                                        postTitle={element.node.title}
+                                        slug={slug.toLowerCase()}
+                                        key={`blog-${slug.toLowerCase()}`} 
+                                        iceFireNumber={iceFireNumber}
+                                        postTitle={title}
                                         publishedDate={publishedDate}
-                                        excerpt={element.node.articles.childMarkdownRemark.excerpt}
-                                        postTag={element.node.tag}
-                                        timeToRead={Math.round(element.node.articles.childMarkdownRemark.timeToRead*1.5)}
+                                        excerpt={articles.childMarkdownRemark.excerpt}
+                                        postTag={tag}
+                                        timeToRead={Math.round(articles.childMarkdownRemark.timeToRead*1.5)}
                                     />
                             )
                         })
@@ -124,7 +124,7 @@ export const blogListQuery = graphql`
             slug
             iceFireNumber
             title
-            publishedDate
+            publishedDate(formatString: "MMMM DD, YYYY")
             tag {
               slug
             }

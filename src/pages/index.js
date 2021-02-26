@@ -29,7 +29,7 @@ const IndexPage = () => {
             }
             slug
             title
-            publishedDate
+            publishedDate(formatString: "MMMM DD, YYYY")
             images {
               fluid {
                 ...GatsbyContentfulFluid

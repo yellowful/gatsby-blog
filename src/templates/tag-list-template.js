@@ -25,14 +25,13 @@ export default class TagListPage extends React.Component {
                         posts.map((element) => {
                             const {slug,title,publishedDate,iceFireNumber}=element;
                             const {excerpt,timeToRead}=element.articles.childMarkdownRemark;
-                            const shortDate = publishedDate.slice(0, 10)
                             return (
                                     <TagCard
                                         slug={slug.toLowerCase()}
                                         key={`tag-${slug.toLowerCase()}`}
                                         iceFireNumber={iceFireNumber}
                                         postTitle={title}
-                                        publishedDate={shortDate}
+                                        publishedDate={publishedDate}
                                         excerpt={excerpt}
                                         timeToRead={(timeToRead * 1.5)}
                                         imageSrc={element.images[0].fluid}
@@ -69,7 +68,7 @@ export const tagListQuery = graphql`
             slug
             iceFireNumber
             title
-            publishedDate
+            publishedDate(formatString: "MMMM DD, YYYY")
             images {
               fluid {
                 ...GatsbyContentfulFluid

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAt, faCalendarAlt, faGlasses, faSnowflake, faFire } from '@fortawesome/free-solid-svg-icons'
-import {iceRGB,fireRGB} from '../../utils/ice-fire-color'
+import { iceRGB, fireRGB } from '../../utils/ice-fire-color'
 
 const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
 
@@ -35,14 +35,15 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
     //console.table({ iceFireColor: iceFireColor, iceFireNumber: iceFireNumber })
 
     return (
-        <section className="mv2 mv4-ns ph2 w-100 flex justify-between">
-            <span>
+        <section className="mv2 mv4-ns ph2 w-100">
+            <div className="w-100 w-70-ns inline-flex justify-between flex-none-ns">
                 <span >
                     <Link to="/about/">
                         <span className="f6"><FontAwesomeIcon icon={faAt} /></span>
                         <span className="ml2-ns f6">蟲探理查</span>
                     </Link>
                 </span>
+
                 <span className="ml2 ml6-ns">
                     <span className="f6 gray lh-copy ">
                         <FontAwesomeIcon icon={faCalendarAlt} />
@@ -51,14 +52,19 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
                         {publishedDate}
                     </time>
                 </span>
-            </span>
-            <span className="f6 ">
+            </div>
+
+
+            <div className="f6 w-100 w-30-ns inline-flex justify-between flex-none-ns">
                 <span>
-                    <FontAwesomeIcon icon={faGlasses} />
+                    <span>
+                        <FontAwesomeIcon icon={faGlasses} />
+                    </span>
+                    <span className="ml2-ns">
+                        約{timeToRead}分鐘
+                    </span>
                 </span>
-                <span className="ml2-ns">
-                    約{timeToRead}分鐘
-                </span>
+
                 <span className="ml2">
                     {
                         iceFireNumber > 4 ?
@@ -71,15 +77,18 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
                             )
                             :
                             (
-                                <Link className="f5" to={`/blog/ice-fire-number/${iceFireNumber}/`}>
-                                    <span style={{ color: iceFireColor }}>
+                                <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
+                                    <span className="f6" style={{ color: iceFireColor }}>
+                                        風格
+                                    </span>
+                                    <span className="f5 ml2" style={{ color: iceFireColor }}>
                                         <FontAwesomeIcon icon={faSnowflake} />
                                     </span>
                                 </Link>
                             )
                     }
                 </span>
-            </span>
+            </div>
         </section>
     )
 }
