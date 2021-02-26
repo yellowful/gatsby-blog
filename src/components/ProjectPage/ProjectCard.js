@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-
-
 const ProjectCard = ({ slug, projectName, demoLink, repoLink, introduction, image }) => {
     return (
         <article className="pa2 br3 ma2 mv4-ns bg-moon-gray mh0-ns">
@@ -14,17 +12,19 @@ const ProjectCard = ({ slug, projectName, demoLink, repoLink, introduction, imag
                 <div className="w-100 w-50-m w-70-l pr3-ns order-2 order-1-ns ph2">
                     <section dangerouslySetInnerHTML={{ __html: introduction }} />
                     <table className="w-100 tc mb3 f4 lh-copy fw3">
-                        <tr>
-                            <td>
-                                <a href={demoLink} rel="noreferrer" target="_blank">試玩 &nbsp;<FontAwesomeIcon icon={faGamepad} /></a>
-                            </td>
-                            <td><a href={repoLink} rel="noreferrer" target="_blank">原始碼 &nbsp;<FontAwesomeIcon icon={faGithub} /></a></td>
-                            <td>
-                                <Link to={`/project/${slug}/`}>
-                                    了解更多 &nbsp;<FontAwesomeIcon icon={faAngleDoubleRight} />
-                                </Link>
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <a href={demoLink} rel="noreferrer" target="_blank">試玩 &nbsp;<FontAwesomeIcon icon={faGamepad} /></a>
+                                </td>
+                                <td><a href={repoLink} rel="noreferrer" target="_blank">原始碼 &nbsp;<FontAwesomeIcon icon={faGithub} /></a></td>
+                                <td>
+                                    <Link to={`/project/${slug}/`}>
+                                        了解更多 &nbsp;<FontAwesomeIcon icon={faAngleDoubleRight} />
+                                    </Link>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="pl3-ns order-1 order-2-ns mb4 mb0-ns ph2 center pt5-m w-50-m mw5-m w-30-l">
@@ -34,6 +34,5 @@ const ProjectCard = ({ slug, projectName, demoLink, repoLink, introduction, imag
         </article>
     )
 }
-
 
 export default ProjectCard

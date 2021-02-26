@@ -22,7 +22,7 @@ const Footer = () => {
         <footer className="has-background-dark w-100 flex justify-center">
             <span className="pv2 bg-dark-gray w-100 w-90-m w-80-l mw8 tr">
                 <span className="dib v-btm moon-gray f7 f6-ns">
-                    © 2020, Built by &nbsp;
+                    © 2021, Built by &nbsp;
             </span>
                 <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm f7 f6-ns mr4-ns">
                     <FontAwesomeIcon icon={faGithub} />
