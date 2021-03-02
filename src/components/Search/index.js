@@ -63,7 +63,6 @@ export default function Search({ indices, showSearch, setShowSearch }) {
                 :
                 null
             }
-
           </InstantSearch>
         </div>
       </div>

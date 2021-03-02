@@ -1,3 +1,5 @@
+const { node } = require("prop-types")
+
 //query回來的資料會傳到transformer裡面
 const pageQuery = `{
   pages: allContentfulBlog {
@@ -6,27 +8,22 @@ const pageQuery = `{
         id
         slug
         title
-        publishedDate
         articles {
           childMarkdownRemark {
             excerpt(format: PLAIN, pruneLength: 5000, truncate: true)
           }
-        }
-        tag {
-            tagName
         }
       }
     }
   }
 }`
 
-function pageToAlgoliaRecord({ node: { id,slug,articles,tag,...rest } }) {
+function pageToAlgoliaRecord({ node: { id,slug,title,articles} }) {
     return {
         objectID:id,
         slug:`/blog/${slug.toLowerCase()}/`,
+        title:title,
         excerpt: articles.childMarkdownRemark.excerpt,
-        tag: tag.map(item=>item.tagName),
-        ...rest
   }
 }
 
@@ -39,26 +36,19 @@ const aboutQuery = `{
                 title
                 content{
                     childMarkdownRemark {
-                        excerpt(format: PLAIN, pruneLength: 5000, truncate: true)
+                        excerpt(format: PLAIN, pruneLength: 2000, truncate: true)
                     }
-                }
-                complexData {
-                    category
-                    items
                 }
             }
         }
     }
 }`
 
-function aboutToAlgoliaRecord({ node: { id,slug,content,...rest } }) {
-    return {
-        objectID:id,
-        slug:`/about/`,
-        excerpt: content.childMarkdownRemark.excerpt,
-        ...rest
-  }
+function aboutToAlgoliaRecord (acc,{node: {content}}) {
+  return (acc+content.childMarkdownRemark.excerpt)
 }
+
+
 
 const projectQuery = `{
     projectPages: allContentfulProject{
@@ -67,63 +57,68 @@ const projectQuery = `{
                 id
                 slug
                 projectName
-                demoLink
-                repoLink
                 introduction {
                   childMarkdownRemark {
-                    excerpt(format: PLAIN, pruneLength: 5000, truncate: true)
+                    excerpt(format: PLAIN, pruneLength: 2500, truncate: true)
                   }
                 }
                 section {
                   childMarkdownRemark {
-                    excerpt(format: PLAIN, pruneLength: 5000, truncate: true)
+                    excerpt(format: PLAIN, pruneLength: 2500, truncate: true)
                   }
                 }
-                publishedDate
             }
         }
     }
 }`
 
-function projectToAlgoliaRecord({ node: { id,slug,introduction,section,...rest } }) {
+function projectToAlgoliaRecord({ node: { id,slug,projectName,introduction,section } }) {
     return {
         objectID:id,
         slug:`/project/${slug.toLowerCase()}/`,
-        introduction: introduction.childMarkdownRemark.excerpt,
-        section: section.childMarkdownRemark.excerpt,
-        ...rest
+        title:projectName,
+        excerpt: introduction.childMarkdownRemark.excerpt+section.childMarkdownRemark.excerpt,
   }
 }
 
 const numberOfExcerpt = 100;
-const indexName = [`BlogPage`,`AboutPage`,`ProjectPage`];
+const indexName = `allPages`;
 
 const queries = [
   {
     query: pageQuery,
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
-    indexName:indexName[0],
+    indexName:indexName,
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-        searchableAttributes:[`title`,`excerpt`,`tag`]
+        searchableAttributes:[`title`,`excerpt`]
     }
   },
   {
     query: aboutQuery,
-    transformer: ({ data }) => data.aboutPages.edges.map(aboutToAlgoliaRecord),
-    indexName:indexName[1],
+    transformer: ({ data }) =>{
+      return (
+        {
+          objectID:data.aboutPages.edges[0].node.id,
+          slug:`/about/`,
+          title:`關於`,
+          excerpt:data.aboutPages.edges.reduce(aboutToAlgoliaRecord,'')
+        }
+      )
+    },
+    indexName:indexName,
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-        searchableAttributes:[`title`,`excerpt`,`complexData`]
+        searchableAttributes:[`title`,`excerpt`]
     }
   },
   {
     query: projectQuery,
     transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
-    indexName:indexName[2],
+    indexName:indexName,
     settings: { 
-        attributesToSnippet: [`introduction:${numberOfExcerpt}`,`section${numberOfExcerpt}`,`demoLink${numberOfExcerpt}`,`repoLink${numberOfExcerpt}`],
-        searchableAttributes:[`projectName`,`introduction`,`section`,`demoLink`,`repoLink`]
+        attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
+        searchableAttributes:[`title`,`excerpt`]
     }
   }
 ]

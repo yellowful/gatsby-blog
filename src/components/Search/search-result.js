@@ -69,7 +69,6 @@ const HitsInIndex = ({ index }) => {
 )}
 
 const SearchResult = ({ indices,show }) => {
-  console.log({ indices,show });
     return (
         <div className="center mt2 w-90">
             {
