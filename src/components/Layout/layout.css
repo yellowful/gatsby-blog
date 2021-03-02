@@ -199,3 +199,22 @@ body, button, input, optgroup, select, textarea{
     color:#dc9b32;
     background: rgba(150, 204, 255, 0.5);
 }
+
+.ais-Pagination-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.ais-Pagination-link{
+    color: rgb(150, 204, 255);
+}
+
+.ais-Pagination-link--selected{
+    color:#dc9b32;
+}
+
+.ais-Pagination-item {
+    margin:1rem
+}
+

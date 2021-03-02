@@ -69,12 +69,12 @@ const HitsInIndex = ({ index }) => {
 )}
 
 const SearchResult = ({ indices,show }) => {
-  
+  console.log({ indices,show });
     return (
         <div className="center mt2 w-90">
             {
                 show &&
-                    <div className="vh-75 overflow-scroll">
+                    <div className="h-100">
                         <AllHitCounts />
                         {
                             indices.map(index => (
