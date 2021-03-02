@@ -88,7 +88,7 @@ const queries = [
   {
     query: pageQuery,
     transformer: ({ data }) => data.pages.edges.map(pageToAlgoliaRecord),
-    indexName:indexName,
+    indexName,
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
         searchableAttributes:[`title`,`excerpt`]
@@ -106,7 +106,7 @@ const queries = [
         }
       )
     },
-    indexName:indexName,
+    indexName,
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
         searchableAttributes:[`title`,`excerpt`]
@@ -115,14 +115,12 @@ const queries = [
   {
     query: projectQuery,
     transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
-    indexName:indexName,
+    indexName,
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
         searchableAttributes:[`title`,`excerpt`]
     }
   }
 ]
-
-console.log(queries);
 
 module.exports = queries
