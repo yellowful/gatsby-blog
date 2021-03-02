@@ -5,34 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 const HeroIndex = ({imageData}) => {
-    // const data = useStaticQuery(
-    //     graphql`
-    //       query {
-    //         mobileImage: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
-    //             childImageSharp {
-    //               fluid(maxWidth: 1024, quality: 90) {
-    //                 ...GatsbyImageSharpFluid
-    //               }
-    //             }
-    //           }
-    //         desktop: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
-    //           childImageSharp {
-    //             fluid(quality: 90, maxWidth: 2048) {
-    //                 ...GatsbyImageSharpFluid
-    //             }
-    //           }
-    //         }
-    //       }
-    //     `
-    // )
-
-    // Set ImageData.
-    // const imageData = [data.mobileImage.childImageSharp.fluid,
-    // {
-    //     ...data.desktop.childImageSharp.fluid,
-    //     media: `(min-width:60em)`
-    // }]
-
 
     return (
         <section className="w-100">
@@ -54,7 +26,7 @@ const HeroIndex = ({imageData}) => {
                         </div>
                         <footer className="column flex flex-column justify-end">
                             <Link
-                                to="/about/#about-me"
+                                to="/about/#bio"
                                 replace={false}
                                 className="ma2 f3-l f4-m f5  tr tr-m tc-l"
                             >

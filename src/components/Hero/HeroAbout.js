@@ -6,7 +6,7 @@ import BackgroundImage from 'gatsby-background-image'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
-const HeroAbout = ({ head, content }) => {
+const HeroAbout = ({ slug, head, content }) => {
     const data = useStaticQuery(
         graphql`
           query {
@@ -50,7 +50,7 @@ const HeroAbout = ({ head, content }) => {
     return (
         <section className="hero bg-moon-gray">
                 <div className="w-80 w-70-m w-60-l mw7 center pb3">
-                    <h1 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{head}</h1>
+                    <h1 id={slug} className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{head}</h1>
                     <BackgroundImage
                         Tag={"div"}
                         className="image-hero-about"

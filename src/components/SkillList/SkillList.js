@@ -4,7 +4,7 @@ import { faCloudUploadAlt, faHammer } from '@fortawesome/free-solid-svg-icons'
 import { faReact, faJsSquare, faCss3, faHtml5, faNodeJs } from '@fortawesome/free-brands-svg-icons'
 
 
-const SkillList = ({ data, bgColor, isExpanded }) => {
+const SkillList = ({ slug, data, bgColor, isExpanded }) => {
 
     const icons = [faReact, faJsSquare, faCss3, faHtml5, faNodeJs, faCloudUploadAlt, faHammer];
 
@@ -16,7 +16,7 @@ const SkillList = ({ data, bgColor, isExpanded }) => {
                 ${isExpanded ? '' : 'overflow-y-hidden excerpt-gradient'}
             `}>
                 <div className="w-100 w-90-m w-80-l ph3 mw8 center">
-                    <h2 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{data.title}</h2>
+                    <h2 id={slug} className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{data.title}</h2>
                     <section dangerouslySetInnerHTML={{ __html: data.content.childMarkdownRemark.html }} />
                     <section className="index-card-container mt4">
                         {

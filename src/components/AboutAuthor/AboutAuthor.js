@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AboutAuthor = ({ data, bgColor, isExpanded }) => {
+const AboutAuthor = ({ slug,data, bgColor, isExpanded }) => {
 
     return (
-        <section id="about-me" className={`w-100 ${bgColor} pt3 pb5
+        <section id={slug} className={`w-100 ${bgColor} pt3 pb5
             ${ isExpanded ? '' : 'vh-100 vh-50-ns' }
         `}>
             <div className={`w-100 h-100 

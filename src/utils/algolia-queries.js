@@ -54,7 +54,6 @@ function aboutToAlgoliaRecord({ node: { id, slug, title, content} }) {
     slug: `/about/#${slug}`,
     title:title,
     excerpt: content.childMarkdownRemark.excerpt,
-    ...rest
   }
 }
 
