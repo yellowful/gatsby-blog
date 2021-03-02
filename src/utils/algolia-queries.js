@@ -104,7 +104,7 @@ const queries = [
   },
   {
     query: aboutQuery,
-    transformer: ({ data }) => data.aboutPages.edges.map(projectToAlgoliaRecord),
+    transformer: ({ data }) => data.aboutPages.edges.map(aboutToAlgoliaRecord),
     indexName,
     settings: { 
         attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
