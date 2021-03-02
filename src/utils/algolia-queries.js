@@ -27,26 +27,26 @@ function pageToAlgoliaRecord({ node: { id,slug,title,articles} }) {
   }
 }
 
-const aboutQuery = `{
-    aboutPages: allContentfulAbout{
-        edges {
-            node {
-                id
-                slug
-                title
-                content{
-                    childMarkdownRemark {
-                        excerpt(format: PLAIN, pruneLength: 2000, truncate: true)
-                    }
-                }
-            }
-        }
-    }
-}`
+// const aboutQuery = `{
+//     aboutPages: allContentfulAbout{
+//         edges {
+//             node {
+//                 id
+//                 slug
+//                 title
+//                 content{
+//                     childMarkdownRemark {
+//                         excerpt(format: PLAIN, pruneLength: 2000, truncate: true)
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }`
 
-function aboutToAlgoliaRecord (acc,{node: {content}}) {
-  return (acc+content.childMarkdownRemark.excerpt)
-}
+// function aboutToAlgoliaRecord (acc,{node: {content}}) {
+//   return (acc+content.childMarkdownRemark.excerpt)
+// }
 
 
 
@@ -94,24 +94,24 @@ const queries = [
         searchableAttributes:[`title`,`excerpt`]
     }
   },
-  {
-    query: aboutQuery,
-    transformer: ({ data }) =>{
-      return (
-        {
-          objectID:data.aboutPages.edges[0].node.id,
-          slug:`/about/`,
-          title:`關於`,
-          excerpt:data.aboutPages.edges.reduce(aboutToAlgoliaRecord,'')
-        }
-      )
-    },
-    indexName,
-    settings: { 
-        attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-        searchableAttributes:[`title`,`excerpt`]
-    }
-  },
+  // {
+  //   query: aboutQuery,
+  //   transformer: ({ data }) =>{
+  //     return (
+  //       {
+  //         objectID:data.aboutPages.edges[0].node.id,
+  //         slug:`/about/`,
+  //         title:`關於`,
+  //         excerpt:data.aboutPages.edges.reduce(aboutToAlgoliaRecord,'')
+  //       }
+  //     )
+  //   },
+  //   indexName,
+  //   settings: { 
+  //       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
+  //       searchableAttributes:[`title`,`excerpt`]
+  //   }
+  // },
   {
     query: projectQuery,
     transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
