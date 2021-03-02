@@ -123,4 +123,6 @@ const queries = [
   }
 ]
 
+console.log(queries);
+
 module.exports = queries
