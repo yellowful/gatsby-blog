@@ -20,6 +20,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             title
             description
             author
+            siteUrl
             canonicalUrl
             image
           }
@@ -36,12 +37,10 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
   )
 
   const fixedSrc = site.siteMetadata.canonicalUrl + siteLogo.childImageSharp.fixed.src
-  //console.table({imageURL:imageURL,fixedSrc:fixedSrc,pageURL:pageURL});
   const metaDescription = description || site.siteMetadata.description
   const metaImage = imageURL || fixedSrc
   const defaultTitle = site.siteMetadata?.title
-  const metaURL = pageURL || site.siteMetadata.canonicalUrl
-  //console.table({description:description, lang:lang, meta:meta, title:title, datePublished:datePublished, imageURL:imageURL, pageURL:pageURL, isArticle:isArticle});
+  const metaURL = pageURL || site.siteMetadata.siteUrl
 
   return (
     <React.Fragment>
@@ -86,7 +85,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             <Helmet>
               <meta property="og:type" content="article" />
               <meta property="og:article:published_time" content={datePublished} />
-              <meta property="article:author" content="https://bugdetective.netlify.app/about/" />
+              <meta property="article:author" content="https://www.bdr.rocks" />
             </Helmet>
           )
           :

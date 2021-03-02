@@ -9,7 +9,7 @@ const GoogleSchema = React.memo(
                 "@type": "NewsArticle",
                 "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": "https://bugdetective.netlify.app/"
+                    "@id": "https://www.bdr.rocks"
                 }
             },
         ]

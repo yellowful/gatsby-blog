@@ -14,7 +14,7 @@ module.exports = {
     description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
     author: `黃瑞成`,
     image:`/icons/icon-512x512.png`,
-    siteUrl:`https://bugdetective.netlify.app`,
+    siteUrl:`https://www.bdr.rocks`,
     canonicalUrl:`https://bugdetective.netlify.app`,
   },
   plugins: [

@@ -6,7 +6,6 @@ import TimeToRead from '../TimeToRead/TimeToRead';
 //import { Like, CommentsCount } from 'react-facebook';
 
 const PostPreview = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, timeToRead }) => {
-    //console.log(`https://bugdetective.netlify.app/blog/${slug}`);
     return (
         <article className="pv2 pv4-ns bb b--black-10 flex flex-column">
             <div className="w-100 pr3-ns">

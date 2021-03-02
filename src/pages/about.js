@@ -77,7 +77,7 @@ const About = ({location}) => {
       <SEO 
         title="關於" 
         description={aboutBlog.content.childMarkdownRemark.excerpt} 
-        pageURL="https://bugdetective.netlify.app/about/"
+        pageURL="https://www.bdr.rocks/"
         isArticle={false}
       />
       <div className="flex flex-column">

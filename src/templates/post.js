@@ -28,7 +28,7 @@ export default function Template({ data }) {
 
 
     //這篇文章的完整網址，要用來傳給fb，讓fb的資料庫可以儲存這個網址的所有comments
-    const fbHref = `https://bugdetective.netlify.app/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
+    const fbHref = `https://www.bdr.rocks/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
     
     return (
         <Layout>

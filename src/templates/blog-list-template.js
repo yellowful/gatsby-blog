@@ -27,9 +27,9 @@ export default class BlogList extends React.Component {
         const nextPage = `/blog-list/page-${(currentPage + 1).toString()}/`
 
         const seoPage = isFirst ?
-            `https://bugdetective.netlify.app/blog-list/`
+            `https://www.bdr.rocks/blog-list/`
             :
-            `https://bugdetective.netlify.app/blog-list/page-${(currentPage).toString()}/`
+            `https://www.bdr.rocks/blog-list/page-${(currentPage).toString()}/`
 
         return (
             <Layout>

@@ -11,7 +11,7 @@ export default class meterPage extends React.Component {
   render() {
     const { iceFireNumber } = this.props.pageContext
     const posts = this.props.data.allContentfulBlog.edges
-    const pageURL = `https://bugdetective.netlify.app/blog/ice-fire-number/${iceFireNumber}/`;
+    const pageURL = `https://www.bdr.rocks/blog/ice-fire-number/${iceFireNumber}/`;
     return (
       <Layout>
         <SEO title="ice fire number" pageURL={pageURL} />

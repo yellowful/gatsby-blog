@@ -15,7 +15,7 @@ export default class TagListPage extends React.Component {
         })}
 
         const tagSlug=this.props.data.allContentfulAllTag.edges[0].node.slug.toLowerCase();
-        const pageURL=`https://bugdetective.netlify.app/blog/tags/${tagSlug.toLowerCase()}/`;
+        const pageURL=`https://www.bdr.rocks/blog/tags/${tagSlug.toLowerCase()}/`;
 
         return (
             <Layout>
