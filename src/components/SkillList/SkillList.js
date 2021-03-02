@@ -9,14 +9,14 @@ const SkillList = ({ slug, data, bgColor, isExpanded }) => {
     const icons = [faReact, faJsSquare, faCss3, faHtml5, faNodeJs, faCloudUploadAlt, faHammer];
 
     return (
-        <section className={`w-100 ${bgColor} pt3 pb5
+        <section id={slug} className={`w-100 ${bgColor} pt3 pb5
             ${isExpanded ? '' : 'vh-100 vh-50-ns'}
         `}>
             <div className={`w-100 h-100 
                 ${isExpanded ? '' : 'overflow-y-hidden excerpt-gradient'}
             `}>
                 <div className="w-100 w-90-m w-80-l ph3 mw8 center">
-                    <h2 id={slug} className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{data.title}</h2>
+                    <h2 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">{data.title}</h2>
                     <section dangerouslySetInnerHTML={{ __html: data.content.childMarkdownRemark.html }} />
                     <section className="index-card-container mt4">
                         {
