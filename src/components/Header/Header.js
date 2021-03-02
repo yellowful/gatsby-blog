@@ -7,7 +7,6 @@ import Search from "../Search"
 
 const Header = ({ siteTitle }) => {
 
-  const searchIndices = [{ name: `BlogPage` }, { name: `AboutPage` }, { name: `ProjectPage` }]
   const [hamburgerExpand, setHamburgerExpand] = useState('');
   const [showSearch, setShowSearch] = useState(false);
 
@@ -109,7 +108,7 @@ const Header = ({ siteTitle }) => {
           </div>
         </div>
       </nav>
-      <Search indices={searchIndices} showSearch={showSearch} setShowSearch={setShowSearch} />
+      <Search indexName={`allPages`} showSearch={showSearch} setShowSearch={setShowSearch} />
     </header>
   )
 }

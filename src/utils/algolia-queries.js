@@ -77,7 +77,7 @@ function projectToAlgoliaRecord({ node: { id,slug,projectName,introduction,secti
         objectID:id,
         slug:`/project/${slug.toLowerCase()}/`,
         title:projectName,
-        excerpt: introduction.childMarkdownRemark.excerpt+section.childMarkdownRemark.excerpt,
+        excerpt: section.childMarkdownRemark.excerpt+introduction.childMarkdownRemark.excerpt,
   }
 }
 

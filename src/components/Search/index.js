@@ -7,7 +7,7 @@ import useClickOutside from "./use-click-outside"
 
 
 
-export default function Search({ indices, showSearch, setShowSearch }) {
+export default function Search({ indexName, showSearch, setShowSearch }) {
   const rootRef = createRef()
   const [query, setQuery] = useState()
   const searchClient = algoliasearch(
@@ -15,9 +15,9 @@ export default function Search({ indices, showSearch, setShowSearch }) {
     process.env.GATSBY_ALGOLIA_SEARCH_KEY
   )
 
-
   useClickOutside(rootRef, () => {
     setShowSearch(false);
+    setQuery('');
   })
 
   if (showSearch) {
@@ -29,7 +29,7 @@ export default function Search({ indices, showSearch, setShowSearch }) {
         >
           <InstantSearch
             searchClient={searchClient}
-            indexName={indices[0].name}
+            indexName={indexName}
             onSearchStateChange={({ query }) => setQuery(query)}
           >
             <Configure
@@ -39,7 +39,7 @@ export default function Search({ indices, showSearch, setShowSearch }) {
             <CustomSearchBox />
             <SearchResult
               show={query && query.length > 0}
-              indices={indices}
+              indexName={indexName}
             />
             {
               query && query.length > 0 ?
