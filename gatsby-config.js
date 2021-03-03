@@ -236,7 +236,7 @@ module.exports = {
             site {
               siteMetadata {
                 author
-                canonicalUrl
+                siteUrl
                 description
                 image
                 title
@@ -252,7 +252,7 @@ module.exports = {
                   title:edge.node.title,
                   description: edge.node.articles.excerpt,
                   date: edge.node.publishedDate,
-                  url: site.siteMetadata.canonicalUrl + "/blog/" + edge.node.slug.toLowerCase()+"/",
+                  url: site.siteMetadata.sitelUrl + "/blog/" + edge.node.slug.toLowerCase()+"/",
                   guid: edge.node.id,
                   custom_elements: [{ "content:encoded": edge.node.articles.childMarkdownRemark.html }],
                 })
@@ -269,7 +269,7 @@ module.exports = {
                           excerpt(format: PLAIN, pruneLength: 50, truncate: true)
                         }
                       }
-                      publishedDate
+                      publishedDate(formatString: "MMMM DD, YYYY")
                       slug
                       title
                     }
@@ -278,7 +278,9 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "蟲探理查的RSS Feed訂閱",
+            title: "蟲探理查",
+            site_url:"https://www.bdr.rocks",
+            image_url:"https://www.bdr.rocks/icons/icon-512x512.png"
           },
         ],
       },
