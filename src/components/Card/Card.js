@@ -7,7 +7,9 @@ import TimeToRead from '../TimeToRead/TimeToRead';
 
 const Card = ({ node }) => {
     const { title, publishedDate, iceFireNumber } = node;
-    const { excerpt, timeToRead } = node.articles.childMarkdownRemark
+    const { timeToRead } = node.articles.childMarkdownRemark
+    const description = node.description || node.articles
+    const {excerpt} = description.childMarkdownRemark
     const slug = node.slug.toLowerCase()
 
     return (

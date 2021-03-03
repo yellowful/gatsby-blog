@@ -24,8 +24,13 @@ const IndexPage = () => {
           node {
             articles {
               childMarkdownRemark {
-                excerpt(pruneLength: 80,truncate: true)
+                excerpt(pruneLength: 80,truncate: true, format: PLAIN)
                 timeToRead
+              }
+            }
+            description {
+              childMarkdownRemark {
+                excerpt(pruneLength: 80, truncate: true, format: PLAIN)
               }
             }
             slug

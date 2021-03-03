@@ -38,7 +38,7 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
         <section className="mv2 mv4-ns ph2 w-100">
             <div className="w-100 dib-ns w-60-ns flex justify-between flex-none-ns">
                 <span >
-                    <Link to="/about/">
+                    <Link to="/about/#bio">
                         <span className="f6"><FontAwesomeIcon icon={faAt} /></span>
                         <span className="ml2 f6">蟲探理查</span>
                     </Link>

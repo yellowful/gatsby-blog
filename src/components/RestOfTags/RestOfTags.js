@@ -43,7 +43,9 @@ const RestOfTags = ({ tagSlug }) => {
                 <div className="dib v-mid nowrap overflow-x-auto">
                     {
                         data.allContentfulAllTag.edges.sort((a, b) => {
-                            return b.node.blog.length - a.node.blog.length
+                            const lengthA = a.node.blog ? a.node.blog.length : 0;
+                            const lengthB = b.node.blog ? b.node.blog.length : 0;
+                            return lengthB - lengthA
                         })
                         .map((item, i) => {
                             if (item.node.slug.toLowerCase() === tagSlug.toLowerCase()) {
@@ -54,7 +56,7 @@ const RestOfTags = ({ tagSlug }) => {
                                         <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib f5 v-btm">
                                             {`${item.node.slug.toLowerCase()}`}
                                         </Link>
-                                        <span className="f7 dib v-btm">{`+${item.node.blog.length}`}</span>
+                                        <span className="f7 dib v-btm">{`+${item.node.blog ? item.node.blog.length : 0}`}</span>
                                     </article>
                                 )
                             }

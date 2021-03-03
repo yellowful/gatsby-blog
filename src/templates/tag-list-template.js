@@ -24,7 +24,9 @@ export default class TagListPage extends React.Component {
                     {
                         posts.map((element) => {
                             const {slug,title,publishedDate,iceFireNumber}=element;
-                            const {excerpt,timeToRead}=element.articles.childMarkdownRemark;
+                            const {timeToRead}=element.articles.childMarkdownRemark;
+                            const description = element.description || element.articles
+                            const {excerpt} = description.childMarkdownRemark
                             return (
                                     <TagCard
                                         slug={slug.toLowerCase()}
@@ -63,6 +65,11 @@ export const tagListQuery = graphql`
               childMarkdownRemark {
                 excerpt(pruneLength: 150, truncate: true, format: PLAIN)
                 timeToRead
+              }
+            }
+            description {
+              childMarkdownRemark {
+                excerpt(pruneLength: 150, truncate: true, format: PLAIN)
               }
             }
             slug

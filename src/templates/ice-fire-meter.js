@@ -22,7 +22,10 @@ export default class meterPage extends React.Component {
               posts.map((element) => {
                 const { node } = element;
                 const { slug, title, publishedDate, iceFireNumber } = node;
-                const { excerpt, timeToRead } = node.articles.childMarkdownRemark;
+                const { timeToRead } = node.articles.childMarkdownRemark;
+                const description = node.description || node.articles
+                const {excerpt} = description.childMarkdownRemark
+                console.log(`meter`,excerpt);
                 return (
                     <MeterCard
                       slug={slug.toLowerCase()}
@@ -62,10 +65,15 @@ export const meterQuery = graphql`
       edges {
         node {
           articles {
-              childMarkdownRemark {
-                excerpt(pruneLength: 150, truncate: true, format: PLAIN)
-                timeToRead
-              }
+            childMarkdownRemark {
+              excerpt(pruneLength: 150, truncate: true, format: PLAIN)
+              timeToRead
+            }
+          }
+          description {
+            childMarkdownRemark {
+              excerpt(pruneLength: 150, truncate: true, format: PLAIN)
+            }
           }
           slug
           iceFireNumber

@@ -16,30 +16,39 @@ export default function Template({ data }) {
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const imageURL =
-    data.contentfulBlog.images ?
-        `https:${data.contentfulBlog.images[0].fluid.src}`
-        :
-        data.site.siteMetadata.image
-    //console.log(imageURL);
-
-    //contentful上這篇文章有設定文章title
-    //contentful上這篇文章有設定文章的公開時間
-    const { title, publishedDate, tag, iceFireNumber } = data.contentfulBlog
+        data.contentfulBlog.images ?
+            `https:${data.contentfulBlog.images[0].fluid.src}`
+            :
+            data.site.siteMetadata.image
+    const description = data.contentfulBlog.description || data.contentfulBlog.articles
+    const {excerpt} = description.childMarkdownRemark
+    const { title, publishedDate, updatedAt, tag, iceFireNumber } = data.contentfulBlog
 
 
     //這篇文章的完整網址，要用來傳給fb，讓fb的資料庫可以儲存這個網址的所有comments
     const fbHref = `https://www.bdr.rocks/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
-    
+
     return (
         <Layout>
-            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} description={post.excerpt} />
+            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} description={excerpt} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
                     <TimeToRead publishedDate={publishedDate} timeToRead={Math.round(post.timeToRead * 1.5)} iceFireNumber={iceFireNumber} />
                     <section>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                        {
+                            updatedAt ?
+                                (
+                                    <footer className="f7 mv4 gray">
+                                        {updatedAt} 更新
+                                    </footer>
+                                )
+                                :
+                                null
+                        }
                     </section>
+
                     <PostTags tag={tag} />
                     <hr className="b--dashed bb b--black-40 bw1 mv5" />
                     <FbComments fbHref={fbHref} />
@@ -64,12 +73,17 @@ export const postQuery = graphql`
                 excerpt(format: PLAIN, pruneLength: 150, truncate: true)
               }
             }
+            description {
+              childMarkdownRemark {
+                excerpt(pruneLength: 150, truncate: true, format: PLAIN)
+              }
+            }
             title
             createdAt
             slug
             iceFireNumber
             publishedDate(formatString: "MMMM DD, YYYY")
-            updatedAt
+            updatedAt(formatString: "MMMM DD, YYYY", locale: "zh-TW")
             tag {
                 slug
             }
