@@ -23,11 +23,6 @@ const NotFoundPage = () => {
             }
           }
         }
-        site {
-          siteMetadata {
-            canonicalUrl
-          }
-        }
       }
     `
   )

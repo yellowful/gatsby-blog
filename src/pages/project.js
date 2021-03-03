@@ -40,7 +40,7 @@ const Blog = () => {
         }
         site {
           siteMetadata {
-            canonicalUrl
+            siteUrl
           }
         }
       }
@@ -48,7 +48,7 @@ const Blog = () => {
   )
 
   const post=data.allContentfulProject.edges
-  const pageUrl=data.site.siteMetadata.canonicalUrl+'/project/'
+  const pageUrl=data.site.siteMetadata.siteUrl+'/project/'
 
   return(
     <Layout>

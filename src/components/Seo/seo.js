@@ -21,7 +21,6 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             description
             author
             siteUrl
-            canonicalUrl
             image
           }
         }
@@ -36,7 +35,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
     `
   )
 
-  const fixedSrc = site.siteMetadata.canonicalUrl + siteLogo.childImageSharp.fixed.src
+  const fixedSrc = site.siteMetadata.siteUrl + siteLogo.childImageSharp.fixed.src
   const metaDescription = description || site.siteMetadata.description
   const metaImage = imageURL || fixedSrc
   const defaultTitle = site.siteMetadata?.title

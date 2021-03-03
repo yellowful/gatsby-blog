@@ -63,7 +63,7 @@ const IndexPage = () => {
       }
       site {
         siteMetadata {
-          canonicalUrl
+          siteUrl
         }
       }
     }
@@ -76,7 +76,7 @@ const IndexPage = () => {
     media: `(min-width:60em)`
   }]
 
-  const imageURLOfSeo = data.site.siteMetadata.canonicalUrl + data.indexCapture.childImageSharp.fluid.src
+  const imageURLOfSeo = data.site.siteMetadata.siteUrl + data.indexCapture.childImageSharp.fluid.src
 
   return (
     <Layout>

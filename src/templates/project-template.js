@@ -20,7 +20,7 @@ export default function ProjectTemplate({ data }) {
     //contentful上這篇文章有設定文章的公開時間
     const { projectName, demoLink, repoLink } = data.contentfulProject;
 
-    const pageURL = `${data.site.siteMetadata.canonicalUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
+    const pageURL = `${data.site.siteMetadata.siteUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
 
     return (
         <Layout>
@@ -85,7 +85,7 @@ export const projectQuery = graphql`
         }
         site {
           siteMetadata {
-            canonicalUrl
+            siteUrl
           }
         }
     }
