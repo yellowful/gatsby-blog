@@ -88,7 +88,7 @@ function projectToAlgoliaRecord({ node: { id, slug, projectName, introduction, s
   }
 }
 
-const policyQuery = `{
+const policyAlgoliaQuery = `{
   policyPages: allContentfulPrivacyPolicy {
     edges {
       node {
@@ -146,8 +146,8 @@ const queries = [
     }
   },
   {
-    query: policyQuery,
-    transformer: ({ data }) => data.allContentfulPrivacyPolicy.edges.map(policyToAlgoliaRecord),
+    query: policyAlgoliaQuery,
+    transformer: ({ data }) => data.policyPages.edges.map(policyToAlgoliaRecord),
     indexName,
     settings: {
       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],

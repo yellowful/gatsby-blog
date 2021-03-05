@@ -1,0 +1,42 @@
+{
+    "projectPages": {
+        "edges": [
+            {
+                "node": {
+                    "id": "00d916b9-756c-5b84-b790-ae7651b69ab8",
+                    "slug": "personal-blog",
+                    "projectName": "個人部落格",
+                    "introduction": {
+                        "childMarkdownRemark": {
+                            "excerpt":"能。"
+                        }
+                    },
+                    "section": {
+                        "childMarkdownRemark": {
+                            "excerpt":"ork"
+                        }
+                    }
+                }
+            },
+            {
+                "node": {
+                    "id": "5065873c-0cf6-5eaf-95a9-e7ae5059bc57",
+                    "slug": "名人辨識",
+                    "projectName": "名人辨識",
+                    "introduction": {
+                        "childMarkdownRemark": {
+                            "excerpt":"輸入語言功能"
+                        }
+                    },
+                    "section": {
+                        "childMarkdownRemark": {
+                            "excerpt":"動辨識出人名。"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+
+
