@@ -5,7 +5,7 @@ import { Like, Comments } from 'react-facebook';
 const FbComments = ({ fbHref }) => {
 
     return (
-        <section className="overflow-hidden" >
+        <section className="overflow-hidden mt4" >
             <table className="w-100">
                 <tbody>
                     <tr>

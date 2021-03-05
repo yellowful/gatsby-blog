@@ -17,8 +17,6 @@ import "./mystyles.css"
 import 'tachyons'
 import "./layout.css"
 
-
-
 const Layout = ({ children }) => {
 
   const [scrollPosition, setScrollPosition] = useState(0);

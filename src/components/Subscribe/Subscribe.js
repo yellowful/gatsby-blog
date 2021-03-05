@@ -44,7 +44,7 @@ const Subscribe = () => {
     }
 
     return (
-            <div className="w-100 bg-moon-gray h4-l h5 flex justify-center items-center">
+            <div className="w-100 bg-moon-gray h4-l h5 flex justify-center items-center  bb bb-m bn-l b--black-30">
                 <div className="bg-moon-gray pa2 pa3-ns flex flex-column w-100">
                     <header className="f5 f4-ns mb2 black-80">訂閱文章</header>
                     <div className="columns is-desktop">
