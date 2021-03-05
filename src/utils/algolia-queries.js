@@ -88,6 +88,32 @@ function projectToAlgoliaRecord({ node: { id, slug, projectName, introduction, s
   }
 }
 
+const policyQuery = `{
+  policyPages: allContentfulPrivacyPolicy {
+    edges {
+      node {
+        id
+        slug
+        title
+        privacyPolicyContent {
+          childMarkdownRemark {
+              excerpt(format: PLAIN, pruneLength: 5000, truncate: true)
+          }
+        }
+      }
+    }
+  }
+}`
+
+function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent } }) {
+  return {
+    objectID: id,
+    slug: `/terms-n-policy/${slug.toLowerCase()}/`,
+    title: title,
+    excerpt: privacyPolicyContent.childMarkdownRemark.excerpt,
+  }
+}
+
 const numberOfExcerpt = 100;
 const indexName = `allPages`;
 
@@ -113,6 +139,15 @@ const queries = [
   {
     query: projectQuery,
     transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
+    indexName,
+    settings: {
+      attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
+      searchableAttributes: [`title`, `excerpt`]
+    }
+  },
+  {
+    query: policyQuery,
+    transformer: ({ data }) => data.allContentfulPrivacyPolicy.edges.map(policyToAlgoliaRecord),
     indexName,
     settings: {
       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],

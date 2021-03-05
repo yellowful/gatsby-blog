@@ -6,9 +6,6 @@ require("dotenv").config({
 })
 
 module.exports = {
-  flags: {
-    DEV_SSR: false,
-  },
   siteMetadata: {
     title: `蟲探理查`,
     description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
