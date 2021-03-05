@@ -1,5 +1,5 @@
 import React from 'react'
-import { useStaticQuery, Link } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"

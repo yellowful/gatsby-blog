@@ -105,14 +105,14 @@ const policyQuery = `{
   }
 }`
 
-// function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent } }) {
-//   return {
-//     objectID: id,
-//     slug: `/terms-n-policy/${slug.toLowerCase()}/`,
-//     title: title,
-//     excerpt: privacyPolicyContent.childMarkdownRemark.excerpt,
-//   }
-// }
+function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent } }) {
+  return {
+    objectID: id,
+    slug: `/terms-n-policy/${slug.toLowerCase()}/`,
+    title: title,
+    excerpt: privacyPolicyContent.childMarkdownRemark.excerpt,
+  }
+}
 
 const numberOfExcerpt = 100;
 const indexName = `allPages`;
@@ -145,15 +145,15 @@ const queries = [
       searchableAttributes: [`title`, `excerpt`]
     }
   },
-  // {
-  //   query: policyQuery,
-  //   transformer: ({ data }) => data.allContentfulPrivacyPolicy.edges.map(policyToAlgoliaRecord),
-  //   indexName,
-  //   settings: {
-  //     attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-  //     searchableAttributes: [`title`, `excerpt`]
-  //   }
-  // }
+  {
+    query: policyQuery,
+    transformer: ({ data }) => data.allContentfulPrivacyPolicy.edges.map(policyToAlgoliaRecord),
+    indexName,
+    settings: {
+      attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
+      searchableAttributes: [`title`, `excerpt`]
+    }
+  }
 ]
 
 module.exports = queries
