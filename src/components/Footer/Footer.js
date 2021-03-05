@@ -8,15 +8,15 @@ import BdrLogo from "../../images/svg/bdrlogo.svg"
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
-    query polocyQuery {
-        allContentfulPrivacyPolicy {
-          edges {
-            node {
-              slug
+      query polocyPageQuery {
+          allContentfulPrivacyPolicy {
+            edges {
+              node {
+                slug
+              }
             }
           }
         }
-      }
     `)
 
     return (
