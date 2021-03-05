@@ -147,7 +147,7 @@ const queries = [
   },
   {
     query: policyQuery,
-    transformer: ({ data }) => data.allContentfulPrivacyPolicy.edges.map(policyToAlgoliaRecord),
+    transformer: ({ data }) => console.log('algolia',data),
     indexName,
     settings: {
       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
