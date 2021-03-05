@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStaticQuery, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
 
@@ -13,11 +12,7 @@ const Footer = () => {
         allContentfulPrivacyPolicy {
           edges {
             node {
-              privacyPolicyContent {
-                childMarkdownRemark {
-                  html
-                }
-              }
+              slug
             }
           }
         }
@@ -30,14 +25,14 @@ const Footer = () => {
                 <span className="dib v-btm moon-gray f7 f6-ns">
                     © 2021, Built by &nbsp;
             </span>
-                <Link to="/terms-n-policy/copy-right/" className="dib mr2 v-btm f7 f6-ns mr4-ns">
+                <Link to={`/terms-n-policy/${data.allContentfulPrivacyPolicy.edges[0].node.slug}/`} className="dib mr2 v-btm f7 f6-ns mr4-ns">
                     <BdrLogo className="dib v-mid w2 h1" fill="#3273dc" />
                     <span className="dib v-mid">
                         蟲探理查
                     </span>
                 </Link>
 
-                <Link to="/terms-n-policy/privacy-policy/" className="dib v-btm f7 f6-ns mr2 mr4-ns">
+                <Link to={`/terms-n-policy/${data.allContentfulPrivacyPolicy.edges[1].node.slug}/`} className="dib v-btm f7 f6-ns mr2 mr4-ns">
                     <FontAwesomeIcon icon={faUserLock} />
                     <span>
                         隱私權 &nbsp;
