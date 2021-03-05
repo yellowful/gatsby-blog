@@ -1,4 +1,5 @@
 import React from 'react'
+import { useStaticQuery, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons'
@@ -6,17 +7,21 @@ import { faUserLock } from '@fortawesome/free-solid-svg-icons'
 //import Img from "gatsby-image"
 
 const Footer = () => {
-    // const data = useStaticQuery(graphql`
-    //     query {
-    //         githubLogo: file(relativePath: { eq: "GitHub-Mark-120px-plus.png" }) {
-    //             childImageSharp {
-    //                 fluid(maxWidth: 96, quality: 100) {
-    //                     ...GatsbyImageSharpFluid
-    //                 }
-    //             }
-    //         }
-    //     }
-    // `)
+    const data = useStaticQuery(graphql`
+    query polocyQuery {
+        allContentfulPrivacyPolicy {
+          edges {
+            node {
+              privacyPolicyContent {
+                childMarkdownRemark {
+                  html
+                }
+              }
+            }
+          }
+        }
+      }
+    `)
 
     return (
         <footer className="has-background-dark w-100 flex justify-center">
@@ -24,19 +29,19 @@ const Footer = () => {
                 <span className="dib v-btm moon-gray f7 f6-ns">
                     © 2021, Built by &nbsp;
             </span>
-                <a href="https://github.com/yellowful/gatsby-blog" rel="noreferrer" target="_blank" className="dib v-btm f7 f6-ns mr4-ns">
+                <Link to="/terms-n-policy/copy-right/" className="dib mr2 v-btm f7 f6-ns mr4-ns">
                     <FontAwesomeIcon icon={faGithub} />
                     <span>
-                        Bug Detective Richard &nbsp;
-                </span>
-                </a>
+                        蟲探理查
+                    </span>
+                </Link>
 
-                <a href="https://privacy.google.com/businesses/processorterms/" rel="noreferrer" target="_blank" className="dib v-btm f7 f6-ns mr4-ns">
+                <Link to="/terms-n-policy/privacy-policy/" className="dib v-btm f7 f6-ns mr2 mr4-ns">
                     <FontAwesomeIcon icon={faUserLock} />
                     <span>
-                        隱私權政策 &nbsp;
+                        隱私權 &nbsp;
                     </span>
-                </a>
+                </Link>
             </span>
         </footer>
     )

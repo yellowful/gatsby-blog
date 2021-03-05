@@ -84,7 +84,7 @@ module.exports = {
             options: {
               toasterText: '程式碼已複製',
               // Optional toaster duration. Defaults to 3500.
-              toasterDuration: 6000
+              toasterDuration: 1000
             }
           },
           {

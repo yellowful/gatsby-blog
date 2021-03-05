@@ -12,16 +12,17 @@ const path = require('path');
 
 //用來自動產生很多頁面，也就是gatsby最重要的精華
 exports.createPages = async ({ actions, graphql, reporter }) => {
-    
+
     //gatsby有用redux，這是redux來派發createPage，createPage就是用來自動製作頁面的function
     const { createPage } = actions;
-    
+
     //設定單篇文章的樣板的檔案位置
     const postTemplate = path.resolve(`./src/templates/post.js`);
     const projectTemplate = path.resolve(`./src/templates/project-template.js`);
-    const tagListTemplate= path.resolve(`./src/templates/tag-list-template.js`);
-    const meterTemplate= path.resolve(`./src/templates/ice-fire-meter.js`)
-    
+    const tagListTemplate = path.resolve(`./src/templates/tag-list-template.js`);
+    const meterTemplate = path.resolve(`./src/templates/ice-fire-meter.js`)
+    const policyTemplate = path.resolve(`./src/templates/policy-template.js`)
+
     //gatsby在產生頁面時，會從contenful的api抓資料回來，然後利用graphql把所有文章抓回來，放到result裡面
     //大括號裡面都是從網址的”http://localhost:8000/___graphql“查詢，查詢完可以直接copy下來
     //其中contentful可能設定多國，這時要限定locale才抓的正確
@@ -60,8 +61,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                   }
                 }
             }
+            allContentfulPrivacyPolicy(filter: {node_locale: {eq: "zh-Hant-TW"}}) {
+                edges {
+                  node {
+                    slug
+                    title
+                  }
+                }
+              }
         }
-        
     `)
 
     //如果result.errors有東西，就印出錯誤
@@ -88,13 +96,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             },
         })
     })
-    
+
     //postsPerPage可以設定每一頁放幾個文章
     const postsPerPage = 3
 
     //Math.ceil是無條件進入法，算出總頁數numPages
     const numPages = Math.ceil(posts.length / postsPerPage)
-    
+
     //這一段用來自動產生所有文章列表
     //Array.from({ length: numPages })，是用來得到numPages個undefined元素數量的array，主要可以iterable，_代表每一個元素，值都是undefined
     //createPage可以用來自動建立網頁
@@ -118,13 +126,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     const tagList = result.data.allContentfulAllTag.edges
     tagList.forEach((edge) => {
-      createPage({
-          path: `/blog/tags/${edge.node.slug.toLowerCase()}/`,
-          component: tagListTemplate,
-          context: {
-              slug: edge.node.slug,
-          },
-      })
+        createPage({
+            path: `/blog/tags/${edge.node.slug.toLowerCase()}/`,
+            component: tagListTemplate,
+            context: {
+                slug: edge.node.slug,
+            },
+        })
     })
 
     const projectPage = result.data.allContentfulProject.edges
@@ -136,19 +144,33 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                 slug: edge.node.slug,
             },
         })
-    }) 
+    })
 
-    for (let i=0;i<10;i++){
+    for (let i = 0; i < 10; i++) {
         createPage({
             path: `/blog/ice-fire-number/${i}/`,
             component: meterTemplate,
             context: {
                 iceFireNumber: i,
-                filterNumber:[i,i+1,i-1]
+                filterNumber: [i, i + 1, i - 1]
             },
         })
     }
+
+    const policy = result.data.allContentfulPrivacyPolicy.edges
+    policy.forEach((edge) => {
+        createPage({
+            path: `/terms-n-policy/${edge.node.slug.toLowerCase()}/`,
+            component: policyTemplate,
+            context: {
+                slug: edge.node.slug,
+            },
+        })
+    })
+
 }
+
+
 
 // exports.onCreateNode = ({ node, actions, getNode }) => {
 //     const { createNodeField } = actions
