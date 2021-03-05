@@ -54,14 +54,14 @@ const IndexPage = () => {
       }
       desktop: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
         childImageSharp {
-          fluid(quality: 90, maxWidth: 2048) {
+          fluid(quality: 85, maxWidth: 2048) {
               ...GatsbyImageSharpFluid
           }
         }
       }
       indexCapture: file(relativePath: { eq: "index-capture.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 90) {
+            fluid(maxWidth: 1024, quality: 85) {
               ...GatsbyImageSharpFluid
             }
           }

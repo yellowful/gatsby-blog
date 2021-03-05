@@ -25,7 +25,6 @@ export default class meterPage extends React.Component {
                 const { timeToRead } = node.articles.childMarkdownRemark;
                 const description = node.description || node.articles
                 const {excerpt} = description.childMarkdownRemark
-                console.log(`meter`,excerpt);
                 return (
                     <MeterCard
                       slug={slug.toLowerCase()}

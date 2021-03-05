@@ -1,10 +1,13 @@
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
 import FbComments from "../components/FbComments/FbComments"
 import TimeToRead from '../components/TimeToRead/TimeToRead';
 import PostTags from '../components/PostTags/PostTags';
+import BuyMeAbook from '../components/BuyMeAbook/BuyMeAbook'
 
 
 //Template名稱不影響，因為gatsby內部會自己產生component，和這個名稱無關
@@ -21,12 +24,22 @@ export default function Template({ data }) {
             :
             data.site.siteMetadata.image
     const description = data.contentfulBlog.description || data.contentfulBlog.articles
-    const {excerpt} = description.childMarkdownRemark
+    const { excerpt } = description.childMarkdownRemark
     const { title, publishedDate, updatedAt, tag, iceFireNumber } = data.contentfulBlog
+    const fbHref = `${data.site.siteMetadata.siteUrl}/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
+    const [coffeeState, setCoffeeState] = useState(false);
+    const handleOnClick = () => {
+        // if (coffeeState) {
+        //     const icon = document.getElementById("bmc-wbtn")
+        //     const previousDiv = icon.previousSibling
+        //     const nextDiv = icon.nextSibling
+        //     document.body.removeChild(icon)
+        //     document.body.removeChild(previousDiv)
+        //     document.body.removeChild(nextDiv)
+        // }
+        setCoffeeState(!coffeeState);
+    }
 
-
-    //這篇文章的完整網址，要用來傳給fb，讓fb的資料庫可以儲存這個網址的所有comments
-    const fbHref = `https://www.bdr.rocks/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
 
     return (
         <Layout>
@@ -50,7 +63,21 @@ export default function Template({ data }) {
                     </section>
 
                     <PostTags tag={tag} />
+                    {/* <a href="https://www.buymeacoffee.com/bugdetective" target="_blank">
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style={{height:`60px !important`,width:`217px !important`}} />
+                    </a> */}
                     <hr className="b--dashed bb b--black-40 bw1 mv5" />
+                    <div>{coffeeState.toString()}</div>
+                    <button className="button orange bg-light-gray mv4" onClick={handleOnClick}>
+                        <FontAwesomeIcon icon={faCoffee} />
+                    </button>
+                    {
+                        coffeeState ?
+                            <BuyMeAbook coffeeState={coffeeState} />
+                            :
+                            null
+                    }
+
                     <FbComments fbHref={fbHref} />
                 </div>
             </div>
@@ -97,6 +124,7 @@ export const postQuery = graphql`
           siteMetadata {
             title
             image
+            siteUrl
           }
         }
     }

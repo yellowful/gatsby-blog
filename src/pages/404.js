@@ -11,14 +11,14 @@ const NotFoundPage = () => {
       query fourZeroFourQuery {
         mobileImage: file(relativePath: { eq: "404image.jpg" }) {
             childImageSharp {
-              fluid(maxWidth: 1024, quality: 90) {
+              fluid(maxWidth: 1024, quality: 85) {
                 ...GatsbyImageSharpFluid
               }
             }
         }
         desktop: file(relativePath: { eq: "404image.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 2048) {
+            fluid(quality: 85, maxWidth: 2048) {
                 ...GatsbyImageSharpFluid
             }
           }
