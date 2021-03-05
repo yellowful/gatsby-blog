@@ -3,6 +3,7 @@ import { useStaticQuery, Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons'
+import BdrLogo from "../../images/svg/bdrlogo.svg"
 
 //import Img from "gatsby-image"
 
@@ -30,8 +31,8 @@ const Footer = () => {
                     © 2021, Built by &nbsp;
             </span>
                 <Link to="/terms-n-policy/copy-right/" className="dib mr2 v-btm f7 f6-ns mr4-ns">
-                    <FontAwesomeIcon icon={faGithub} />
-                    <span>
+                    <BdrLogo className="dib v-mid w2 h1" fill="#3273dc" />
+                    <span className="dib v-mid">
                         蟲探理查
                     </span>
                 </Link>
