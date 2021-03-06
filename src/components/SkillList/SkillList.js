@@ -22,7 +22,7 @@ const SkillList = ({ slug, data, bgColor, isExpanded }) => {
                         {
                             data.complexData.map((skill, i) => {
                                 return (
-                                    <article key={`skill-${skill.category}`} className=" bg-light-gray br3">
+                                    <article key={`skill-category-${skill.category}`} className=" bg-light-gray br3">
                                         <h2 className="w-100 mt2 tc f4 fw7">
                                             <span><FontAwesomeIcon icon={icons[i]} /></span>
                                             <span className="ml2">
@@ -33,7 +33,7 @@ const SkillList = ({ slug, data, bgColor, isExpanded }) => {
                                             {
                                                 skill.items.map((item) => {
                                                     return (
-                                                        <li key={`skill-${item}`} className="mv1 w-100">
+                                                        <li key={`skill-item-${item}`} className="mv1 w-100">
                                                             <span className="mr2 dib v-top">-</span>
                                                             <span className="dib v-top w-90">{item}</span>
                                                         </li>

@@ -8,7 +8,8 @@ const SearchBox = ({ refine, currentRefinement }) => {
   return (
     // return the DOM output
     <form className="field mt2" noValidate action="" role="search">
-      <p className="control has-icons-right">
+      <p className="ma2 control has-icons-right">
+        {/*eslint-disable*/}
         <input
           className="input"
           type="search"
@@ -18,6 +19,7 @@ const SearchBox = ({ refine, currentRefinement }) => {
           value={currentRefinement}
           autoFocus
         />
+        {/*eslint-enable*/}
         <span className="icon is-small is-right">
           <FontAwesomeIcon icon={faSearch} />
         </span>

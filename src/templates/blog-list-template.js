@@ -72,7 +72,7 @@ export default class BlogList extends React.Component {
                         //產生一個總頁數數目的array，裡面每一個元素都是undefined，_就是裡面的元素。
                         //要連的網址，當i是0的時候，代表第1頁，就連去/blog/，其他就連去第i+1頁的slug。
                         Array.from({ length: numPages }, (_, i) => (
-                            <span key={`pagination-number${i + 1}/`} className="mh2 mh3-ns">
+                            <span key={`pagination-number-${i + 1}/`} className="mh2 mh3-ns">
                                 <Link
                                     to={i === 0 ? `/blog-list/` : `/blog-list/page-${(i + 1).toString()}/`}
                                     activeClassName="orange underline o-80"

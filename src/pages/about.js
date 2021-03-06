@@ -46,6 +46,7 @@ const About = ({location}) => {
     if(hash){
       navigate(hash,{replace:true});
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   const onAuthorExpanding = (ev) => {
