@@ -11,12 +11,13 @@ const SearchBox = ({ refine, currentRefinement }) => {
         <p className="pa2 control has-icons-right">
           {/*eslint-disable*/}
           <input
-            className="input br4"
+            className="input"
             type="search"
             placeholder="Search"
             aria-label="Search"
             onChange={e => refine(e.target.value)}
             value={currentRefinement}
+            style={{borderRadius:`9999px`}}
             autoFocus
           />
           {/*eslint-enable*/}
