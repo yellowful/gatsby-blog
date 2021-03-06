@@ -11,7 +11,7 @@ const SearchBox = ({ refine, currentRefinement }) => {
         <p className="pa2 control has-icons-right">
           {/*eslint-disable*/}
           <input
-            className="input"
+            className="input br4"
             type="search"
             placeholder="Search"
             aria-label="Search"
