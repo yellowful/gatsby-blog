@@ -12,7 +12,10 @@ import SubscribeContainer from "../components/Subscribe/SubscribeContainer"
 const IndexPage = () => {
   //gatsby自動產生的頁面要query就用graphql，如果自己寫的頁面，就用useStaticQuery，這個資料夾裡面的都是用useStaticQuery
   //去”http://localhost:8000/___graphql“查想查的資料後，複製回來用
-  //這邊是要查出六篇最新的文章，可以做成card的預覽，放在首頁  
+  //這邊是要查出
+  //1. 六篇最新的文章，可以做成card的預覽，放在首頁  
+  //2. 要給背景用的圖檔
+  //3. 要給seo用的截圖
   const data = useStaticQuery(
     graphql`
     query IndexQuery {
@@ -75,14 +78,22 @@ const IndexPage = () => {
     `
   )
 
+  //第一個是手機用的圖片的object，第二個是桌面的圖片的object
+  //...是把object的大括號拆掉，和media的attribute接在一起。最後再包在大括號裡面，就是一個object了。
   const imageData = [data.mobileImage.childImageSharp.fluid,
   {
     ...data.desktop.childImageSharp.fluid,
     media: `(min-width:60em)`
   }]
 
+  // 要給seo用的，讓首頁被分享的時候有截圖
   const imageURLOfSeo = data.site.siteMetadata.siteUrl + data.indexCapture.childImageSharp.fluid.src
 
+  //layout每一頁都有，裡面有navbar
+  //seo用來處理metadata
+  //heroindex用來展示首頁的整頁相片
+  //cardlist是用來包住grid的一個外框
+  //subscribe是用來包住訂閱和其他連結的component
   return (
     <Layout>
       <SEO title="首頁" imageURL={imageURLOfSeo} />

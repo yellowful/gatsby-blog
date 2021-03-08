@@ -38,25 +38,27 @@ const NotFoundPage = () => {
     <Layout>
       <SEO title="404: Not found" />
       <BackgroundImage
-                Tag={"section"}
-                className="hero is-fullheight-with-navbar"
-                fluid={imageData}
-                backgroundColor={`#000`}
+        Tag={"section"}
+        className="hero is-fullheight-with-navbar"
+        fluid={imageData}
+        backgroundColor={`#000`}
       >
-      <div className="w-100 h-100 absolute clip-path-404">
-      <div className="w-90 w-80-m w-70-l vh-75 mw8 center  flex flex-column justify-center items-center">
-        <p className="mt5 f3 f2-ns fw7 dark-gray">
-          404: 找不到網頁
+        <div className="w-100 h-100 absolute clip-path-404">
+          <div className="w-90 w-80-m w-70-l vh-75 mw8 center  flex flex-column justify-center items-center">
+            <p className="mt5 f3 f2-ns fw7 dark-gray">
+              404: 找不到網頁
         </p>
-        <p className="f4 f3-ns fw5 dark-gray">
-          404: Not Found
+            <p className="f4 f3-ns fw5 dark-gray">
+              404: Not Found
         </p>
-        <p className="f5 f3-ns fw3 dark-gray mt3 w-60 center">
-          您剛剛點了一個不存在網頁的網址，請點其他網址
+            <p className="f5 f3-ns fw3 dark-gray mt3 w-60 center">
+              您剛剛點了一個不存在網頁的網址，請點其他網址
         </p>
-        <GoBack />
+            <div className="w-90 w-70-l">
+              <GoBack />
+            </div>
+          </div>
         </div>
-      </div>
       </BackgroundImage>
     </Layout>
   )

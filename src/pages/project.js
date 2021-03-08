@@ -6,8 +6,9 @@ import ProjectList from "../components/ProjectPage/ProjectList"
 import ProjectCard from "../components/ProjectPage/ProjectCard"
 
 
-const Blog = () => {
+const ProjectPage = () => {
 
+  //主要query放在contentful上關於project的內容
   const data = useStaticQuery(
     graphql`
       query projectQuery {
@@ -46,10 +47,13 @@ const Blog = () => {
       }
     `
   )
-
+  
+  //post是所有project內容構成的陣列
   const post=data.allContentfulProject.edges
+  //project這個網頁的網址
   const pageUrl=data.site.siteMetadata.siteUrl+'/project/'
-
+  //ProjectCard是用來放project card外框的地方
+  //抓回來的project內容放在project card裡面
   return(
     <Layout>
       <SEO title="作品" pageURL={pageUrl} />
@@ -75,4 +79,4 @@ const Blog = () => {
   )
 } 
 
-export default Blog
+export default ProjectPage
