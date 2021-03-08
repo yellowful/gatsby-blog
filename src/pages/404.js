@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
+import GoBack from "../components/GoBack/GoBack"
 
 const NotFoundPage = () => {
 
@@ -51,8 +52,9 @@ const NotFoundPage = () => {
           404: Not Found
         </p>
         <p className="f5 f3-ns fw3 dark-gray mt3 w-60 center">
-          您剛剛點了一個不存在網頁的網址，請點其他網址或回上一頁
+          您剛剛點了一個不存在網頁的網址，請點其他網址
         </p>
+        <GoBack />
         </div>
       </div>
       </BackgroundImage>

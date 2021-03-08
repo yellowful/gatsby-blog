@@ -1,7 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
+import GoBack from '../components/GoBack/GoBack';
 import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
+
 
 export default function PolicyTemplate({ data }) {
 
@@ -10,7 +12,7 @@ export default function PolicyTemplate({ data }) {
     const { excerpt } = post
     const { title } = data.contentfulPrivacyPolicy
     const fbHref = `${data.site.siteMetadata.siteUrl}/terms-n-policy/${data.contentfulPrivacyPolicy.slug.toLowerCase()}/`;
-    
+
     return (
         <Layout>
             <SEO title={title} imageURL={imageURL} pageURL={fbHref} isArticle={false} description={excerpt} />
@@ -19,6 +21,7 @@ export default function PolicyTemplate({ data }) {
                     <section>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
                     </section>
+                    <GoBack />
                 </div>
             </div>
         </Layout>

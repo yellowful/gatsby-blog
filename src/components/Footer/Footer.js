@@ -32,7 +32,7 @@ const Footer = () => {
                     </span>
                 </Link>
 
-                <Link to={`/terms-n-policy/${data.allContentfulPrivacyPolicy.edges[1].node.slug}/`} className="dib v-btm f7 f6-ns mr2 mr4-ns">
+                <Link to={`/terms-n-policy/${data.allContentfulPrivacyPolicy.edges[1].node.slug}/`} className="dib v-btm f7 f6-ns mr1 mr2-ns">
                     <FontAwesomeIcon icon={faUserLock} />
                     <span>
                         隱私權 &nbsp;
