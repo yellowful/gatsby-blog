@@ -7,13 +7,11 @@ import TimeToRead from '../components/TimeToRead/TimeToRead';
 import PostTags from '../components/PostTags/PostTags';
 import BuyMeACoffee from '../components/BuyMeACoffee/BuyMeACoffee'
 
-
 //Template名稱不影響，因為gatsby內部會自己產生component，和這個名稱無關
 //這給function主要要回傳單一post，這個post原本是contentful上的markdown，
 //被gatsby根據gatsby-config.js的設定，轉換成style好的html，然後這邊graphql再去抓回來，放在props.data裡
 //所以gatsby-node.js就會根據這個Template的function所return的jsx，去弄出每一頁
 export default function Template({ data }) {
-
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const imageURL =
@@ -25,20 +23,12 @@ export default function Template({ data }) {
     const { excerpt } = description.childMarkdownRemark
     const { title, publishedDate, updatedAt, tag, iceFireNumber } = data.contentfulBlog
     const fbHref = `${data.site.siteMetadata.siteUrl}/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
-    // const [coffeeState, setCoffeeState] = useState(false);
-    // const handleOnClick = () => {
-    //     // if (coffeeState) {
-    //     //     const icon = document.getElementById("bmc-wbtn")
-    //     //     const previousDiv = icon.previousSibling
-    //     //     const nextDiv = icon.nextSibling
-    //     //     document.body.removeChild(icon)
-    //     //     document.body.removeChild(previousDiv)
-    //     //     document.body.removeChild(nextDiv)
-    //     // }
-    //     setCoffeeState(!coffeeState);
-    // }
 
-
+    //time to read裡面其實包含了閱讀時間、出版日期、風格數字、作者連結
+    //頁尾有文章更新的日期
+    //post tags是這篇文章的tags
+    //buy me a coffee是贊助的連結
+    //fb comments是用來按讚和留言的地方
     return (
         <Layout>
             <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} description={excerpt} />
@@ -74,7 +64,6 @@ export default function Template({ data }) {
 //這個檔案是當成template，不是自己要刻的，是要給gatsby-node照樣大量產出的，所以這個頁面的query要用graphql
 //gatsby會讓$slug從node.js傳過來，query可以在”http://localhost:8000/___graphql“找自己想query的東西，再拷貝過來
 //BlogPostByPath是自己取的，其實不會用到
-
 export const postQuery = graphql`
     query BlogPostByPath($slug: String!){
         contentfulBlog(slug: {eq: $slug}) {

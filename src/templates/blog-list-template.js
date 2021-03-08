@@ -28,9 +28,9 @@ export default class BlogList extends React.Component {
 
         //傳給seo的網址中，假如是第一頁，就讓blog-list當slug，其他的就用page-number當slug
         const seoPage = isFirst ?
-            `${this.props.data.site.siteUrl}/blog-list/`
+            `${this.props.data.site.siteMetadata.siteUrl}/blog-list/`
             :
-            `${this.props.data.site.siteUrl}/blog-list/page-${(currentPage).toString()}/`
+            `${this.props.data.site.siteMetadata.siteUrl}/blog-list/page-${(currentPage).toString()}/`
 
 
         //post list是用來放所有post preview的框框
@@ -139,9 +139,7 @@ export const blogListQuery = graphql`
       }
     site {
         siteMetadata {
-        title
-        image
-        siteUrl
+            siteUrl
         }
     }
   }

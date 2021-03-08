@@ -6,12 +6,20 @@ import MeterCard from "../components/Meter/MeterCard"
 import MeterList from "../components/Meter/MeterList"
 import MeterSlider from "../components/Meter/MeterSlider"
 
-//根據gatsby-node.js傳來的this.props.pageContext，和graphql抓回來的this.props.data，來自動建立blogs列表和pagination
+//用來自動產生10個有風格指數的頁面
+//每一頁篩選了那個特定指數的文章，並顯示摘要
 export default class meterPage extends React.Component {
   render() {
+    //把風格指數從gatsby-node.js的context傳進來
     const { iceFireNumber } = this.props.pageContext
+    //符合這個風格指數的文章陣列
     const posts = this.props.data.allContentfulBlog.edges
-    const pageURL = `https://www.bdr.rocks/blog/ice-fire-number/${iceFireNumber}/`;
+    //本頁的網址
+    const pageURL = `${this.props.data.site.siteMetadata.siteUrl}/blog/ice-fire-number/${iceFireNumber}/`;
+    //master slider是一個可以拉動的range input
+    //master list用來放多篇文章預覽的框框
+    //meter card用來放文章預覽
+    //如果那個風格指數沒資料，就會顯示沒有相關文章
     return (
       <Layout>
         <SEO title="ice fire number" pageURL={pageURL} />
@@ -46,18 +54,13 @@ export default class meterPage extends React.Component {
         </MeterList>
       </Layout>
     )
-
-
-
   }
 }
 
-//如果是單一頁面，不是要gatsby自動產出的，那個頁面的query要用useStaticQuery
-//這個檔案是當成template，不是自己要刻的，是要給gatsby-node照樣大量產出的，所以這個頁面的query要用graphql
-//gatsby會從node那邊傳$skip和$limit的變數過來，目的是，當目前在做第2頁的時候，可以略過第1頁的資料($skip)，只抓1頁的資料($limit)
-//pruneLength是指摘要的字數，truncate是指如果摘要有非英語系的文字，就要設成true，format可以抓html或純文字或markdown
-//$iceFireNumber是node.js的context傳過來的變數，Int是型別，驚嘆號代表必要欄位
-
+//gatsby會從node那邊傳$filterNumber的變數過來
+//[Int!]是指定$filterNumber傳過來的type會是整數的陣列，驚嘆號代表必要欄位
+//傳過來的陣列是某個風格指數，和其前後各一個整數構成的
+//$iceFireNumber那邊的in:代表的是，只要iceFireNumber符合陣列裡的任何一個數，就會抓資料回來
 export const meterQuery = graphql`
   query meterQuery($filterNumber: [Int!]){
     allContentfulBlog(filter: {iceFireNumber: {in: $filterNumber}}) {
@@ -85,6 +88,11 @@ export const meterQuery = graphql`
           }
         }
       }
+    }
+    site {
+        siteMetadata {
+            siteUrl
+        }
     }
   }
 `

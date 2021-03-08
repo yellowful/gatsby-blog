@@ -6,22 +6,20 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
 
-//Template名稱不影響，因為gatsby內部會自己產生component，和這個名稱無關
-//這給function主要要回傳單一post，這個post原本是contentful上的markdown，
-//被gatsby根據gatsby-config.js的設定，轉換成style好的html，然後這邊graphql再去抓回來，放在props.data裡
-//所以gatsby-node.js就會根據這個Template的function所return的jsx，去弄出每一頁
+//用來作為單篇projec內容的template
 export default function ProjectTemplate({ data }) {
 
-    //post就是根據下面$slug去graphql抓下來這一頁的內容
+    //project introduction是抓回來單篇introduction的內容
     const projectIntroduction = data.contentfulProject.introduction.childMarkdownRemark;
+    //project section是抓回來單篇section的內容
     const projectSection = data.contentfulProject.section.childMarkdownRemark;
-
-    //contentful上這篇文章有設定文章title
-    //contentful上這篇文章有設定文章的公開時間
+    //project的名稱、demo的網址、github的網址    
     const { projectName, demoLink, repoLink } = data.contentfulProject;
-
+    //本頁的網址，給seo用的
     const pageURL = `${data.site.siteMetadata.siteUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
-
+    //第一個section印出本project的主要介紹
+    //第二個section印出本project完整的內容
+    //table主要是放demo的網址、github的網址、回project頁的網址
     return (
         <Layout>
             <SEO title={projectName} description="introductions of my web projects" pageURL={pageURL} />
@@ -53,11 +51,7 @@ export default function ProjectTemplate({ data }) {
     )
 }
 
-//如果是單一頁面，不是要gatsby自動產出的，那個頁面的query要用useStaticQuery
-//這個檔案是當成template，不是自己要刻的，是要給gatsby-node照樣大量產出的，所以這個頁面的query要用graphql
-//gatsby會讓$slug從node.js傳過來，query可以在”http://localhost:8000/___graphql“找自己想query的東西，再拷貝過來
-//BlogPostByPath是自己取的，其實不會用到
-
+//這是用來抓本篇project所有內容
 export const projectQuery = graphql`
     query projectSectionByPath($slug: String!){
         contentfulProject(slug: {eq: $slug}) {
