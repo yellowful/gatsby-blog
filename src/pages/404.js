@@ -45,7 +45,7 @@ const NotFoundPage = () => {
       >
       <div className="w-100 h-100 absolute clip-path-404">
       <div className="w-90 w-80-m w-70-l vh-75 mw8 center  flex flex-column justify-center items-center">
-        <p className="mt4 f3 f2-ns fw7 dark-gray">
+        <p className="mt5 f3 f2-ns fw7 dark-gray">
           404: 找不到網頁
         </p>
         <p className="f4 f3-ns fw5 dark-gray">

@@ -6,7 +6,7 @@ const GoBack = () => {
         navigate(-1);
     }
     return (
-        <div className="w-80 tr mb4">
+        <div className="w-100 tr ma2">
             <button className="bg-gray near-white pointer dim br2 grow pa2" onClick={handleGoBack}>
                 回上一頁
             </button>
