@@ -5,8 +5,9 @@ import Layout from "../components/Layout/layout"
 import SEO from "../components/Seo/seo"
 import GoBack from "../components/GoBack/GoBack"
 
+//用來放404的頁面
 const NotFoundPage = () => {
-
+  //用來抓404背景圖
   const data = useStaticQuery(
     graphql`
       query fourZeroFourQuery {
@@ -27,13 +28,15 @@ const NotFoundPage = () => {
       }
     `
   )
-
+  
+  //抓到的背景圖，分成手機和桌面，存成array，供傳給background image component來用
   const imageData = [data.mobileImage.childImageSharp.fluid,
   {
     ...data.desktop.childImageSharp.fluid,
     media: `(min-width:60em)`
   }]
 
+  //背景圖包住內容和一個回上一頁的按鈕
   return (
     <Layout>
       <SEO title="404: Not found" />

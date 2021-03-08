@@ -11,7 +11,7 @@ import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons
 export default class BlogList extends React.Component {
     render() {
 
-        //currentPage是現在在建立這一頁的數字
+        //currentPage是現在在建立這一頁的數字；numPages是所有的頁面數
         const { currentPage, numPages } = this.props.pageContext
 
         //如果目前頁面是第一頁，isFirst就是true
@@ -26,11 +26,14 @@ export default class BlogList extends React.Component {
         //nextPage就是下一頁的slug
         const nextPage = `/blog-list/page-${(currentPage + 1).toString()}/`
 
+        //傳給seo的網址中，假如是第一頁，就讓blog-list當slug，其他的就用page-number當slug
         const seoPage = isFirst ?
-            `https://www.bdr.rocks/blog-list/`
+            `${this.props.data.site.siteUrl}/blog-list/`
             :
-            `https://www.bdr.rocks/blog-list/page-${(currentPage).toString()}/`
+            `${this.props.data.site.siteUrl}/blog-list/page-${(currentPage).toString()}/`
 
+
+        //post list是用來放所有post preview的框框
         return (
             <Layout>
                 <SEO title="文章" pageURL={seoPage} />
@@ -54,7 +57,6 @@ export default class BlogList extends React.Component {
                     }
                 </PostList>
                 <div className="w-100 flex justify-center bg-light-gray pv3">
-
                     {
                         //假如現在是第1頁，就不用顯示前一頁的按鈕，如果不是第1頁，就顯示
                         isFirst ? null
@@ -105,7 +107,6 @@ export default class BlogList extends React.Component {
 //這個檔案是當成template，不是自己要刻的，是要給gatsby-node照樣大量產出的，所以這個頁面的query要用graphql
 //gatsby會從node那邊傳$skip和$limit的變數過來，目的是，當目前在做第2頁的時候，可以略過第1頁的資料($skip)，只抓1頁的資料($limit)
 //pruneLength是指摘要的字數，truncate是指如果摘要有非英語系的文字，就要設成true，format可以抓html或純文字或markdown
-
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
     allContentfulBlog (
@@ -136,5 +137,12 @@ export const blogListQuery = graphql`
           }
         }
       }
+    site {
+        siteMetadata {
+        title
+        image
+        siteUrl
+        }
+    }
   }
 `
