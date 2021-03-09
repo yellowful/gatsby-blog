@@ -9,6 +9,25 @@ const Header = ({ siteTitle }) => {
 
   const [hamburgerExpand, setHamburgerExpand] = useState('');
   const [showSearch, setShowSearch] = useState(false);
+  const handleClickLink = () => {
+    setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
+  }
+  const [aboutMouseState,setAboutMouseState] = useState('')
+  const handleAboutMouseEnter = () => {
+    setAboutMouseState('is-active');
+  }
+  const handleAboutMouseLeave = () => {
+    setAboutMouseState('');
+  }
+  const [blogMouseState,setBlogMouseState] = useState('')
+  const handleBlogMouseEnter = () => {
+    setBlogMouseState('is-active');
+  }
+  const handleBlogMouseLeave = () => {
+    setBlogMouseState('');
+  }
+
+
 
   return (
     <header className="has-background-dark w-100 flex justify-center">
@@ -17,6 +36,7 @@ const Header = ({ siteTitle }) => {
           <header className="navbar-item">
             <Link
               to="/"
+              onClick={handleClickLink}
             >
               <span>
                 {/* <img className="mb0 dib v-mid" alt="logo" src={logo}/> */}
@@ -33,9 +53,7 @@ const Header = ({ siteTitle }) => {
             data-target="navbarBasicExample"
             role="button"
             tabIndex="-1"
-            onClick={() => {
-              setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
-            }}
+            onClick={handleClickLink}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
                 setHamburgerExpand(hamburgerExpand ? '' : 'is-active')
@@ -52,34 +70,50 @@ const Header = ({ siteTitle }) => {
             role="menu"
             className="navbar-start ml4 nl2-ns"
           >
-            <div className={`navbar-item has-dropdown is-hoverable`} >
+            <div className={`navbar-item has-dropdown ${blogMouseState} `} role="menuitem" tabIndex="-1" onMouseEnter={handleBlogMouseEnter} onMouseLeave={handleBlogMouseLeave}>
               <Link
                 to="/blog-list/"
                 className="navbar-link"
                 activeClassName="is-active"
+                onClick={handleClickLink}
               >
                 <FontAwesomeIcon icon={faFeatherAlt} />文章
               </Link>
               <div className="navbar-dropdown">
-                <Link to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active">
+                <Link to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   冰火指數
                 </Link>
-                <Link to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active">
+                <Link to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   標籤
                 </Link>
               </div>
             </div>
+            <div className={`navbar-item has-dropdown ${aboutMouseState}`} role="menuitem" tabIndex="-1" onMouseEnter={handleAboutMouseEnter} onMouseLeave={handleAboutMouseLeave} >
             <Link
               to="/about/"
-              className="navbar-item "
+              className="navbar-link"
               activeClassName="is-active"
+              onClick={handleClickLink}
             >
-              <FontAwesomeIcon icon={faIdCard} />作者
+              <FontAwesomeIcon icon={faIdCard} />關於
             </Link>
+            <div className="navbar-dropdown">
+                <Link to={`/about/#site`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                  關於網站
+                </Link>
+                <Link to={`/about/#bio`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                  關於作者
+                </Link>
+                <Link to={`/about/#contact`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                  聯絡作者
+                </Link>
+              </div>
+            </div>
             <Link
               to="/project/"
               className="navbar-item "
               activeClassName="is-active"
+              onClick={handleClickLink}
             >
               <FontAwesomeIcon icon={faFileCode} />作品集
             </Link>
