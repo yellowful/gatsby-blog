@@ -1,6 +1,8 @@
 const { Children } = require("react")
 
-//set contentful api key
+//用來設定各種api key
+//用gatsby develope的時候，process.env.NODE_ENV就是develope
+//用gatsby build的時候，process.env.NODE_ENV就是production
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -14,6 +16,7 @@ module.exports = {
     siteUrl:`https://www.bdr.rocks`
   },
   plugins: [
+    //產生sitemap，列表頁、標籤頁、搜尋頁都不需要放上去
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -23,6 +26,7 @@ module.exports = {
         exclude: [`/blog-list/*`,`/blog/tags/*`, `/blog/ice-fire-number/*`],
       }
     },
+    //用來做google分析的plugin
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
@@ -32,7 +36,9 @@ module.exports = {
         ],
       },
     },
+    //用來寫html metadata用的plugin，主要和seo相關
     `gatsby-plugin-react-helmet`,
+    //檔案系統載入graphql用的，這裡主要是可以搜尋圖檔用
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -40,8 +46,11 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    //這兩個都是gatsby用來處理相片的plugin
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    //這個是gatsby offline在用的plugin
+    //icon主要是用來顯示在標題列的圖案
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -54,6 +63,7 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
+    //要處理svg的話要用這個plugin
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -62,13 +72,12 @@ module.exports = {
         }
       }
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    //用來處理markdown的plug in
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          //用來讓markdown可以嵌入codepen的plug in
           {
             resolve:"@weknow/gatsby-remark-codepen",
             options: {
@@ -76,6 +85,7 @@ module.exports = {
               height: 400
             }
           },
+          //用來讓markdown的程式碼的部份，產生複製程式碼的按鈕
           {
             resolve: 'gatsby-remark-code-buttons',
             options: {
@@ -84,6 +94,7 @@ module.exports = {
               toasterDuration: 1000
             }
           },
+          //讓markdown可以用來嵌入gist，gist是用來引用project一小部份程式碼，並產生連結的服務
           {
             resolve: "gatsby-remark-embed-gist",
             options: {
@@ -111,7 +122,9 @@ module.exports = {
             }
           },
           `gatsby-remark-containers`,
+          //預估閱讀時間
           `gatsby-remark-reading-time`,
+          //用來放youtube的
           {
             resolve: "gatsby-remark-embed-video",
             options: {
@@ -121,6 +134,7 @@ module.exports = {
               related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
               noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
               urlOverrides: [
+                //embedURL那行，可以讓影片不會出現推薦影片之類的畫面
                 {
                   id: 'youtube',
                   embedURL: (videoId) => `https://www.youtube-nocookie.com/embed/${videoId}`,
@@ -129,7 +143,9 @@ module.exports = {
               containerClass: 'embedVideo-container', //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
             }
           },
+          //也是給youtube用的，讓youtube比較responsive
           "gatsby-remark-responsive-iframe",
+          //markdown裡面如果有external links的話，讓他們加上以下選項，較為安全
           {
             resolve: "gatsby-remark-external-links",
             options: {
@@ -137,6 +153,7 @@ module.exports = {
               rel: "noopener nofollow"
             }
           },
+          //用來style markdown的內容
           {
             resolve: `gatsby-remark-classes`,
             options: {
@@ -157,6 +174,7 @@ module.exports = {
               }
             }
           },
+          //markdown裡面，用來處理contentful的圖片，就不用把contenful的圖片抓回server，圖片直接外聯contentful
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
@@ -165,6 +183,7 @@ module.exports = {
               showCaptions:true
             },
           },
+          //用來產生程式碼區域的plug in，要搭配gatsby-browser裡面的theme來用
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -198,6 +217,7 @@ module.exports = {
         ]
       }
     },
+    //用來把contentful內容轉成graphql
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -207,7 +227,9 @@ module.exports = {
         downloadLocal: true
       }
     },
+    //icon
     `gatsby-plugin-fontawesome-css`,
+    //電子報、news letter服務
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
@@ -215,6 +237,8 @@ module.exports = {
         timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
+    //搜尋，matchFields指的是slug有變的話，才更新index
+    //queries裡面是一個陣列，裡面包了一堆objects
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
@@ -224,6 +248,7 @@ module.exports = {
         matchFields: ['slug']
       },
     },
+    //用來產生rss的plug in
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -240,6 +265,8 @@ module.exports = {
             }
           }
         `,
+        //serialize裡面放的是一堆objects，每一個objects代表一篇文章
+        //output、title...等等，是這個rss的基本資料
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlog } }) => {

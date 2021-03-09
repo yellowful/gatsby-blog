@@ -124,7 +124,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         })
     })
 
+    //tagList是所有的tag內容
     const tagList = result.data.allContentfulAllTag.edges
+    //每一個tag產生一個網頁
+    //網址就是path
+    //component就是template的位置
+    //context就是要傳給template的變數
     tagList.forEach((edge) => {
         createPage({
             path: `/blog/tags/${edge.node.slug.toLowerCase()}/`,
@@ -134,8 +139,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             },
         })
     })
-
+    //把所有project資料抓回來
     const projectPage = result.data.allContentfulProject.edges
+    //每一個project產生一個網頁
+    //產生的網址就是path
+    //component就是project的template
+    //context就是把單一project的slug傳給template
     projectPage.forEach((edge) => {
         createPage({
             path: `/project/${edge.node.slug.toLowerCase()}/`,
@@ -146,6 +155,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         })
     })
 
+    //用來產生10個風格指數網頁
+    //path是10個網頁的網址
+    //component是template的位置
+    //context是需要傳給網頁的變數，i代表產生的風格指數，filter number代表的是每一頁要搜尋的內容，要包含風格指數+1和-1的文章，不要太精確，因為目前文章太少
     for (let i = 0; i < 10; i++) {
         createPage({
             path: `/blog/ice-fire-number/${i}/`,
@@ -157,7 +170,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         })
     }
 
+    //抓回隱私權和著作權相關內容的陣列
     const policy = result.data.allContentfulPrivacyPolicy.edges
+    //每個內容產生一個網址path
+    //component是放template的位置
+    //context可以把slug傳過去
     policy.forEach((edge) => {
         createPage({
             path: `/terms-n-policy/${edge.node.slug.toLowerCase()}/`,
@@ -167,7 +184,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             },
         })
     })
-
 }
 
 
