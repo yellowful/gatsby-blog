@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFeatherAlt, faIdCard, faFileCode, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faFeatherAlt, faIdCard, faFileCode, faSearch, faThermometerHalf, faTags, faNetworkWired, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
 import Search from "../Search"
 
@@ -77,14 +77,14 @@ const Header = ({ siteTitle }) => {
                 activeClassName="is-active"
                 onClick={handleClickLink}
               >
-                <FontAwesomeIcon icon={faFeatherAlt} />文章
+                <FontAwesomeIcon icon={faFeatherAlt} fixedWidth />文章
               </Link>
               <div className="navbar-dropdown">
                 <Link to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
-                  冰火指數
+                <FontAwesomeIcon icon={faThermometerHalf} fixedWidth />風格
                 </Link>
                 <Link to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
-                  標籤
+                <FontAwesomeIcon icon={faTags} fixedWidth />標籤
                 </Link>
               </div>
             </div>
@@ -95,17 +95,17 @@ const Header = ({ siteTitle }) => {
               activeClassName="is-active"
               onClick={handleClickLink}
             >
-              <FontAwesomeIcon icon={faIdCard} />關於
+              <FontAwesomeIcon icon={faIdCard} fixedWidth />關於
             </Link>
             <div className="navbar-dropdown">
                 <Link to={`/about/#site`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
-                  關於網站
+                <FontAwesomeIcon icon={faNetworkWired} fixedWidth />網站
                 </Link>
                 <Link to={`/about/#bio`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
-                  關於作者
+                <FontAwesomeIcon icon={faIdCard} fixedWidth />作者
                 </Link>
                 <Link to={`/about/#contact`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
-                  聯絡作者
+                <FontAwesomeIcon icon={faEnvelope} fixedWidth />聯繫
                 </Link>
               </div>
             </div>
@@ -115,7 +115,7 @@ const Header = ({ siteTitle }) => {
               activeClassName="is-active"
               onClick={handleClickLink}
             >
-              <FontAwesomeIcon icon={faFileCode} />作品集
+              <FontAwesomeIcon icon={faFileCode} fixedWidth />作品集
             </Link>
           </div>
           <div
