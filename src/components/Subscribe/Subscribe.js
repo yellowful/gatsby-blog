@@ -3,36 +3,25 @@ import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons'
 
-
+//用來顯示訂閱電子報的功能
+//放在SubscribeContainer裡面
 const Subscribe = () => {
-
-    // const data = useStaticQuery(
-    //     graphql`
-    //         query {
-    //             githubLogo: file(relativePath: { eq: "GitHub-Mark-120px-plus.png" }) {
-    //                 childImageSharp {
-    //                     fluid(maxWidth: 96, quality: 100) {
-    //                         ...GatsbyImageSharpFluid
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     `
-    // )
-
+    //設定訂閱者姓名和email的state
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    //設定mailchimp的回應的state
     const [resOfMailchimp, setResOfMailchimp] = useState({});
-
+    //監聽姓名欄，改變姓名欄的state
     const onChangeName = (e) => {
         setName(e.target.value);
     }
-
+    //監聽email欄，改變email的state
     const onChangeEmail = (e) => {
         setEmail(e.target.value);
     }
-
-
+    //如果送出鈕被點了，就把name和，email送給mailchimp
+    //addToMailchimp是api
+    //setResOfMailchimp是我們設定的，把mailchimp的response去改變resOfMailchimp的state
     const handleSubmit = (e) => {
         e.preventDefault();
         if (email) {
@@ -42,7 +31,7 @@ const Subscribe = () => {
                 })
         }
     }
-
+    //根據mailchimp的response，來顯示送出後要顯示的訊息
     return (
             <div className="w-100 bg-moon-gray h4-l h5 flex justify-center items-center  bb bb-m bn-l b--black-30">
                 <div className="bg-moon-gray pa2 pa3-ns flex flex-column w-100">

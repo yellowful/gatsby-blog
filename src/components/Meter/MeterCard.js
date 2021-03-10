@@ -5,8 +5,8 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
-
-
+//在風格指數的頁面下，單篇文章的預覽
+//顯示標題、摘要、圖片、閱讀時間、繼續閱讀的按鈕等
 const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, imageSrc, timeToRead }) => {
     return (
             <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" >
@@ -33,7 +33,7 @@ const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, ima
                         </Link>
                     </div>
                 </div>
-                <TimeToRead iceFireNumber={iceFireNumber} publishedDate={publishedDate} timeToRead={Math.round(timeToRead * 1.5)} />
+                <TimeToRead iceFireNumber={iceFireNumber} publishedDate={publishedDate} timeToRead={Math.round(timeToRead * 1.5)} isGrid={false} />
             </article>
     )
 }

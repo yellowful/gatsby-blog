@@ -1,9 +1,9 @@
 import React from 'react'
 import { Like, Comments } from 'react-facebook';
 
-
+//用來放fb comments
 const FbComments = ({ fbHref }) => {
-
+//fb常有錯誤，會產生width超大的空白，所以要設定overflow-hidden
     return (
         <section className="overflow-hidden mt4" >
             <table className="w-100">

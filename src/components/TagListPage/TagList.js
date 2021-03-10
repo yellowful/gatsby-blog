@@ -1,7 +1,8 @@
 import React from 'react'
 import RestOfTags from "../RestOfTags/RestOfTags"
 
-
+//用來放在tag list page裡面
+//用來裝RestOfTags和每一篇文章的預覽
 const TagList = (props) => {
     return (
         <div className="w-100 flex justify-center bg-light-gray">

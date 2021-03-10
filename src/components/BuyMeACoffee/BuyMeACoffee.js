@@ -2,9 +2,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-
+//用來產生贊助連結
 const BuyMeACoffee = () => {
-
     return (
         <div className="w-100 tc mb2 mt2 mt2-m mt4-l">
             {/*eslint-disable-next-line*/}

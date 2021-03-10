@@ -5,29 +5,36 @@ import { faFeatherAlt, faIdCard, faFileCode, faSearch, faThermometerHalf, faTags
 import BdrLogo from "../../images/svg/bdrlogo.svg"
 import Search from "../Search"
 
+//主要用來放navbar
 const Header = ({ siteTitle }) => {
-
+  //設定漢堡按鈕的state
   const [hamburgerExpand, setHamburgerExpand] = useState('');
+  //設定搜尋框是否出現
   const [showSearch, setShowSearch] = useState(false);
+  //如果漢堡按鈕的state是不打開，那就設成打開；如果是打開，就設成不打開
   const handleClickLink = () => {
     setHamburgerExpand(hamburgerExpand ? '' : 'is-active');
   }
+  //設定about page的滑鼠狀態，主要要產生hover的效果
   const [aboutMouseState,setAboutMouseState] = useState('')
+  //如果mouse滑進about page，就顯示dropdown
   const handleAboutMouseEnter = () => {
     setAboutMouseState('is-active');
   }
+  //如果mouse離開about page，就隱藏dropdown
   const handleAboutMouseLeave = () => {
     setAboutMouseState('');
   }
+  //設定mouse是否有進到「文章」dropdown的範圍中的狀態
   const [blogMouseState,setBlogMouseState] = useState('')
+  //如果mouse有進入「文章」的dropdown中，就顯示dropdown
   const handleBlogMouseEnter = () => {
     setBlogMouseState('is-active');
   }
+  //如果mouse有離開「文章」的dropdown了，就隱藏dropdown
   const handleBlogMouseLeave = () => {
     setBlogMouseState('');
   }
-
-
 
   return (
     <header className="has-background-dark w-100 flex justify-center">
@@ -39,7 +46,6 @@ const Header = ({ siteTitle }) => {
               onClick={handleClickLink}
             >
               <span>
-                {/* <img className="mb0 dib v-mid" alt="logo" src={logo}/> */}
                 <BdrLogo className="dib v-mid w3 h2" fill="#f4f4f4" />
                 <p className="dib v-mid near-white f5 fw4">蟲探理查</p>
               </span>

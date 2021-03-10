@@ -5,8 +5,8 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
-
-
+//用來顯示tag list page每一篇文章的預覽
+//放在TagList裡面
 const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead,iceFireNumber }) => {
     return (
         <>
@@ -34,7 +34,7 @@ const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead
                         </Link>
                     </div>
                 </div>
-                <TimeToRead iceFireNumber={iceFireNumber} publishedDate={publishedDate} timeToRead={Math.round(timeToRead * 1.5)} />
+                <TimeToRead iceFireNumber={iceFireNumber} publishedDate={publishedDate} timeToRead={Math.round(timeToRead * 1.5)} isGrid={false} />
             </article>
         </>
     )

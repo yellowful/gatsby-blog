@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-
+//讓瀏覽者可以寄Email給作者
 export default class EmailForm extends React.Component {
     constructor(props) {
         super(props);
@@ -16,42 +16,43 @@ export default class EmailForm extends React.Component {
         this.inputEmail = React.createRef();
         this.inputMessage = React.createRef();
     }
-
+    //接收姓名欄位的資料
     onNameChange = (ev) => {
         this.setState({ name: ev.target.value })
     }
-
+    //偵測鍵盤是否已經按enter鍵了
     nameEventListener = (ev) => {
-        //console.table(ev);
         if (ev.key === 'Enter') {
             ev.preventDefault();
             this.inputEmail.current.focus();
         }
     }
-
+    //接收填入的Email資料
     onEmailChange = (ev) => {
         this.setState({ email: ev.target.value })
     }
-
+    //偵測鍵盤是否已經按enter鍵了
     emailEventListener = (ev) => {
         if (ev.key === 'Enter') {
             ev.preventDefault();
             this.inputMessage.current.focus();
         }
     }
-
+    //接收信件內容
     onMessageChange = (ev) => {
         this.setState({ message: ev.target.value })
     }
-
-
+    //偵測送出鈕是否按下去了
     submitForm = (ev) => {
         ev.preventDefault();
         this.fetchForm();
     }
-
+    //將信件送給formspree
     fetchForm = () => {
+        //檢查是不是有沒填的欄位
         const isFormValid = this.state.name === '' || this.state.email === '' || this.state.message === '';
+        //如果沒填的話就設定status為錯誤
+        //如果都有填的話，就把資料fetch給formspree
         if (!isFormValid) {
             fetch('https://formspree.io/f/mwkwaeob', {
                 method: 'POST',
@@ -62,6 +63,8 @@ export default class EmailForm extends React.Component {
                     'message': this.state.message
                 })
             })
+            //如果有任何錯誤，就把status設成error
+            //順便把欄位清空
                 .then(res => {
                     //console.table(res);
                     if (res.status === 200) {
@@ -79,7 +82,9 @@ export default class EmailForm extends React.Component {
         }
     }
 
-
+    //如果還沒收到formspree的訊息的話，就顯示訊息送出
+    //如果status是SUCCESS的話，就顯示「訊息已寄出，謝謝」
+    //如果status是ERROR的話，就顯示錯誤訊息
     render() {
         const { status } = this.state;
         return (
@@ -157,7 +162,7 @@ export default class EmailForm extends React.Component {
                                     <div className="control">
                                         {
                                             status === "SUCCESS" ?
-                                                <p>謝謝！</p>
+                                                <p>訊息已寄出，謝謝！</p>
                                                 :
                                                 <button type="submit" className="button is-dark">
                                                     送出訊息

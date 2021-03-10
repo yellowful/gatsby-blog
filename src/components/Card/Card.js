@@ -5,13 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 import TimeToRead from '../TimeToRead/TimeToRead';
 
+//用來產生index page的文章預覽
 const Card = ({ node }) => {
+    //用來放每一篇文章的相關資料
     const { title, publishedDate, iceFireNumber } = node;
     const { timeToRead } = node.articles.childMarkdownRemark
     const description = node.description || node.articles
-    const {excerpt} = description.childMarkdownRemark
+    const { excerpt } = description.childMarkdownRemark
     const slug = node.slug.toLowerCase()
-
+    //如果沒有圖，會顯示沒有圖片
+    //其餘顯示圖片、標題、摘要、更多按鈕
     return (
         <article className="br2 dark-gray b--black-10 bg-light-gray">
             <Link to={`/blog/${slug}/`}>
@@ -26,13 +29,10 @@ const Card = ({ node }) => {
                 <div className="dt w-100">
                     <header className="w-100">
                         <Link to={`/blog/${slug}/`}>
-                            <h3 className="f5 f4-ns mv0">{title}</h3>
+                            <h3 className="f5 f4-ns fw6 dark-gray mv0">{title}</h3>
                         </Link>
                     </header>
-                    {/* <div className="w-100 tr">
-                        <time className="f6 mv0">{publishedDate}</time>
-                    </div> */}
-                    <TimeToRead publishedDate={publishedDate} timeToRead={timeToRead} iceFireNumber={iceFireNumber} />
+                    <TimeToRead publishedDate={publishedDate} timeToRead={timeToRead} iceFireNumber={iceFireNumber} isGrid={true} />
                 </div>
                 <section className="f6 lh-copy measure mt2 mid-gray">
                     {excerpt}

@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAt, faCalendarAlt, faGlasses, faSnowflake, faFire } from '@fortawesome/free-solid-svg-icons'
 import { iceRGB, fireRGB } from '../../utils/ice-fire-color'
 
-const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
-
+//用來顯示作者資訊、出版日期、風格指數、預估閱讀時間
+//放在所有blog文章預覽之中，也放在正式的blog文章之中
+const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber, isGrid }) => {
+    //用百分比來計算一個gradient範圍的顏色
     let percentColors = [
         { pct: 0.0, color: iceRGB },
         { pct: 1.0, color: fireRGB }];
@@ -29,43 +31,46 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
         };
         return 'rgb(' + [color.r, color.g, color.b].join(',') + ')';
         // or output as hex if preferred
-    };
-
+    };    
+    //這篇文章的風格指數換算成顏色
     const iceFireColor = getColorForPercentage(iceFireNumber / 10);
-    //console.table({ iceFireColor: iceFireColor, iceFireNumber: iceFireNumber })
-
+    //如果是index那種grid的型態，即使是桌面那麼大的螢幕，TimeToRead的尺寸仍然很小格，所以就會直接讓TimeToRead保持兩行。
+    //其餘的就讓他依照有無ns的設定responsive變形
+    const classForNoneGrid = [isGrid ? '' : 'dib-ns w-60-ns flex-none-ns',isGrid ? '' : 'dib-ns w-40-ns flex-none-ns tr-ns']
+    //如果是平板或桌面，就讓資料顯現為一行
+    //如果是手機，就讓資料疊成兩行
+    //每一行裡，如果是手機就分開兩邊，如果不是手機，就聚集在同一邊
     return (
-        <section className="mv2 mv4-ns ph2 w-100">
-            <div className="w-100 dib-ns w-60-ns flex justify-between flex-none-ns">
+        <section className="mv2 w-100 ph2 mv4-ns">
+            <div className={`f6 w-100 flex justify-between ${classForNoneGrid[0]}`}>
                 <span >
                     <Link to="/about/#bio">
                         <span className="f6"><FontAwesomeIcon icon={faAt} /></span>
-                        <span className="ml2 f6">蟲探理查</span>
+                        <span className="ml2 ml1-m f6">蟲探理查</span>
                     </Link>
                 </span>
 
-                <span className="ml2 ml4-ns">
+                <span className="ml2 ml3-m ml4-l">
                     <span className="f6 gray lh-copy ">
                         <FontAwesomeIcon icon={faCalendarAlt} />
                     </span>
-                    <time className="ml2 f6 gray lh-copy ">
+                    <time className="ml2 ml1-m f6 gray lh-copy ">
                         {publishedDate}
                     </time>
                 </span>
             </div>
 
-
-            <div className="f6 w-100 dib-ns w-40-ns flex justify-between flex-none-ns tr-ns">
+            <div className={`f6 w-100 flex justify-between ${classForNoneGrid[1]}`}>
                 <span>
                     <span>
                         <FontAwesomeIcon icon={faGlasses} />
                     </span>
-                    <span className="ml2">
+                    <span className="ml2 ml1-m">
                         約{timeToRead}分鐘
                     </span>
                 </span>
 
-                <span className="ml2 ml4-ns">
+                <span className="ml2 ml3-m ml4-l">
                     <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
                         <span className="f6" style={{ color: iceFireColor }}>
                             風格
@@ -73,7 +78,7 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
                             {
                                 iceFireNumber > 4 ?
                                     (
-                                        <span className="f5 ml2" style={{ color: iceFireColor }}>
+                                        <span className="f5 ml2 ml1-m" style={{ color: iceFireColor }}>
                                             <FontAwesomeIcon icon={faFire} />
                                         </span>
                                     )
@@ -86,7 +91,6 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber }) => {
                                     )
                             }
                     </Link>
-
                 </span>
             </div>
         </section>

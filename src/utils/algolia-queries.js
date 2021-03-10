@@ -17,7 +17,7 @@ const pageQuery = `{
     }
   }
 }`
-
+//要把query回來的資料變成object的transformer
 function pageToAlgoliaRecord({ node: { id, slug, title, articles } }) {
   return {
     objectID: id,
@@ -27,6 +27,7 @@ function pageToAlgoliaRecord({ node: { id, slug, title, articles } }) {
   }
 }
 
+//query回來的資料會傳到transformer裡面
 const aboutQuery = `{
     aboutPages: allContentfulAbout{
         edges {
@@ -43,11 +44,7 @@ const aboutQuery = `{
         }
     }
 }`
-
-// function aboutToAlgoliaRecord (acc,{node: {content}}) {
-//   return (acc+content.childMarkdownRemark.excerpt)
-// }
-
+//要把query回來的資料變成object的transformer
 function aboutToAlgoliaRecord({ node: { id, slug, title, content} }) {
   return {
     objectID: id,
@@ -57,6 +54,7 @@ function aboutToAlgoliaRecord({ node: { id, slug, title, content} }) {
   }
 }
 
+//query回來的資料會傳到transformer裡面
 const projectQuery = `{
     projectPages: allContentfulProject{
         edges {
@@ -78,7 +76,7 @@ const projectQuery = `{
         }
     }
 }`
-
+//要把query回來的資料變成object的transformer
 function projectToAlgoliaRecord({ node: { id, slug, projectName, introduction, section } }) {
   return {
     objectID: id,
@@ -88,6 +86,7 @@ function projectToAlgoliaRecord({ node: { id, slug, projectName, introduction, s
   }
 }
 
+//query回來的資料會傳到transformer裡面
 const policyAlgoliaQuery = `{
   policyPages: allContentfulPrivacyPolicy {
     edges {
@@ -104,7 +103,7 @@ const policyAlgoliaQuery = `{
     }
   }
 }`
-
+//要把query回來的資料變成object的transformer
 function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent } }) {
   return {
     objectID: id,
@@ -114,9 +113,12 @@ function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent }
   }
 }
 
+//設定excerpt的字數
 const numberOfExcerpt = 100;
+//要傳到algolia的那個indice裡面
 const indexName = `allPages`;
-
+//要傳到gatsby-config裡面的東西
+//陣列裡面每一個element都是一個object，不同element可以不同的搜尋結構而傳給不同的indice，因為越多indice消耗越多的search accounts，越貴，所以這裡只建立一個indice
 const queries = [
   {
     query: pageQuery,

@@ -1,5 +1,5 @@
 import React from 'react'
-
+//是blog page裡，用來放所有預覽文章的框框
 const PostList = (props) => {
     return (
         <section className="w-100 flex justify-center bg-light-gray">

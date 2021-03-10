@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserLock } from '@fortawesome/free-solid-svg-icons'
 import BdrLogo from "../../images/svg/bdrlogo.svg"
 
-
+//顯示頁面最底下的畫面
 const Footer = () => {
-
     return (
         <footer className="has-background-dark w-100 flex justify-center">
             <span className="pv2 bg-dark-gray w-100 w-90-m w-80-l mw8 tr">

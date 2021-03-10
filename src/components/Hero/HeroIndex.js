@@ -4,8 +4,8 @@ import BackgroundImage from 'gatsby-background-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
+//用來顯示index page的最上面hero的畫面
 const HeroIndex = ({imageData}) => {
-
     return (
         <section className="w-100">
                 <BackgroundImage

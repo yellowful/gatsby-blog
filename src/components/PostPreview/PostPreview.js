@@ -3,8 +3,9 @@ import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 import TimeToRead from '../TimeToRead/TimeToRead';
-//import { Like, CommentsCount } from 'react-facebook';
 
+//在blog post裡面的單一文章預覽
+//顯示了標題、摘要、預計閱讀時間的component、繼續閱讀的按鈕
 const PostPreview = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, timeToRead }) => {
     return (
         <article className="pv2 pv4-ns bb b--black-10 flex flex-column">
@@ -12,7 +13,7 @@ const PostPreview = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, t
                 <Link to={`/blog/${slug}/`}>
                     <h1 className="head-1-shadow f2 lh-title fw7 mv4 dark-gray">{postTitle}</h1>
                 </Link>
-                <TimeToRead publishedDate={publishedDate} timeToRead={timeToRead} iceFireNumber={iceFireNumber} />
+                <TimeToRead publishedDate={publishedDate} timeToRead={timeToRead} iceFireNumber={iceFireNumber} isGrid={false} />
                 <section className="excerpt-gradient ph1-ns pl2">
                     <div dangerouslySetInnerHTML={{ __html: excerpt }} />
                 </section>

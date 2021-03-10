@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTags } from '@fortawesome/free-solid-svg-icons'
 
+//顯示單篇文章裡面的所有tags
 const PostTags = ({ tag }) => {
     return (
         <aside className="w-100">

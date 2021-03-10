@@ -2,7 +2,8 @@ import React from 'react'
 import Subscribe from './Subscribe'
 import MediaLinks from "./MediaLinks/MediaLinks"
 
-
+//用來裝Subscribe和MediaLinks
+//放在index page和 about page之中
 const SubscribeContainer = () => {
     return (
         <footer className="w-100 bg-moon-gray">

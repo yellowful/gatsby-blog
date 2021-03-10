@@ -11,6 +11,9 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 import GoogleSchema from "./GoogleSchema"
 
+//每個有route的網頁都要放這個component
+//最重要的是title標題、description摘要、pageUrl網址、imageUrl代表圖，這要給facebook轉載時預覽
+//isArticle是用來判斷是不是部落格的文章，部落格最需要增加搜尋的排名，所以詳細資料要傳進去。
 function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL, isArticle }) {
   const { site,siteLogo } = useStaticQuery(
     graphql`
@@ -34,13 +37,19 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
       }
     `
   )
-
+  
+  //網站的代表圖網址
   const fixedSrc = site.siteMetadata.siteUrl + siteLogo.childImageSharp.fixed.src
+  //當沒有摘要時，就用網站說明當摘要
   const metaDescription = description || site.siteMetadata.description
+  //當沒有代表圖的時候，就用網站代表圖當代表圖
   const metaImage = imageURL || fixedSrc
+  //網站的標題
   const defaultTitle = site.siteMetadata?.title
+  //沒有傳網址進來時，就用網站的網址當網址
   const metaURL = pageURL || site.siteMetadata.siteUrl
-
+  
+  //article類型的網頁會把資料傳給GoogleSchema，以利google搜尋
   return (
     <React.Fragment>
       <Helmet
@@ -79,6 +88,8 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
       >
       </Helmet>
       {
+        //Helmet不能包住Helmet，但是可以平行的放置
+        //如果是blog的文章，多以下給fb的資料
         isArticle ?
           (
             <Helmet>
@@ -92,7 +103,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
             <meta property="og:type" content="website" />
           </Helmet>
         }
-      <GoogleSchema isArticle={isArticle} title={title} pageURL={pageURL} imageURL={imageURL} datePublished={datePublished} />
+      <GoogleSchema isArticle={isArticle} title={title} pageURL={pageURL} imageURL={imageURL} datePublished={datePublished} siteUrl={site.siteMetadata.siteUrl}/>
     </React.Fragment>
   )
 }

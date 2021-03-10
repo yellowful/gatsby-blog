@@ -5,16 +5,18 @@ import { faGithub, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-i
 import { faRss } from '@fortawesome/free-solid-svg-icons'
 import BuyMeACoffee from '../../BuyMeACoffee/BuyMeACoffee'
 
-const externalLink = [
-    "https://github.com/yellowful/gatsby-blog",
-    "https://www.facebook.com/richenyou",
-    "https://www.linkedin.com/in/rueichenghuang/"
-]
-
-const icons = [faGithub, faFacebook, faLinkedin]
-
-
+//用來顯示external link，放在SubscribeContainer裡面
 const MediaLinks = () => {
+    //把link和icon設成array方便之後render
+    const externalLink = [
+        "https://github.bdr.rocks",
+        "https://fb.bdr.rocks",
+        "https://in.bdr.rocks"
+    ]
+    const icons = [faGithub, faFacebook, faLinkedin]
+    //用來顯示所有external link
+    //BuyMeACoffee自己一列，其他第二列，剛好解決原本和SubScribe高度差太多看起來很怪的問題
+    //桌面版會出現左邊的格線
     return (
         <div className="flex flex-column bl-l b--black-30">
             <BuyMeACoffee />
@@ -22,7 +24,7 @@ const MediaLinks = () => {
                 {
                     externalLink.map((item, i) => {
                         return (
-                            <div key={item.slice(-7)} className="w-10 tc">
+                            <div key={item} className="w-10 tc">
                                 <a href={item} rel="noreferrer" target="_blank" className="f3 f2-ns">
                                     <FontAwesomeIcon icon={icons[i]} />
                                 </a>
@@ -37,7 +39,6 @@ const MediaLinks = () => {
                 </div>
             </div>
         </div>
-
     )
 }
 

@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight, faGamepad } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
+//顯示單一project的預覽
+//顯示標題、重點介紹、試玩連結、原始碼連結、代表圖片等
 const ProjectCard = ({ slug, projectName, demoLink, repoLink, introduction, image }) => {
     return (
         <article className="pa2 br3 ma2 mv4-ns bg-moon-gray mh0-ns">

@@ -17,24 +17,23 @@ import "./mystyles.css"
 import 'tachyons'
 import "./layout.css"
 
+//用來包住所有網頁，所以css可以在這個component裡面import
 const Layout = ({ children }) => {
-
+  //把偵測到scroll多遠了設成scrillPosition的state
   const [scrollPosition, setScrollPosition] = useState(0);
+  //window.pageYOffset是目前scroll多遠了，把他放進scrollPosition這個state當中
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
-
+  //component一載入開始偵測，離開就不偵測了
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-
-
+  //用來跳到最上面
   const onScrollTop = () => {
     window.scroll({
       top: 0,
@@ -42,7 +41,7 @@ const Layout = ({ children }) => {
       behavior: 'smooth'
     });
   }
-
+  //用來跳到最上面
   const onKeyScroll = (event) => {
     if (event.key === "ArrowUp")
       window.scroll({
@@ -51,7 +50,7 @@ const Layout = ({ children }) => {
         behavior: 'smooth'
       });
   }
-
+  //網站的名稱，用來傳給Header
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -61,7 +60,7 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
+  //當scroll了1024個px之後，才顯示回到最頂的按鈕
   return (
     <div className="flex flex-column items-center">
       <FacebookProvider appId="129888612117049">
@@ -71,7 +70,14 @@ const Layout = ({ children }) => {
       </FacebookProvider>
       {
         scrollPosition >= 1024 ?
-          <div className="tc light-blue o-80 f2 br3 fixed bottom-3 right-1 w3 h3 bw0 button-focus grow pointer z-5" role="button" aria-label="scrolltop button" tabIndex="-2" onClick={onScrollTop} onKeyDown={onKeyScroll}>
+          <div 
+            className="tc light-blue o-80 f2 br3 fixed bottom-3 right-1 w3 h3 bw0 button-focus grow pointer z-5" 
+            role="button" 
+            aria-label="scrolltop button" 
+            tabIndex="-2" 
+            onClick={onScrollTop} 
+            onKeyDown={onKeyScroll}
+          >
             <FontAwesomeIcon icon={faChevronUp} />
           </div>
           :
