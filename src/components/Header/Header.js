@@ -19,6 +19,13 @@ const Header = ({ siteTitle }) => {
     setBlogDopdownState('');
     setAboutDropdownState('');
   }
+  //menu展開時，點了logo，要關掉menu
+  const handleClickBrand = () => {
+    //如果漢堡按鈕的state是不打開，那就設成打開；如果是打開，就設成不打開
+    setHamburgerExpand(hamburgerExpand ? '' : '');
+    setBlogDopdownState('');
+    setAboutDropdownState('');
+  }
   //設定about page的滑鼠狀態，主要要產生hover的效果
   const [aboutDropdownState, setAboutDropdownState] = useState('')
   //如果mouse滑進about page，就顯示dropdown
@@ -70,7 +77,7 @@ const Header = ({ siteTitle }) => {
           <header className="navbar-item">
             <Link
               to="/"
-              onClick={handleClickLink}
+              onClick={handleClickBrand}
             >
               <span>
                 <BdrLogo className="dib v-mid w3 h2" fill="#f4f4f4" />
