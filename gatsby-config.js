@@ -34,6 +34,14 @@ module.exports = {
         trackingIds: [
           "G-4T61R4H6E8", // Google Analytics / GA
         ],
+        gtagConfig: {
+          anonymize_ip: true
+        },
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: false,
+          // Setting this parameter is also optional
+        },
       },
     },
     //用來寫html metadata用的plugin，主要和seo相關
