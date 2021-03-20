@@ -66,9 +66,7 @@ const Layout = ({ children }) => {
   
   //讓cookies開啟
   const onAccept = () => {
-    console.log('google-before-false',window['ga-disable-G-4T61R4H6E8'])
-      window['ga-disable-G-4T61R4H6E8'] = false;
-    console.log('google-after-false',window['ga-disable-G-4T61R4H6E8'])
+    window['ga-disable-G-4T61R4H6E8'] = false;
   }
 
 
