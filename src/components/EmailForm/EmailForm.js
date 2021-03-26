@@ -63,8 +63,8 @@ export default class EmailForm extends React.Component {
                     'message': this.state.message
                 })
             })
-            //如果有任何錯誤，就把status設成error
-            //順便把欄位清空
+                //如果有任何錯誤，就把status設成error
+                //順便把欄位清空
                 .then(res => {
                     //console.table(res);
                     if (res.status === 200) {
@@ -90,14 +90,14 @@ export default class EmailForm extends React.Component {
         return (
             <section id="contact" className="w-100 bg-near-white pv4">
                 <div className="w-100 w-90-m w-80-l mw8 center pr5-l pr3-m pa2">
-                <h2 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">聯絡我</h2>
+                    <h2 className="tc head-1-shadow f3 f2-ns lh-title fw7 mv4 dark-gray">聯絡我</h2>
                     <form onSubmit={this.submitForm}>
-                        <div className="field is-horizontal">
-                            <div className="field-label is-normal">
+                        <div key="email-outer-sender" className="field is-horizontal">
+                            <div key="email-inner-sender" className="field-label is-normal">
                                 <label htmlFor="From" className="label">寄件人</label>
                             </div>
-                            <div className="field-body">
-                                <div className="field">
+                            <div key="email-inner-name" className="field-body">
+                                <div key="email-field-name" className="field">
                                     <p className="control is-expanded has-icons-left">
                                         <input
                                             className="input"
@@ -113,7 +113,7 @@ export default class EmailForm extends React.Component {
                                         </span>
                                     </p>
                                 </div>
-                                <div className="field">
+                                <div key="email-field-email" className="field">
                                     <p className="control is-expanded has-icons-left has-icons-right">
                                         <input
                                             className="input"
@@ -133,11 +133,11 @@ export default class EmailForm extends React.Component {
                             </div>
                         </div>
 
-                        <div className="field is-horizontal">
-                            <div className="field-label is-normal">
+                        <div key="email-outer-message" className="field is-horizontal">
+                            <div key="email-inner-message" className="field-label is-normal">
                                 <label htmlFor="message" className="label">訊息</label>
                             </div>
-                            <div className="field-body">
+                            <div key="email-inner-textarea" className="field-body">
                                 <div className="field">
                                     <div className="control">
                                         <textarea
@@ -153,11 +153,10 @@ export default class EmailForm extends React.Component {
                             </div>
                         </div>
 
-                        <div className="field is-horizontal">
-                            <div className="field-label">
-
+                        <div key="email-outer-info" className="field is-horizontal">
+                            <div key="blank-field" className="field-label">
                             </div>
-                            <div className="field-body">
+                            <div key="email-inner-button" className="field-body">
                                 <div className="field">
                                     <div className="control">
                                         {

@@ -28,17 +28,17 @@ export default function ProjectTemplate({ data }) {
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
                     <div>
                         <h2 className="f3 lh-title fw7 mv4 dark-gray">作品特點</h2>
-                        <section dangerouslySetInnerHTML={{ __html: projectIntroduction.html }} />
-                        <section dangerouslySetInnerHTML={{ __html: projectSection.html }} />
+                        <section key="project-template-introduction" dangerouslySetInnerHTML={{ __html: projectIntroduction.html }} />
+                        <section key="project-template-section" dangerouslySetInnerHTML={{ __html: projectSection.html }} />
                     </div>
                     <hr className="b--dashed bb b--black-40 bw1 mv4" />
                     <table className="w-100 tc mb4 f4 lh-copy fw3">
                         <tr>
-                            <td>
+                            <td key={`project-template-${demoLink}`}>
                                 <a href={demoLink} rel="noreferrer" target="_blank">試玩 &nbsp;<FontAwesomeIcon icon={faGamepad} /></a>
                             </td>
-                            <td><a href={repoLink} rel="noreferrer" target="_blank">原始碼 &nbsp;<FontAwesomeIcon icon={faGithub} /></a></td>
-                            <td>
+                            <td key={`project-template-${repoLink}`}><a href={repoLink} rel="noreferrer" target="_blank">原始碼 &nbsp;<FontAwesomeIcon icon={faGithub} /></a></td>
+                            <td key={`project-template-/project/`}>
                                 <Link to="/project/">
                                     回作品集列表 &nbsp;<FontAwesomeIcon icon={faAngleDoubleLeft} />
                                 </Link>

@@ -93,9 +93,9 @@ const About = ({location}) => {
       />
       <div className="flex flex-column">
         <HeroAbout slug={aboutBlog.slug} head={aboutBlog.title} content={aboutBlog.content.childMarkdownRemark.html} />
-        <ClippedEdge topBackground={"bg-moon-gray"} edgeHeight={"4em"} edgeMarginTop={"1em"} edgeMarginBottom={"2em"} />
+        <ClippedEdge key="clipped-edge-site" topBackground={"bg-moon-gray"} edgeHeight={"4em"} edgeMarginTop={"1em"} edgeMarginBottom={"2em"} />
         <AboutAuthor data={aboutAuthor} bgColor={"bg-near-white"} isExpanded={isAuthorExpanded} slug={aboutAuthor.slug} />
-        <ClippedEdge
+        <ClippedEdge key="clipped-edge-author"
           topBackground={"bg-near-white"}
           edgeHeight={"4em"}
           edgeMarginTop={"1em"}
@@ -105,7 +105,7 @@ const About = ({location}) => {
           onFolding={onAuthorFolding}
         />
         <SkillList slug={aboutSkill.slug} data={aboutSkill} bgColor={"bg-moon-gray"} isExpanded={isSkillsExpanded} />
-        <ClippedEdge
+        <ClippedEdge key="clipped-edge-skill-list"
           topBackground={"bg-moon-gray"}
           edgeHeight={"4em"}
           edgeMarginTop={"1em"}

@@ -62,7 +62,7 @@ export default class BlogList extends React.Component {
                         isFirst ? null
                             :
                             (
-                                <span className="mh2 mh3-ns">
+                                <span key="pagination-number-prev" className="mh2 mh3-ns">
                                     <Link to={prevPage} rel="prev">
                                         <FontAwesomeIcon icon={faStepBackward} />
                                     </Link>
@@ -90,7 +90,7 @@ export default class BlogList extends React.Component {
                         isLast ? null
                             :
                             (
-                                <span className="mh2 mh3-ns">
+                                <span key="pagination-number-next" className="mh2 mh3-ns">
                                     <Link to={nextPage} rel="next">
                                         <FontAwesomeIcon icon={faStepForward} />
                                     </Link>

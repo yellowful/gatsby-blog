@@ -10,7 +10,7 @@ const TagList = (props) => {
                 <header className="w-100 flex justify-between items-center">
                     <RestOfTags tagSlug={props.tagSlug} />
                 </header>
-                        {props.children}
+                {props.children}
             </div>
         </div>
     )

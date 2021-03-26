@@ -42,15 +42,15 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber, isGrid }) => {
     //每一行裡，如果是手機就分開兩邊，如果不是手機，就聚集在同一邊
     return (
         <section className="mv2 w-100 ph2 mv4-ns">
-            <div className={`f6 w-100 flex justify-between ${classForNoneGrid[0]}`}>
-                <span >
+            <div key="time-to-read-left" className={`f6 w-100 flex justify-between ${classForNoneGrid[0]}`}>
+                <span key="tim-to-read-writer" >
                     <Link to="/about/#bio">
-                        <span className="f6"><FontAwesomeIcon icon={faAt} /></span>
-                        <span className="ml2 ml1-m f6">蟲探理查</span>
+                        <span key="writer-icon" className="f6"><FontAwesomeIcon icon={faAt} /></span>
+                        <span key="writer-text" className="ml2 ml1-m f6">蟲探理查</span>
                     </Link>
                 </span>
 
-                <span className="ml2 ml3-m ml4-l">
+                <span key="tim-to-read-date" className="ml2 ml3-m ml4-l">
                     <span className="f6 gray lh-copy ">
                         <FontAwesomeIcon icon={faCalendarAlt} />
                     </span>
@@ -60,32 +60,32 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber, isGrid }) => {
                 </span>
             </div>
 
-            <div className={`f6 w-100 flex justify-between ${classForNoneGrid[1]}`}>
+            <div key="time-to-read-right" className={`f6 w-100 flex justify-between ${classForNoneGrid[1]}`}>
                 <span>
-                    <span>
+                    <span key="read-icon">
                         <FontAwesomeIcon icon={faGlasses} />
                     </span>
-                    <span className="ml2 ml1-m">
+                    <span key="read-number" className="ml2 ml1-m">
                         約{timeToRead}分鐘
                     </span>
                 </span>
 
                 <span className="ml2 ml3-m ml4-l">
                     <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
-                        <span className="f6" style={{ color: iceFireColor }}>
+                        <span key="style-text" className="f6" style={{ color: iceFireColor }}>
                             風格
                         </span>
                             {
                                 iceFireNumber > 4 ?
                                     (
-                                        <span className="f5 ml2 ml1-m" style={{ color: iceFireColor }}>
+                                        <span key="icon-fire" className="f5 ml2 ml1-m" style={{ color: iceFireColor }}>
                                             <FontAwesomeIcon icon={faFire} />
                                         </span>
                                     )
                                     :
                                     (
 
-                                        <span className="f5 ml2" style={{ color: iceFireColor }}>
+                                        <span key="icon-ice" className="f5 ml2" style={{ color: iceFireColor }}>
                                             <FontAwesomeIcon icon={faSnowflake} />
                                         </span>
                                     )

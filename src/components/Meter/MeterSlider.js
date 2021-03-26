@@ -35,8 +35,8 @@ const MeterSlider = ({ fireNumber }) => {
     //共顯示了一個range input、兩個按鈕、兩個說明標籤、兩個風格的icon
     return (
         <div className="w-100 bg-light-gray">
-            <div className="w-70 w-60-m w-50-l ph3 mw8 mt2 mt4-ns center flex items-center">
-                <span className="pr2 f3" style={{ color: iceColor }}>
+            <div key="meter-slide-line1" className="w-70 w-60-m w-50-l ph3 mw8 mt2 mt4-ns center flex items-center">
+                <span key="meter-icon-ice" className="pr2 f3" style={{ color: iceColor }}>
                     <FontAwesomeIcon icon={faSnowflake} />
                 </span>
                 <input
@@ -53,29 +53,29 @@ const MeterSlider = ({ fireNumber }) => {
                     onMouseUp={onUpHandler}
                     onTouchEnd={onUpHandler}
                 />
-                <span className="pl2 f3" style={{ color: fireColor }}>
+                <span key="meter-icon-fire" className="pl2 f3" style={{ color: fireColor }}>
                     <FontAwesomeIcon icon={faFire} />
                 </span>
             </div>
-            <div className="w-70 w-60-m w-50-l ph3 mw8 mv2 mb4-ns center flex items-center justify-between">
-                <span className="pr2 f6 f5-l" style={{ color: iceColor }}>
+            <div key="meter-slide-line2" className="w-70 w-60-m w-50-l ph3 mw8 mv2 mb4-ns center flex items-center justify-between">
+                <span key="meter-text-profesional" className="pr2 f6 f5-l" style={{ color: iceColor }}>
                     專業
                 </span>
-                <button 
+                <button key="meter-slide-button-ice" 
                     className="pr2 f5 f4-l pointer grow white h2 w2 br-100 bw0" 
                     style={{ backgroundColor: iceColor }}
                     onClick={handleCooler}
                     >
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
-                <button 
+                <button key="meter-slide-button-fire" 
                     className="pr2 f5 f4-l pointer grow white h2 w2 br-100 bw0" 
                     style={{ backgroundColor: fireColor }}
                     onClick={handleWarmer}
                 >
                     <FontAwesomeIcon icon={faChevronRight} />
                 </button>
-                <span className="pl2 f6 f5-l" style={{ color: fireColor }}>
+                <span key="meter-text-life" className="pl2 f6 f5-l" style={{ color: fireColor }}>
                     生活
                 </span>
             </div>

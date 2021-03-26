@@ -11,7 +11,7 @@ const GoBack = () => {
     return (
         <div className="w-100 tr ma2">
             <button className="bg-gray near-white pointer dim br2 grow pa2" onClick={handleGoBack}>
-            <FontAwesomeIcon icon={faAngleDoubleLeft} />回上一頁
+                <FontAwesomeIcon icon={faAngleDoubleLeft} />回上一頁
             </button>
         </div>
     )

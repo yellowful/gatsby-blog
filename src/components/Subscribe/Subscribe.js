@@ -37,7 +37,7 @@ const Subscribe = () => {
                 <div className="bg-moon-gray pa2 pa3-ns flex flex-column w-100">
                     <header className="f5 f4-ns mb2 black-80">訂閱文章</header>
                     <div className="columns is-desktop">
-                        <div className="column is-4-desktop">
+                        <div key="subscribe-user" className="column is-4-desktop">
                             <div className="field">
                                 <p className="control has-icons-left">
                                     <input className="input" type="text" placeholder="稱呼" onChange={onChangeName} />
@@ -47,7 +47,7 @@ const Subscribe = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="column is-6-desktop">
+                        <div key="subscribe-email" className="column is-6-desktop">
                             <div className="field">
                                 <p className="control has-icons-left">
                                     <input className="input" type="email" placeholder="電子郵件" onChange={onChangeEmail} />
@@ -57,16 +57,17 @@ const Subscribe = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className="column is-2-desktop tl-m tr-l">
+                        <div key="subscribe-button" className="column is-2-desktop tl-m tr-l">
                             <button className="button is-dark" onClick={handleSubmit}>訂閱</button>
                         </div>
                     </div>
                     {
                         Object.keys(resOfMailchimp).length === 0 ?
                             null
-                            : resOfMailchimp.result === 'success'
-                                ? <p className="f5 f4-ns light-blue fw3" >收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！</p>
-                                : <p className="f5 f4-ns orange fw5 o-80" >可能格式有誤，或已經重複訂閱，請重新輸入</p>
+                            : resOfMailchimp.result === 'success' ? 
+                                <p key="subscribe-sucess" className="f5 f4-ns light-blue fw3" >收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！</p>
+                                : 
+                                <p key="subscribe-failed" className="f5 f4-ns orange fw5 o-80" >可能格式有誤，或已經重複訂閱，請重新輸入</p>
                     }
                 </div>
             </div>

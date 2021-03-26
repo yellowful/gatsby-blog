@@ -12,7 +12,7 @@ const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead
         <>
             <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l">
                 <div className="flex flex-column flex-row-ns">
-                    <div className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
+                    <div key="tag-card-content" className="w-100 w-60-ns pr3-ns order-2 order-1-ns">
                         <Link to={`/blog/${slug}/`}>
                             <h1 className="f3 fw7 athelas mt0 lh-title head-1-shadow dark-gray">{postTitle}</h1>
                         </Link>
@@ -28,7 +28,7 @@ const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead
                             </Link>
                         </footer>
                     </div>
-                    <div className="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
+                    <div key="tag-card-image" className="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
                         <Link to={`/blog/${slug}/`}>
                             <Img className="db" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
                         </Link>

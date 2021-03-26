@@ -18,15 +18,15 @@ const ClippedEdge = ({ topBackground, edgeHeight, edgeMarginTop, edgeMarginBotto
                                 isExpanded ?
                                     (<footer className="w-100 w-90-m w-80-l ph3 pt2 mw8 center tr">
                                         <button className="blue bw0 bg-transparent pointer grow button-focus br2" onClick={onFolding}>
-                                            <span className="f4 lh-copy mb4 fw3 tr mr2">收合</span>
-                                            <span className="f4 lh-copy mb4 fw3"><FontAwesomeIcon icon={faAngleDoubleUp} /></span>
+                                            <span key="folded-text" className="f4 lh-copy mb4 fw3 tr mr2">收合</span>
+                                            <span key="folded-icon" className="f4 lh-copy mb4 fw3"><FontAwesomeIcon icon={faAngleDoubleUp} /></span>
                                         </button>
                                     </footer>)
                                     :
                                     (<footer className="w-100 w-90-m w-80-l ph3 pt2 mw8 center relative tr">
                                         <button className="blue bw0 bg-transparent pointer grow button-focus" onClick={onExpanding}>
-                                            <span className="f4 lh-copy mb4 fw3 tr mr2">展開</span>
-                                            <span className="f4 lh-copy mb4 fw3"><FontAwesomeIcon icon={faAngleDoubleDown} /></span>
+                                            <span key="expanded-text" className="f4 lh-copy mb4 fw3 tr mr2">展開</span>
+                                            <span key="expanded-icon" className="f4 lh-copy mb4 fw3"><FontAwesomeIcon icon={faAngleDoubleDown} /></span>
                                         </button>
                                     </footer>)
                             }

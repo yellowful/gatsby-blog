@@ -32,7 +32,7 @@ const MediaLinks = () => {
                         )
                     })
                 }
-                <div className="w-10 tc">
+                <div key="rss.xml" className="w-10 tc">
                     <Link to={`/rss.xml`} className="f3 f2-ns">
                         <FontAwesomeIcon icon={faRss} />
                     </Link>

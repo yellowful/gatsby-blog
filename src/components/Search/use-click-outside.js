@@ -5,7 +5,7 @@ const events = [`mousedown`, `touchstart`]
 
 //會import到index.js也就是Search的component裡面去，被稱為useClickOutside()
 //會把最外層的div的ref傳進來，也會把unfocus之後要做什麼用onClickOutside傳進來
-export default (ref, onClickOutside) => {
+const useClickOutside = (ref, onClickOutside) => {
   
   //如果Search框是在focus上，就會有current，||左邊是false，就判斷右邊的Search框有沒有包含touchstart或mousedown被trigger的element，沒有的話，就回傳true，是unfocus，有的話就回傳false，是focus
   //如果Search框不是是在focus上，就不會有current，就回傳true，是unfocus。
@@ -31,3 +31,5 @@ export default (ref, onClickOutside) => {
     }
   })
 }
+
+export default useClickOutside

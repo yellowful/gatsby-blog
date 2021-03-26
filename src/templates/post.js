@@ -49,7 +49,6 @@ export default function Template({ data }) {
                                 null
                         }
                     </section>
-
                     <PostTags tag={tag} />
                     <hr className="bb b--black-30 mv4" />
                     <BuyMeACoffee />

@@ -17,10 +17,10 @@ const HeroIndex = ({imageData}) => {
                     <div className="w-100 h-100 absolute clip-path-hero flex flex-column justify-center">
                         <div className="columns ma2 ma3-ns">
                             <div className="column">
-                                <h1 className="f2-l f3-m f4 light-silver tc">
+                                <h1 key="hero-slogan-1" className="f2-l f3-m f4 light-silver tc">
                                     從寫專利範圍到寫網頁程式
                                 </h1>
-                                <h1 className="f2-l f3-m f4 light-silver tc">
+                                <h1 key="hero-slogan-2" className="f2-l f3-m f4 light-silver tc">
                                     從抓標號錯誤到抓程式臭蟲
                                 </h1>
                             </div>

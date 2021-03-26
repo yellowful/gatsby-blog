@@ -36,10 +36,10 @@ const RestOfTags = ({ tagSlug }) => {
         </span>
       </header>
       <section className="w-100 flex justify-start items-center">
-        <div className="dib v-mid ph2 mv1 f3">
+        <div key="tag-component-main-tag" className="dib v-mid ph2 mv1 f3">
           <FontAwesomeIcon icon={faTags} />
         </div>
-        <div className="dib v-mid nowrap overflow-x-auto">
+        <div key="tag-component-rest-tags" className="dib v-mid nowrap overflow-x-auto">
           {
             data.allContentfulAllTag.edges.sort((a, b) => {
               const lengthA = a.node.blog ? a.node.blog.length : 0;

@@ -128,10 +128,10 @@ const Header = ({ siteTitle }) => {
                 <FontAwesomeIcon icon={faFeatherAlt} fixedWidth />文章
               </Link>
               <div className="navbar-dropdown">
-                <Link to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                <Link key="nav-/blog/ice-fire-number/4/" to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   <FontAwesomeIcon icon={faThermometerHalf} fixedWidth />風格
                 </Link>
-                <Link to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                <Link key="nav-/blog/tags/javascript/" to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   <FontAwesomeIcon icon={faTags} fixedWidth />標籤
                 </Link>
               </div>
@@ -154,13 +154,13 @@ const Header = ({ siteTitle }) => {
                 <FontAwesomeIcon icon={faIdCard} fixedWidth />關於
               </Link>
               <div className="navbar-dropdown">
-                <Link to={`/about/#site`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                <Link key="nav-/about/#site" to={`/about/#site`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   <FontAwesomeIcon icon={faNetworkWired} fixedWidth />網站
                 </Link>
-                <Link to={`/about/#bio`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink} >
+                <Link key="nav-/about/#bio" to={`/about/#bio`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink} >
                   <FontAwesomeIcon icon={faIdCard} fixedWidth />作者
                 </Link>
-                <Link to={`/about/#contact`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                <Link key="nav-/about/#contact" to={`/about/#contact`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   <FontAwesomeIcon icon={faEnvelope} fixedWidth />聯繫
                 </Link>
               </div>

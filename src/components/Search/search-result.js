@@ -17,13 +17,15 @@ const StateResults = ({ searchResults }) => {
 
   return (
     <div>
-      <div className="near-white" hidden={!hasResults}>搜尋結果
-      <span className="orange">
-          {nbHits}
+      <div key="search-result-with-number" className="near-white" hidden={!hasResults}>搜尋結果
+        <span className="orange">
+            {nbHits}
         </span>
-       筆
-       </div>
-      <div className="near-white" hidden={hasResults}>沒有符合搜尋的結果</div>
+        筆
+      </div>
+      <div key="search-result-without-number" className="near-white" hidden={hasResults}>
+        沒有符合搜尋的結果
+      </div>
     </div>
   );
 };

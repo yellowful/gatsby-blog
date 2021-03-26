@@ -8,7 +8,7 @@ const FbComments = ({ fbHref }) => {
         <section className="overflow-hidden mt4" >
             <table className="w-100">
                 <tbody>
-                    <tr>
+                    <tr key="fb-table-row1">
                         <td className="pl2">
                             <Like 
                                 href={fbHref} 
@@ -22,7 +22,7 @@ const FbComments = ({ fbHref }) => {
                             />
                         </td>
                     </tr>
-                    <tr>
+                    <tr key="fb-table-row2">
                         <td className="mv3">
                             <Comments href={fbHref} lazy={true} colorScheme="light" width="100%" />
                         </td>
