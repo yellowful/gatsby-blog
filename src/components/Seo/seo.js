@@ -61,6 +61,10 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
         titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
         meta={[
           {
+            name:"google-site-verification",
+            content:"KJpG1EM3MTDmNeDPJoYyxlUO6c6fodNnr-Vzytotr34",
+          },
+          {
             name: `description`,
             content: metaDescription,
           },
@@ -93,7 +97,6 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
         isArticle ?
           (
             <Helmet>
-              <meta name="google-site-verification" content="KJpG1EM3MTDmNeDPJoYyxlUO6c6fodNnr-Vzytotr34" />
               <meta property="og:type" content="article" />
               <meta property="og:article:published_time" content={datePublished} />
               <meta property="article:author" content="https://www.bdr.rocks" />
