@@ -62,14 +62,14 @@ const MeterSlider = ({ fireNumber }) => {
                     專業
                 </span>
                 <button key="meter-slide-button-ice" 
-                    className="pr2 f5 f4-l pointer grow white h2 w2 br-100 bw0" 
+                    className="pr2 f5 f4-l pointer grow white h2 w2 br-100 bw0 input-reset button-reset" 
                     style={{ backgroundColor: iceColor }}
                     onClick={handleCooler}
                     >
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
                 <button key="meter-slide-button-fire" 
-                    className="pr2 f5 f4-l pointer grow white h2 w2 br-100 bw0" 
+                    className="pr2 f5 f4-l pointer grow white h2 w2 br-100 bw0  input-reset button-reset" 
                     style={{ backgroundColor: fireColor }}
                     onClick={handleWarmer}
                 >
