@@ -24,7 +24,7 @@ export default class TagListPage extends React.Component {
     //tag card用來顯示單篇文章的預覽
     return (
       <Layout>
-        <SEO title="tags" pageURL={pageURL} />
+        <SEO title="標籤" pageURL={pageURL} />
         <TagList tagSlug={tagSlug}>
           {
             posts.map((element) => {

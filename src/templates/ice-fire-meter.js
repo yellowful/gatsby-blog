@@ -22,7 +22,7 @@ export default class meterPage extends React.Component {
     //如果那個風格指數沒資料，就會顯示沒有相關文章
     return (
       <Layout>
-        <SEO title="ice fire number" pageURL={pageURL} />
+        <SEO title="風格指數" pageURL={pageURL} />
         <MeterSlider fireNumber={iceFireNumber}/>
         <MeterList>
           {
