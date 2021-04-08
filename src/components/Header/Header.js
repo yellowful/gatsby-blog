@@ -74,7 +74,7 @@ const Header = ({ siteTitle }) => {
     <header className="has-background-dark w-100 flex justify-center">
       <nav className="navbar is-expanded is-dark w-100 w-90-m w-80-l mw8" role="navigation" aria-label="main navigation">
         <div key="navbar-brand" className="navbar-brand">
-          <header className="navbar-item">
+          <div key="brand-navbar-item" className="navbar-item">
             <Link
               to="/"
               onClick={handleClickBrand}
@@ -84,8 +84,8 @@ const Header = ({ siteTitle }) => {
                 <p className="dib v-mid near-white f5 fw4">蟲探理查</p>
               </span>
             </Link>
-          </header>
-          <div
+          </div>
+          <div key="menu-navbar-burger"
             className={`navbar-burger burger button-focus ${hamburgerExpand}`}
             aria-label="menu"
             aria-expanded="false"
