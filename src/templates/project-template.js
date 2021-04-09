@@ -27,7 +27,7 @@ export default function ProjectTemplate({ data }) {
     //table主要是放demo的網址、github的網址、回project頁的網址
     return (
         <Layout>
-            <SEO title={projectName} description={projectIntroduction} imageURL={imageURL} pageURL={pageURL} />
+            <SEO title={projectName} description={projectIntroduction.excerpt} imageURL={imageURL} pageURL={pageURL} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
