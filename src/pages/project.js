@@ -32,9 +32,9 @@ const ProjectPage = () => {
               }
               publishedDate
               images {
-                  file {
-                    url
-                  }
+                file {
+                  url
+                }
               }
             }
           }

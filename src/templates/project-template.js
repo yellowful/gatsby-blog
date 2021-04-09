@@ -16,13 +16,18 @@ export default function ProjectTemplate({ data }) {
     //project的名稱、demo的網址、github的網址    
     const { projectName, headOfIntroduction, demoLink, repoLink } = data.contentfulProject;
     //本頁的網址，給seo用的
+    const imageURL =
+        data.contentfulProject.imagesInMarkdown ?
+            `https:${data.contentfulProject.imagesInMarkdown[0].fluid.src}`
+            :
+            data.site.siteMetadata.image
     const pageURL = `${data.site.siteMetadata.siteUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
     //第一個section印出本project的主要介紹
     //第二個section印出本project完整的內容
     //table主要是放demo的網址、github的網址、回project頁的網址
     return (
         <Layout>
-            <SEO title={projectName} description="introductions of my web projects" pageURL={pageURL} />
+            <SEO title={projectName} description={projectIntroduction} imageURL={imageURL} pageURL={pageURL} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
@@ -72,9 +77,9 @@ export const projectQuery = graphql`
                     excerpt(format: PLAIN)
                 }
             }
-            images {
-                file {
-                url
+            imagesInMarkdown {
+                fluid(maxWidth: 1024) {
+                    src
                 }
             }
         }
