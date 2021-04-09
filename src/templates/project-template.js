@@ -27,7 +27,7 @@ export default function ProjectTemplate({ data }) {
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{projectName}</h1>
                     <div>
-                        <h2 className="f3 lh-title fw7 mv4 dark-gray">作品特點</h2>
+                        <h2 className="f3 lh-title fw7 mv4 dark-gray">作品說明</h2>
                         <section key="project-template-introduction" dangerouslySetInnerHTML={{ __html: projectIntroduction.html }} />
                         <section key="project-template-section" dangerouslySetInnerHTML={{ __html: projectSection.html }} />
                     </div>
