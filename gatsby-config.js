@@ -168,8 +168,8 @@ module.exports = {
               classMap: {
                 "heading[depth=1]": "f3 lh-title tj fw7 mv4 dark-gray bb b--black-40",
                 "heading[depth=2]": "f3 lh-title tj fw7 mv4 bb b--black-40",
-                "heading[depth=3]": "f4 lh-title tj fw7 mv4 dark-gray",
-                "heading[depth=4]": "f4 lh-title tj fw5 mv4 black",
+                "heading[depth=3]": "f4 lh-title tc fw7 mv4 dark-gray",
+                "heading[depth=4]": "f4 lh-title tj fw5 mv4 black underline",
                 "paragraph": "f4 lh-copy tj mv4 fw3",
                 "list[ordered=true]": "ml4 f4 lh-copy tj mv4 fw3",
                 "listItem": "f4 lh-copy tj mv3 fw3",
