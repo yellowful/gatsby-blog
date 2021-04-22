@@ -88,6 +88,7 @@ const IndexPage = () => {
 
   // 要給seo用的，讓首頁被分享的時候有截圖
   const imageURLOfSeo = data.site.siteMetadata.siteUrl + data.indexCapture.childImageSharp.fluid.src
+  const slogan = ['從寫專利範圍到寫網站程式','從抓標號錯誤到抓程式臭蟲']
 
   //layout每一頁都有，裡面有navbar
   //seo用來處理metadata
@@ -96,8 +97,13 @@ const IndexPage = () => {
   //subscribe是用來包住訂閱和其他連結的component
   return (
     <Layout>
-      <SEO title="首頁" imageURL={imageURLOfSeo} />
-      <HeroIndex imageData={imageData} />
+      <SEO 
+        title="首頁" imageURL={imageURLOfSeo} 
+        description={`${slogan[0]}；${slogan[1]}`}
+        pageURL="https://www.bdr.rocks/"
+        isArticle={false}
+      />
+      <HeroIndex imageData={imageData} slogan={slogan} />
         <CardList>
           {
             data.allContentfulBlog.edges.map((element, i) => {

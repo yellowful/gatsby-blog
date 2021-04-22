@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 //用來顯示index page的最上面hero的畫面
-const HeroIndex = ({imageData}) => {
+const HeroIndex = ({imageData,slogan}) => {
     return (
         <section className="w-100">
                 <BackgroundImage
@@ -18,10 +18,10 @@ const HeroIndex = ({imageData}) => {
                         <div className="columns ma2 ma3-ns">
                             <div className="column">
                                 <h1 key="hero-slogan-1" className="f2-l f3-m f4 light-silver tc">
-                                    從寫專利範圍到寫網頁程式
+                                    {slogan[0]}
                                 </h1>
                                 <h1 key="hero-slogan-2" className="f2-l f3-m f4 light-silver tc">
-                                    從抓標號錯誤到抓程式臭蟲
+                                    {slogan[1]}
                                 </h1>
                             </div>
                             <footer className="column flex flex-column justify-end">
