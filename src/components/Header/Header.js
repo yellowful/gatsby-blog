@@ -128,7 +128,7 @@ const Header = ({ siteTitle }) => {
                 <FontAwesomeIcon icon={faFeatherAlt} fixedWidth />文章
               </Link>
               <div className="navbar-dropdown">
-                <Link key="nav-/blog/ice-fire-number/4/" to={`/blog/ice-fire-number/4/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
+                <Link key="nav-/style-number/" to={`/style-number/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>
                   <FontAwesomeIcon icon={faThermometerHalf} fixedWidth />風格
                 </Link>
                 <Link key="nav-/blog/tags/javascript/" to={`/blog/tags/javascript/`} className="navbar-item" activeClassName="is-active" onClick={handleClickLink}>

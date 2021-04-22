@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAt, faCalendarAlt, faGlasses, faSnowflake, faFire } from '@fortawesome/free-solid-svg-icons'
-import { iceRGB, fireRGB } from '../../utils/ice-fire-color'
+import { iceRGB, fireRGB } from '../../utils/style-number-color'
 
 //用來顯示作者資訊、出版日期、風格指數、預估閱讀時間
 //放在所有blog文章預覽之中，也放在正式的blog文章之中
@@ -71,7 +71,7 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber, isGrid }) => {
                 </span>
 
                 <span className="ml2 ml3-m ml4-l">
-                    <Link to={`/blog/ice-fire-number/${iceFireNumber}/`}>
+                    <Link to={`/blog/style-number/${iceFireNumber}/`}>
                         <span key="style-text" className="f6" style={{ color: iceFireColor }}>
                             風格
                         </span>

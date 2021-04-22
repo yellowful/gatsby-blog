@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { navigate } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSnowflake, faFire, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
-import { iceColor, fireColor } from '../../utils/ice-fire-color'
+import { iceColor, fireColor } from '../../utils/style-number-color'
 
 //用來顯示風格指數拉桿的component
 const MeterSlider = ({ fireNumber }) => {
@@ -15,20 +15,20 @@ const MeterSlider = ({ fireNumber }) => {
     }
     //拉動風格指數拉桿放開的時候，將頁面導去相對應的頁面
     const onUpHandler = () => {
-        navigate(`/blog/ice-fire-number/${fireNumberState}/`);
+        navigate(`/blog/style-number/${fireNumberState}/`);
     }
     //按左邊按鈕的時候，風格指數減少1
     const handleCooler = () => {
         if(fireNumber>0){
             setFireNumberState(fireNumber-1);
-            navigate(`/blog/ice-fire-number/${fireNumberState-1}/`);
+            navigate(`/blog/style-number/${fireNumberState-1}/`);
         }
     }
     //按右邊按鈕的時候，風格指數增加1
     const handleWarmer = () => {
         if(fireNumber<9){
             setFireNumberState(fireNumber+1);
-            navigate(`/blog/ice-fire-number/${fireNumberState+1}/`);
+            navigate(`/blog/style-number/${fireNumberState+1}/`);
         }
     }
     //range input的css都寫在檔案裡了，只有變數寫在inline style中

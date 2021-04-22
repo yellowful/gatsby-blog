@@ -20,7 +20,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     const postTemplate = path.resolve(`./src/templates/post.js`);
     const projectTemplate = path.resolve(`./src/templates/project-template.js`);
     const tagListTemplate = path.resolve(`./src/templates/tag-list-template.js`);
-    const meterTemplate = path.resolve(`./src/templates/ice-fire-meter.js`)
+    const meterTemplate = path.resolve(`./src/templates/style-meter.js`)
     const policyTemplate = path.resolve(`./src/templates/policy-template.js`)
 
     //gatsby在產生頁面時，會從contenful的api抓資料回來，然後利用graphql把所有文章抓回來，放到result裡面
@@ -161,7 +161,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     //context是需要傳給網頁的變數，i代表產生的風格指數，filter number代表的是每一頁要搜尋的內容，要包含風格指數+1和-1的文章，不要太精確，因為目前文章太少
     for (let i = 0; i < 10; i++) {
         createPage({
-            path: `/blog/ice-fire-number/${i}/`,
+            path: `/blog/style-number/${i}/`,
             component: meterTemplate,
             context: {
                 iceFireNumber: i,

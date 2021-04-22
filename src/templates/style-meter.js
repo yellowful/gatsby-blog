@@ -15,7 +15,7 @@ export default class meterPage extends React.Component {
     //符合這個風格指數的文章陣列
     const posts = this.props.data.allContentfulBlog.edges
     //本頁的網址
-    const pageURL = `${this.props.data.site.siteMetadata.siteUrl}/blog/ice-fire-number/${iceFireNumber}/`;
+    const pageURL = `${this.props.data.site.siteMetadata.siteUrl}/blog/style-number/${iceFireNumber}/`;
     //master slider是一個可以拉動的range input
     //master list用來放多篇文章預覽的框框
     //meter card用來放文章預覽
