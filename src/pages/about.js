@@ -88,7 +88,7 @@ const About = ({location}) => {
       <SEO 
         title="關於" 
         description={aboutBlog.content.childMarkdownRemark.excerpt} 
-        pageURL="https://www.bdr.rocks/"
+        pageURL="https://www.bdr.rocks/about/"
         isArticle={false}
       />
       <div className="flex flex-column">
