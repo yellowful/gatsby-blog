@@ -186,6 +186,9 @@ body, button, input, optgroup, select, textarea{
     border-width: 3px;
   }
 
+  .gatsby-code-button-container {
+      margin-top: -2.5em;
+  }
   .gatsby-code-button-icon {
       fill:rgba(150, 204, 255, 0.8);
       background: transparent;
