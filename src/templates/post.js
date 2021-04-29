@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import { getSrc } from "gatsby-plugin-image";
 import React from 'react';
 import Layout from "../components/Layout/layout"
-import Seo from "../components/Seo/Seo"
+import Seo from "../components/seo/seo"
 import FbComments from "../components/FbComments/FbComments"
 import TimeToRead from '../components/TimeToRead/TimeToRead';
 import PostTags from '../components/PostTags/PostTags';

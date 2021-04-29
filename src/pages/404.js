@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/Layout/layout"
-import Seo from "../components/Seo/Seo"
+import Seo from "../components/seo/seo"
 import GoBack from "../components/GoBack/GoBack"
 
 //用來放404的頁面

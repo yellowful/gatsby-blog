@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from '@reach/router';
 import Layout from "../components/Layout/layout"
-import Seo from "../components/Seo/Seo"
+import Seo from "../components/seo/seo"
 import EmailForm from "../components/EmailForm/EmailForm"
 import HeroAbout from "../components/Hero/HeroAbout"
 import AboutAuthor from "../components/AboutAuthor/AboutAuthor"

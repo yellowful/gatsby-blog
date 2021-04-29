@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import GoBack from '../components/GoBack/GoBack';
 import Layout from "../components/Layout/layout"
-import Seo from "../components/Seo/Seo"
+import Seo from "../components/seo/seo"
 
 
 //用來自動產生policy網頁內容的template
