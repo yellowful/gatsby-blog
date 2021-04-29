@@ -16,8 +16,8 @@ export default function Template({ data }) {
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const imageURL =
-    getSrc(data.contentfulBlog.images) ?
-            getSrc(data.contentfulBlog.images)
+    getSrc(data.contentfulBlog.images[0]) ?
+            getSrc(data.contentfulBlog.images[0])
             :
             data.site.siteMetadata.image
     const description = data.contentfulBlog.description || data.contentfulBlog.articles
