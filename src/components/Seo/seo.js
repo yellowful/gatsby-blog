@@ -14,7 +14,7 @@ import GoogleSchema from "./GoogleSchema"
 //每個有route的網頁都要放這個component
 //最重要的是title標題、description摘要、pageUrl網址、imageUrl代表圖，這要給facebook轉載時預覽
 //isArticle是用來判斷是不是部落格的文章，部落格最需要增加搜尋的排名，所以詳細資料要傳進去。
-function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL, isArticle }) {
+function Seo({ description, lang, meta, title, datePublished, imageURL, pageURL, isArticle }) {
   const { site,siteLogo } = useStaticQuery(
     graphql`
       query {
@@ -113,7 +113,7 @@ function SEO({ description, lang, meta, title, datePublished, imageURL, pageURL,
 }
 
 //定義初始值
-SEO.defaultProps = {
+Seo.defaultProps = {
   lang: `zh-Hant-TW`,
   meta: [],
   description: ``,
@@ -122,7 +122,7 @@ SEO.defaultProps = {
 }
 
 //定義type
-SEO.propTypes = {
+Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -131,4 +131,4 @@ SEO.propTypes = {
   imageURL: PropTypes.string,
 }
 
-export default SEO
+export default Seo

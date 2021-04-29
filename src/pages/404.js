@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import GoBack from "../components/GoBack/GoBack"
 
 //用來放404的頁面
@@ -39,7 +39,7 @@ const NotFoundPage = () => {
   //背景圖包住內容和一個回上一頁的按鈕
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <Seo title="404: Not found" />
       <BackgroundImage
         Tag={"section"}
         className="hero is-fullheight-with-navbar"

@@ -2,7 +2,7 @@ import React, { useState,useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { navigate } from '@reach/router';
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import EmailForm from "../components/EmailForm/EmailForm"
 import HeroAbout from "../components/Hero/HeroAbout"
 import AboutAuthor from "../components/AboutAuthor/AboutAuthor"
@@ -85,7 +85,7 @@ const About = ({location}) => {
   //subscribe container使用來放訂閱文章和其他連結
   return (
     <Layout>
-      <SEO 
+      <Seo 
         title="關於" 
         description={aboutBlog.content.childMarkdownRemark.excerpt} 
         pageURL="https://www.bdr.rocks/about/"

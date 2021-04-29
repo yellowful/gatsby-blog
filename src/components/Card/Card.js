@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
@@ -9,6 +9,7 @@ import TimeToRead from '../TimeToRead/TimeToRead';
 const Card = ({ node }) => {
     //用來放每一篇文章的相關資料
     const { title, publishedDate, iceFireNumber } = node;
+    const images = getImage(node.images[0]);
     const { timeToRead } = node.articles.childMarkdownRemark
     const description = node.description || node.articles
     const { excerpt } = description.childMarkdownRemark
@@ -19,8 +20,8 @@ const Card = ({ node }) => {
         <article className="br2 dark-gray b--black-10 bg-light-gray">
             <Link to={`/blog/${slug}/`}>
                 {
-                    node.images ?
-                        <Img className="db w-100 br2 br--top" fluid={{ ...node.images[0].fluid, aspectRatio: 1.5 }} />
+                    images ?
+                        <GatsbyImage className="db w-100 br2 br--top" image={images} alt={title} />
                         :
                         <h2 className="tc mv4 gray">沒有圖片</h2>
                 }

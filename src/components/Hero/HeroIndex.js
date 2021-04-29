@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
 //用來顯示index page的最上面hero的畫面
-const HeroIndex = ({imageData,slogan}) => {
+const HeroIndex = ({bgImage,slogan}) => {
     return (
         <section className="w-100">
                 <BackgroundImage
                     Tag={"div"}
                     className="hero is-fullheight-with-navbar"
-                    fluid={imageData}
+                    {...bgImage}
                     backgroundColor={`#000`}
                 >
                     <div className="w-100 h-100 absolute clip-path-hero flex flex-column justify-center">

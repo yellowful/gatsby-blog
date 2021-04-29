@@ -1,7 +1,9 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { convertToBgImage } from "gbimage-bridge"
+import { getSrc } from "gatsby-plugin-image"
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import CardList from "../components/Card/CardList"
 import Card from "../components/Card/Card"
 import HeroIndex from "../components/Hero/HeroIndex"
@@ -41,32 +43,27 @@ const IndexPage = () => {
             title
             publishedDate(formatString: "MMMM DD, YYYY")
             images {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
+              gatsbyImageData(
+                width:800
+                placeholder: BLURRED
+                aspectRatio: 1.5
+              )
             }
           }
         }
       }
-      mobileImage: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
+      indexHeroImage: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 90) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+                transformOptions: {fit: COVER, cropFocus: CENTER}
+            )
           }
-      }
-      desktop: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
-        childImageSharp {
-          fluid(quality: 85, maxWidth: 2048) {
-              ...GatsbyImageSharpFluid
-          }
-        }
       }
       indexCapture: file(relativePath: { eq: "index-capture.jpg" }) {
           childImageSharp {
-            fluid(maxWidth: 1024, quality: 85) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+                layout: FIXED
+            )
           }
       }
       site {
@@ -80,14 +77,11 @@ const IndexPage = () => {
 
   //第一個是手機用的圖片的object，第二個是桌面的圖片的object
   //...是把object的大括號拆掉，和media的attribute接在一起。最後再包在大括號裡面，就是一個object了。
-  const imageData = [data.mobileImage.childImageSharp.fluid,
-  {
-    ...data.desktop.childImageSharp.fluid,
-    media: `(min-width:60em)`
-  }]
+  const imageData = data.indexHeroImage.childImageSharp.gatsbyImageData;
+  const bgImage = convertToBgImage(imageData);
 
   // 要給seo用的，讓首頁被分享的時候有截圖
-  const imageURLOfSeo = data.site.siteMetadata.siteUrl + data.indexCapture.childImageSharp.fluid.src
+  const imageURLOfSeo = data.site.siteMetadata.siteUrl + getSrc(data.indexCapture.childImageSharp)
   const slogan = ['從寫專利範圍到寫網站程式','從抓標號錯誤到抓程式臭蟲']
 
   //layout每一頁都有，裡面有navbar
@@ -97,13 +91,13 @@ const IndexPage = () => {
   //subscribe是用來包住訂閱和其他連結的component
   return (
     <Layout>
-      <SEO 
+      <Seo 
         title="首頁" imageURL={imageURLOfSeo} 
         description={`${slogan[0]}；${slogan[1]}`}
         pageURL="https://www.bdr.rocks/"
         isArticle={false}
       />
-      <HeroIndex imageData={imageData} slogan={slogan} />
+      <HeroIndex bgImage={bgImage} slogan={slogan} />
         <CardList>
           {
             data.allContentfulBlog.edges.map((element, i) => {

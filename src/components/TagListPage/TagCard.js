@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import TimeToRead from '../TimeToRead/TimeToRead'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
 //用來顯示tag list page每一篇文章的預覽
 //放在TagList裡面
-const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead,iceFireNumber }) => {
+const TagCard = ({ slug, postTitle, publishedDate, excerpt, image, timeToRead,iceFireNumber }) => {
     return (
         <>
             <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l">
@@ -30,7 +30,7 @@ const TagCard = ({ slug, postTitle, publishedDate, excerpt, imageSrc, timeToRead
                     </div>
                     <div key="tag-card-image" className="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
                         <Link to={`/blog/${slug}/`}>
-                            <Img className="db" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
+                            <GatsbyImage className="db" image={image} alt={postTitle} />
                         </Link>
                     </div>
                 </div>

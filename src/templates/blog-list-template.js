@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import PostList from "../components/PostPreview/PostList"
 import PostPreview from "../components/PostPreview/PostPreview"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -36,7 +36,7 @@ export default class BlogList extends React.Component {
         //post list是用來放所有post preview的框框
         return (
             <Layout>
-                <SEO title="文章" pageURL={seoPage} />
+                <Seo title="文章" pageURL={seoPage} />
                 <PostList>
                     {
                         this.props.data.allContentfulBlog.edges.map((element) => {
@@ -128,11 +128,6 @@ export const blogListQuery = graphql`
             publishedDate(formatString: "MMMM DD, YYYY")
             tag {
               slug
-            }
-            images {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
             }
           }
         }

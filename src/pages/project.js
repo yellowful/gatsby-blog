@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import ProjectList from "../components/ProjectPage/ProjectList"
 import ProjectCard from "../components/ProjectPage/ProjectCard"
 
@@ -56,7 +56,7 @@ const ProjectPage = () => {
   //抓回來的project內容放在project card裡面
   return(
     <Layout>
-      <SEO title="作品" pageURL={pageUrl} />
+      <Seo title="作品" pageURL={pageUrl} />
       <ProjectList>
         {
           post.map((item,i)=>{

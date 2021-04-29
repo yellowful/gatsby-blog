@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby';
+import { getSrc } from "gatsby-plugin-image";
 import React from 'react';
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import FbComments from "../components/FbComments/FbComments"
 import TimeToRead from '../components/TimeToRead/TimeToRead';
 import PostTags from '../components/PostTags/PostTags';
@@ -15,8 +16,8 @@ export default function Template({ data }) {
     //post就是根據下面$slug去graphql抓下來這一頁的內容
     const post = data.contentfulBlog.articles.childMarkdownRemark;
     const imageURL =
-        data.contentfulBlog.images ?
-            `https:${data.contentfulBlog.images[0].fluid.src}`
+    getSrc(data.contentfulBlog.images) ?
+            getSrc(data.contentfulBlog.images)
             :
             data.site.siteMetadata.image
     const description = data.contentfulBlog.description || data.contentfulBlog.articles
@@ -31,7 +32,7 @@ export default function Template({ data }) {
     //fb comments是用來按讚和留言的地方
     return (
         <Layout>
-            <SEO title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} description={excerpt} />
+            <Seo title={title} datePublished={publishedDate} imageURL={imageURL} pageURL={fbHref} isArticle={true} description={excerpt} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <h1 className="head-1-shadow f2 lh-title fw7 mv3 dark-gray">{title}</h1>
@@ -88,9 +89,7 @@ export const postQuery = graphql`
                 slug
             }
             images {
-                fluid(maxWidth: 1024) {
-                    src
-                }
+                gatsbyImageData(layout: FIXED)
             }
         }
         site {

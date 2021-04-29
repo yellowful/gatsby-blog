@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from 'gatsby-background-image'
 
 //用來顯示about page最上面的hero
@@ -9,23 +10,29 @@ const HeroAbout = ({ slug, head, content }) => {
       query {
         mobileImage: file(relativePath: { eq: "personal-photo-round.png" }) {
             childImageSharp {
-              fixed(width:150, height: 150) {
-                ...GatsbyImageSharpFixed
-              }
+              gatsbyImageData(
+                layout: FIXED
+                width:150
+                height: 150
+              )
             }
         }
         tabletImage: file(relativePath: { eq: "personal-photo-round.png" }) {
             childImageSharp {
-                fixed(width:250, height: 250) {
-                ...GatsbyImageSharpFixed
-                }
+              gatsbyImageData(
+                layout: FIXED
+                width:250
+                height: 250
+              )
             }
         }
         desktop: file(relativePath: { eq: "personal-photo-round.png" }) {
           childImageSharp {
-            fixed(width:360, height: 360) {
-                ...GatsbyImageSharpFixed
-            }
+              gatsbyImageData(
+                layout: FIXED
+                width:360
+                height: 360
+              )
           }
         }
       }
@@ -33,16 +40,18 @@ const HeroAbout = ({ slug, head, content }) => {
   )
   //用來將圖檔分成三種螢幕尺寸的大小
   const imageData = [
-    data.mobileImage.childImageSharp.fixed,
+    data.mobileImage.childImageSharp.gatsbyImageData,
     {
-      ...data.tabletImage.childImageSharp.fixed,
+      ...data.tabletImage.childImageSharp.gatsbyImageData,
       media: `(min-width: 30em) and (max-width: 60em)`
     },
     {
-      ...data.desktop.childImageSharp.fixed,
+      ...data.desktop.childImageSharp.gatsbyImageData,
       media: `(min-width:60em)`
     }
   ]
+
+  const bgImage = convertToBgImage(imageData)
   
   return (
     <section className="hero bg-moon-gray">
@@ -51,7 +60,7 @@ const HeroAbout = ({ slug, head, content }) => {
         <BackgroundImage
           Tag={"div"}
           className="image-hero-about"
-          fixed={imageData}
+          {...bgImage}
           backgroundColor="transparent"
         />
         <section dangerouslySetInnerHTML={{ __html: content }} />

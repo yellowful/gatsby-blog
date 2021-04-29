@@ -1,5 +1,5 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import TimeToRead from '../TimeToRead/TimeToRead'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,7 @@ import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
 
 //在風格指數的頁面下，單篇文章的預覽
 //顯示標題、摘要、圖片、閱讀時間、繼續閱讀的按鈕等
-const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, imageSrc, timeToRead }) => {
+const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, image, timeToRead }) => {
     return (
             <article className="pt3 pb2 bt bb b--black-10 ph1 ph0-l" >
                 <div className="flex flex-column flex-row-ns">
@@ -29,7 +29,7 @@ const MeterCard = ({ slug, iceFireNumber, postTitle, publishedDate, excerpt, ima
                     </div>
                     <div key={`meter-card-image/blog/${slug}/`} className="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
                         <Link to={`/blog/${slug}/`}>
-                            <Img className="db" fluid={{ ...imageSrc, aspectRatio: 1.5 }} />
+                            <GatsbyImage className="db" image={image} alt={postTitle} />
                         </Link>
                     </div>
                 </div>

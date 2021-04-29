@@ -54,9 +54,10 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    //這兩個都是gatsby用來處理相片的plugin
-    `gatsby-transformer-sharp`,
+    //這三個都是gatsby用來處理相片的plugin
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     //這個是gatsby offline在用的plugin
     //icon主要是用來顯示在標題列的圖案
     {

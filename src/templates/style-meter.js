@@ -1,14 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import MeterCard from "../components/Meter/MeterCard"
 import MeterList from "../components/Meter/MeterList"
 import MeterSlider from "../components/Meter/MeterSlider"
 
 //用來自動產生10個有風格指數的頁面
 //每一頁篩選了那個特定指數的文章，並顯示摘要
-export default class meterPage extends React.Component {
+export default class MeterPage extends React.Component {
   render() {
     //把風格指數從gatsby-node.js的context傳進來
     const { iceFireNumber } = this.props.pageContext
@@ -22,13 +23,14 @@ export default class meterPage extends React.Component {
     //如果那個風格指數沒資料，就會顯示沒有相關文章
     return (
       <Layout>
-        <SEO title="風格指數" pageURL={pageURL} />
+        <Seo title="風格指數" pageURL={pageURL} />
         <MeterSlider fireNumber={iceFireNumber}/>
         <MeterList>
           {
             posts.length ?
               posts.map((element) => {
                 const { node } = element;
+                const image = getImage(node.images[0]);
                 const { slug, title, publishedDate, iceFireNumber } = node;
                 const { timeToRead } = node.articles.childMarkdownRemark;
                 const description = node.description || node.articles
@@ -42,7 +44,7 @@ export default class meterPage extends React.Component {
                       publishedDate={publishedDate}
                       excerpt={excerpt}
                       timeToRead={(timeToRead * 1.5)}
-                      imageSrc={node.images[0].fluid}
+                      image={image}
                     />
                 )
               })
@@ -82,9 +84,11 @@ export const meterQuery = graphql`
           title
           publishedDate(formatString: "MMMM DD, YYYY")
           images {
-            fluid {
-              ...GatsbyContentfulFluid
-            }
+            gatsbyImageData(
+              width: 800
+              aspectRatio:1.5
+              placeholder: BLURRED
+            )
           }
         }
       }

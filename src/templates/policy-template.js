@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import GoBack from '../components/GoBack/GoBack';
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 
 
 //用來自動產生policy網頁內容的template
@@ -21,7 +21,7 @@ export default function PolicyTemplate({ data }) {
     //go back是回上一頁的扭
     return (
         <Layout>
-            <SEO title={title} imageURL={imageURL} pageURL={fbHref} isArticle={false} description={excerpt} />
+            <Seo title={title} imageURL={imageURL} pageURL={fbHref} isArticle={false} description={excerpt} />
             <div className="w-100 bg-light-gray">
                 <div className="mh3 w-90-m w-80-l mw8 center-ns bg-light-gray">
                     <section>

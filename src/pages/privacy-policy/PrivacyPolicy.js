@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from 'gatsby'
 import Layout from "../../components/Layout/layout"
-import SEO from "../../components/Seo/seo"
+import Seo from "../../components/Seo/Seo"
 
 
 
@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
 
   return (
     <Layout>
-      <SEO title="隱私權政策" />
+      <Seo title="隱私權政策" />
       <div className="w-100 flex justify-center bg-light-gray">
         <div className="w-100 w-90-m w-70-l flex flex-column ph3 pa3-ns">
         <div dangerouslySetInnerHTML={{ __html: policy }} />

@@ -1,9 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout/layout"
-import SEO from "../components/Seo/seo"
+import Seo from "../components/Seo/Seo"
 import TagList from "../components/TagListPage/TagList"
 import TagCard from "../components/TagListPage/TagCard"
+import { getImage } from "gatsby-plugin-image"
 
 //用來自動產生tag列表文章的template
 export default class TagListPage extends React.Component {
@@ -24,14 +25,15 @@ export default class TagListPage extends React.Component {
     //tag card用來顯示單篇文章的預覽
     return (
       <Layout>
-        <SEO title="標籤" pageURL={pageURL} />
+        <Seo title="標籤" pageURL={pageURL} />
         <TagList tagSlug={tagSlug}>
           {
             posts.map((element) => {
               const { slug, title, publishedDate, iceFireNumber } = element;
               const { timeToRead } = element.articles.childMarkdownRemark;
-              const description = element.description || element.articles
-              const { excerpt } = description.childMarkdownRemark
+              const description = element.description || element.articles;
+              const { excerpt } = description.childMarkdownRemark;
+              const image = getImage(element.images[0]);
               return (
                 <TagCard
                   slug={slug.toLowerCase()}
@@ -41,7 +43,7 @@ export default class TagListPage extends React.Component {
                   publishedDate={publishedDate}
                   excerpt={excerpt}
                   timeToRead={(timeToRead * 1.5)}
-                  imageSrc={element.images[0].fluid}
+                  image={image}
                 />
               )
             })
@@ -79,9 +81,11 @@ export const tagListQuery = graphql`
             title
             publishedDate(formatString: "MMMM DD, YYYY")
             images {
-              fluid {
-                ...GatsbyContentfulFluid
-              }
+              gatsbyImageData(
+                width: 800
+                placeholder: BLURRED
+                aspectRatio:1.5
+              )
             }
           }
         }
