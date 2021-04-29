@@ -14,6 +14,7 @@ const StyleNumberIndex = () => {
 
     return (
         <Layout>
+            <Seo title="風格指數" pageURL={`https://www.bdr.rocks/style-number/`} />
             <MeterSlider fireNumber={4} />
             <div className="w-100 vh-50 bg-light-gray">
                 <div className="w5 center tc white mv4 bounce">
