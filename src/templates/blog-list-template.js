@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import Layout from "../components/Layout/layout"
 import Seo from "../components/seo/seo"
 import PostList from "../components/PostPreview/PostList"
 import PostPreview from "../components/PostPreview/PostPreview"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 
 //根據gatsby-node.js傳來的this.props.pageContext，和graphql抓回來的this.props.data，來自動建立blogs列表和pagination
 export default class BlogList extends React.Component {

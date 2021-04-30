@@ -1,6 +1,6 @@
-import algoliasearch from "algoliasearch/lite"
-import { createRef, default as React, useState } from "react"
+import React, { createRef, useState } from "react"
 import { InstantSearch, Configure, Pagination } from "react-instantsearch-dom"
+import algoliasearch from "algoliasearch/lite"
 import CustomSearchBox from "./custom-search-box.js"
 import SearchResult from "./search-result.js"
 import useClickOutside from "./use-click-outside"

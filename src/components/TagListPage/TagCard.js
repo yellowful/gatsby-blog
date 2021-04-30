@@ -1,9 +1,9 @@
 import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import TimeToRead from '../TimeToRead/TimeToRead'
 import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleRight} from '@fortawesome/free-solid-svg-icons'
+import TimeToRead from '../TimeToRead/TimeToRead'
 
 //用來顯示tag list page每一篇文章的預覽
 //放在TagList裡面

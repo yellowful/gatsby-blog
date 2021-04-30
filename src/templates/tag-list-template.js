@@ -1,10 +1,10 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout/layout"
 import Seo from "../components/seo/seo"
 import TagList from "../components/TagListPage/TagList"
 import TagCard from "../components/TagListPage/TagCard"
-import { getImage } from "gatsby-plugin-image"
 
 //用來自動產生tag列表文章的template
 export default class TagListPage extends React.Component {
