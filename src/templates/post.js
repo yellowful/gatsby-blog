@@ -14,16 +14,22 @@ import BuyMeACoffee from '../components/BuyMeACoffee/BuyMeACoffee'
 //所以gatsby-node.js就會根據這個Template的function所return的jsx，去弄出每一頁
 export default function Template({ data }) {
     //post就是根據下面$slug去graphql抓下來這一頁的內容
-    const post = data.contentfulBlog.articles.childMarkdownRemark;
+    const { title, publishedDate, updatedAt, tag, iceFireNumber, images, slug, description, articles } = data.contentfulBlog
+    const post = articles.childMarkdownRemark;
+    const { siteUrl,image } = data.site.siteMetadata
     const imageURL =
-    getSrc(data.contentfulBlog.images[0]) ?
-            getSrc(data.contentfulBlog.images[0])
-            :
-            data.site.siteMetadata.image
-    const description = data.contentfulBlog.description || data.contentfulBlog.articles
-    const { excerpt } = description.childMarkdownRemark
-    const { title, publishedDate, updatedAt, tag, iceFireNumber } = data.contentfulBlog
-    const fbHref = `${data.site.siteMetadata.siteUrl}/blog/${data.contentfulBlog.slug.toLowerCase()}/`;
+    getSrc(images[0]) ?
+        getSrc(images[0])
+        :
+        siteUrl+image
+    console.table({
+        images:images,
+        getSrc:getSrc(images[0]),
+        siteImage:siteUrl+image
+    })
+    const postDescription = description || articles
+    const { excerpt } = postDescription.childMarkdownRemark
+    const fbHref = `${siteUrl}/blog/${slug.toLowerCase()}/`;
 
     //time to read裡面其實包含了閱讀時間、出版日期、風格數字、作者連結
     //頁尾有文章更新的日期

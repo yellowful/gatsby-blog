@@ -51,7 +51,7 @@ function Seo({ description, lang, meta, title, datePublished, imageURL, pageURL,
   // console.table({
   //   siteUrl:site.siteMetadata.siteUrl,
   //   getSrc:getSrc(siteLogo.childImageSharp),
-  //   imageURL:imageURL
+  //   metaImage:metaImage
   // });
   
   //article類型的網頁會把資料傳給GoogleSchema，以利google搜尋

@@ -25,7 +25,7 @@ const About = ({location}) => {
               content{
                 childMarkdownRemark {
                   html
-                  excerpt(format: HTML, truncate: true, pruneLength: 150)
+                  excerpt(format: PLAIN, truncate: true, pruneLength: 150)
                 }
               }
               complexData {
