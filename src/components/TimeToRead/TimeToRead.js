@@ -50,7 +50,7 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber, isGrid }) => {
                     </Link>
                 </span>
 
-                <span key="tim-to-read-date" className="ml2 ml3-m ml4-l">
+                <span key="tim-to-read-date" className="ml2 ml3-ns">
                     <span className="f6 gray lh-copy ">
                         <FontAwesomeIcon icon={faCalendarAlt} />
                     </span>
@@ -70,7 +70,7 @@ const TimeToRead = ({ publishedDate, timeToRead, iceFireNumber, isGrid }) => {
                     </span>
                 </span>
 
-                <span className="ml2 ml3-m ml4-l">
+                <span className="ml2 ml3-ns">
                     <Link to={`/blog/style-number/${iceFireNumber}/`}>
                         <span key="style-text" className="f6" style={{ color: iceFireColor }}>
                             風格

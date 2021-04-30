@@ -8,51 +8,20 @@ const HeroAbout = ({ slug, head, content }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        mobileImage: file(relativePath: { eq: "personal-photo-round.png" }) {
+        circleImage: file(relativePath: { eq: "personal-photo-round.png" }) {
             childImageSharp {
               gatsbyImageData(
-                layout: FIXED
-                width:150
-                height: 150
+                layout: CONSTRAINED
               )
             }
-        }
-        tabletImage: file(relativePath: { eq: "personal-photo-round.png" }) {
-            childImageSharp {
-              gatsbyImageData(
-                layout: FIXED
-                width:250
-                height: 250
-              )
-            }
-        }
-        desktop: file(relativePath: { eq: "personal-photo-round.png" }) {
-          childImageSharp {
-              gatsbyImageData(
-                layout: FIXED
-                width:360
-                height: 360
-              )
-          }
         }
       }
     `
   )
   //用來將圖檔分成三種螢幕尺寸的大小
-  const imageData = [
-    data.mobileImage.childImageSharp.gatsbyImageData,
-    {
-      ...data.tabletImage.childImageSharp.gatsbyImageData,
-      media: `(min-width: 30em) and (max-width: 60em)`
-    },
-    {
-      ...data.desktop.childImageSharp.gatsbyImageData,
-      media: `(min-width:60em)`
-    }
-  ]
+  const imageData = data.circleImage.childImageSharp.gatsbyImageData
 
   const bgImage = convertToBgImage(imageData)
-  console.log('bgImage',bgImage);
   
   return (
     <section className="hero bg-moon-gray">

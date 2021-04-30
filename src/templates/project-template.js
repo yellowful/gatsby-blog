@@ -9,7 +9,6 @@ import ProjectButtons from "../components/ProjectButtons/ProjectButtons"
 
 //用來作為單篇projec內容的template
 export default function ProjectTemplate({ data }) {
-    console.log('dataOfProjects',data);
     //project introduction是抓回來單篇introduction的內容
     const projectIntroduction = data.contentfulProject.introduction.childMarkdownRemark;
     //project section是抓回來單篇section的內容

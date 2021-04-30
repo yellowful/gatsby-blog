@@ -66,7 +66,6 @@ export default class EmailForm extends React.Component {
                 //如果有任何錯誤，就把status設成error
                 //順便把欄位清空
                 .then(res => {
-                    //console.table(res);
                     if (res.status === 200) {
                         this.setState({ status: "SUCCESS", name: '', email: '', message: '' });
                     }

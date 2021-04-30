@@ -53,7 +53,6 @@ const PageHit = ({ hit }) => (
 //Index是api提供的，需要傳要搜尋的indice給algolia
 //Hits是api的，可以把custom的PageHit傳進去，會把搜尋結果render出來
 const HitsInIndex = ({ index }) => {
-  //console.log("HitsInIndex",index)
   return (
     <Index indexName={index}>
       {/* <HitCount /> */}
