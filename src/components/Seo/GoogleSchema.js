@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 //要給Seo component用的
 //google要的metadata的格式
 //這邊只有文章會有詳細的meta data，供搜尋結果顯示摘要，其他的就丟普通的網站資料
