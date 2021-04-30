@@ -52,6 +52,7 @@ const HeroAbout = ({ slug, head, content }) => {
   ]
 
   const bgImage = convertToBgImage(imageData)
+  console.log('bgImage',bgImage);
   
   return (
     <section className="hero bg-moon-gray">

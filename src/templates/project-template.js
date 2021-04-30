@@ -1,4 +1,6 @@
 import { graphql } from 'gatsby';
+import { getSrc } from "gatsby-plugin-image";
+
 import React from 'react';
 import Layout from "../components/Layout/layout"
 import Seo from "../components/seo/seo"
@@ -7,23 +9,29 @@ import ProjectButtons from "../components/ProjectButtons/ProjectButtons"
 
 //用來作為單篇projec內容的template
 export default function ProjectTemplate({ data }) {
-
+    console.log('dataOfProjects',data);
     //project introduction是抓回來單篇introduction的內容
     const projectIntroduction = data.contentfulProject.introduction.childMarkdownRemark;
     //project section是抓回來單篇section的內容
     const projectSection = data.contentfulProject.section.childMarkdownRemark;
     //project的名稱、demo的網址、github的網址    
-    const { projectName, headOfIntroduction, demoLink, repoLink } = data.contentfulProject;
+    const { projectName, headOfIntroduction, demoLink, repoLink,imagesInMarkdown } = data.contentfulProject;
     //本頁的網址，給seo用的
-    const imageURL =
-        data.contentfulProject.imagesInMarkdown ?
-            `https:${data.contentfulProject.imagesInMarkdown[0].fluid.src}`
-            :
-            data.site.siteMetadata.image
+    //因為如果第一個檔是gif檔的話，getSrc會收到undefined
+    //所以要loop到不是undefined時，用不是undefined的檔案
+    let imageURL=''
+    for(let i=0;i<imagesInMarkdown.length;i++){
+        if(getSrc(imagesInMarkdown[i])){
+            imageURL=getSrc(imagesInMarkdown[i])
+            break;
+        }
+    }
+    imageURL = imageURL || data.site.siteMetadata.siteUrl+data.site.siteMetadata.image
     const pageURL = `${data.site.siteMetadata.siteUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
     //第一個section印出本project的主要介紹
     //第二個section印出本project完整的內容
     //table主要是放demo的網址、github的網址、回project頁的網址
+    
     return (
         <Layout>
             <Seo title={projectName} description={projectIntroduction.excerpt} imageURL={imageURL} pageURL={pageURL} />
@@ -65,13 +73,12 @@ export const projectQuery = graphql`
                 }
             }
             imagesInMarkdown {
-                fluid(maxWidth: 1024) {
-                    src
-                }
+                gatsbyImageData(layout: FIXED)
             }
         }
         site {
           siteMetadata {
+            image
             siteUrl
           }
         }

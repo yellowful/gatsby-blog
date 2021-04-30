@@ -9,6 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { getSrc } from "gatsby-plugin-image"
 import GoogleSchema from "./GoogleSchema"
 
 //每個有route的網頁都要放這個component
@@ -29,9 +30,7 @@ function Seo({ description, lang, meta, title, datePublished, imageURL, pageURL,
         }
         siteLogo: file(relativePath: { eq: "bdr.png" }) {
           childImageSharp {
-            fixed(width: 1024) {
-              src
-            }
+            gatsbyImageData(layout: FIXED)
           }
         }
       }
@@ -39,7 +38,7 @@ function Seo({ description, lang, meta, title, datePublished, imageURL, pageURL,
   )
   
   //網站的代表圖網址
-  const fixedSrc = site.siteMetadata.siteUrl + siteLogo.childImageSharp.fixed.src
+  const fixedSrc = site.siteMetadata.siteUrl + getSrc(siteLogo.childImageSharp);
   //當沒有摘要時，就用網站說明當摘要
   const metaDescription = description || site.siteMetadata.description
   //當沒有代表圖的時候，就用網站代表圖當代表圖
@@ -48,6 +47,12 @@ function Seo({ description, lang, meta, title, datePublished, imageURL, pageURL,
   const defaultTitle = site.siteMetadata?.title
   //沒有傳網址進來時，就用網站的網址當網址
   const metaURL = pageURL || site.siteMetadata.siteUrl
+
+  console.table({
+    siteUrl:site.siteMetadata.siteUrl,
+    getSrc:getSrc(siteLogo.childImageSharp),
+    imageURL:imageURL
+  });
   
   //article類型的網頁會把資料傳給GoogleSchema，以利google搜尋
   return (
