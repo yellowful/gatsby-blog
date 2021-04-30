@@ -56,7 +56,7 @@ const ProjectPage = () => {
   //抓回來的project內容放在project card裡面
   return(
     <Layout>
-      <Seo title="作品" pageURL={pageUrl} />
+      <Seo title="作品" pageURL={pageUrl} description={`蟲探理查的作品`} />
       <ProjectList>
         {
           post.map((item,i)=>{

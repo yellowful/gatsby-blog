@@ -22,11 +22,7 @@ export default function Template({ data }) {
         getSrc(images[0])
         :
         siteUrl+image
-    console.table({
-        images:images,
-        getSrc:getSrc(images[0]),
-        siteImage:siteUrl+image
-    })
+    
     const postDescription = description || articles
     const { excerpt } = postDescription.childMarkdownRemark
     const fbHref = `${siteUrl}/blog/${slug.toLowerCase()}/`;
