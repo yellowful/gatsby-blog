@@ -25,7 +25,8 @@ export default function ProjectTemplate({ data }) {
             break;
         }
     }
-    imageURL = imageURL || data.site.siteMetadata.siteUrl+data.site.siteMetadata.image
+    const {siteUrl,image} = data.site.siteMetadata
+    imageURL = 'https:'+imageURL || siteUrl+image
     const pageURL = `${data.site.siteMetadata.siteUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
     //第一個section印出本project的主要介紹
     //第二個section印出本project完整的內容

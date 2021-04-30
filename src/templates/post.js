@@ -19,7 +19,7 @@ export default function Template({ data }) {
     const { siteUrl,image } = data.site.siteMetadata
     const imageURL =
     getSrc(images[0]) ?
-        getSrc(images[0])
+        'https:'+getSrc(images[0])
         :
         siteUrl+image
     

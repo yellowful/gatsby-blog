@@ -48,11 +48,11 @@ function Seo({ description, lang, meta, title, datePublished, imageURL, pageURL,
   //沒有傳網址進來時，就用網站的網址當網址
   const metaURL = pageURL || site.siteMetadata.siteUrl
 
-  // console.table({
-  //   siteUrl:site.siteMetadata.siteUrl,
-  //   getSrc:getSrc(siteLogo.childImageSharp),
-  //   metaImage:metaImage
-  // });
+  console.table({
+    fixedSrc:fixedSrc,
+    imageURL:imageURL,
+    metaImage:metaImage
+  });
   
   //article類型的網頁會把資料傳給GoogleSchema，以利google搜尋
   return (
