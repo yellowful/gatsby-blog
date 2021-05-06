@@ -1,4 +1,4 @@
-const { Children } = require("react")
+//const { Children } = require("react")
 
 //用來設定各種api key
 //用gatsby develope的時候，process.env.NODE_ENV就是develope
@@ -46,6 +46,7 @@ module.exports = {
     },
     //用來寫html metadata用的plugin，主要和seo相關
     `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-remove-serviceworker',
     //檔案系統載入graphql用的，這裡主要是可以搜尋圖檔用
     {
       resolve: `gatsby-source-filesystem`,
