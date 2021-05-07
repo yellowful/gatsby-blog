@@ -8,7 +8,6 @@ require("dotenv").config({
 })
 
 module.exports = {
-  flags: { PRESERVE_WEBPACK_CACHE: true },
   siteMetadata: {
     title: `蟲探理查`,
     description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
