@@ -34,11 +34,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
                     slug
                     iceFireNumber
                     title
-                    articles {
-                        childMarkdownRemark {
-                            html
-                          }
-                    }
                     createdAt
                     publishedDate
                     updatedAt
