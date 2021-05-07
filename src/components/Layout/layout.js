@@ -12,10 +12,10 @@ import { FacebookProvider } from 'react-facebook';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
 import CookieConsent from "react-cookie-consent";
+import 'tachyons'
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import "./mystyles.css"
-import 'tachyons'
 import "./layout.css"
 
 //用來包住所有網頁，所以css可以在這個component裡面import

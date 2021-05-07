@@ -13,19 +13,14 @@ export default function ProjectTemplate({ data }) {
     //project section是抓回來單篇section的內容
     const projectSection = data.contentfulProject.section.childMarkdownRemark;
     //project的名稱、demo的網址、github的網址    
-    const { projectName, headOfIntroduction, demoLink, repoLink,imagesInMarkdown } = data.contentfulProject;
+    const { projectName, headOfIntroduction, demoLink, repoLink, imageForSeo } = data.contentfulProject;
     //本頁的網址，給seo用的
     //因為如果第一個檔是gif檔的話，getSrc會收到undefined
     //所以要loop到不是undefined時，用不是undefined的檔案
-    let imageURL=''
-    for(let i=0;i<imagesInMarkdown.length;i++){
-        if(getSrc(imagesInMarkdown[i])){
-            imageURL=getSrc(imagesInMarkdown[i])
-            break;
-        }
-    }
+    let imageURL=getSrc(imageForSeo)
     const {siteUrl,image} = data.site.siteMetadata
     imageURL = 'https:'+imageURL || siteUrl+image
+    //console.log('seo image',imageURL)
     const pageURL = `${data.site.siteMetadata.siteUrl}/project/${data.contentfulProject.slug.toLowerCase()}/`
     //第一個section印出本project的主要介紹
     //第二個section印出本project完整的內容
@@ -71,7 +66,7 @@ export const projectQuery = graphql`
                     excerpt(format: PLAIN)
                 }
             }
-            imagesInMarkdown {
+            imageForSeo {
                 gatsbyImageData(layout: FIXED)
             }
         }

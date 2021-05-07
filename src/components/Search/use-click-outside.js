@@ -27,7 +27,7 @@ const useClickOutside = (ref, onClickOutside) => {
     }
 
     return () => {
-      for (const event of events) document.removeEventListener(event, onClick)
+      for (const event of events) {document.removeEventListener(event, onClick)}
     }
   })
 }

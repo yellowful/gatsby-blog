@@ -1,4 +1,4 @@
-const { node } = require("prop-types")
+//const { node } = require("prop-types")
 
 //query回來的資料會傳到transformer裡面
 const pageQuery = `{

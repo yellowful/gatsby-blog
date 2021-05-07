@@ -1,8 +1,8 @@
 import React, { createRef, useState } from "react"
 import { InstantSearch, Configure, Pagination } from "react-instantsearch-dom"
 import algoliasearch from "algoliasearch/lite"
-import CustomSearchBox from "./custom-search-box.js"
-import SearchResult from "./search-result.js"
+import CustomSearchBox from "./custom-search-box"
+import SearchResult from "./search-result"
 import useClickOutside from "./use-click-outside"
 
 //用來放在navbar裡面，顯示搜尋框的component
