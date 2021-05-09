@@ -4,7 +4,7 @@ This is the open source code of my personal blog at <https://bdr.rocks>.
 
 如果您想了解這個blog的架構，和如何做出來，[請點這邊](https://www.bdr.rocks/project/personal-blog/ "請點這邊")。
 
-### Installation
+## Installation
 
 You can download or clone from git hub.
 
@@ -18,11 +18,11 @@ Install it:
   npm install
 ```
 
-### Register
+## Register
 
 Before setting environmental variables, you can register Contentful, Mailchimp, and Algolia.
 
-### Setting environmental Variables
+## Setting environmental Variables
 
 In your local developement environment, create and setting your own `.env.development` and `.env.production`, and setting environment variables which you can take `example.env` as reference.
 
@@ -53,24 +53,24 @@ In your local developement environment, create and setting your own `.env.develo
   ALGOLIA_ADMIN_KEY=xxxxxxxx
 ```
 
-### Run
+## Run
 
 To run the app when you are developing:
 
-```
+```bash
   gatsby develop
 ```
 
 To build the app at your local develop environment:
 
-```
+```bash
   gatsby build
   gatsby serve
 ```
 
 Before deploy to netlify, remember to set the environmental variables on the netlify.
 
-### License
+## License
 
 The code used for generating this web site are licensed as [MIT](./LICENSE "MIT").
 
