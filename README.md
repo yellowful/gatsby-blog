@@ -73,8 +73,3 @@ Before deploy to netlify, remember to set the environmental variables on the net
 ## License
 
 The code used for generating this web site are licensed as [MIT](./LICENSE "MIT").
-
-
-
-
-
