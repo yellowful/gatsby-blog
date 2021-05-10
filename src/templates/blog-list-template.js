@@ -113,7 +113,7 @@ export const blogListQuery = graphql`
         sort: {order: DESC, fields: publishedDate}
         limit:$limit
         skip:$skip
-      ){
+    ){
         edges {
           node {
             articles {
@@ -131,7 +131,7 @@ export const blogListQuery = graphql`
             }
           }
         }
-      }
+    }
     site {
         siteMetadata {
             siteUrl

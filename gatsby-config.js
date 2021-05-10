@@ -7,6 +7,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+console.log('dir',__dirname)
+
 module.exports = {
   siteMetadata: {
     title: `蟲探理查`,
