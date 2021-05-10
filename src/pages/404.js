@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/Layout/layout"
 import Seo from "../components/seo/seo"
@@ -11,30 +12,21 @@ const NotFoundPage = () => {
   const data = useStaticQuery(
     graphql`
       query fourZeroFourQuery {
-        mobileImage: file(relativePath: { eq: "404image.jpg" }) {
+        fourZeroFourImage: file(relativePath: { eq: "404image.jpg" }) {
             childImageSharp {
-              fluid(maxWidth: 1024, quality: 85) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                transformOptions: {fit: COVER, cropFocus: CENTER}
+              )
             }
-        }
-        desktop: file(relativePath: { eq: "404image.jpg" }) {
-          childImageSharp {
-            fluid(quality: 85, maxWidth: 2048) {
-                ...GatsbyImageSharpFluid
-            }
-          }
         }
       }
     `
   )
-  
+
   //抓到的背景圖，分成手機和桌面，存成array，供傳給background image component來用
-  const imageData = [data.mobileImage.childImageSharp.fluid,
-  {
-    ...data.desktop.childImageSharp.fluid,
-    media: `(min-width:60em)`
-  }]
+  const imageData = data.fourZeroFourImage.childImageSharp.gatsbyImageData;
+  const bgImage = convertToBgImage(imageData);
+
 
   //背景圖包住內容和一個回上一頁的按鈕
   return (
@@ -43,7 +35,7 @@ const NotFoundPage = () => {
       <BackgroundImage
         Tag={"section"}
         className="hero is-fullheight-with-navbar"
-        fluid={imageData}
+        {...bgImage}
         backgroundColor={`#000`}
       >
         <div className="w-100 h-100 absolute clip-path-404">
