@@ -69,6 +69,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     //如果result.errors有東西，就印出錯誤
     if (result.errors) {
+        console.log('query error: ',result.errors)
         reporter.panicOnBuild(`Error while running GraphQL query.`)
         return
     }
