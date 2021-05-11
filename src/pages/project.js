@@ -47,27 +47,28 @@ const ProjectPage = () => {
       }
     `
   )
-  
+
   //post是所有project內容構成的陣列
-  const post=data.allContentfulProject.edges
+  const post = data.allContentfulProject.edges
   //project這個網頁的網址
-  const pageUrl=data.site.siteMetadata.siteUrl+'/project/'
+  const pageUrl = data.site.siteMetadata.siteUrl + '/project/'
   //ProjectCard是用來放project card外框的地方
   //抓回來的project內容放在project card裡面
-  return(
+
+  return (
     <Layout>
       <Seo title="作品" pageURL={pageUrl} description={`蟲探理查的作品`} />
       <ProjectList>
         {
-          post.map((item,i)=>{
-            return(
-              <ProjectCard 
+          post.map((item, i) => {
+            return (
+              <ProjectCard
                 slug={item.node.slug.toLowerCase()}
-                key={`project-${item.node.slug.toLowerCase()}`} 
+                key={`project-${item.node.slug.toLowerCase()}`}
                 projectName={item.node.projectName}
                 demoLink={item.node.demoLink}
                 repoLink={item.node.repoLink}
-                introduction={item.node.introduction.childMarkdownRemark.html} 
+                introduction={item.node.introduction.childMarkdownRemark.html}
                 section={item.node.section.childMarkdownRemark.html}
                 image={`https:${item.node.images[0].file.url}`}
               />
@@ -77,6 +78,6 @@ const ProjectPage = () => {
       </ProjectList>
     </Layout>
   )
-} 
+}
 
 export default ProjectPage

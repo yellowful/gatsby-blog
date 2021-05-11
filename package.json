@@ -59,9 +59,9 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
-    "build": "npm run build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",

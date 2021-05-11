@@ -52,7 +52,7 @@ const IndexPage = () => {
           }
         }
       }
-      indexHeroImage: file(relativePath: { eq: "pexels-markus-spiske-1936299.jpg" }) {
+      indexHeroImage: file(relativePath: { eq: "home-background.jpg" }) {
           childImageSharp {
             gatsbyImageData(
                 transformOptions: {fit: COVER, cropFocus: CENTER}
