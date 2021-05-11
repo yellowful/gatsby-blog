@@ -69,11 +69,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     //如果result.errors有東西，就印出錯誤
     if (result.errors) {
-        console.log('query error: ',result.errors)
+        console.log('query error: ', result.errors)
         reporter.panicOnBuild(`Error while running GraphQL query.`)
         return
     }
-
     //這一段用來自動產生文章
     //單篇文章是edges陣列裡面的一個元素，這裡很容易搞錯，以為一個文章是一個node
     //但是一個文章是一個edge.node
