@@ -53,6 +53,28 @@ In your local developement environment, create and setting your own `.env.develo
   ALGOLIA_ADMIN_KEY=xxxxxxxx
 ```
 
+## Import content type of CMS
+
+You may need the same content types with this project in the Contentful CMS so that you can run this project properly, then you can change the content types and corresponding code. The content type of this project in Contentful is provided [here](./content-type.json "here"). You can import it to your space in Contentful with the steps below:
+
+Install contentful-cli.
+
+```bash
+  npm install -g contentful-cli
+  contentful login
+```
+
+Login from browser, and paste the token to the terminal for authentication.
+
+Import content type to your space in Contentful CMS, and logout.
+
+```bash
+  contentful space import --content-model-only content-type.json
+  contentful logout
+```
+
+More information, please reference [document of Contentful](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/ "document of Contentful").
+
 ## Run
 
 To run the app when you are developing:
