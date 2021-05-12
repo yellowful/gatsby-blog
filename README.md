@@ -22,7 +22,7 @@ Install it:
 
 Before setting environmental variables, you can register Contentful, Mailchimp, and Algolia.
 
-## Setting environmental Variables
+## Setting Environmental Variables
 
 In your local developement environment, create and setting your own `.env.development` and `.env.production`, and setting environment variables which you can take `example.env` as reference.
 
@@ -53,7 +53,7 @@ In your local developement environment, create and setting your own `.env.develo
   ALGOLIA_ADMIN_KEY=xxxxxxxx
 ```
 
-## Import content type of CMS
+## Import Content Type of CMS
 
 You may need the same content types with this project in the Contentful CMS so that you can run this project properly, then you can change the content types and corresponding code. The content type of this project in Contentful is provided [here](./content-type.json "here"). You can import it to your space in Contentful with the steps below:
 
@@ -64,7 +64,7 @@ Install contentful-cli.
   contentful login
 ```
 
-Login from browser, and paste the token to the terminal for authentication.
+Login to browser, and paste the token to the terminal for authentication.
 
 Import content type to your space in Contentful CMS, and logout.
 
@@ -73,24 +73,24 @@ Import content type to your space in Contentful CMS, and logout.
   contentful logout
 ```
 
-More information, please reference [document of Contentful](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/ "document of Contentful").
+Please reference [document of Contentful](https://www.contentful.com/developers/docs/tutorials/cli/import-and-export/ "document of Contentful") for more information.
 
 ## Run
 
-To run the app when you are developing:
+Run the app when you are developing:
 
 ```bash
   gatsby develop
 ```
 
-To build the app at your local develop environment:
+Build the app at your local develop environment:
 
 ```bash
   gatsby build
   gatsby serve
 ```
 
-Before deploy to netlify, remember to set the environmental variables on the netlify.
+Before deploy to netlify, remember to set the environmental variables on the Netlify.
 
 ## License
 
