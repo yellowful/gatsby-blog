@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDice } from '@fortawesome/free-solid-svg-icons'
 import Layout from "../../components/Layout/layout"
 import MeterSlider from "../../components/Meter/MeterSlider"
-import Seo from "../../components/seo/seo"
+import Seo from "../../components/Seo/seo"
 
 const StyleNumberIndex = () => {
 

@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStepBackward, faStepForward } from '@fortawesome/free-solid-svg-icons'
 import Layout from "../components/Layout/layout"
-import Seo from "../components/seo/seo"
+import Seo from "../components/Seo/seo"
 import PostList from "../components/PostPreview/PostList"
 import PostPreview from "../components/PostPreview/PostPreview"
 

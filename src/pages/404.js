@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from 'gatsby-background-image'
 import Layout from "../components/Layout/layout"
-import Seo from "../components/seo/seo"
+import Seo from "../components/Seo/seo"
 import GoBack from "../components/GoBack/GoBack"
 
 //用來放404的頁面

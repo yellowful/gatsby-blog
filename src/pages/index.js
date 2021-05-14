@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { convertToBgImage } from "gbimage-bridge"
 import { getSrc } from "gatsby-plugin-image"
 import Layout from "../components/Layout/layout"
-import Seo from "../components/seo/seo"
+import Seo from "../components/Seo/seo"
 import CardList from "../components/Card/CardList"
 import Card from "../components/Card/Card"
 import HeroIndex from "../components/Hero/HeroIndex"
@@ -20,58 +20,58 @@ const IndexPage = () => {
   //3. 要給seo用的截圖
   const data = useStaticQuery(
     graphql`
-    query IndexQuery {
-      allContentfulBlog (
-        limit:6
-        sort: {order: DESC, fields: publishedDate}
-      ){
-        edges {
-          node {
-            articles {
-              childMarkdownRemark {
-                excerpt(pruneLength: 80,truncate: true, format: PLAIN)
-                timeToRead
+      query IndexQuery {
+        allContentfulBlog (
+          limit:6
+          sort: {order: DESC, fields: publishedDate}
+        ){
+          edges {
+            node {
+              articles {
+                childMarkdownRemark {
+                  excerpt(pruneLength: 80,truncate: true, format: PLAIN)
+                  timeToRead
+                }
+              }
+              description {
+                childMarkdownRemark {
+                  excerpt(pruneLength: 80, truncate: true, format: PLAIN)
+                }
+              }
+              slug
+              iceFireNumber
+              title
+              publishedDate(formatString: "MMMM DD, YYYY")
+              images {
+                gatsbyImageData(
+                  width:800
+                  placeholder: BLURRED
+                  aspectRatio: 1.5
+                )
               }
             }
-            description {
-              childMarkdownRemark {
-                excerpt(pruneLength: 80, truncate: true, format: PLAIN)
-              }
-            }
-            slug
-            iceFireNumber
-            title
-            publishedDate(formatString: "MMMM DD, YYYY")
-            images {
+          }
+        }
+        indexHeroImage: file(relativePath: { eq: "home-background.jpg" }) {
+            childImageSharp {
               gatsbyImageData(
-                width:800
-                placeholder: BLURRED
-                aspectRatio: 1.5
+                  transformOptions: {fit: COVER, cropFocus: CENTER}
               )
             }
+        }
+        indexCapture: file(relativePath: { eq: "index-capture.jpg" }) {
+            childImageSharp {
+              gatsbyImageData(
+                  layout: FIXED
+              )
+            }
+        }
+        site {
+          siteMetadata {
+            siteUrl
           }
         }
       }
-      indexHeroImage: file(relativePath: { eq: "home-background.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-                transformOptions: {fit: COVER, cropFocus: CENTER}
-            )
-          }
-      }
-      indexCapture: file(relativePath: { eq: "index-capture.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-                layout: FIXED
-            )
-          }
-      }
-      site {
-        siteMetadata {
-          siteUrl
-        }
-      }
-    }
     `
   )
 

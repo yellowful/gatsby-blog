@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import { getSrc } from "gatsby-plugin-image";
 import React from 'react';
 import Layout from "../components/Layout/layout"
-import Seo from "../components/seo/seo"
+import Seo from "../components/Seo/seo"
 import ProjectButtons from "../components/ProjectButtons/ProjectButtons"
 
 
