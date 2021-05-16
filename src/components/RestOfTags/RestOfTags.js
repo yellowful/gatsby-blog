@@ -26,8 +26,8 @@ const RestOfTags = ({ tagSlug }) => {
   //map在做，如果slug剛好是傳入的slug，就不顯示，反之就顯示出來
   //如果tag裡面沒有blog的屬性，就顯示為0，有就顯示blog的數字
   return (
-    <div className="w-100 flex flex-column flex-row-ns items-center">
-      <header className="w-100 w-50-m w-30-l">
+    <div className="w-100 flex flex-column flex-row-l items-center">
+      <header className="w-100 w-30-l">
         <span className="dib v-mid">
           <span className="f3 pv1 ph2 dib v-mid"><FontAwesomeIcon icon={faTag} /></span>
           <h1 className="f3 fw7 pv1 ph2 dib v-mid" >
@@ -35,7 +35,7 @@ const RestOfTags = ({ tagSlug }) => {
           </h1>
         </span>
       </header>
-      <section className="w-100 flex justify-start items-center">
+      <section className="w-90 w-70-l flex justify-start items-center">
         <div key="tag-component-main-tag" className="dib v-mid ph2 mv1 f3">
           <FontAwesomeIcon icon={faTags} />
         </div>
