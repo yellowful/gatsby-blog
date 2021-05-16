@@ -10,7 +10,7 @@ This is the open source code of my personal blog at <https://bdr.rocks>.
 
 Before you clone this project, make sure the netlify status above is Success. If the netlify status shows Failed, the code may not work well on netlify temporarilly.
 
-You can download or clone from git hub.
+You can download or clone this project from git hub.
 
 ```bash
   git clone https://github.com/yellowful/gatsby-blog.git
@@ -59,7 +59,11 @@ In your local developement environment, create and setting your own `.env.develo
 
 ## Import Content Type of CMS
 
-You may need the same content types with this project in the Contentful CMS so that you can run this project properly, then you can change the content types and corresponding code. The content type of this project in Contentful is provided [here](./content-type.json "here"). You can import it to your space in Contentful with the steps below:
+You may need the same content types with this project in the Contentful CMS so that you can run this project properly, then you can change the content types and corresponding code. The content type of this project in Contentful is provided [here](./content-type.json "here"). 
+
+Make sure to replace "your-space-id" in the `content-type.json` with your own space id of Contentful.
+
+You can import it to your space in Contentful with the steps below:
 
 Install contentful-cli.
 
