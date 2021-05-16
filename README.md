@@ -8,7 +8,7 @@ This is the open source code of my personal blog at <https://bdr.rocks>.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9852c1ee-da1c-4cf7-a31d-95cf297f059e/deploy-status)](https://app.netlify.com/sites/bugdetective/deploys)
 
-Make sure the netlify status is Success to clone the correct code. If the netlify status shows failed, the code may not work on netlify temporarilly.
+Before you clone this project, make sure the Netlify status above is Success. If the netlify status shows Failed, the code may not work well on Netlify temporarilly.
 
 You can download or clone from git hub.
 
