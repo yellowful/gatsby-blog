@@ -12,6 +12,7 @@ const RestOfTags = ({ tagSlug }) => {
             edges {
               node {
                 slug
+                tagName
                 blog {
                   slug
                 }
@@ -53,7 +54,7 @@ const RestOfTags = ({ tagSlug }) => {
                 return (
                   <article key={`rest-tags-${item.node.slug.toLowerCase()}`} className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
                     <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib f5 v-btm">
-                      {`${item.node.slug.toLowerCase()}`}
+                      {`${item.node.tagName.toLowerCase()}`}
                     </Link>
                     <span className="f7 dib v-btm">{`+${item.node.blog ? item.node.blog.length : 0}`}</span>
                   </article>

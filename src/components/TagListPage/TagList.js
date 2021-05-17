@@ -8,7 +8,7 @@ const TagList = (props) => {
         <div className="w-100 flex justify-center bg-light-gray">
             <div className="w-100 w-90-m w-80-l mw8 flex flex-column ph3 pa3-ns">
                 <header className="w-100 flex justify-between items-center">
-                    <RestOfTags tagSlug={props.tagSlug} />
+                    <RestOfTags tagSlug={props.tagName} />
                 </header>
                 {props.children}
             </div>

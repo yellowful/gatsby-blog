@@ -19,6 +19,8 @@ export default class TagListPage extends React.Component {
     }
     //標籤的slug，要用來排列剩下的標籤用
     const tagSlug = this.props.data.allContentfulAllTag.edges[0].node.slug.toLowerCase();
+    const {tagName} = this.props.data.allContentfulAllTag.edges[0].node;
+
     //本頁網址，給seo用
     const pageURL = `${this.props.data.site.siteMetadata.siteUrl}/blog/tags/${tagSlug.toLowerCase()}/`;
     //tag list用來顯示所有tag card的外框
@@ -26,7 +28,7 @@ export default class TagListPage extends React.Component {
     return (
       <Layout>
         <Seo title="標籤" pageURL={pageURL} description={tagSlug} />
-        <TagList tagSlug={tagSlug}>
+        <TagList tagSlug={tagSlug} tagName={tagName}>
           {
             posts.map((element) => {
               const { slug, title, publishedDate, iceFireNumber } = element;
