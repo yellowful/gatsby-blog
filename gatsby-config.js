@@ -285,7 +285,7 @@ module.exports = {
                   title:edge.node.title,
                   description: edge.node.articles.excerpt,
                   date: edge.node.publishedDate,
-                  url: `${site.siteMetadata.siteUrl}/blog/${edge.node.slug.toLowerCase()}/`,
+                  url: encodeURI(`${site.siteMetadata.siteUrl}/blog/${edge.node.slug.toLowerCase()}/`),
                   guid: edge.node.id,
                   custom_elements: [{ "content:encoded": edge.node.articles.childMarkdownRemark.html }],
                 })
