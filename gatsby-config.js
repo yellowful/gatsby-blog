@@ -267,7 +267,6 @@ module.exports = {
           {
             site {
               siteMetadata {
-                author
                 siteUrl
                 description
                 image
