@@ -93,7 +93,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
 
     //postsPerPage可以設定每一頁放幾個文章
-    const postsPerPage = 3
+    const postsPerPage = 5
 
     //Math.ceil是無條件進入法，算出總頁數numPages
     const numPages = Math.ceil(posts.length / postsPerPage)
