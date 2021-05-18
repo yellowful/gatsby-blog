@@ -15,7 +15,12 @@ module.exports = {
     image:`/icons/icon-512x512.png`,
     siteUrl:`https://www.bdr.rocks`
   },
-  flags: { PRESERVE_WEBPACK_CACHE: true },
+  flags: { 
+    PRESERVE_WEBPACK_CACHE: true, 
+    FAST_DEV: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true
+  },
   plugins: [
     //產生sitemap，列表頁、標籤頁、搜尋頁都不需要放上去
     {

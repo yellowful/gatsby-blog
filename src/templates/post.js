@@ -89,6 +89,7 @@ export const postQuery = graphql`
             updatedAt(formatString: "MMMM DD, YYYY", locale: "zh-TW")
             tag {
                 slug
+                tagName
             }
             images {
                 gatsbyImageData(layout: FIXED)
