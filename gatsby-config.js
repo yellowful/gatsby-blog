@@ -22,7 +22,7 @@ module.exports = {
     PARALLEL_SOURCING: true,
   },
   plugins: [
-    gatsby-plugin-netlify-cache,
+    `gatsby-plugin-netlify-cache`,
     //產生sitemap，列表頁、標籤頁、搜尋頁都不需要放上去
     {
       resolve: `gatsby-plugin-sitemap`,
