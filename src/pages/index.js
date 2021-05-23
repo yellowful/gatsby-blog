@@ -89,7 +89,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Seo
-        title="首頁"
+        title="Bug Detective Richard"
         imageURL={imageURLOfSeo}
         description={`${slogan[0]}；${slogan[1]}`}
         pageURL="https://www.bdr.rocks/"
