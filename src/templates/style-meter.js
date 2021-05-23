@@ -16,7 +16,7 @@ export default class MeterPage extends React.Component {
     //符合這個風格指數的文章陣列
     const posts = this.props.data.allContentfulBlog.edges
     //本頁的網址
-    const pageURL = `${this.props.data.site.siteMetadata.siteUrl}/blog/style-number/${iceFireNumber}/`;
+    const pageURL = `${this.props.data.site.siteMetadata.siteUrl}/blog/style-number/${iceFireNumber}/`
     //master slider是一個可以拉動的range input
     //master list用來放多篇文章預覽的框框
     //meter card用來放文章預覽
@@ -24,35 +24,32 @@ export default class MeterPage extends React.Component {
     return (
       <Layout>
         <Seo title="風格指數" pageURL={pageURL} />
-        <MeterSlider fireNumber={iceFireNumber}/>
+        <MeterSlider fireNumber={iceFireNumber} />
         <MeterList>
-          {
-            posts.length ?
-              posts.map((element) => {
-                const { node } = element;
-                const image = getImage(node.images[0]);
-                const { slug, title, publishedDate, iceFireNumber } = node;
-                const { timeToRead } = node.articles.childMarkdownRemark;
-                const description = node.description || node.articles
-                const {excerpt} = description.childMarkdownRemark
-                return (
-                    <MeterCard
-                      slug={slug.toLowerCase()}
-                      key={`meter-${iceFireNumber}-${slug}`} 
-                      iceFireNumber={iceFireNumber}
-                      postTitle={title}
-                      publishedDate={publishedDate}
-                      excerpt={excerpt}
-                      timeToRead={(timeToRead * 1.5)}
-                      image={image}
-                    />
-                )
-              })
-              :
-              (<div className="w-100 tc dark-gray vh-50">
-                沒有相關文章
-              </div>)
-          }
+          {posts.length ? (
+            posts.map(element => {
+              const { node } = element
+              const image = getImage(node.images[0])
+              const { slug, title, publishedDate, iceFireNumber } = node
+              const { timeToRead } = node.articles.childMarkdownRemark
+              const description = node.description || node.articles
+              const { excerpt } = description.childMarkdownRemark
+              return (
+                <MeterCard
+                  slug={slug.toLowerCase()}
+                  key={`meter-${iceFireNumber}-${slug}`}
+                  iceFireNumber={iceFireNumber}
+                  postTitle={title}
+                  publishedDate={publishedDate}
+                  excerpt={excerpt}
+                  timeToRead={timeToRead * 1.5}
+                  image={image}
+                />
+              )
+            })
+          ) : (
+            <div className="w-100 tc dark-gray vh-50">沒有相關文章</div>
+          )}
         </MeterList>
       </Layout>
     )
@@ -64,8 +61,8 @@ export default class MeterPage extends React.Component {
 //傳過來的陣列是某個風格指數，和其前後各一個整數構成的
 //$iceFireNumber那邊的in:代表的是，只要iceFireNumber符合陣列裡的任何一個數，就會抓資料回來
 export const meterQuery = graphql`
-  query meterQuery($filterNumber: [Int!]){
-    allContentfulBlog(filter: {iceFireNumber: {in: $filterNumber}}) {
+  query meterQuery($filterNumber: [Int!]) {
+    allContentfulBlog(filter: { iceFireNumber: { in: $filterNumber } }) {
       edges {
         node {
           articles {
@@ -84,19 +81,15 @@ export const meterQuery = graphql`
           title
           publishedDate(formatString: "MMMM DD, YYYY")
           images {
-            gatsbyImageData(
-              width: 800
-              aspectRatio:1.5
-              placeholder: BLURRED
-            )
+            gatsbyImageData(width: 800, aspectRatio: 1.5, placeholder: BLURRED)
           }
         }
       }
     }
     site {
-        siteMetadata {
-            siteUrl
-        }
+      siteMetadata {
+        siteUrl
+      }
     }
   }
 `

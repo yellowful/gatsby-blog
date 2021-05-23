@@ -5,7 +5,7 @@
  */
 
 // You can delete this file if you're not using it
-require("prismjs/themes/prism-okaidia.css");
+require("prismjs/themes/prism-okaidia.css")
 
 //讓cookies失效
-window['ga-disable-G-4T61R4H6E8'] = true;
+window["ga-disable-G-4T61R4H6E8"] = true

@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { convertToBgImage } from "gbimage-bridge"
-import BackgroundImage from 'gatsby-background-image'
+import BackgroundImage from "gatsby-background-image"
 import Layout from "../components/Layout/layout"
 import Seo from "../components/Seo/seo"
 import GoBack from "../components/GoBack/GoBack"
@@ -13,20 +13,17 @@ const NotFoundPage = () => {
     graphql`
       query fourZeroFourQuery {
         fourZeroFourImage: file(relativePath: { eq: "404image.jpg" }) {
-            childImageSharp {
-              gatsbyImageData(
-                transformOptions: {fit: COVER, cropFocus: CENTER}
-              )
-            }
+          childImageSharp {
+            gatsbyImageData(transformOptions: { fit: COVER, cropFocus: CENTER })
+          }
         }
       }
     `
   )
 
   //抓到的背景圖，分成手機和桌面，存成array，供傳給background image component來用
-  const imageData = data.fourZeroFourImage.childImageSharp.gatsbyImageData;
-  const bgImage = convertToBgImage(imageData);
-
+  const imageData = data.fourZeroFourImage.childImageSharp.gatsbyImageData
+  const bgImage = convertToBgImage(imageData)
 
   //背景圖包住內容和一個回上一頁的按鈕
   return (
@@ -46,7 +43,10 @@ const NotFoundPage = () => {
             <p key="not-fount-english" className="f4 f3-ns fw5 dark-gray">
               404: Not Found
             </p>
-            <p key="not-fount-instruction" className="f5 f3-ns fw3 dark-gray mt3 w-60 center">
+            <p
+              key="not-fount-instruction"
+              className="f5 f3-ns fw3 dark-gray mt3 w-60 center"
+            >
               您剛剛點了一個不存在網頁的網址，請點其他網址
             </p>
             <div className="w-90 w-70-l">

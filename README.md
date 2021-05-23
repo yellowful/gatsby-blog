@@ -2,7 +2,7 @@
 
 This is the open source code of my personal blog at <https://bdr.rocks>.
 
-如果您想了解這個blog的架構，和如何做出來，[請點這邊](https://www.bdr.rocks/project/personal-blog/ "請點這邊")。
+如果您想了解這個 blog 的架構，和如何做出來，[請點這邊](https://www.bdr.rocks/project/personal-blog/ "請點這邊")。
 
 ## Installation
 
@@ -48,18 +48,18 @@ In your local developement environment, create and setting your own `.env.develo
     └── README.md
 
 ```javascript
-  //save as .env.development
-  GATSBY_CONTENTFUL_SPACE_ID=xxxxxxxx
-  GATSBY_CONTENTFUL_ACCESS_TOKEN=xxxxxxxx
-  GATSBY_MAILCHIMP_ENDPOINT=xxxxxxxx
-  GATSBY_ALGOLIA_APP_ID=xxxxxxxx
-  GATSBY_ALGOLIA_SEARCH_KEY=xxxxxxxx
-  ALGOLIA_ADMIN_KEY=xxxxxxxx
+//save as .env.development
+GATSBY_CONTENTFUL_SPACE_ID = xxxxxxxx
+GATSBY_CONTENTFUL_ACCESS_TOKEN = xxxxxxxx
+GATSBY_MAILCHIMP_ENDPOINT = xxxxxxxx
+GATSBY_ALGOLIA_APP_ID = xxxxxxxx
+GATSBY_ALGOLIA_SEARCH_KEY = xxxxxxxx
+ALGOLIA_ADMIN_KEY = xxxxxxxx
 ```
 
 ## Import Content Type of CMS
 
-You may need the same content types with this project in the Contentful CMS so that you can run this project properly, then you can change the content types and corresponding code. The content type of this project in Contentful is provided [here](./content-type.json "here"). 
+You may need the same content types with this project in the Contentful CMS so that you can run this project properly, then you can change the content types and corresponding code. The content type of this project in Contentful is provided [here](./content-type.json "here").
 
 Make sure to replace "your-space-id" in the `content-type.json` with your own space id of Contentful.
 

@@ -20,8 +20,8 @@ export default function Search({ indexName, showSearch, setShowSearch }) {
   )
   //用來偵測是不是unfocus了
   useClickOutside(rootRef, () => {
-    setShowSearch(false);
-    setQuery('');
+    setShowSearch(false)
+    setQuery("")
   })
   //假如要顯示搜尋框，就顯示CustomSearchBox、SearchResult、Pagination
   //SearchResult是在query有東西的時候，才會顯示。不然一點SearchResult還沒開始搜尋就會顯示所有的結果
@@ -38,37 +38,29 @@ export default function Search({ indexName, showSearch, setShowSearch }) {
             indexName={indexName}
             onSearchStateChange={({ query }) => setQuery(query)}
           >
-            <Configure
-              hitsPerPage={4}
-              attributesToSnippet={['*:30']}
-            />
+            <Configure hitsPerPage={4} attributesToSnippet={["*:30"]} />
             <CustomSearchBox />
             <SearchResult
               show={query && query.length > 0}
               indexName={indexName}
             />
-            {
-              query && query.length > 0 ?
-                (
-                  <Pagination
-                    showFirst={false}
-                    translations={{
-                      previous: '‹',
-                      next: '›',
-                      page(currentRefinement) {
-                        return currentRefinement;
-                      },
-                      ariaPrevious: 'Previous page',
-                      ariaNext: 'Next page',
-                      ariaPage(currentRefinement) {
-                        return `Page ${currentRefinement}`;
-                      },
-                    }}
-                  />
-                )
-                :
-                null
-            }
+            {query && query.length > 0 ? (
+              <Pagination
+                showFirst={false}
+                translations={{
+                  previous: "‹",
+                  next: "›",
+                  page(currentRefinement) {
+                    return currentRefinement
+                  },
+                  ariaPrevious: "Previous page",
+                  ariaNext: "Next page",
+                  ariaPage(currentRefinement) {
+                    return `Page ${currentRefinement}`
+                  },
+                }}
+              />
+            ) : null}
           </InstantSearch>
         </div>
       </div>

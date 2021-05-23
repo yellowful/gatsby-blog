@@ -1,24 +1,24 @@
-import React from 'react'
+import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTag, faTags } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTag, faTags } from "@fortawesome/free-solid-svg-icons"
 
 //放在tag list template裡面，用來顯示和排列剩下的tag
 const RestOfTags = ({ tagSlug }) => {
   let data = useStaticQuery(
     graphql`
-      query RestOfTagsQuery{
-          allContentfulAllTag {
-            edges {
-              node {
+      query RestOfTagsQuery {
+        allContentfulAllTag {
+          edges {
+            node {
+              slug
+              tagName
+              blog {
                 slug
-                tagName
-                blog {
-                  slug
-                }
               }
             }
           }
+        }
       }
     `
   )
@@ -30,21 +30,24 @@ const RestOfTags = ({ tagSlug }) => {
     <div className="w-100 flex flex-column flex-row-l items-center">
       <header className="w-100 w-30-l">
         <span className="dib v-mid">
-          <span className="f3 pv1 ph2 dib v-mid"><FontAwesomeIcon icon={faTag} /></span>
-          <h1 className="f3 fw7 pv1 ph2 dib v-mid" >
-            {tagSlug}
-          </h1>
+          <span className="f3 pv1 ph2 dib v-mid">
+            <FontAwesomeIcon icon={faTag} />
+          </span>
+          <h1 className="f3 fw7 pv1 ph2 dib v-mid">{tagSlug}</h1>
         </span>
       </header>
       <section className="w-90 w-70-l flex justify-start items-center">
         <div key="tag-component-main-tag" className="dib v-mid ph2 mv1 f3">
           <FontAwesomeIcon icon={faTags} />
         </div>
-        <div key="tag-component-rest-tags" className="dib v-mid nowrap overflow-x-auto">
-          {
-            data.allContentfulAllTag.edges.sort((a, b) => {
-              const lengthA = a.node.blog ? a.node.blog.length : 0;
-              const lengthB = b.node.blog ? b.node.blog.length : 0;
+        <div
+          key="tag-component-rest-tags"
+          className="dib v-mid nowrap overflow-x-auto"
+        >
+          {data.allContentfulAllTag.edges
+            .sort((a, b) => {
+              const lengthA = a.node.blog ? a.node.blog.length : 0
+              const lengthB = b.node.blog ? b.node.blog.length : 0
               return lengthB - lengthA
             })
             .map((item, i) => {
@@ -52,16 +55,23 @@ const RestOfTags = ({ tagSlug }) => {
                 return null
               } else {
                 return (
-                  <article key={`rest-tags-${item.node.slug.toLowerCase()}`} className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid">
-                    <Link to={`/blog/tags/${item.node.slug.toLowerCase()}/`} className="dib f5 v-btm">
+                  <article
+                    key={`rest-tags-${item.node.slug.toLowerCase()}`}
+                    className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid"
+                  >
+                    <Link
+                      to={`/blog/tags/${item.node.slug.toLowerCase()}/`}
+                      className="dib f5 v-btm"
+                    >
                       {`${item.node.tagName.toLowerCase()}`}
                     </Link>
-                    <span className="f7 dib v-btm">{`+${item.node.blog ? item.node.blog.length : 0}`}</span>
+                    <span className="f7 dib v-btm">{`+${
+                      item.node.blog ? item.node.blog.length : 0
+                    }`}</span>
                   </article>
                 )
               }
-            })
-          }
+            })}
         </div>
       </section>
     </div>

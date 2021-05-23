@@ -92,9 +92,7 @@
         "required": false,
         "validations": [
           {
-            "linkContentType": [
-              "allCategory"
-            ]
+            "linkContentType": ["allCategory"]
           }
         ],
         "disabled": false,
@@ -114,9 +112,7 @@
           "type": "Link",
           "validations": [
             {
-              "linkContentType": [
-                "allTag"
-              ]
+              "linkContentType": ["allTag"]
             }
           ],
           "linkType": "Entry"

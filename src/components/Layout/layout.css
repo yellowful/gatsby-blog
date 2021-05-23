@@ -20,7 +20,7 @@ body, button, input, optgroup, select, textarea{
     clip-path:url(#rowClip);
 }
 
-.image-hero-about{
+.image-float-right{
     content: " ";
     float: right;
     background-size: 100% 100%;
@@ -30,6 +30,15 @@ body, button, input, optgroup, select, textarea{
     shape-outside: content-box circle( 50% at 50% 50% );
 }
 
+.image-float-left{
+    content: " ";
+    float: left;
+    background-size: 100% 100%;
+    width: 150px;
+    height: 150px;
+    margin: 5em 0 0 -1em;
+    shape-outside: content-box circle( 50% at 50% 50% );
+}
 
 
 .index-card-container {
@@ -47,13 +56,22 @@ body, button, input, optgroup, select, textarea{
         clip-path: polygon(0 10%, 70% 25%, 100% 15%, 100% 70%, 70% 80%, 0 65%);
         background:rgba(17, 17, 17, 0.8);
     }
-    .image-hero-about{
+    .image-float-right{
         content: " ";
         float: right;
         background-size: 100% 100%;
         width: 250px;
         height: 250px;
         margin: 1.5em -2.5em 0 0;
+        shape-outside: content-box circle( 50% at 50% 50% );
+    }
+    .image-float-left{
+        content: " ";
+        float: left;
+        background-size: 100% 100%;
+        width: 250px;
+        height: 250px;
+        margin: 1.5em 0 -2.5em;
         shape-outside: content-box circle( 50% at 50% 50% );
     }
     .clipped-div{
@@ -70,9 +88,18 @@ body, button, input, optgroup, select, textarea{
     clip-path: polygon(30% 0, 90% 0, 70% 100%, 10% 100%);
     background:rgba(200, 200, 200, 0.7);
 }
-    .image-hero-about{
+    .image-float-right{
         content: " ";
         float: right;
+        background-size: 100% 100%;
+        width: 360px;
+        height: 360px;
+        margin: 0 0 0 0;
+        shape-outside: content-box circle( 50% at 50% 50% );
+    }
+    .image-float-left{
+        content: " ";
+        float: left;
         background-size: 100% 100%;
         width: 360px;
         height: 360px;

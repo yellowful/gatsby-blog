@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { navigate } from '@reach/router';
+import { navigate } from "@reach/router"
 import Layout from "../components/Layout/layout"
 import Seo from "../components/Seo/seo"
 import EmailForm from "../components/EmailForm/EmailForm"
@@ -11,18 +11,18 @@ import SkillList from "../components/SkillList/SkillList"
 import SubscribeContainer from "../components/Subscribe/SubscribeContainer"
 
 //放關於我、關於網站、聯絡資訊的component
-const About = ({location}) => {
+const About = ({ location }) => {
   //把contentful上放的關於我的內容抓下來用
   const data = useStaticQuery(
     graphql`
       query aboutBlogQuery {
-        allContentfulAbout(sort: {fields: serial, order: ASC}) {
+        allContentfulAbout(sort: { fields: serial, order: ASC }) {
           edges {
             node {
               slug
               serial
               title
-              content{
+              content {
                 childMarkdownRemark {
                   html
                   excerpt(format: PLAIN, truncate: true, pruneLength: 150)
@@ -39,43 +39,43 @@ const About = ({location}) => {
     `
   )
   //用來控制作者是不是要打開
-  const [isAuthorExpanded, setAuthorState] = useState(false);
+  const [isAuthorExpanded, setAuthorState] = useState(false)
   //用來控制技能說明是不是要打開
-  const [isSkillsExpanded, setSkillsState] = useState(false);
+  const [isSkillsExpanded, setSkillsState] = useState(false)
   //帶來這裡的網址裡是不是有hash tag，如果有，就放進變數hash裡面
-  const {hash} = location;
+  const { hash } = location
   //用來判斷是不是有hash，如果有hash就到hash的地方去
   //replace:true是把最後一個browse history移除，如此瀏覽器的回到上一頁才能發生功能
-  useEffect(() =>{
-    if(hash){
-      navigate(hash,{replace:true});
+  useEffect(() => {
+    if (hash) {
+      navigate(hash, { replace: true })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
+  }, [])
   //用來讓關於作者展開
-  const onAuthorExpanding = (ev) => {
-    ev.preventDefault();
-    setAuthorState(true);
+  const onAuthorExpanding = ev => {
+    ev.preventDefault()
+    setAuthorState(true)
   }
   //用來讓關於作者收合
-  const onAuthorFolding = (ev) => {
-    ev.preventDefault();
-    setAuthorState(false);
+  const onAuthorFolding = ev => {
+    ev.preventDefault()
+    setAuthorState(false)
   }
   //用來讓技能展開
-  const onSkillsExpanding = (ev) => {
-    ev.preventDefault();
-    setSkillsState(true);
+  const onSkillsExpanding = ev => {
+    ev.preventDefault()
+    setSkillsState(true)
   }
   //用來讓技能收合
-  const onSkillsFolding = (ev) => {
-    ev.preventDefault();
-    setSkillsState(false);
+  const onSkillsFolding = ev => {
+    ev.preventDefault()
+    setSkillsState(false)
   }
   //設定抓回來的三段的內容
-  const aboutBlog = data.allContentfulAbout.edges[0].node;
-  const aboutAuthor = data.allContentfulAbout.edges[1].node;
-  const aboutSkill = data.allContentfulAbout.edges[2].node;
+  const aboutBlog = data.allContentfulAbout.edges[0].node
+  const aboutAuthor = data.allContentfulAbout.edges[1].node
+  const aboutSkill = data.allContentfulAbout.edges[2].node
 
   //hero about是用來顯示關於網站的內容
   //clipped edge是用來讓每一段之間可以有曲線的分隔
@@ -85,17 +85,33 @@ const About = ({location}) => {
   //subscribe container使用來放訂閱文章和其他連結
   return (
     <Layout>
-      <Seo 
-        title="關於" 
-        description={aboutBlog.content.childMarkdownRemark.excerpt} 
+      <Seo
+        title="關於"
+        description={aboutBlog.content.childMarkdownRemark.excerpt}
         pageURL="https://www.bdr.rocks/about/"
         isArticle={false}
       />
       <div className="flex flex-column">
-        <HeroAbout slug={aboutBlog.slug} head={aboutBlog.title} content={aboutBlog.content.childMarkdownRemark.html} />
-        <ClippedEdge key="clipped-edge-site" topBackground={"bg-moon-gray"} edgeHeight={"4em"} edgeMarginTop={"1em"} edgeMarginBottom={"2em"} />
-        <AboutAuthor data={aboutAuthor} bgColor={"bg-near-white"} isExpanded={isAuthorExpanded} slug={aboutAuthor.slug} />
-        <ClippedEdge key="clipped-edge-author"
+        <HeroAbout
+          slug={aboutBlog.slug}
+          head={aboutBlog.title}
+          content={aboutBlog.content.childMarkdownRemark.html}
+        />
+        <ClippedEdge
+          key="clipped-edge-site"
+          topBackground={"bg-moon-gray"}
+          edgeHeight={"4em"}
+          edgeMarginTop={"1em"}
+          edgeMarginBottom={"2em"}
+        />
+        <AboutAuthor
+          data={aboutAuthor}
+          bgColor={"bg-near-white"}
+          isExpanded={isAuthorExpanded}
+          slug={aboutAuthor.slug}
+        />
+        <ClippedEdge
+          key="clipped-edge-author"
           topBackground={"bg-near-white"}
           edgeHeight={"4em"}
           edgeMarginTop={"1em"}
@@ -104,8 +120,14 @@ const About = ({location}) => {
           onExpanding={onAuthorExpanding}
           onFolding={onAuthorFolding}
         />
-        <SkillList slug={aboutSkill.slug} data={aboutSkill} bgColor={"bg-moon-gray"} isExpanded={isSkillsExpanded} />
-        <ClippedEdge key="clipped-edge-skill-list"
+        <SkillList
+          slug={aboutSkill.slug}
+          data={aboutSkill}
+          bgColor={"bg-moon-gray"}
+          isExpanded={isSkillsExpanded}
+        />
+        <ClippedEdge
+          key="clipped-edge-skill-list"
           topBackground={"bg-moon-gray"}
           edgeHeight={"4em"}
           edgeMarginTop={"1em"}
@@ -117,7 +139,7 @@ const About = ({location}) => {
         <EmailForm />
         <SubscribeContainer />
       </div>
-    </Layout >
+    </Layout>
   )
 }
 

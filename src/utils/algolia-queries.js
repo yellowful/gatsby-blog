@@ -45,11 +45,11 @@ const aboutQuery = `{
     }
 }`
 //要把query回來的資料變成object的transformer
-function aboutToAlgoliaRecord({ node: { id, slug, title, content} }) {
+function aboutToAlgoliaRecord({ node: { id, slug, title, content } }) {
   return {
     objectID: id,
     slug: `/about/#${slug}`,
-    title:title,
+    title: title,
     excerpt: content.childMarkdownRemark.excerpt,
   }
 }
@@ -77,12 +77,16 @@ const projectQuery = `{
     }
 }`
 //要把query回來的資料變成object的transformer
-function projectToAlgoliaRecord({ node: { id, slug, projectName, introduction, section } }) {
+function projectToAlgoliaRecord({
+  node: { id, slug, projectName, introduction, section },
+}) {
   return {
     objectID: id,
     slug: `/project/${slug.toLowerCase()}/`,
     title: projectName,
-    excerpt: section.childMarkdownRemark.excerpt + introduction.childMarkdownRemark.excerpt,
+    excerpt:
+      section.childMarkdownRemark.excerpt +
+      introduction.childMarkdownRemark.excerpt,
   }
 }
 
@@ -104,7 +108,9 @@ const policyAlgoliaQuery = `{
   }
 }`
 //要把query回來的資料變成object的transformer
-function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent } }) {
+function policyToAlgoliaRecord({
+  node: { id, slug, title, privacyPolicyContent },
+}) {
   return {
     objectID: id,
     slug: `/terms-n-policy/${slug.toLowerCase()}/`,
@@ -114,9 +120,9 @@ function policyToAlgoliaRecord({ node: { id, slug, title, privacyPolicyContent }
 }
 
 //設定excerpt的字數
-const numberOfExcerpt = 100;
+const numberOfExcerpt = 100
 //要傳到algolia的那個indice裡面
-const indexName = `allPages`;
+const indexName = `allPages`
 //要傳到gatsby-config裡面的東西
 //陣列裡面每一個element都是一個object，不同element可以不同的搜尋結構而傳給不同的indice，因為越多indice消耗越多的search accounts，越貴，所以這裡只建立一個indice
 const queries = [
@@ -126,36 +132,38 @@ const queries = [
     indexName,
     settings: {
       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-      searchableAttributes: [`title`, `excerpt`]
-    }
+      searchableAttributes: [`title`, `excerpt`],
+    },
   },
   {
     query: aboutQuery,
     transformer: ({ data }) => data.aboutPages.edges.map(aboutToAlgoliaRecord),
     indexName,
-    settings: { 
-        attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-        searchableAttributes:[`title`,`excerpt`]
-    }
+    settings: {
+      attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
+      searchableAttributes: [`title`, `excerpt`],
+    },
   },
   {
     query: projectQuery,
-    transformer: ({ data }) => data.projectPages.edges.map(projectToAlgoliaRecord),
+    transformer: ({ data }) =>
+      data.projectPages.edges.map(projectToAlgoliaRecord),
     indexName,
     settings: {
       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-      searchableAttributes: [`title`, `excerpt`]
-    }
+      searchableAttributes: [`title`, `excerpt`],
+    },
   },
   {
     query: policyAlgoliaQuery,
-    transformer: ({ data }) => data.policyPages.edges.map(policyToAlgoliaRecord),
+    transformer: ({ data }) =>
+      data.policyPages.edges.map(policyToAlgoliaRecord),
     indexName,
     settings: {
       attributesToSnippet: [`excerpt:${numberOfExcerpt}`],
-      searchableAttributes: [`title`, `excerpt`]
-    }
-  }
+      searchableAttributes: [`title`, `excerpt`],
+    },
+  },
 ]
 
 module.exports = queries
