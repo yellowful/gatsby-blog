@@ -189,6 +189,7 @@ module.exports = {
                 "listItem listItem": "anchor-word-breaker",
                 "list[ordered=false]": "ml4 f4 lh-copy tj mv4 fw3 ul-circle",
                 thematicBreak: "w-40 bb bw1 b--black-10 center mv5",
+                blockquote: "ml0 mt0 pl4 black-60 bl bw2 b--blue",
                 link: "anchor-word-breaker",
                 table: "table is-bordered o-80",
               },
