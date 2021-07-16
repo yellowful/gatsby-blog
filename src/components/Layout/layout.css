@@ -136,7 +136,7 @@ body, button, input, optgroup, select, textarea{
 .language-text{
     background: #bbb !important;
     overflow-wrap: break-word !important;
-
+    word-wrap: break-word !important;
 }
 
 .head-1-shadow {
