@@ -134,9 +134,13 @@ body, button, input, optgroup, select, textarea{
 }
 
 .language-text{
-    background: #bbb !important;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.5);
+    border-width: thin;
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
+    background: rgba(187,239,253,0.3) !important;
+    color: #4a4a4a !important;
 }
 
 .head-1-shadow {
