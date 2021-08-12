@@ -2,7 +2,7 @@
 
 This is the open source code of my personal blog at <https://bdr.rocks>.
 
-如果您想了解這個 blog 的架構，和如何做出來，[請點這邊](https://www.bdr.rocks/project/personal-blog/ "請點這邊")。
+[這個 blog 的架構中文詳細說明。](https://www.bdr.rocks/project/gatsby-%E5%85%A7%E5%AE%B9%E7%B6%B2%E7%AB%99/ "這個 blog 的架構中文詳細說明。")
 
 ## Installation
 
