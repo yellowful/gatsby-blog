@@ -17,7 +17,7 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import "./mystyles.css"
 import "./layout.css"
-import { facebookAppId } from " ../../utils/api"
+import { facebookAppId } from "../../utils/api"
 
 //用來包住所有網頁，所以css可以在這個component裡面import
 const Layout = ({ children }) => {
