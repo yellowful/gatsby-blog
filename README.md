@@ -8,7 +8,7 @@ This is the open source code of my personal blog at <https://bdr.rocks>.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9852c1ee-da1c-4cf7-a31d-95cf297f059e/deploy-status)](https://app.netlify.com/sites/bugdetective/deploys)
 
-Before you clone this project, make sure the netlify status above is Success. If the netlify status shows Failed, the code may not work well on netlify temporarilly.
+Before you clone this project, make sure the Netlify status above is Success. If the Netlify status shows Failed, the code may not work well on Netlify temporarilly.
 
 You can download or clone this project from git hub.
 
@@ -24,7 +24,7 @@ Install it:
 
 ## Register
 
-Before setting environmental variables, you can register Contentful, Mailchimp, Algolia, Formspree, facebook, and Google analytics.
+Before setting environmental variables, you can register [Netlify](https://www.netlify.com/), [Contentful](https://www.contentful.com/), [Mailchimp](https://mailchimp.com/), [Algolia](https://www.algolia.com), [Formspree](https://formspree.io/), [Facebook for Developers](https://developers.facebook.com/), and [Google Analytics](https://analytics.google.com/).
 
 ## Setting Environmental Variables
 
@@ -67,7 +67,7 @@ In `./src/utils/api.js`, change the setting of the `endpointOfFormspree`
 export const endpointOfFormspree = 'https://formspree.io/f/xxxxx'
 ```
 
-## Setting Google analytics 4
+## Setting Google Analytics 4
 
 In `gatsby-config.js`, change tackingIds:
 
@@ -105,7 +105,7 @@ const onAccept = () => {
 }
 ```
 
-## Setting facebook commnents
+## Setting Facebook commnents
 
 In `./src/utils/api.js`, change the setting of the `facebookAppId`
 
@@ -154,7 +154,7 @@ Build the app at your local develop environment:
   gatsby serve
 ```
 
-Before deploy to netlify, remember to set the environmental variables on the netlify.
+Before deploy to Netlify, remember to set the environmental variables on the Netlify.
 
 ## License
 
