@@ -17,6 +17,7 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import "./mystyles.css"
 import "./layout.css"
+import { facebookAppId } from " ../../utils/api"
 
 //用來包住所有網頁，所以css可以在這個component裡面import
 const Layout = ({ children }) => {
@@ -70,7 +71,7 @@ const Layout = ({ children }) => {
 
   return (
     <div className="flex flex-column items-center">
-      <FacebookProvider appId="129888612117049">
+      <FacebookProvider appId={facebookAppId}>
         <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
         <main className="w-100 flex flex-column">{children}</main>
         <CookieConsent

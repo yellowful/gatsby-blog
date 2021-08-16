@@ -1,4 +1,5 @@
 import React from "react"
+import { endpointOfFormspree } from "../../utils/api"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUser, faEnvelope } from "@fortawesome/free-solid-svg-icons"
 
@@ -57,7 +58,7 @@ export default class EmailForm extends React.Component {
     //如果沒填的話就設定status為錯誤
     //如果都有填的話，就把資料fetch給formspree
     if (!isFormValid) {
-      fetch("https://formspree.io/f/mwkwaeob", {
+      fetch(endpointOfFormspree, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({

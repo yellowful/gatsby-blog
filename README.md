@@ -2,7 +2,7 @@
 
 This is the open source code of my personal blog at <https://bdr.rocks>.
 
-[這個 blog 的架構中文詳細說明。](https://www.bdr.rocks/project/gatsby-%E5%85%A7%E5%AE%B9%E7%B6%B2%E7%AB%99/ "這個 blog 的架構中文詳細說明。")
+[這個 Gatsby 內容網站中文詳細說明。](https://www.bdr.rocks/project/gatsby-%E5%85%A7%E5%AE%B9%E7%B6%B2%E7%AB%99/ "這個 Gatsby 內容網站中文詳細說明。")
 
 ## Installation
 
@@ -12,42 +12,44 @@ Before you clone this project, make sure the netlify status above is Success. If
 
 You can download or clone this project from git hub.
 
-```bash
+```shell
   git clone https://github.com/yellowful/gatsby-blog.git
 ```
 
 Install it:
 
-```bash
+```shell
   npm install
 ```
 
 ## Register
 
-Before setting environmental variables, you can register Contentful, Mailchimp, and Algolia.
+Before setting environmental variables, you can register Contentful, Mailchimp, Algolia, Formspree, facebook, and Google analytics.
 
 ## Setting Environmental Variables
 
 In your local developement environment, create and setting your own `.env.development` and `.env.production`, and setting environment variables which you can take `example.env` as reference.
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .env.development
-    ├── .env.production
-    ├── .gitignore
-    ├── .prettierrc
-    ├── example.env
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+```text
+  .
+  ├── node_modules
+  ├── src
+  ├── .env.development
+  ├── .env.production
+  ├── .gitignore
+  ├── .prettierrc
+  ├── example.env
+  ├── gatsby-browser.js
+  ├── gatsby-config.js
+  ├── gatsby-node.js
+  ├── gatsby-ssr.js
+  ├── LICENSE
+  ├── package-lock.json
+  ├── package.json
+  └── README.md
+```
 
-```javascript
+```shell
 //save as .env.development
 GATSBY_CONTENTFUL_SPACE_ID = xxxxxxxx
 GATSBY_CONTENTFUL_ACCESS_TOKEN = xxxxxxxx
@@ -55,6 +57,60 @@ GATSBY_MAILCHIMP_ENDPOINT = xxxxxxxx
 GATSBY_ALGOLIA_APP_ID = xxxxxxxx
 GATSBY_ALGOLIA_SEARCH_KEY = xxxxxxxx
 ALGOLIA_ADMIN_KEY = xxxxxxxx
+```
+
+## Setting Formspree
+
+In `./src/utils/api.js`, change the setting of the `endpointOfFormspree`
+
+```js
+export const endpointOfFormspree = 'https://formspree.io/f/xxxxx'
+```
+
+## Setting Google analytics 4
+
+In `gatsby-config.js`, change tackingIds:
+
+```js
+{
+  resolve: `gatsby-plugin-google-gtag`,
+  options: {
+    // You can add multiple tracking ids and a pageview event will be fired for all of them.
+    trackingIds: [
+      "G-xxxxxxxxxx", // Google Analytics / GA
+    ],
+    gtagConfig: {
+      anonymize_ip: true,
+    },
+    pluginConfig: {
+      // Puts tracking script in the head instead of the body
+      head: false,
+      // Setting this parameter is also optional
+    },
+  },
+},
+```
+
+Also, in `gatsby-browser.js`, change the tracking ID `G-xxxxxxxxxx`:
+
+```js
+window["ga-disable-G-xxxxxxxxxx"] = true
+```
+
+Last, in `./src/components/Layout/layout.js`, change the tracking ID `G-xxxxxxxxxx`:
+
+```js
+const onAccept = () => {
+  window["ga-disable-G-xxxxxxxxxx"] = false
+}
+```
+
+## Setting facebook commnents
+
+In `./src/utils/api.js`, change the setting of the `facebookAppId`
+
+```js
+export const facebookAppId = 'xxxxxxxxxxxxxxx';
 ```
 
 ## Import Content Type of CMS
@@ -67,7 +123,7 @@ You can import it to your space in Contentful with the steps below:
 
 Install contentful-cli.
 
-```bash
+```shell
   npm install -g contentful-cli
   contentful login
 ```
@@ -76,7 +132,7 @@ Login to browser, and paste the token to the terminal for authentication.
 
 Import content type to your space in Contentful CMS, and logout.
 
-```bash
+```shell
   contentful space import --content-model-only content-type.json
   contentful logout
 ```
@@ -87,13 +143,13 @@ Please reference [document of Contentful](https://www.contentful.com/developers/
 
 Run the app when you are developing:
 
-```bash
+```shell
   gatsby develop
 ```
 
 Build the app at your local develop environment:
 
-```bash
+```shell
   gatsby build
   gatsby serve
 ```
