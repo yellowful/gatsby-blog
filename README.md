@@ -1,6 +1,6 @@
-# bdr.rocks source code
+# Gatsby content site
 
-This is the open source code of my personal blog at <https://bdr.rocks>.
+This is the open source code of Gatsby content site, my personal blog at <https://bdr.rocks>.
 
 [這個 Gatsby 內容網站中文詳細說明。](https://www.bdr.rocks/project/gatsby-%E5%85%A7%E5%AE%B9%E7%B6%B2%E7%AB%99/ "這個 Gatsby 內容網站中文詳細說明。")
 
