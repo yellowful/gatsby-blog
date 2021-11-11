@@ -98,6 +98,7 @@ const IndexPage = () => {
       <HeroIndex bgImage={bgImage} slogan={slogan} />
       <CardList>
         {data.allContentfulBlog.edges.map((element, i) => {
+          // console.log('index',`index-page-${element.node.slug.toLowerCase()}`)
           return (
             <Card
               key={`index-page-${element.node.slug.toLowerCase()}`}

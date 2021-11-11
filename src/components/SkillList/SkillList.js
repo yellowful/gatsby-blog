@@ -7,6 +7,7 @@ import {
   faCss3,
   faHtml5,
   faNodeJs,
+  faPython
 } from "@fortawesome/free-brands-svg-icons"
 
 //用來放在about page，用來顯示自己的技能
@@ -21,6 +22,7 @@ const SkillList = ({ slug, data, bgColor, isExpanded }) => {
     faNodeJs,
     faCloudUploadAlt,
     faHammer,
+    faPython,
   ]
   //展開的狀況下，將skill的array顯示成一個一個的card
   //每一個card裡面又list一堆item
@@ -52,6 +54,7 @@ const SkillList = ({ slug, data, bgColor, isExpanded }) => {
             className="index-card-container mt4"
           >
             {data.complexData.map((skill, i) => {
+              // console.log('SkillList-article', `skill-category-${skill.category}`)
               return (
                 <article
                   key={`skill-category-${skill.category}`}
@@ -67,8 +70,9 @@ const SkillList = ({ slug, data, bgColor, isExpanded }) => {
                   </h2>
                   <ul className="w-60 center flex flex-column items-start mv2">
                     {skill.items.map(item => {
+                      // console.log('SkillList-items', `skill-item-${item.replace(/\s+/g, '-').toLowerCase()}`)
                       return (
-                        <li key={`skill-item-${item}`} className="mv1 w-100">
+                        <li key={`skill-item-${item.replace(/\s+/g, '-').toLowerCase()}`} className="mv1 w-100">
                           <span
                             key="skill-list-item-dash"
                             className="mr2 dib v-top"

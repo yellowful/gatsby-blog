@@ -26,7 +26,7 @@ export default function ProjectTemplate({ data }) {
   let imageURL = getSrc(imageForSeo)
   const { siteUrl, image } = data.site.siteMetadata
   imageURL = "https:" + imageURL || siteUrl + image
-  //console.log('seo image',imageURL)
+  // console.log('seo image',imageURL)
   const pageURL = `${
     data.site.siteMetadata.siteUrl
   }/project/${data.contentfulProject.slug.toLowerCase()}/`

@@ -24,7 +24,7 @@ const PostPreview = ({
         </Link>
         <TimeToRead
           publishedDate={publishedDate}
-          timeToRead={timeToRead}
+          timeToRead={Math.round(timeToRead * 1.5)}
           iceFireNumber={iceFireNumber}
           isGrid={false}
         />

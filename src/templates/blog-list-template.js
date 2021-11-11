@@ -52,6 +52,7 @@ export default class BlogList extends React.Component {
               articles,
               tag,
             } = element.node
+            // console.log('blog-list-template',`blog-${slug.toLowerCase()}`)
             return (
               <PostPreview
                 slug={slug.toLowerCase()}
@@ -61,9 +62,9 @@ export default class BlogList extends React.Component {
                 publishedDate={publishedDate}
                 excerpt={articles.childMarkdownRemark.excerpt}
                 postTag={tag}
-                timeToRead={Math.round(
-                  articles.childMarkdownRemark.timeToRead * 1.5
-                )}
+                timeToRead={
+                  articles.childMarkdownRemark.timeToRead 
+                }
               />
             )
           })}

@@ -15,14 +15,7 @@ module.exports = {
     image: `/icons/icon-512x512.png`,
     siteUrl: `https://www.bdr.rocks`,
   },
-  flags: {
-    PRESERVE_WEBPACK_CACHE: true,
-    FAST_DEV: true,
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    PARALLEL_SOURCING: true,
-  },
   plugins: [
-    `gatsby-plugin-netlify-cache`,
     //產生sitemap，列表頁、標籤頁、搜尋頁都不需要放上去
     {
       resolve: `gatsby-plugin-sitemap`,
@@ -30,7 +23,7 @@ module.exports = {
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        exclude: [`/blog-list/*`, `/blog/tags/*`, `/blog/style-number/*`],
+        excludes: [`/blog-list/*`, `/blog/tags/*`, `/blog/style-number/*`],
       },
     },
     //用來做google分析的plugin
@@ -139,9 +132,6 @@ module.exports = {
               // defaults: "https://github.githubassets.com/assets/gist-embed-b3b573358bfc66d89e1e95dbf8319c09.css"
             },
           },
-          `gatsby-remark-containers`,
-          //預估閱讀時間
-          `gatsby-remark-reading-time`,
           //用來放youtube的
           {
             resolve: "gatsby-remark-embed-video",
@@ -248,8 +238,6 @@ module.exports = {
         downloadLocal: true,
       },
     },
-    //icon
-    `gatsby-plugin-fontawesome-css`,
     //電子報、news letter服務
     {
       resolve: "gatsby-plugin-mailchimp",

@@ -11,6 +11,7 @@ const PostTags = ({ tag }) => {
         <FontAwesomeIcon icon={faTags} />
       </span>
       {tag.map((item, i) => {
+        // console.log('PostTag',`blog-tags-${item.slug.toLowerCase()}`)
         return (
           <span key={`blog-tags-${item.slug.toLowerCase()}`}>
             <Link
