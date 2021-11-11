@@ -44,6 +44,8 @@ module.exports = {
         },
       },
     },
+    // 用來防止fontawesome載入會閃大的問題
+    `gatsby-plugin-fontawesome-css`,
     //用來寫html metadata用的plugin，主要和seo相關
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-remove-serviceworker",
