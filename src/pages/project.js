@@ -59,6 +59,7 @@ const ProjectPage = () => {
       <Seo title="作品" pageURL={pageUrl} description={`蟲探理查的作品`} />
       <ProjectList>
         {post.map((item, i) => {
+          // console.log('project',`project-${item.node.slug.toLowerCase()}`)
           return (
             <ProjectCard
               slug={item.node.slug.toLowerCase()}

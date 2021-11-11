@@ -26,6 +26,7 @@ const MediaLinks = () => {
       <BuyMeACoffee />
       <div className="flex justify-around items-end-ns mb2">
         {externalLink.map((item, i) => {
+          // console.log('MediaLinks',item)
           return (
             <div key={item} className="w-10 tc">
               <a

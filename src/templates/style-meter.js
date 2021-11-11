@@ -34,6 +34,7 @@ export default class MeterPage extends React.Component {
               const { timeToRead } = node.articles.childMarkdownRemark
               const description = node.description || node.articles
               const { excerpt } = description.childMarkdownRemark
+              // console.log('style-meter',`meter-${iceFireNumber}-${slug}`)
               return (
                 <MeterCard
                   slug={slug.toLowerCase()}
@@ -42,7 +43,7 @@ export default class MeterPage extends React.Component {
                   postTitle={title}
                   publishedDate={publishedDate}
                   excerpt={excerpt}
-                  timeToRead={timeToRead * 1.5}
+                  timeToRead={timeToRead}
                   image={image}
                 />
               )

@@ -54,6 +54,7 @@ const RestOfTags = ({ tagSlug }) => {
               if (item.node.slug.toLowerCase() === tagSlug.toLowerCase()) {
                 return null
               } else {
+                // console.log('RestOfTags',`rest-tags-${item.node.slug.toLowerCase()}`)
                 return (
                   <article
                     key={`rest-tags-${item.node.slug.toLowerCase()}`}

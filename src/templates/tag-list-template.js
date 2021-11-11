@@ -39,6 +39,7 @@ export default class TagListPage extends React.Component {
             const description = element.description || element.articles
             const { excerpt } = description.childMarkdownRemark
             const image = getImage(element.images[0])
+            // console.log('tag-list-template',`tag-${slug.toLowerCase()}`)
             return (
               <TagCard
                 slug={slug.toLowerCase()}
@@ -47,7 +48,7 @@ export default class TagListPage extends React.Component {
                 postTitle={title}
                 publishedDate={publishedDate}
                 excerpt={excerpt}
-                timeToRead={timeToRead * 1.5}
+                timeToRead={timeToRead}
                 image={image}
               />
             )
