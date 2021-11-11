@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-blog",
+  "name": "gatsby-starter-default",
   "private": true,
-  "description": "A blog",
-  "version": "1",
-  "author": "bdr <richenyou@gmail.com>",
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@fontsource/noto-sans-tc": "^4.5.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
