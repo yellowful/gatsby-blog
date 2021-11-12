@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { convertToBgImage } from "gbimage-bridge"
-import BackgroundImage from "gatsby-background-image"
+//import BackgroundImage from "gatsby-background-image"
 import Layout from "../components/Layout/layout"
 import Seo from "../components/Seo/seo"
 import GoBack from "../components/GoBack/GoBack"
@@ -29,12 +29,7 @@ const NotFoundPage = () => {
   return (
     <Layout>
       <Seo title="404: Not found" />
-      <BackgroundImage
-        Tag={"section"}
-        className="hero is-fullheight-with-navbar"
-        {...bgImage}
-        backgroundColor={`#000`}
-      >
+      <div className="hero is-fullheight-with-navbar background-404">
         <div className="w-100 h-100 absolute clip-path-404">
           <div className="w-90 w-80-m w-70-l vh-75 mw8 center  flex flex-column justify-center items-center">
             <p key="not-fount-mandarin" className="mt5 f3 f2-ns fw7 dark-gray">
@@ -54,7 +49,7 @@ const NotFoundPage = () => {
             </div>
           </div>
         </div>
-      </BackgroundImage>
+      </div>
     </Layout>
   )
 }
