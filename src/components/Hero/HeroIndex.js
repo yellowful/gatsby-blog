@@ -1,19 +1,15 @@
 import React from "react"
 import { Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+// import BackgroundImage from "gatsby-background-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
 
 //用來顯示index page的最上面hero的畫面
-const HeroIndex = ({ bgImage, slogan }) => {
+const HeroIndex = ({ slogan }) => {
   return (
     <section className="w-100">
-      <BackgroundImage
-        Tag={"div"}
-        className="hero is-fullheight-with-navbar"
-        {...bgImage}
-        backgroundColor={`#000`}
-      >
+      
+      <div className="hero is-fullheight-with-navbar hero-background-svg">
         <div className="w-100 h-100 absolute clip-path-hero flex flex-column justify-center">
           <div className="columns w-100">
             <div className="column">
@@ -34,9 +30,10 @@ const HeroIndex = ({ bgImage, slogan }) => {
             </footer>
           </div>
         </div>
-      </BackgroundImage>
+        </div>
     </section>
   )
 }
 
 export default HeroIndex
+
