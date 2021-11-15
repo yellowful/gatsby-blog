@@ -82,7 +82,8 @@ const MeterSlider = ({ fireNumber }) => {
           className="pr2 f6 f5-l"
           style={{ color: iceColor }}
         >
-          專業
+          <p>技術</p>
+          <p>專業</p>
         </span>
         <button
           key="meter-slide-button-ice"
@@ -105,7 +106,8 @@ const MeterSlider = ({ fireNumber }) => {
           className="pl2 f6 f5-l"
           style={{ color: fireColor }}
         >
-          生活
+          <p>生活</p>
+          <p>娛樂</p>
         </span>
       </div>
     </div>
