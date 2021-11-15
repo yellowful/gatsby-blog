@@ -1,29 +1,10 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { convertToBgImage } from "gbimage-bridge"
-//import BackgroundImage from "gatsby-background-image"
 import Layout from "../components/Layout/layout"
 import Seo from "../components/Seo/seo"
 import GoBack from "../components/GoBack/GoBack"
 
 //用來放404的頁面
 const NotFoundPage = () => {
-  //用來抓404背景圖
-  const data = useStaticQuery(
-    graphql`
-      query fourZeroFourQuery {
-        fourZeroFourImage: file(relativePath: { eq: "404image.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(transformOptions: { fit: COVER, cropFocus: CENTER })
-          }
-        }
-      }
-    `
-  )
-
-  //抓到的背景圖，分成手機和桌面，存成array，供傳給background image component來用
-  const imageData = data.fourZeroFourImage.childImageSharp.gatsbyImageData
-  const bgImage = convertToBgImage(imageData)
 
   //背景圖包住內容和一個回上一頁的按鈕
   return (

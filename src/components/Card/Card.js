@@ -47,7 +47,7 @@ const Card = ({ node }) => {
         <footer className="pointer tr">
           <Link to={`/blog/${slug}/`}>
             更多
-            <FontAwesomeIcon icon={faAngleDoubleRight} />
+            <FontAwesomeIcon className="ml1" icon={faAngleDoubleRight} />
           </Link>
         </footer>
       </div>

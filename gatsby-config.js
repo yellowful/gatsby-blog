@@ -10,7 +10,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `蟲探理查`,
-    description: `從寫專利範圍到寫網頁程式，從抓標號錯誤到抓程式臭蟲`,
+    description: `浸泡在各種語言裡抓bug，游走在各種bug間學語言`,
     author: `黃瑞成`,
     image: `/icons/icon-512x512.png`,
     siteUrl: `https://www.bdr.rocks`,
@@ -61,8 +61,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    //這個是gatsby offline在用的plugin
-    //icon主要是用來顯示在標題列的圖案
+    //icon主要是給pwa用的
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -71,11 +70,25 @@ module.exports = {
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available,
+          // please see the section "Additional Resources" below.
+          purpose: `any maskable`,
+        },
+        cache_busting_mode: 'none',
       },
     },
-    `gatsby-plugin-offline`,
+    //這個是gatsby offline在用的plugin
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+         workboxConfig: {
+            globPatterns: ['**/*.{svg,png}']
+         }
+      }
+   },
     //要處理svg的話要用這個plugin
     {
       resolve: "gatsby-plugin-react-svg",

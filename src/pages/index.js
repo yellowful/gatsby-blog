@@ -1,6 +1,5 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { convertToBgImage } from "gbimage-bridge"
 import { getSrc } from "gatsby-plugin-image"
 import Layout from "../components/Layout/layout"
 import Seo from "../components/Seo/seo"
@@ -52,11 +51,6 @@ const IndexPage = () => {
             }
           }
         }
-        indexHeroImage: file(relativePath: { eq: "home-background.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(transformOptions: { fit: COVER, cropFocus: CENTER })
-          }
-        }
         indexCapture: file(relativePath: { eq: "index-capture.jpg" }) {
           childImageSharp {
             gatsbyImageData(layout: FIXED)
@@ -71,15 +65,10 @@ const IndexPage = () => {
     `
   )
 
-  //第一個是手機用的圖片的object，第二個是桌面的圖片的object
-  //...是把object的大括號拆掉，和media的attribute接在一起。最後再包在大括號裡面，就是一個object了。
-  const imageData = data.indexHeroImage.childImageSharp.gatsbyImageData
-  const bgImage = convertToBgImage(imageData)
-
   // 要給seo用的，讓首頁被分享的時候有截圖
   const imageURLOfSeo =
     data.site.siteMetadata.siteUrl + getSrc(data.indexCapture.childImageSharp)
-  const slogan = ["從寫專利範圍到寫網站程式", "從抓標號錯誤到抓程式臭蟲"]
+  const slogan = ["浸泡在各種語言裡抓bug", "游走在各種bug間學語言"]
 
   //layout每一頁都有，裡面有navbar
   //seo用來處理metadata
@@ -95,7 +84,7 @@ const IndexPage = () => {
         pageURL="https://www.bdr.rocks/"
         isArticle={false}
       />
-      <HeroIndex bgImage={bgImage} slogan={slogan} />
+      <HeroIndex slogan={slogan} />
       <CardList>
         {data.allContentfulBlog.edges.map((element, i) => {
           // console.log('index',`index-page-${element.node.slug.toLowerCase()}`)
@@ -106,6 +95,7 @@ const IndexPage = () => {
             />
           )
         })}
+        
       </CardList>
       <div className="mt2">
         <SubscribeContainer />

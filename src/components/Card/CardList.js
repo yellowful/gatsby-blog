@@ -1,4 +1,7 @@
 import React from "react"
+import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
 
 //在indexpage中，用來裝cards的container
 const CardList = props => {
@@ -10,6 +13,12 @@ const CardList = props => {
       <section className="w-100 w-90-m w-80-l mw8 index-card-container pa3-ns pa2">
         {props.children}
       </section>
+      <footer className="w-100 w-90-m w-80-l mw8 ph3-ns mb3 pa2 tr">
+        <Link className="f4 pointer" to="/blog-list/page-3/">
+          較舊
+          <FontAwesomeIcon className="ml1" icon={faAngleDoubleRight} />
+        </Link>
+      </footer>
     </section>
   )
 }

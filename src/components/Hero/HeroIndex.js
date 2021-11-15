@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-// import BackgroundImage from "gatsby-background-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
 
@@ -8,7 +7,6 @@ import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
 const HeroIndex = ({ slogan }) => {
   return (
     <section className="w-100">
-      
       <div className="hero is-fullheight-with-navbar hero-background-svg">
         <div className="w-100 h-100 absolute clip-path-hero flex flex-column justify-center">
           <div className="columns w-100">
@@ -24,7 +22,7 @@ const HeroIndex = ({ slogan }) => {
               <div className="mt2 mt5-ns">
                 <Link to="/about/#bio" replace={false} className="f3-l f4-m f5">
                   關於我
-                  <FontAwesomeIcon icon={faAngleDoubleRight} />
+                  <FontAwesomeIcon className="ml1" icon={faAngleDoubleRight} />
                 </Link>
               </div>
             </footer>
