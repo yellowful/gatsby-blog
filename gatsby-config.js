@@ -79,7 +79,6 @@ module.exports = {
         cache_busting_mode: 'none',
       },
     },
-    "gatsby-plugin-remove-serviceworker",
     //要處理svg的話要用這個plugin
     {
       resolve: "gatsby-plugin-react-svg",
