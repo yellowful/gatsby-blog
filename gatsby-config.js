@@ -48,7 +48,6 @@ module.exports = {
     `gatsby-plugin-fontawesome-css`,
     //用來寫html metadata用的plugin，主要和seo相關
     `gatsby-plugin-react-helmet`,
-    "gatsby-plugin-remove-serviceworker",
     //檔案系統載入graphql用的，這裡主要是可以搜尋圖檔用
     {
       resolve: `gatsby-source-filesystem`,
@@ -80,15 +79,7 @@ module.exports = {
         cache_busting_mode: 'none',
       },
     },
-    //這個是gatsby offline在用的plugin
-    {
-      resolve: 'gatsby-plugin-offline',
-      options: {
-         workboxConfig: {
-            globPatterns: ['**/*.{svg,png}']
-         }
-      }
-   },
+    "gatsby-plugin-remove-serviceworker",
     //要處理svg的話要用這個plugin
     {
       resolve: "gatsby-plugin-react-svg",
