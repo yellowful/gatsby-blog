@@ -65,8 +65,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `蟲探理查`,
-        short_name: `蟲探理查`,
+        name: `Bug Detective Richard`,
+        short_name: `BDR`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
