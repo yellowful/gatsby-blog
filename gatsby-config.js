@@ -100,6 +100,13 @@ module.exports = {
         ],
       },
     },
+    // 用來跑service worker的
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`,`/blog-list/`,`/about/`, `/project/*`],
+      },
+    },
     //要處理svg的話要用這個plugin
     {
       resolve: "gatsby-plugin-react-svg",
