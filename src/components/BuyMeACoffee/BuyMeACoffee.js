@@ -12,7 +12,7 @@ const BuyMeACoffee = () => {
         target="_blank"
         rel="noopener"
       >
-        <button className="button is-dark is-small">
+        <button aria-label="external link" className="button is-dark is-small">
           <FontAwesomeIcon icon={faCoffee} />
           <span className="ml2">Buy me a coffee</span>
         </button>

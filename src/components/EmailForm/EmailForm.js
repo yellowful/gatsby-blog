@@ -174,7 +174,11 @@ export default class EmailForm extends React.Component {
                     {status === "SUCCESS" ? (
                       <p>訊息已寄出，謝謝！</p>
                     ) : (
-                      <button type="submit" className="button is-dark">
+                      <button 
+                        aria-label="submit"
+                        type="submit" 
+                        className="button is-dark"
+                      >
                         送出訊息
                       </button>
                     )}

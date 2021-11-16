@@ -87,6 +87,7 @@ const MeterSlider = ({ fireNumber }) => {
         </span>
         <button
           key="meter-slide-button-ice"
+          aria-label="減少風格指數"
           className="pa1 f5 f4-l pointer white h2 w2 br-100 bw0 input-reset button-reset"
           style={{ backgroundColor: iceColor }}
           onClick={handleCooler}
@@ -95,6 +96,7 @@ const MeterSlider = ({ fireNumber }) => {
         </button>
         <button
           key="meter-slide-button-fire"
+          aria-label="增加風格指數"
           className="pa1 f5 f4-l pointer white h2 w2 br-100 bw0  input-reset button-reset"
           style={{ backgroundColor: fireColor }}
           onClick={handleWarmer}

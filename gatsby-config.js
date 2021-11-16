@@ -76,7 +76,28 @@ module.exports = {
           // please see the section "Additional Resources" below.
           purpose: `any maskable`,
         },
-        cache_busting_mode: 'none',
+        icons: [
+          {
+            src: "src/images/favicon/favicon-16x16.png",
+            sizes: "16x16",
+            type: "image/png"
+          },
+          {
+            src: "src/images/favicon/favicon-32x32.png",
+            sizes: "32x32",
+            type: "image/png"
+          },
+          {
+            src: "src/images/favicon/android-chrome-192x192.png",
+            sizes: "192x192",
+            type: "image/png"
+          },
+          {
+            src: "src/images/favicon/android-chrome-512x512.png",
+            sizes: "512x512",
+            type: "image/png"
+          },
+        ],
       },
     },
     //要處理svg的話要用這個plugin

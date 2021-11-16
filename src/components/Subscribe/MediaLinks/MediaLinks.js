@@ -21,6 +21,7 @@ const MediaLinks = () => {
   //用來顯示所有external link
   //BuyMeACoffee自己一列，其他第二列，剛好解決原本和SubScribe高度差太多看起來很怪的問題
   //桌面版會出現左邊的格線
+  const ariaLabel = ['Github', 'Facebook', 'Linkedin']
   return (
     <div className="flex flex-column bl-l b--black-30">
       <BuyMeACoffee />
@@ -30,6 +31,7 @@ const MediaLinks = () => {
           return (
             <div key={item} className="w-10 tc">
               <a
+                aria-label={ariaLabel[i]}
                 href={item}
                 rel="noreferrer"
                 target="_blank"

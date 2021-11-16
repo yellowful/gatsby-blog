@@ -229,6 +229,7 @@ const Header = ({ siteTitle }) => {
           <div key="navbar-end" role="menu" className="navbar-end tc">
             <div
               className="navbar-item"
+              aria-label="search"
               role="button"
               tabIndex="-1"
               onClick={() => {

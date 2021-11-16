@@ -35,6 +35,7 @@ const ClippedEdge = ({
               isExpanded ? (
                 <footer className="w-100 w-90-m w-80-l ph3 pt2 mw8 center tr">
                   <button
+                    aria-label="fold"
                     className="blue bw0 bg-transparent pointer grow button-focus br2"
                     onClick={onFolding}
                   >
@@ -52,6 +53,7 @@ const ClippedEdge = ({
               ) : (
                 <footer className="w-100 w-90-m w-80-l ph3 pt2 mw8 center relative tr">
                   <button
+                    aria-label="expand"
                     className="blue bw0 bg-transparent pointer grow button-focus"
                     onClick={onExpanding}
                   >

@@ -11,6 +11,7 @@ const GoBack = () => {
   return (
     <div className="w-100 tr ma2">
       <button
+        aria-label="back"
         className="bg-gray near-white pointer dim br2 grow pa2"
         onClick={handleGoBack}
       >
