@@ -39,7 +39,7 @@ const About = ({ location }) => {
     `
   )
   //用來控制作者是不是要打開
-  const [isAuthorExpanded, setAuthorState] = useState(false)
+  // const [isAuthorExpanded, setAuthorState] = useState(false)
   //用來控制技能說明是不是要打開
   const [isSkillsExpanded, setSkillsState] = useState(false)
   //帶來這裡的網址裡是不是有hash tag，如果有，就放進變數hash裡面
@@ -53,15 +53,15 @@ const About = ({ location }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   //用來讓關於作者展開
-  const onAuthorExpanding = ev => {
-    ev.preventDefault()
-    setAuthorState(true)
-  }
-  //用來讓關於作者收合
-  const onAuthorFolding = ev => {
-    ev.preventDefault()
-    setAuthorState(false)
-  }
+  // const onAuthorExpanding = ev => {
+  //   ev.preventDefault()
+  //   setAuthorState(true)
+  // }
+  // //用來讓關於作者收合
+  // const onAuthorFolding = ev => {
+  //   ev.preventDefault()
+  //   setAuthorState(false)
+  // }
   //用來讓技能展開
   const onSkillsExpanding = ev => {
     ev.preventDefault()
@@ -107,7 +107,7 @@ const About = ({ location }) => {
         <AboutAuthor
           data={aboutAuthor}
           bgColor={"bg-near-white"}
-          isExpanded={isAuthorExpanded}
+          isExpanded={true}
           slug={aboutAuthor.slug}
         />
         <ClippedEdge
@@ -116,9 +116,6 @@ const About = ({ location }) => {
           edgeHeight={"4em"}
           edgeMarginTop={"1em"}
           edgeMarginBottom={"2em"}
-          isExpanded={isAuthorExpanded}
-          onExpanding={onAuthorExpanding}
-          onFolding={onAuthorFolding}
         />
         <SkillList
           slug={aboutSkill.slug}
