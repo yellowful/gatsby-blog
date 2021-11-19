@@ -71,7 +71,7 @@ body, button, input, optgroup, select, textarea{
         background-size: 100% 100%;
         width: 250px;
         height: 250px;
-        margin: 1.5em 0 -2.5em;
+        margin: 1.5em 0 2.5em 0;
         shape-outside: content-box circle( 50% at 50% 50% );
     }
     .clipped-div{
