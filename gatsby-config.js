@@ -64,13 +64,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Bug Detective Richard`,
-        short_name: `BDR`,
+        name: `蟲探理查`,
+        short_name: `蟲探理查`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        legacy: true,
         icon_options: {
           // For all the options available,
           // please see the section "Additional Resources" below.
@@ -85,6 +86,11 @@ module.exports = {
           {
             src: "src/images/favicon/favicon-32x32.png",
             sizes: "32x32",
+            type: "image/png"
+          },
+          {
+            src: "src/images/favicon/apple-touch-icon.png",
+            sizes: "180x180",
             type: "image/png"
           },
           {
@@ -104,7 +110,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`/`,`/blog-list/`,`/about/`, `/project/*`],
+        precachePages: [`/`,`/blog/*`,`/blog-list/*`,`/about/`, `/project/*`],
       },
     },
     //要處理svg的話要用這個plugin
