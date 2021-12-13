@@ -67,9 +67,9 @@ module.exports = {
         name: `蟲探理查`,
         short_name: `蟲探理查`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `standalone`,
+        background_color: `#363636`,
+        theme_color: `#363636`,
+        display: `minimal-ui`, // 有返回鍵
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
         legacy: true,
         icon_options: {
