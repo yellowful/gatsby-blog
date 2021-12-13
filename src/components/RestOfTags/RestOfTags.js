@@ -58,7 +58,7 @@ const RestOfTags = ({ tagSlug }) => {
                 return (
                   <article
                     key={`rest-tags-${item.node.slug.toLowerCase()}`}
-                    className="br-pill bg-moon-gray pv1 ph3 mr2 mv1 dib v-mid"
+                    className="br-pill bg-moon-gray pv1 ph3 mr2 mv3 dib v-mid"
                   >
                     <Link
                       to={`/blog/tags/${item.node.slug.toLowerCase()}/`}
