@@ -201,6 +201,14 @@ module.exports = {
               rel: "noopener nofollow",
             },
           },
+          // 用來處理彈出視窗
+          {
+            resolve: `gatsby-plugin-portal`,
+            options: {
+              key: 'portal',
+              id: 'portal',        
+            },
+          },
           //用來style markdown的內容
           {
             resolve: `gatsby-remark-classes`,

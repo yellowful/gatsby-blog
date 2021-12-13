@@ -2,6 +2,8 @@ import addToMailchimp from "gatsby-plugin-mailchimp"
 import React, { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEnvelope, faUser } from "@fortawesome/free-solid-svg-icons"
+import Portal from "../Portal/Portal"
+import Modal from "../Modal/Modal"
 
 //用來顯示訂閱電子報的功能
 //放在SubscribeContainer裡面
@@ -10,7 +12,7 @@ const Subscribe = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   //設定mailchimp的回應的state
-  const [resOfMailchimp, setResOfMailchimp] = useState({})
+  const [resOfMailchimp, setResOfMailchimp] = useState({ message: '', popUp: false })
   //監聽姓名欄，改變姓名欄的state
   const onChangeName = e => {
     setName(e.target.value)
@@ -25,10 +27,21 @@ const Subscribe = () => {
   const handleSubmit = e => {
     e.preventDefault()
     if (email) {
-      addToMailchimp(email, { LNAME: name }).then(result => {
-        setResOfMailchimp(result)
-      })
+      addToMailchimp(email, { LNAME: name })
+        .then(response => {
+          if (response.result === "success") {
+            setResOfMailchimp({ message: "收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！", popUp: true })
+          } else {
+            setResOfMailchimp({ message: "可能格式有誤，或已經重複訂閱，請重新輸入", popUp: true })
+          }
+        })
+        .catch(error => {
+          setResOfMailchimp({ message: "可能格式有誤，請重新輸入", popUp: true })
+        })
     }
+  }
+  const handleClose = () => {
+    setResOfMailchimp({ message: '', popUp: false });
   }
   //根據mailchimp的response，來顯示送出後要顯示的訊息
   return (
@@ -72,16 +85,11 @@ const Subscribe = () => {
             </button>
           </div>
         </div>
-        {Object.keys(resOfMailchimp).length ===
-        0 ? null : resOfMailchimp.result === "success" ? (
-          <p key="subscribe-sucess" className="f5 f4-ns light-blue fw3">
-            收到，為了確認信箱正確可以收到信件，請您到信箱裡點選訂閱確認連結，以完成訂閱，謝謝！
-          </p>
-        ) : (
-          <p key="subscribe-failed" className="f5 f4-ns orange fw5 o-80">
-            可能格式有誤，或已經重複訂閱，請重新輸入
-          </p>
-        )}
+        <div onClick={handleClose} onKeyPress={handleClose} role="button" aria-label="close" tabIndex="0" >
+          <Portal>
+            <Modal message={resOfMailchimp.message} popUp={resOfMailchimp.popUp} />
+          </Portal>
+        </div>
       </div>
     </div>
   )
