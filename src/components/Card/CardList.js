@@ -6,7 +6,7 @@ import { faAngleDoubleRight } from "@fortawesome/free-solid-svg-icons"
 //在indexpage中，用來裝cards的container
 const CardList = props => {
   return (
-    <section className="w-100 mt2 flex flex-column items-center has-background-light">
+    <section className="w-100 pt2 flex flex-column items-center has-background-light">
       <header className="w-100 w-90-m w-80-l mw8 ph3-ns mv2-ns pa2">
         <h2 className="f3 is-dark">最新文章</h2>
       </header>

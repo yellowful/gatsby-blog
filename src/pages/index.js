@@ -97,9 +97,7 @@ const IndexPage = () => {
         })}
         
       </CardList>
-      <div className="mt2">
         <SubscribeContainer />
-      </div>
     </Layout>
   )
 }
